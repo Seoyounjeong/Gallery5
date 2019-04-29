@@ -319,8 +319,8 @@ public class HomeController2 {
 
 		List<MultipartFile> fileList = mtfRequest.getFiles("file");
 
-		
-		String path = "C:/Users/itcam/git/galleryweb/Gallery3/src/main/webapp/uploadFiles/";
+					//C:\Users\itcam\git\Gallery5\Gallery5\src\main\webapp\galleryupload
+		String path = "C:/Users/itcam/git/Gallery5/Gallery5/src/main/webapp/galleryupload/";
 		//C:\Users\itcam\git\gallery\Gallery\src\main\webapp\ //uploadFiles
 						//C:/Users/itcam/git/gallery/Gallery/src/main/webapp/uploadFiles
 		 for (int i = 0; i < fileList.size(); i++) {
@@ -440,8 +440,8 @@ public class HomeController2 {
 		
 		List<MultipartFile> fileList = mtfRequest.getFiles("file");
 
-		
-		String path = "C:/Users/itcam/git/galleryweb/Gallery3/src/main/webapp/uploadFiles/";
+					//C:\Users\itcam\git\Gallery5\Gallery5\src\main\webapp\galleryupload
+		String path = "C:/Users/itcam/git/Gallery5/Gallery5/src/main/webapp/galleryupload/";
 		
 		 for (int i = 0; i < fileList.size(); i++) {
 			 
@@ -665,8 +665,8 @@ public class HomeController2 {
 		System.out.println(stored_fname);
 		
 		
-		
-		File file = new File("C:/Users/itcam/git/galleryweb/Gallery3/src/main/webapp/uploadFiles/"+stored_fname);
+							//C:\Users\itcam\git\Gallery5\Gallery5\src\main\webapp\galleryupload
+		File file = new File("C:/Users/itcam/git/Gallery5/Gallery5/src/main/webapp/exhibitionupload/"+stored_fname);
 								
 		
 		
@@ -744,7 +744,8 @@ public class HomeController2 {
 		String stored_fname=createUUId()
 				+(e_img.substring(e_img.lastIndexOf(".")));
 		
-		File file=new File("C:/Users/itcam/git/galleryweb/Gallery3/src/main/webapp/uploadFiles/"+stored_fname);
+						//C:\Users\itcam\git\Gallery5\Gallery5\src\main\webapp\galleryupload
+		File file=new File("C:/Users/itcam/git/Gallery5/Gallery5/src/main/webapp/exhibitionupload/"+stored_fname);
 		
 		try {
 			multifile.transferTo(file);
@@ -923,8 +924,8 @@ public class HomeController2 {
 		String stored_fname=createUUId()
 				+(i_img.substring(i_img.lastIndexOf(".")));
 			
-							
-		File file=new File("C:/Users/itcam/git/galleryweb/Gallery3/src/main/webapp/uploadFiles/"+stored_fname);
+						//C:\Users\itcam\git\Gallery5\Gallery5\src\main\webapp\galleryupload
+		File file=new File("C:/Users/itcam/git/Gallery5/Gallery5/src/main/webapp/itemupload/"+stored_fname);
 		try {
 			multifile.transferTo(file);
 		}catch(IllegalStateException e) {
@@ -1000,8 +1001,8 @@ public class HomeController2 {
 		String stored_fname=createUUId()
 				+(i_img.substring(i_img.lastIndexOf(".")));
 			
-		
-		File file=new File("C:/Users/itcam/git/galleryweb/Gallery3/src/main/webapp/uploadFiles/"+stored_fname);
+						//C:\Users\itcam\git\Gallery5\Gallery5\src\main\webapp\galleryupload
+		File file=new File("C:/Users/itcam/git/Gallery5/Gallery5/src/main/webapp/itemupload/"+stored_fname);
 		try {
 			multifile.transferTo(file);
 		}catch(IllegalStateException e) {
