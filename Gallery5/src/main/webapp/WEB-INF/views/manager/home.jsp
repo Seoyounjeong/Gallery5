@@ -29,6 +29,7 @@ padding-right:50px;
 	<li><a href="managerselectCallendarList.do">CALENDAR</a></li>
 	<li><a href="managerselectRequestList.do">REQUEST</a></li>
 	<li><a href="managerselectDabgeulList.do">DABGEUL</a></li>
+	<li><a href="managerselectKyungmaeList1.do">경매목록</a></li>
 	<li><a href="#">승인</a></li>
 		
 		<li><a href="managerselectCheckMemberList.do">회원등급변경</a></li>	

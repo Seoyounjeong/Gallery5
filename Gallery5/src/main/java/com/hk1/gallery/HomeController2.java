@@ -3,7 +3,9 @@ package com.hk1.gallery;
 import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -27,6 +29,7 @@ import com.hk1.gallery.dto.DabgeulDto;
 import com.hk1.gallery.dto.ExhibitionDto;
 import com.hk1.gallery.dto.GalleryDto;
 import com.hk1.gallery.dto.ItemDto;
+import com.hk1.gallery.dto.KyungmaeDto;
 import com.hk1.gallery.dto.MemberDto;
 import com.hk1.gallery.dto.RequestDto;
 import com.hk1.gallery.service.IArtistService;
@@ -35,6 +38,7 @@ import com.hk1.gallery.service.IDabgeulService;
 import com.hk1.gallery.service.IExhibitionService;
 import com.hk1.gallery.service.IGalleryService;
 import com.hk1.gallery.service.IItemService;
+import com.hk1.gallery.service.IKyungmaeService;
 import com.hk1.gallery.service.IMemberService;
 import com.hk1.gallery.service.IRequestService;
 
@@ -62,6 +66,8 @@ public class HomeController2 {
 	private IItemService itemService;
 	@Autowired
 	private ICallendarService callendarService;
+	@Autowired
+	private IKyungmaeService kyungmaeService;
 	
 	
 	
@@ -1161,18 +1167,94 @@ public class HomeController2 {
 			return "error";
 		}
 	}
-//	
-//	@RequestMapping(value = "/managerselectCallendarList1.do", method = RequestMethod.GET)
-//	public String selectCallendarList(Locale locale, Model model, int g_no, GalleryDto galleryDto) {
-//
-//		logger.info("갤러리정보보기 {}.", locale);
-//		
-//		System.out.println(galleryDto);
-//		CallendarDto callendarDto=callendarService.selectCallendarList(g_no); 
-//		model.addAttribute("callendarDto", callendarDto);
-//
-//		return "redirect:managerselectGallery.do?g_no"+galleryDto.getG_no();
-//		
-//				
-//	}
+	
+	//kyungmae
+	@RequestMapping(value = "/managerselectKyungmaeList1.do", method = RequestMethod.GET)
+	public String selectKyungmaeList(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model) {
+		logger.info("경매목록보기 {}.", locale);
+
+		List<KyungmaeDto> allkyungmaeList = kyungmaeService.selectKyungmaeList(); 
+
+		request.setAttribute("allkyungmaeList", allkyungmaeList);
+		return "manager/kyungmae/kyungmaelist";		
+	}
+
+	
+	// [매니저 페이지 합칠것] * 경매  삭제
+	@RequestMapping(value = "/managerDeleteKyungmae1.do",  method = {RequestMethod.POST, RequestMethod.GET})
+	public String managerDeleteKyungmae(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model,int k_no) {
+		logger.info("managerDeleteKyungmae.do.", locale);
+
+		if(kyungmaeService.deleteKyungmae(k_no)) {
+
+		}
+		//redirect 경로 재설정 필요 
+		return "manager/kyungmae/kyungmaelist";
+	}
+
+	//[매니저 페이지 합칠것] *오늘종료되는 경매  목록
+	@RequestMapping(value = "/managerKyungmaeList_End1.do",  method = {RequestMethod.POST, RequestMethod.GET})
+	public String managerKyungmaeList_End(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model) {
+		logger.info("managerKyungmaeList_End.do.", locale);
+		Calendar cal= Calendar.getInstance();
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String k_regdate  = sdf.format(cal.getTime());
+
+
+
+		List<KyungmaeDto> kyungmaeList = kyungmaeService.selectKyungmaeList(k_regdate); 
+
+		request.setAttribute("kyungmaeList", kyungmaeList);
+		return "manager/kyungmae/kyungmaelist_end";
+	}
+
+	//경매 시간 다 됬을 경우 상태를 "종료"로 변경
+	@RequestMapping(value = "/managerupdateKyungmaeEnd1.do",  method = {RequestMethod.POST, RequestMethod.GET})
+	public String updateKyungmaeEnd(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model,int k_no, int i_no, String from) {
+		logger.info("updateKyungmaeEnd.do.", locale);
+		ItemDto itemDto = itemService.selectItem(i_no);
+		KyungmaeDto  kyungmaeDto = kyungmaeService.selectK_noKyungmae(k_no);
+		int m_no = kyungmaeDto.getK_first_no();
+		itemDto.setM_no(m_no);
+		kyungmaeDto.setK_state("종료");
+		if(from.equals("pop")) {
+			if(itemService.updateItem(itemDto)) {
+				if(kyungmaeService.updateKyungmae(kyungmaeDto)) {
+
+				}else {
+					System.out.println("[pop]pupdateKyungmaeEnd_경매 업데이트 error");
+				}
+			}else {
+				System.out.println("[pop]updateKyungmaeEnd_아이템 업데이트 error");
+			}
+			return "manager/kyungmae/kyungmaelist_end";
+		}else {
+			if(itemService.updateItem(itemDto)) {
+				if(kyungmaeService.updateKyungmae(kyungmaeDto)) {
+
+				}else {
+					System.out.println("updateKyungmaeEnd_경매 업데이트 error");
+				}
+			}else {
+				System.out.println("updateKyungmaeEnd_아이템 업데이트 error");
+			}
+			return "manager/kyungmae/kyungmaelist_end";
+		}
+	}
+
+	// [매니저 페이지 합칠것] *"진행중"인 경매  목록
+	@RequestMapping(value = "/managerKyungmaeList_Ing1.do",  method = {RequestMethod.POST, RequestMethod.GET})
+	public String managerKyungmaeList_Ing(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model) {
+		logger.info("managerKyungmaeList_Ing.do.", locale);
+
+		String k_state ="진행중";
+
+		List<KyungmaeDto> kyungmaeList = kyungmaeService.selectKyungmaeList(k_state); 
+
+		request.setAttribute("kyungmaeList", kyungmaeList);
+		return "manager/kyungmae/kyungmaelist_ing";
+	}
+
+
 }
