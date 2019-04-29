@@ -1,3 +1,4 @@
+<%@page import="com.hk1.gallery.dto.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="com.hk1.gallery.dto.GalleryDto"%>
@@ -5,6 +6,7 @@
 <%@page import="java.util.List"%>    
 <%request.setCharacterEncoding("utf-8");%>
 <%response.setContentType("text/html;charset=utf-8");%>
+<%MemberDto loginMember = (MemberDto)session.getAttribute("loginMember"); %>
 
 
 
@@ -30,6 +32,16 @@
 #Galletylist_Setion span {border-right: 1px solid black; margin-right:5px; }
 
 </style>
+
+<script type="text/javascript">
+	function pop(r_send,a_no,r_name,a_name) {
+		var a = a_name;
+		var aa = window.open('insertrequestform.do?r_send='+r_send+'&r_receive='+a_no+'&r_sendname='+r_name
+		+'&r_receivename='+a_name,'window팝업','width=500, height=600, menubar=no, status=no, toolbar=no');
+		
+	
+	}
+	</script>
 
 </head>
 
@@ -66,6 +78,9 @@
 <div><span>G_TEL</span><%=dto.getG_tel()%></div>
 <div><span>G_INTRO</span><%=dto.getG_intro()%></div>
 <div><span>G_STATE</span><%=dto.getG_state()%></div>
+<div><span>메시지</span><input type="button" value="전시 요청" 
+		onclick="pop('<%=loginMember.getM_no()%>','<%=dto.getG_no()%>','<%=loginMember.getM_name() %>','<%=dto.getG_name() %>')" >
+		</div>
 
 
 
