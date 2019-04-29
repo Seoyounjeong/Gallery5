@@ -51,9 +51,9 @@ public class KyungmaeService implements IKyungmaeService {
 	}
 
 	@Override
-	public List<KyungmaeDto> selectKyungmaeList(String COLNAME, String colvalue) {
+	public List<KyungmaeDto> selectKyungmaeList(String k_regdateORk_state) {
 		// TODO Auto-generated method stub
-		return kyungmaedao.selectKyungmaeList(COLNAME, colvalue);
+		return kyungmaedao.selectKyungmaeList(k_regdateORk_state);
 	}
 
 }

@@ -66,15 +66,18 @@ public class ItemDao implements IItemDao {
 	}
 
 	@Override
-	public List<ItemDto> selectA_noItemList(int a_no) {
+	public List<ItemDto> selectA_noItemList(int a_no, int from) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(namespace+"selectItemList3",a_no);
+		if(from==0) {
+			return sqlSession.selectList(namespace+"selectItemList4",a_no);
+		}else {
+		return sqlSession.selectList(namespace+"selectItemList3",a_no);}
 	}
 
 	@Override
 	public List<ItemDto> selectE_noItemList(int e_no) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(namespace+"selectItemList4",e_no);
+		return sqlSession.selectList(namespace+"selectItemList5",e_no);
 	}
 
 	

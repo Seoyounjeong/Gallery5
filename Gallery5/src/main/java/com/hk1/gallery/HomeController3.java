@@ -81,7 +81,7 @@ public class HomeController3 {
 		model.addAttribute("artistDto",artistDto);
 		
 		//상세보기 안의 작가번호로 작품
-		List<ItemDto> itemDto = itemService.selectA_noItemList(a_no);
+		List<ItemDto> itemDto = itemService.selectA_noItemList(a_no,1);
 		model.addAttribute("itemDto", itemDto);
 		//상세보기 안의 작가번호로 작품
 		List<ExhibitionDto> exhibitionDto = exhibitionService.selectExhibitionList(a_no);

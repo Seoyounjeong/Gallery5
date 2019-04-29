@@ -21,7 +21,7 @@
 		<p>1.각각의 작품들을 올려주세요</p>
 		<p>2.공통된 스토리를 엮어서 하나의 스토리를 가진 전시회를 만들어 주세요 </p>
 		<h5>등록된 작품들로전시를하고 싶다면?</h5>
-		<form>
+		<form action="insertExhibitionForm.do" method="post">
 		<input type="submit" value="전시하기">
 		</form>
 		<div>

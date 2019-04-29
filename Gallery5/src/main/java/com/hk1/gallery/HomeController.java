@@ -221,7 +221,7 @@ public class HomeController {
 	@RequestMapping(value = "/insertItem.do",  method = {RequestMethod.POST, RequestMethod.GET})
 	public String insertItem(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model,ItemDto itemDto) {
 		logger.info("insertItem.do.", locale);
-		
+
 		MultipartHttpServletRequest multi = (MultipartHttpServletRequest)request;
 		//요청파일 가져오기
 		MultipartFile  multifile = multi.getFile("filename");	
@@ -235,8 +235,9 @@ public class HomeController {
 				.substring(origin_fname.lastIndexOf("."));
 		System.out.println("stored_fname : ["+ stored_fname+"]");
 		
-		//파일객체 구하기
-		File f = new File("C:/Users/hk-edu/git/gallery/Gallery/src/main/webapp/itemupload/"+stored_fname);
+		//파일객체 구하기		C:\Users\hk-edu\git\Gallery5\Gallery5\src\main\webapp\itemupload
+				
+		File f = new File("C:/Users/hk-edu/git/Gallery5/Gallery5/src/main/webapp/itemupload/"+stored_fname);
 
 		itemDto.setI_img(stored_fname);
 		try {
@@ -262,8 +263,7 @@ public class HomeController {
 		HttpSession session = request.getSession();
 		MemberDto memberDto = (MemberDto) session.getAttribute("loginMember");
 		int a_no =memberDto.getM_no();
-		List<ItemDto> myItemList =itemService.selectA_noItemList(a_no);
-		System.out.println("myItemList : ["+myItemList.get(myItemList.size()-1)+"]");
+		List<ItemDto> myItemList =itemService.selectA_noItemList(a_no,1);
 		model.addAttribute("myItemList", myItemList);
 			
 			return "Item/artistsItemList";
@@ -319,7 +319,7 @@ public class HomeController {
 			HttpSession session = request.getSession();
 			MemberDto memberDto = (MemberDto) session.getAttribute("loginMember");
 			int a_no =memberDto.getM_no();
-			List<ItemDto> myItemList =itemService.selectA_noItemList(a_no);
+			List<ItemDto> myItemList =itemService.selectA_noItemList(a_no,0);
 			model.addAttribute("myItemList", myItemList);			
 				return "Exhibition/insertExhibitionForm";
 			}
@@ -340,8 +340,8 @@ public class HomeController {
 				.substring(origin_fname.lastIndexOf("."));
 		int a_no =Integer.parseInt(request.getParameter("a_no"));
 		
-		//파일객체 구하기
-		File f = new File("C:/Users/hk-edu/git/gallery/Gallery/src/main/webapp/exhibitionupload/"+stored_fname);
+		//파일객체 구하기	C:\Users\hk-edu\git\Gallery5\Gallery5\src\main\webapp\exhibitionupload
+		File f = new File("C:/Users/hk-edu/git/Gallery5/Gallery5/src/main/webapp/exhibitionupload/"+stored_fname);
 		
 	
 		try {
@@ -357,7 +357,7 @@ public class HomeController {
 				int e_no =exhibitionDto.getE_no();
 				if(itemService.updateItem(i_no, e_no)) {
 					request.setAttribute("a_no", a_no);
-					return "redirect:myExhibition.do";  
+					return "redirect:myExhibitionList.do";  
 				}
 			}else {
 				System.out.println("insertExhibition error");
@@ -372,7 +372,7 @@ public class HomeController {
 		} 
 		
 		request.setAttribute("a_no", a_no);
-		return "redirect:myExhibition.do";  
+		return "redirect:myExhibitionList.do";  
 		}
 	//전시목록
 	@RequestMapping(value = "/exhibitionlist.do",  method = {RequestMethod.POST, RequestMethod.GET})
@@ -418,9 +418,11 @@ public class HomeController {
 			}	
 	//나의 전시목록
 	@RequestMapping(value = "/myExhibitionList.do",  method = {RequestMethod.POST, RequestMethod.GET})
-	public String myExhibitionlist(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model,int a_no) {
+	public String myExhibitionlist(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model) {
 		logger.info("myExhibitionList.do.", locale);
-		System.out.println("a_no : ["+a_no+"]");
+		HttpSession session = request.getSession();
+		MemberDto memberDto = (MemberDto) session.getAttribute("loginMember");
+		int a_no =memberDto.getM_no();
 		List<ExhibitionDto> exhibitionList =exhibitionService.selectExhibitionList(a_no);
 
 		model.addAttribute("exhibitionList", exhibitionList);
@@ -434,7 +436,7 @@ public class HomeController {
 				
 		ExhibitionDto exhibitionDto =exhibitionService.selectExhibition(e_no);
 		List<ItemDto> itemList = itemService.selectE_noItemList(e_no);
-		List<ItemDto> myitemList = itemService.selectA_noItemList(a_no);
+		List<ItemDto> myitemList = itemService.selectA_noItemList(a_no,0);
 		model.addAttribute("exhibitionDto", exhibitionDto);
 		model.addAttribute("itemList" ,itemList);
 		model.addAttribute("myitemList", myitemList);
@@ -444,20 +446,18 @@ public class HomeController {
 	@RequestMapping(value = "/updateExhibition.do",  method = {RequestMethod.POST, RequestMethod.GET})
 	public String updateExhibition(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model,int[] Updatei_no,int[] Deletei_no) {
 		logger.info("updateExhibition.do.", locale);
-		System.out.println("1");
-		MultipartHttpServletRequest multi = (MultipartHttpServletRequest)request;
-		System.out.println("1.5");
-		ExhibitionDto exhibitionDto = new ExhibitionDto();
-		System.out.println("2");
-		MultipartFile filename = multi.getFile("filename");
-		System.out.println("3");
-		int a_no = Integer.parseInt(request.getParameter("a_no"));
-		System.out.println("4");
-		System.out.println("a_no a_no : ["+a_no+"]");
-		System.out.println("5");
 		
-		if(filename!=null) {
-		System.out.println("6");
+		MultipartHttpServletRequest multi = (MultipartHttpServletRequest)request;
+
+		ExhibitionDto exhibitionDto = new ExhibitionDto();
+
+		MultipartFile filename = multi.getFile("filename");
+
+		int a_no = Integer.parseInt(request.getParameter("a_no"));
+		System.out.println("filename ["+filename+"]");
+		System.out.println("filename Name =["+filename.getOriginalFilename()+"]");		
+		if(!filename.getOriginalFilename().equals("")) {
+			System.out.println("11");
 		
 		
 		MultipartFile  multifile = multi.getFile("filename");
@@ -472,10 +472,13 @@ public class HomeController {
 			
 			String creatUUID = UUID.randomUUID().toString().replaceAll("-", "");
 			
-			String stored_fname = creatUUID +origin_fname
-					.substring(origin_fname.lastIndexOf("."));
-			//파일객체 구하기
-			File f = new File("C:/Users/hk-edu/git/gallery/Gallery/src/main/webapp/exhibitionupload/"+stored_fname);
+			String stored_fname = creatUUID +origin_fname.substring(origin_fname.lastIndexOf("."));
+			
+			
+			//파일객체 구하기 C:\Users\hk-edu\git\Gallery5\Gallery5\src\main\webapp\exhibitionupload
+			
+			
+			File f = new File("C:/Users/hk-edu/git/Gallery5/Gallery5/src/main/webapp/exhibitionupload/"+stored_fname);
 	
 				try {
 						multifile.transferTo(f);	
@@ -536,7 +539,7 @@ public class HomeController {
 				}else if(kyungmaeDto != null){
 					if((kyungmaeDto.getK_state()).equals("종료")) {
 						//pop up 창 종료
-						return "Kyungmae/successKyungmaeForm";
+						return "Kyungmae/endKyungmaeForm";
 					}else if((kyungmaeDto.getK_state()).equals("진행중")){
 						//update 폼 이동 
 
@@ -645,29 +648,58 @@ public class HomeController {
 		}
 	//경매 시간 다 됬을 경우 상태를 "종료"로 변경
 	@RequestMapping(value = "/updateKyungmaeEnd.do",  method = {RequestMethod.POST, RequestMethod.GET})
-	public void updateKyungmaeEnd(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model,int k_no, int i_no) {
+	public String updateKyungmaeEnd(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model,int k_no, int i_no, String from) {
     logger.info("updateKyungmaeEnd.do.", locale);
     ItemDto itemDto = itemService.selectItem(i_no);
     	KyungmaeDto  kyungmaeDto = kyungmaeService.selectK_noKyungmae(k_no);
     	int m_no = kyungmaeDto.getK_first_no();
     	itemDto.setM_no(m_no);
     	kyungmaeDto.setK_state("종료");
-    	if(itemService.updateItem(itemDto)) {
-    		kyungmaeService.updateKyungmae(kyungmaeDto);
+    	if(from.equals("pop")) {
+    		if(itemService.updateItem(itemDto)) {
+    			if(kyungmaeService.updateKyungmae(kyungmaeDto)) {
+    				
+    			}else {
+    				System.out.println("[pop]pupdateKyungmaeEnd_경매 업데이트 error");
+    			}
+    		}else {
+    			System.out.println("[pop]updateKyungmaeEnd_아이템 업데이트 error");
+    		}
+    		return "Kyungmae/endKyungmaeForm";
+    	}else {
+    		if(itemService.updateItem(itemDto)) {
+    			if(kyungmaeService.updateKyungmae(kyungmaeDto)) {
+    				
+    			}else {
+    				System.out.println("updateKyungmaeEnd_경매 업데이트 error");
+    			}
+    		}else {
+    			System.out.println("updateKyungmaeEnd_아이템 업데이트 error");
+    		}
+    		return "redirect:kyungmaelist.do";
     	}
-	
 	}
+	
+	
 	//  *"진행중"인 경매  목록
 	@RequestMapping(value = "/kyungmaelist.do",  method = {RequestMethod.POST, RequestMethod.GET})
 	public String kyungmaelist(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model) {
 	logger.info("kyungmaelist.do.", locale);
 		
-	String colvalue ="진행중";
-	String COLNAME = "K_STATE";
-	List<KyungmaeDto> kyungmaeList = kyungmaeService.selectKyungmaeList(COLNAME,colvalue); 
-			
-	request.setAttribute("kyungmaeList", kyungmaeList);
-	return "kyungmae/kyungmaeList";
+	String k_state ="진행중";
+
+	List<KyungmaeDto> onKyungmaeList = kyungmaeService.selectKyungmaeList(k_state); 
+	Calendar cal= Calendar.getInstance();
+
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	String k_regdate  = sdf.format(cal.getTime());
+	
+
+	List<KyungmaeDto> nowKyungmaeList = kyungmaeService.selectKyungmaeList(k_regdate);
+	System.out.println("nowKyungmaeList.length : ["+nowKyungmaeList.size()+"]");
+	request.setAttribute("nowKyungmaeList", nowKyungmaeList);
+	request.setAttribute("onKyungmaeList", onKyungmaeList);
+	return "Kyungmae/kyungmaeList";
 	}
 	// [매니저 페이지 합칠것] *전체 경매목록 
 	@RequestMapping(value = "/managerKyungmaeList_All.do",  method = {RequestMethod.POST, RequestMethod.GET})
@@ -689,8 +721,8 @@ public class HomeController {
 	String k_regdate  = sdf.format(cal.getTime());
 	
 	String colvalue =k_regdate;
-	String COLNAME = "K_REGDATE";
-	List<KyungmaeDto> kyungmaeList = kyungmaeService.selectKyungmaeList(COLNAME,colvalue); 
+
+	List<KyungmaeDto> kyungmaeList = kyungmaeService.selectKyungmaeList(k_regdate); 
 		
 	request.setAttribute("kyungmaeList", kyungmaeList);
 	return "manager/managerKyungmaeList_End";
@@ -701,9 +733,9 @@ public class HomeController {
 	public String managerKyungmaeList_Ing(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model) {
 	logger.info("managerKyungmaeList_Ing.do.", locale);
 		
-	String colvalue ="진행중";
-	String COLNAME = "K_STATE";
-	List<KyungmaeDto> kyungmaeList = kyungmaeService.selectKyungmaeList(COLNAME,colvalue); 
+	String k_state ="진행중";
+
+	List<KyungmaeDto> kyungmaeList = kyungmaeService.selectKyungmaeList(k_state); 
 			
 	request.setAttribute("kyungmaeList", kyungmaeList);
 	return "manager/managerKyungmaeList_Ing";

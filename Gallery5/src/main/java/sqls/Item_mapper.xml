@@ -68,12 +68,19 @@
     ORDER BY I_NO DESC
     </select>
     
-     <select id="selectItemList4" resultType="ItemDto" parameterType="int">
+    
+       <select id="selectItemList4" resultType="ItemDto" parameterType="int">
+    SELECT I_NO, E_NO, I_NAME, I_EXPLAIN, I_IMG, I_PRICE, A_NO, M_NO
+   FROM GALLERY.ITEM
+   WHERE A_NO = #{a_no} AND E_NO = 0
+   ORDER BY I_NO DESC
+    </select>
+   <select id="selectItemList5" resultType="ItemDto" parameterType="int">
     SELECT I_NO, E_NO, I_NAME, I_EXPLAIN, I_IMG, I_PRICE, A_NO, M_NO
    FROM GALLERY.ITEM
    WHERE E_NO = #{e_no}
-    ORDER BY I_NO DESC
     </select>
+
 
     
     

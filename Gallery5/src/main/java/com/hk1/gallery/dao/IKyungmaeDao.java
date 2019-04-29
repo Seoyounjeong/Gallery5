@@ -27,6 +27,6 @@ public interface IKyungmaeDao {
 	
 	//selectKyungmaeList 경매 목록 
 	//( 진행중인 경매 보여주기 ) ( 오늘 종료해야 할 경매 보여주기 )
-	List<KyungmaeDto> selectKyungmaeList(String COLNAME ,String colvalue);
+	List<KyungmaeDto> selectKyungmaeList(String k_regdateORk_state);
 	
 }

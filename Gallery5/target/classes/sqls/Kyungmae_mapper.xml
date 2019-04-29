@@ -48,11 +48,22 @@
 	FROM GALLERY.KYUNGMAE
 	</select>
 	
-	<select id="selectKyungmaeList2" resultType="KyungmaeDto" parameterType="map">
+	
+	
+	<select id="selectKyungmaeList2" resultType="KyungmaeDto" parameterType="String">
 	SELECT K_NO, I_NO, I_NAME, I_IMG, K_FIRST_PRICE, K_FIRST_NO, K_FIRST_NAME,  
 	K_SECOND_PRICE, K_SECOND_NO, K_SECOND_NAME, K_REGDATE, K_STATE  
 	FROM GALLERY.KYUNGMAE
-	WHERE #{COLNAME} = #{colvalue}
+	WHERE K_STATE = #{k_state}
+	ORDER BY K_NO DESC
+	</select>
+	
+	<select id="selectKyungmaeList3" resultType="KyungmaeDto" parameterType="String">
+	SELECT K_NO, I_NO, I_NAME, I_IMG, K_FIRST_PRICE, K_FIRST_NO, K_FIRST_NAME,  
+	K_SECOND_PRICE, K_SECOND_NO, K_SECOND_NAME, K_REGDATE, K_STATE  
+	FROM GALLERY.KYUNGMAE
+	WHERE K_REGDATE = #{k_regdate}
+	ORDER BY K_FIRST_PRICE DESC
 	</select>
 	
 	

@@ -57,7 +57,8 @@
 	<h3>제거할 작품 선택</h3>
 				<c:choose>
 			<c:when test="${empty itemList}">
-				<h4>※등록하신 작품이 없습니다.</h4>
+				<h4>※전시중인 작품이 없습니다.</h4>
+				<p>작품을 추가하여 주세요!</p>
 			</c:when>
 			<c:otherwise>
 				<div>
@@ -77,7 +78,8 @@
 	<h3 style="clear:both;">추가할 작품 선택</h3>
 				<c:choose>
 			<c:when test="${empty myitemList}">
-				<h4>※등록하신 작품이 없습니다.</h4>
+				<h4>※전시중이지 않은 작품이 없습니다.</h4>
+				<p>작품을 추가하여 주세요!</p>
 			</c:when>
 			<c:otherwise>
 				<div>

@@ -32,8 +32,8 @@
 				<span>작품명 : </span><span><%=itemDto.getI_name()%></span><br>
 				<span>현재가격 : </span><span><%=itemDto.getI_price()%></span><br>
 				<span>입찰가격 : </span><span><%=nextPrice %></span><br>
-				<input type="hidden" name="i_no" value=<%=itemDto.getI_no()%>>
-				<input type="hidden" name="k_no" value=<%=kyungmaeDto.getK_no()%>>
+				<input type="hidden" name="i_no" value=<%=itemDto.getI_no()%> id="updateKyungmae_i_no">
+				<input type="hidden" name="k_no" value=<%=kyungmaeDto.getK_no()%> id="updateKyungmae_k_no">
 				<input type="hidden" name="nextPrice" value="<%=nextPrice%>">
 				<input type="hidden" name="beforePrice" value="<%=itemDto.getI_price()%>">
 				<input type="hidden" name="regdate" id="updateKyungmae_regdate" value="<%=kyungmaeDto.getK_regdate()%>">
@@ -42,7 +42,11 @@
 		</div>
 	</div>
 <script>
+		var i_no = 0 ;
+		var k_no = 0 ;
         $(document).ready(function(){
+        	i_no = document.getElementById("updateKyungmae_i_no").value;
+        	k_no = document.getElementById("updateKyungmae_k_no").value;
             tid=setInterval('msg_time()',1000); // 타이머 1초간격으로 수행
           });
         var regDate = document.getElementById("updateKyungmae_regdate").value+" 24:00:00";
@@ -69,8 +73,7 @@
 		    clearInterval(tid);   // 타이머 해제
 		    document.all.timer.innerHTML = "경매가 종료되었습니다";
 		    $("#updateKyungmae_submit").css("display","none");
-		    opener=self;
-		     setTimeout('self.close()',3000);
+		    location.href="updateKyungmaeEnd.do?i_no="+i_no+"&k_no="+k_no+"&from=pop";
 		  }else{
 		    RemainTime = RemainTime - 1000; // 남은시간 -1초
 		   

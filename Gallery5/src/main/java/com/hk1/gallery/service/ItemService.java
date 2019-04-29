@@ -51,9 +51,9 @@ public class ItemService implements IItemService {
 	}
 
 	@Override
-	public List<ItemDto> selectA_noItemList(int a_no) {
+	public List<ItemDto> selectA_noItemList(int a_no,int from) {
 		// TODO Auto-generated method stub
-		return itemDao.selectA_noItemList(a_no);
+		return itemDao.selectA_noItemList(a_no, from);
 	}
 
 	@Override

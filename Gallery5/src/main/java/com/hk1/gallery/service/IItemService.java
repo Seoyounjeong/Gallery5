@@ -14,7 +14,7 @@ public interface IItemService {
 	
 	
 	List<ItemDto> 	selectM_noItemList(int m_no);	
-	List<ItemDto> 	selectA_noItemList(int a_no);
+	List<ItemDto> 	selectA_noItemList(int a_no,int from);
 	List<ItemDto> 	selectE_noItemList(int e_no);
 	
 	List<ItemDto> selectItemList();			//M

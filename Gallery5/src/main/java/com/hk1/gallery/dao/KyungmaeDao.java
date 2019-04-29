@@ -48,13 +48,17 @@ public class KyungmaeDao implements IKyungmaeDao {
 		 return sqlSession.selectList(namespace+"selectKyungmaeList1");
 	}
 
+
 	@Override
-	public List<KyungmaeDto> selectKyungmaeList(String COLNAME, String colvalue) {
-		Map<String , String> map = new HashMap<String , String>();
-		map.put("COLNAME", COLNAME);
-		map.put("colvalue", colvalue);
-		
-		return sqlSession.selectList(namespace+"selectKyungmaeList2",map);
+	public List<KyungmaeDto> selectKyungmaeList(String k_regdateORk_state) {
+		if(k_regdateORk_state.equals("진행중")||k_regdateORk_state.equals("종료")) {
+		String k_state =k_regdateORk_state;
+		return sqlSession.selectList(namespace+"selectKyungmaeList2",k_state);
+		}
+		else {
+		String k_regdate =k_regdateORk_state;
+			return sqlSession.selectList(namespace+"selectKyungmaeList3",k_regdate);
+		}
 	}
 
 
