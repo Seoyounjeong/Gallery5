@@ -24,7 +24,7 @@
 	</script>
 	
 	
-	<%-- <%}else{%>ddd
+	<%-- <%}else{%>
 
 	<%if(m_grade==2||m_grade==5||m_grade==8||m_grade==9){%>
 	<script type="text/javascript">alert("작가만 하자 친구야") 
