@@ -145,7 +145,7 @@ public class HomeController4 {
 		
 
 		GalleryDto galleryDto = new GalleryDto();
-		System.out.println("dto = ?" + galleryDto);
+		
 		
 		String g_name = mtfRequest.getParameter("g_name");
 		String g_intro = mtfRequest.getParameter("g_intro");
@@ -222,7 +222,7 @@ public class HomeController4 {
 		galleryDto.setG_tel(g_tel);
 		galleryDto.setM_no(Integer.parseInt(m_no));
 		
-	
+		System.out.println("dto = ?" + galleryDto);
 		boolean isS = galleryService.insertGallery(galleryDto);
 
 /*		if(isS) {
@@ -240,13 +240,18 @@ public class HomeController4 {
 		String m_address = mtfRequest.getParameter("m_address");
 		String m_tel = mtfRequest.getParameter("m_tel");
 		
+		
+		System.out.println("mdto1211 = ?" + mDto);
+		
+		
+		
 		mDto.setM_address(m_address);
 		mDto.setM_grade(Integer.parseInt(m_grade));
 		mDto.setM_id(m_id);
 		mDto.setM_name(m_name);
 		mDto.setM_no(Integer.parseInt(m_no));
 		mDto.setM_tel(m_tel);
-	
+		System.out.println("mdto = ?" + mDto);
 		boolean isM =memberService.updateMember(mDto);
 		
 		session.removeAttribute("loginMember");

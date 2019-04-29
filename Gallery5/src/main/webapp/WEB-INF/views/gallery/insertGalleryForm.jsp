@@ -81,11 +81,11 @@
 	<input type="text" name="m_grade" value="<%=Ddto.getM_grade()%>" >
 	<%}%> --%>
 	
-<input type="text" name="m_grade" value="<%=Ddto.getM_grade()%>	">
-<input type="text" name="m_grade" value="5" >
+
+<input type="text" name="m_grade" value="5">
 <input type="text" name="m_id" value="<%=Ddto.getM_id()%>">
 <input type="text" name="m_name" value="<%=Ddto.getM_name() %>">
-<input type="text" name="m_address" value="<%=Ddto.getM_address() %>">
+<input type="text" name="m_address" value="<%=Ddto.getM_address()%>">
 <input type="text" name="m_tel" value="<%=Ddto.getM_tel() %>">
 
 <input type="submit">
