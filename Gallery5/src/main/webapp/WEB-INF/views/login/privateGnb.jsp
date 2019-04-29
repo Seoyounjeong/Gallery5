@@ -63,6 +63,7 @@ int m_grade = loginMember.getM_grade();
 				<form action="selectM_noGalleryList.do" method="post">
 					<input type="submit" value="마이 갤러리">
 				</form>
+				<button onclick="location.href='insertGalleryForm.do'">갤러리 추가로 가자 </button>
 
 
 			</div>

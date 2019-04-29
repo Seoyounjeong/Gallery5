@@ -157,7 +157,7 @@ public class HomeController4 {
 		
 		
 		//파일저장 경로
-		String path = "C:/Users/hk-edu/git/galleryweb/Gallery5/src/main/webapp/galleryupload/";
+		String path = "C:/Users/hk-edu/git/Gallery5/Gallery5/src/main/webapp/galleryupload/";
 
 		
 		
@@ -391,7 +391,7 @@ public class HomeController4 {
 		
 		
 		//파일저장 경로
-		String path = "C:/Users/hk-edu/git/galleryweb/Gallery5/src/main/webapp/galleryupload/";
+		String path = "C:/Users/hk-edu/git/Gallery5/Gallery5/src/main/webapp/galleryupload/";
 
 		
 		for (int i = 0; i < fileList.size(); i++) {
