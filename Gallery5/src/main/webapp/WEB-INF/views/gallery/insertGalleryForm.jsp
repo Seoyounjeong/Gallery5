@@ -15,6 +15,8 @@
 <%-- <%int m_grade=%><%=Ddto.getM_grade() %><%; %> --%>
 <body>
 
+<jsp:include page="/WEB-INF/views/header.jsp" />
+
 <% if(Ddto==null){%>
 		<script type="text/javascript">alert("로그인하자 친구야") 
 		window.location.href="loginform.do";
@@ -97,7 +99,7 @@
 
 
 
-
+<jsp:include page="/WEB-INF/views/tail.jsp" />
 
 
 
