@@ -157,8 +157,12 @@ public class HomeController4 {
 		
 		
 		//파일저장 경로
-		String path = "C:/Users/hk-edu/git/galleryweb/Gallery3/src/main/webapp/galleryupload/";
+		String path = "C:/Users/hk-edu/git/galleryweb/Gallery5/src/main/webapp/galleryupload/";
 
+		
+		
+		
+		
 	/*	for (MultipartFile multifile : fileList) {
 			
 			//요청한 파일에서 원본 파일명 구하기
@@ -387,8 +391,7 @@ public class HomeController4 {
 		
 		
 		//파일저장 경로
-		String path = "C:/Users/hk-edu/git/galleryweb/Gallery3/src/main/webapp/galleryupload/";
-		
+		String path = "C:/Users/hk-edu/git/galleryweb/Gallery5/src/main/webapp/galleryupload/";
 
 		
 		for (int i = 0; i < fileList.size(); i++) {
