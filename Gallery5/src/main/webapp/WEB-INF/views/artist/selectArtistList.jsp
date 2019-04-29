@@ -8,7 +8,8 @@
 <%request.setCharacterEncoding("utf-8"); %>
 <%response.setContentType("text/html; charset=utf-8"); %>
 <%MemberDto loginMember = (MemberDto)session.getAttribute("loginMember"); %>
-<%List<ArtistDto> list = (List<ArtistDto>)request.getAttribute("list");  System.out.println("이미지 디티오는?+"+list);%>
+<%List<ArtistDto> list = (List<ArtistDto>)request.getAttribute("list");  
+System.out.println("이미지 디티오는?+"+list);%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -52,6 +53,7 @@
 		<span>작가단체경력<%=dto.getA_Squard() %></span><br/>
 		<span>작가커리어<%=dto.getA_career() %></span><br/>
 		<span>작가상태<%=dto.getA_state() %></span><br/>
+		</div>
 	<%}else if(loginMember.getM_grade()==3){ %>
 		<div style="width: 30%; padding: 0;text-align: center; float: left;">
 		<img alt="작가대표이미지" src="exhibitionupload/<%=dto.getE_img()%>" width="33%"><br/>

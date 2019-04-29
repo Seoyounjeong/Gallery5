@@ -20,6 +20,9 @@
 <div class="messagecontainer">
 <div style="text-align: center;">받은 메시지창</div>
 <br/>
+<div class="messagecontainer">
+<div style="text-align: center;"><img alt="메시지 아이콘" src="requestupload/message_icon.png" width="50px" height="50px"> 
+</div>
 <form action="updateRequest.do" method="get">
 <input type="hidden" value="1" name="r_agree">
 <input type="hidden" value="<%=dto.getR_no() %>" name="r_no">

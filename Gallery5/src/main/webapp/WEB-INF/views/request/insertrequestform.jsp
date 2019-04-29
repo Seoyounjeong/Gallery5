@@ -22,7 +22,8 @@
 </head>
 <body>
 <div class="messagecontainer">
-<div style="text-align: center;">메시지창</div>
+<div style="text-align: center;"><img alt="메시지 아이콘" src="requestupload/message_icon.png" width="50px" height="50px"> 
+</div>
 <br/>
 <form action="insertrequest.do" method="post">
 <input type="hidden" value=<%=r_send %> name="r_send">
@@ -34,8 +35,8 @@
 <div>내용<br/>
 <textarea rows="5" cols="60" name="r_content"></textarea>
 </div>
-
-<input type="submit" value="보내기" >
+<br/>
+<div  style="position: absolute; right: 30px"><input type="submit" value="보내기" ></div>
 </form>
 
 

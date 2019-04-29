@@ -24,28 +24,32 @@
 <div class="messagecontainer">
 <div style="text-align: center;">보낸 메시지창</div>
 <br/>
+<div class="messagecontainer">
+<div style="text-align: center;"><img alt="메시지 아이콘" src="requestupload/message_icon.png" width="50px" height="50px"> 
+</div>
+<div class="input_container">
 <form action="updateRequest.do" method="get">
 <input type="hidden" value="<%=dto.getR_agree() %>" name="r_agree">
 <input type="hidden" value="<%=dto.getR_no() %>" name="r_no">
 <input type="hidden" value="<%=dto.getR_receive()%>" name="r_receive">
 <input type="hidden" value="<%=dto.getR_send()%>" name="r_send">
-<div>받으시는 분<input type="text" value="<%=dto.getR_receivename() %>" name="r_receivename" readonly="readonly"> </div>
-<div>보내시는 분<input type="text" value="<%=dto.getR_sendname() %>" name="r_sendname" readonly="readonly"> </div>
-<div>메시지 제목<input type="text" name="r_title" value="<%=dto.getR_title() %>"  readonly="readonly">  </div>
+<div>받으시는 분  <input style="border-style: none;" type="text" value="<%=dto.getR_receivename() %>" name="r_receivename" readonly="readonly"> </div>
+<div>보내시는 분  <input style="border-style: none;" type="text" value="<%=dto.getR_sendname() %>" name="r_sendname" readonly="readonly"> </div>
+<div>메시지 제목  <input style="border-style: none;" type="text" name="r_title" value="<%=dto.getR_title() %>"  readonly="readonly">  </div>
 <div>내용<br/>
 <textarea rows="5" cols="60" name="r_content" readonly="readonly"><%=dto.getR_content() %></textarea>
-</div>
+</div><br/>
 <div>승낙결과:<%if(dto.getR_agree()==1){ %>
 				승인<%}else if(dto.getR_agree()==2){ %>
 				거절<%}else if(dto.getR_agree()==3){ %>
 				대기중<%} %>
 </div>
-<div><button onclick="self.close()">메시지창 닫기</button> </div>
+<div style="position: absolute; right: 30px"><button onclick="self.close()">메시지창 닫기</button> </div>
 
 
 
 </form>
-
+</div>
 
 
 </div>
