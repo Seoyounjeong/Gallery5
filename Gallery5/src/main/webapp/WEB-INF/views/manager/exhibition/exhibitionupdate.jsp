@@ -46,7 +46,7 @@ ExhibitionDto exhibitionDto=(ExhibitionDto)request.getAttribute("exhibitionDto")
 		<th>전시사진</th>
 		<td>
 		<input type="file" name="e_img"/>
-			<a href="uploadFiles/<%=exhibitionDto.getE_img()%>"><c:out value="${exhibitionDto.e_img}"/></a>
+			<a href="exhibitionupload/<%=exhibitionDto.getE_img()%>"><c:out value="${exhibitionDto.e_img}"/></a>
 		</td>
 		
 	</tr>

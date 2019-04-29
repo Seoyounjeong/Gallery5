@@ -52,7 +52,7 @@
 <!-- 		<div id="img1"><input type="file" name="g_img1" id="g_img1"/> -->
 <!-- 		<input type="button" value="삭제" onclick="change()"/> -->
 		<input multiple="multiple"  type="file" placeholder="내부이미지1" name="file"/>
-		<a href="uploadFiles/<%=galleryDto.getG_img1()%>" id="atag1"><c:out value="${galleryDto.g_img1}"/></a>
+		<a href="galleryupload/<%=galleryDto.getG_img1()%>" id="atag1"><c:out value="${galleryDto.g_img1}"/></a>
 <!-- 		</div> -->
 		</td>
 	</tr>
@@ -61,7 +61,7 @@
 		<th>내부이미지2</th>
 		<td><input type="file" name="file">
 <!-- 		<input type="file" name="g_img2" /> -->
-		<a href="uploadFiles/<%=galleryDto.getG_img2()%>"><c:out value="${galleryDto.g_img2}"/></a>
+		<a href="galleryupload/<%=galleryDto.getG_img2()%>"><c:out value="${galleryDto.g_img2}"/></a>
 		</td>
 	</tr>
 	
@@ -69,7 +69,7 @@
 		<th>내부이미지3</th>
 		<td><input type="file" name="file">
 <%-- 		<input type="file" name="g_img3" value="<%=galleryDto.getG_img3()%>"/> --%>
-		<a href="uploadFiles/<%=galleryDto.getG_img3()%>"><c:out value="${galleryDto.g_img3}"/></a>
+		<a href="galleryupload/<%=galleryDto.getG_img3()%>"><c:out value="${galleryDto.g_img3}"/></a>
 		</td>
 	</tr>
 	
@@ -77,7 +77,7 @@
 		<th>내부이미지4</th>
 		<td><input type="file" name="file">
 <%-- 		<input type="file" name="g_img4" value="<%=galleryDto.getG_img4()%>"/> --%>
-		<a href="uploadFiles/<%=galleryDto.getG_img4()%>"><c:out value="${galleryDto.g_img4}"/></a>
+		<a href="galleryupload/<%=galleryDto.getG_img4()%>"><c:out value="${galleryDto.g_img4}"/></a>
 		</td>
 	</tr>
 	

@@ -46,11 +46,11 @@
 		<td><%=itemDto.getI_no()%></td>
 		<td><%=itemDto.getE_no()%></td>
 		<td><a href="managerselectItem.do?i_no=<%=itemDto.getI_no()%>"><%=itemDto.getI_name()%></a></td>
-		<td><a href="uploadFiles/<%=itemDto.getI_img()%>"><%=itemDto.getI_img()%></a></td>
+		<td><a href="itemupload/<%=itemDto.getI_img()%>"><%=itemDto.getI_img()%></a></td>
 		<td><%=itemDto.getI_explain()%></td>
 		<td><%=itemDto.getI_price()%></td>
-		<!-- jsp 파일이 달라서 안됨.. -->
-		<td><a href=""><%=itemDto.getA_no()%></a></td>
+		
+		<td><%=itemDto.getA_no()%></td>
 		<td><%=itemDto.getM_no()%></td>
 		<td><a href="managerdeleteItem.do?i_no=<%=itemDto.getI_no()%>">[삭제]</a></td>
 	</tr>

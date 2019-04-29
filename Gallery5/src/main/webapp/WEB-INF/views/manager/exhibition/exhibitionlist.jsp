@@ -50,7 +50,7 @@
 		<td><%=exhibitionDto.getE_explain()%></td>
 		<td><%=exhibitionDto.getA_no()%></td>
 		<td><a href="managerselectanoExhibitionList.do?a_no=<%=exhibitionDto.getA_no()%>"><%=exhibitionDto.getA_name()%></a></td><!-- 작가번호로 전시조회 -->
-		<td><a href="uploadFiles/<%=exhibitionDto.getE_img()%>"><%=exhibitionDto.getE_img()%></a></td>
+		<td><a href="exhibitionupload/<%=exhibitionDto.getE_img()%>"><%=exhibitionDto.getE_img()%></a></td>
 		<td><%=exhibitionDto.getE_click()%></td>
 		<td><a href="managerdeleteExhibition.do?e_no=<%=exhibitionDto.getE_no()%>">[삭제]</a></td>
 	</tr>

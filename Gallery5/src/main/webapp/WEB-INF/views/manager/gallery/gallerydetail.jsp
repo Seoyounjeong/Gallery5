@@ -44,8 +44,8 @@ GalleryDto galleryDto=(GalleryDto)request.getAttribute("galleryDto");
 	<tr>
 		<th>내부이미지1</th>
 		<td>
-		<img src="uploadFiles/<%=galleryDto.getG_img1()%>" width="300px;" height="300px;"/><br>
-		<a href="uploadFiles/<%=galleryDto.getG_img1()%>">자세히보기</a>
+		<img src="galleryupload/<%=galleryDto.getG_img1()%>" width="300px;" height="300px;"/><br>
+		<a href="galleryupload/<%=galleryDto.getG_img1()%>">자세히보기</a>
 		
 		
 <%-- 		<img src="C:/Users/itcam/git/gallery/Gallery/src/main/webapp/uploadFiles/${galleryDto.g_img1}" --%>
@@ -56,8 +56,8 @@ GalleryDto galleryDto=(GalleryDto)request.getAttribute("galleryDto");
 	<tr>
 		<th>내부이미지2</th>
 		<td>
-		<img src="uploadFiles/<%=galleryDto.getG_img2()%>" width="300px;" height="300px;"/><br>
-		<a href="uploadFiles/<%=galleryDto.getG_img2()%>">자세히보기</a>
+		<img src="galleryupload/<%=galleryDto.getG_img2()%>" width="300px;" height="300px;"/><br>
+		<a href="galleryupload/<%=galleryDto.getG_img2()%>">자세히보기</a>
 		
 		
 <%-- 		<img src="C:/Users/itcam/git/gallery/Gallery/src/main/webapp/uploadFiles/${galleryDto.g_img2}" --%>
@@ -68,8 +68,8 @@ GalleryDto galleryDto=(GalleryDto)request.getAttribute("galleryDto");
 	<tr>
 		<th>내부이미지3</th>
 		<td>
-		<img src="uploadFiles/<%=galleryDto.getG_img3()%>" width="300px;" height="300px;"/><br>
-		<a href="uploadFiles/<%=galleryDto.getG_img3()%>">자세히보기</a>
+		<img src="galleryupload/<%=galleryDto.getG_img3()%>" width="300px;" height="300px;"/><br>
+		<a href="galleryupload/<%=galleryDto.getG_img3()%>">자세히보기</a>
 		
 <%-- 		<img src="C:/Users/itcam/git/gallery/Gallery/src/main/webapp/uploadFiles/${galleryDto.g_img3}" --%>
 <!-- 		width="300px;" height=300px;><br> -->
@@ -79,8 +79,8 @@ GalleryDto galleryDto=(GalleryDto)request.getAttribute("galleryDto");
 	<tr>
 		<th>내부이미지4</th>
 		<td>
-		<img src="uploadFiles/<%=galleryDto.getG_img4()%>" width="300px;" height="300px;"/><br>
-		<a href="uploadFiles/<%=galleryDto.getG_img4()%>">자세히보기</a>
+		<img src="galleryupload/<%=galleryDto.getG_img4()%>" width="300px;" height="300px;"/><br>
+		<a href="galleryupload/<%=galleryDto.getG_img4()%>">자세히보기</a>
 		
 <%-- 		<img src="C:/Users/itcam/git/gallery/Gallery/src/main/webapp/uploadFiles/${galleryDto.g_img4}" --%>
 <!-- 		width="300px;" height=300px;><br> -->

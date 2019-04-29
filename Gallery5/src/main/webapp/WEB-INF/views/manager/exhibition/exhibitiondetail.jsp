@@ -40,8 +40,8 @@
 	<tr>
 		<th>전시사진</th>
 		<td>
-		 <img src="uploadFiles\<%=exhibitionDto.getE_img()%>" width="300px;" height="300px;"/>
-		<br> <a href="uploadFiles\<%=exhibitionDto.getE_img()%>">
+		 <img src="exhibitionupload\<%=exhibitionDto.getE_img()%>" width="300px;" height="300px;"/>
+		<br> <a href="exhibitionupload\<%=exhibitionDto.getE_img()%>">
 		 사진보기
 		 </a>
 		 </td>

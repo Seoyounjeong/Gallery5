@@ -209,13 +209,7 @@ public class HomeController2 {
 		logger.info("작가 추가하기 {}.", locale);
 		System.out.println(artistDto);
 
-		//selectArtistNo -> 현재 테이블의 A_NO MAX 값
-		//artistDto.setA_no(MAX+1);
-		//각 메뉴에서 메인메뉴로 가기
-		//추가이 빈값 허용 안되도록 -> 각 테이블 PK 생성
-		//딜리트와 업데이트에서 PK값만 적용되도록
-		//디비 Not Null 체크 추가
-		//where A_STATE not in (4,7,9)
+		
 		
 		boolean isS=artistService.insertArtist(artistDto);
 		if(isS) {

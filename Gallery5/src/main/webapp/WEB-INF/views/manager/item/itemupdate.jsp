@@ -35,7 +35,7 @@ ItemDto itemDto=(ItemDto)request.getAttribute("itemDto");
 		<th>작품이미지</th>
 		<td>
 		<input type="file" name="i_img" style="width:75px;"/>
-		<a href="uploadFiles/<%=itemDto.getI_img()%>"><%=itemDto.getI_img()%></a>
+		<a href="itemupload/<%=itemDto.getI_img()%>"><%=itemDto.getI_img()%></a>
 		</td>
 	</tr>
 	<tr>

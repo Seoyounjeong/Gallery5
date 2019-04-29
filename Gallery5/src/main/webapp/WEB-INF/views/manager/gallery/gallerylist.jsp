@@ -45,10 +45,10 @@
 		<td><a href="managerselectGallery.do?g_no=<%=galleryDto.getG_no()%>"><%=galleryDto.getG_name()%></a></td>
 		<td><%=galleryDto.getG_adress()%></td>
 		<td><%=galleryDto.getG_tel()%></td>
-		<td><a href="uploadFiles/<%=galleryDto.getG_img1()%>"><%=galleryDto.getG_img1()%></a></td>
-		<td><a href="uploadFiles/<%=galleryDto.getG_img2()%>"><%=galleryDto.getG_img2()%></a></td>
-		<td><a href="uploadFiles/<%=galleryDto.getG_img3()%>"><%=galleryDto.getG_img3()%></a></td>
-		<td><a href="uploadFiles/<%=galleryDto.getG_img4()%>"><%=galleryDto.getG_img4()%></a></td>
+		<td><a href="galleryupload/<%=galleryDto.getG_img1()%>"><%=galleryDto.getG_img1()%></a></td>
+		<td><a href="galleryupload/<%=galleryDto.getG_img2()%>"><%=galleryDto.getG_img2()%></a></td>
+		<td><a href="galleryupload/<%=galleryDto.getG_img3()%>"><%=galleryDto.getG_img3()%></a></td>
+		<td><a href="galleryupload/<%=galleryDto.getG_img4()%>"><%=galleryDto.getG_img4()%></a></td>
 		<td><%=galleryDto.getG_intro()%></td>
 		<td><%=galleryDto.getG_state()%></td>
 		<td><a href="managerdeleteGallery.do?g_no=<%=galleryDto.getG_no()%>">[삭제]</a></td>

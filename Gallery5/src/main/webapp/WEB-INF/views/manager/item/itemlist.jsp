@@ -45,7 +45,7 @@ List<ItemDto>list=(List<ItemDto>)request.getAttribute("list");
 		<td><%=itemDto.getI_no()%></td>
 		<td><a href="managerselectenoItemList.do?e_no=<%=itemDto.getE_no()%>"><%=itemDto.getE_no()%></a></td>
 		<td><a href="managerselectItem.do?i_no=<%=itemDto.getI_no()%>"><%=itemDto.getI_name()%></a></td>
-		<td><a href="uploadFiles/<%=itemDto.getI_img()%>"><%=itemDto.getI_img()%></a></td>
+		<td><a href="itemupload/<%=itemDto.getI_img()%>"><%=itemDto.getI_img()%></a></td>
 		<td><%=itemDto.getI_explain()%></td>
 		<td><%=itemDto.getI_price()%></td>
 		<td><%=itemDto.getA_no()%></td>

@@ -42,7 +42,7 @@
 		<td><%=exhibitionDto.getE_explain()%></td>
 		
 		
-		<td><a href="uploadFiles/<%=exhibitionDto.getE_img()%>"><%=exhibitionDto.getE_img()%></a></td>
+		<td><a href="exhibitionupload/<%=exhibitionDto.getE_img()%>"><%=exhibitionDto.getE_img()%></a></td>
 		<td><%=exhibitionDto.getE_click()%></td>
 		<td><a href="managerdeleteExhibition.do?e_no=<%=exhibitionDto.getE_no()%>">[삭제]</a></td>
 	</tr>

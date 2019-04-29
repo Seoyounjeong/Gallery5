@@ -39,8 +39,8 @@ ItemDto itemDto=(ItemDto)request.getAttribute("itemDto");
 	<tr>
 		<th>작품이미지</th>
 		<td>
-		<img src="uploadFiles/<%=itemDto.getI_img()%>" width="300px;" height="300px;"/><br>
-		<a href="uploadFiles/<%=itemDto.getI_img()%>">자세히보기</a>
+		<img src="itemupload/<%=itemDto.getI_img()%>" width="300px;" height="300px;"/><br>
+		<a href="itemupload/<%=itemDto.getI_img()%>">자세히보기</a>
 <%-- 		<img src="${itemDto.i_img}"/></td> --%>
 	</tr>
 	<tr>
