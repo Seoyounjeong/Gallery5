@@ -60,7 +60,7 @@
 
 <div id="Galletylist_Setion">
 <div><img style="width: 100px; height: 100px;" alt="대표이미지" src="galleryupload/<%=dto.getG_img1()%>"></div>
-<div><span>G_NO</span><a href="selectGallery.do?g_no=<%=dto.getG_no()%>"><%=dto.getG_no()%></a></div>
+<div><span>G_NO</span><a href="selectGallery.do?g_no=<%=dto.getG_no()%>&g_return=one"><%=dto.getG_no()%></a></div>
 <div><span>M_NO</span><%=dto.getM_no()%></div>
 <div><span>G_NAME</span><%=dto.getG_name()%></div>
 <div><span>G_ADRESS</span><%=dto.getG_adress()%></div>
@@ -68,7 +68,7 @@
 <div><span>G_INTRO</span><%=dto.getG_intro()%></div>
 <div><span>G_STATE</span><%=dto.getG_state()%></div>
 <div><a href="deleteGallery.do?g_no=<%=dto.getG_no()%>">삭제</a></div>
-<div><a href="calendallist.do?g_no=<%=dto.getG_no()%>">일정관리</a></div>
+
 
 </div>
 

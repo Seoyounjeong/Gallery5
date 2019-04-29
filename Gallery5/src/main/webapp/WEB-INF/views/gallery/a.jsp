@@ -112,7 +112,6 @@
 	function c_update(d,c_start,c_no) {
 
 
-		
 		var c_no =c_no;
 
 		var c_title = c_title;
@@ -123,15 +122,7 @@
 		var y =c_start.substr(0,2);
 		
 		
-		var m =c_start.substr(2,2);
-		
-
-		if(m.indexOf('0')!=-1){
-	
-		 m = c_start.substr(3,1)
-		
-		}
-		
+		var m =c_start.substr(3,1);
 		
 		 window.open(
 				
@@ -160,18 +151,10 @@
 
 
 
-
 <body>
-
-<jsp:include page="/WEB-INF/views/header.jsp" />
-
-
-<div style="text-align: center; margin: 20px;">
-
-<div style="display: inline-block; border: 1px solid black; margin: 5px" onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=one'">안내</div>
-
-<div style="display: inline-block; border: 1px solid black;" onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=two'">전시일정</div> </div>
-
+<div>
+<h1>일정 리스트</h1>
+</div>
 
 <div id="Gallery_setion2">
 
@@ -188,11 +171,11 @@
 
 
 <caption>
-<a href="selectGallery.do?g_return=two&year=<%=year-1%>&month=<%=month%>&g_no=${cddto.g_no}">◁</a>
-<a href="selectGallery.do?g_return=two&year=<%=year%>&month=<%=month-1%>&g_no=${cddto.g_no}">◀</a>
+<a href="calendallist.do?year=<%=year-1%>&month=<%=month%>&g_no=${cddto.g_no}">◁</a>
+<a href="calendallist.do?year=<%=year%>&month=<%=month-1%>&g_no=${cddto.g_no}">◀</a>
 <span class="y"><%= year %></span>년 <span class="m"><%= month%></span>월
-<a href="selectGallery.do?g_return=two&year=<%=year%>&month=<%=month+1%>&g_no=${cddto.g_no}">▷</a>
-<a href="selectGallery.do?g_return=two&year=<%=year+1%>&month=<%=month%>&g_no=${cddto.g_no}">▶</a>
+<a href="calendallist.do?year=<%=year%>&month=<%=month+1%>&g_no=${cddto.g_no}">▷</a>
+<a href="calendallist.do?year=<%=year+1%>&month=<%=month%>&g_no=${cddto.g_no}">▶</a>
 </caption>
 <col width="80px"><col width="80px"><col width="80px"><col width="80px">
 <col width="80px"><col width="80px"><col width="80px">
@@ -268,29 +251,17 @@
 <% List<CallendarDto>cllist =(List<CallendarDto>)request.getAttribute("cllist"); %>
 
 
-<%for(CallendarDto dto:cllist){
-
-	String d =dto.getC_start().substring(4,6);
-	String m =Util.zeroTwo(dto.getC_start().substring(2,4));
-	String y =20+dto.getC_start().substring(0,2);
-%>	
-
+<%for(CallendarDto dto:cllist){%>
+			
 	<div class="listdiv">
-
 	<div><div>C_NO</div><%=dto.getC_no()%></div>	
 	<div><div>G_NO</div><%=dto.getG_no()%></div>
 	<div><div>C_TITLE</div><%=dto.getC_title()%></div>
 	<div><div>C_CONTENT</div><%=dto.getC_content()%></div>
 	<div><div>C_START</div><%=dto.getC_start()%></div>
 	<div><div>C_END</div><%=dto.getC_end() %></div>
-	<div><a href="deleteCalendal.do?c_no=<%=dto.getC_no()%>&g_no=<%=dto.getG_no()%>
-	&year=<%=y%>&month=<%=m%>
-	
-	
-	">삭제<%=dto.getC_no()%></a></div>
-	<div><a href="#" onclick="javascript:c_update(
-	
-	<%=d %>,<%=dto.getC_start()%>,<%=dto.getC_no()%>);" >수정</a></div>
+	<div><a href="deleteCalendal.do?c_no=<%=dto.getC_no()%>&g_no=<%=dto.getG_no()%>">삭제<%=dto.getC_no()%></a></div>
+	<div><a href="#" onclick="javascript:update(<%=dto.getC_no()%>,<%=dto.getG_no()%>);" >수정</a></div>
 	
 	</div>	
 
@@ -301,13 +272,5 @@
 
 
 
-
-
-
-<jsp:include page="/WEB-INF/views/tail.jsp" />
-
 </body>
-
-
-
 </html>

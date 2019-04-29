@@ -19,6 +19,11 @@ public class Util {
 		
 		return s.length()<2 ? "0"+s : s;
 	}
+	
+	public static String zeroTwo(String s) {
+		
+		return s.indexOf("0")>-1 ? (s.substring(1,2)) : s;
+	}
 
 
 	//화면에서 getproperty 태그가 호줄해줄 메서드
@@ -91,16 +96,16 @@ public static String getCalView(List<CallendarDto> list, int i) {
 					
 				if (calDto.getC_start().substring(4, 6).equals(d)) {
 					
-					calList+="<p title='"+calDto.getC_title()+"' class='clist' style='font-size:8px; background-color: pink; margin: 0; height: 20px;' onclick='c_update("+i+","+calDto.getC_start()+")'>"
+					calList+="<p title='"+calDto.getC_title()+"' class='clist' style='font-size:8px; background-color: pink; margin: 0; height: 20px;' onclick='c_update("+i+","+calDto.getC_start()+","+calDto.getC_no()+")'>"
 							+(calDto.getC_title().length()>4? calDto.getC_title().substring(0, 3)+".." : calDto.getC_title())
 							+"시작"+"</p>";
 				}else if(calDto.getC_end().substring(4, 6).equals(d)) {
 					
-					calList+="<p title='"+calDto.getC_title()+"' class='clist' style='font-size:8px; background-color: pink; margin: 0; height: 20px;' onclick='c_update("+i+","+calDto.getC_start()+")'>"
+					calList+="<p title='"+calDto.getC_title()+"' class='clist' style='font-size:8px; background-color: pink; margin: 0; height: 20px;' onclick='c_update("+i+","+calDto.getC_start()+","+calDto.getC_no()+")'>"
 							+(calDto.getC_title().length()>4? calDto.getC_title().substring(0, 3)+".." : calDto.getC_title())
 							+"끝"+"</p>";
 				}else {
-					calList+="<p title='class='clist' style='background-color:pink; padding: 0; margin: 0;' onclick='c_update("+i+","+calDto.getC_start()+")'>"
+					calList+="<p title='class='clist' style='background-color:pink; padding: 0; margin: 0;' onclick='c_update("+i+","+calDto.getC_start()+","+calDto.getC_no()+","+calDto.getC_no()+")'>"
 							   +"&nbsp;"+"</p>";
 						i++;
 				}

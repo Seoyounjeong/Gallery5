@@ -13,19 +13,19 @@
 <body>
 
 야야야 캘린더 인설트할 준비 됫냐
-
+<%String c_return= (String)request.getAttribute("c_return"); %>
+<%int c_start_y = (Integer)request.getAttribute("c_start_y"); %>
+<%int c_start_m = (Integer)request.getAttribute("c_start_m"); %>
+<%int c_start_d = (Integer)request.getAttribute("c_start_d"); %>
 
 <form action="insertcallendar.do" method="post">
-
+<input name="c_return" type="hidden" value="<%=c_return%>">
 <div>
 <span>전시제목</span> <input type="text" name="c_title" required="required">
 </div>
 
 <div>
 
-<%int c_start_y = (Integer)request.getAttribute("c_start_y"); %>
-<%int c_start_m = (Integer)request.getAttribute("c_start_m"); %>
-<%int c_start_d = (Integer)request.getAttribute("c_start_d"); %>
 <span>시작일</span> 
 <select name="c_start_y">
 <%for (int i = 2019; i <= 2025; i++) {

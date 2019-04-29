@@ -85,7 +85,7 @@ public class HomeController4 {
 	
 	//내 갤러리 볼때 mno로 볼때
 	
-	@RequestMapping(value = "/selectM_noGalleryList.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/selectM_noGalleryList.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String selectM_noGalleryList(Locale locale, Model model,HttpSession session) {
 		logger.info("selectM_noGalleryList 가자 {}.", locale);
 
@@ -289,6 +289,8 @@ public class HomeController4 {
 			
 			cddto.setG_no(g_no);
 			
+			model.addAttribute("cddto",cddto);
+			
 			
 		}else {
 			
@@ -311,7 +313,8 @@ public class HomeController4 {
 			cddto.setG_no(g_no);
 			
 			System.out.println("g_no=" + g_no);
-			
+
+			model.addAttribute("cddto",cddto);
 			
 			
 		}
@@ -321,15 +324,27 @@ public class HomeController4 {
 
 		model.addAttribute("clist",clist);
 		
+
+	
+		List<CallendarDto> cllist = callendarService.selectCallendarList_g_no(g_no);
+
+		model.addAttribute("cllist",cllist);
+	
+		
 		if(g_return==null) {
-			return "gallery/selectGallery_one";
-		}else if(g_return.equals("one")) {
+			return "gallery/selectGallery_general_one";
+		}else if(g_return.equals("general_one")) {
+			return "gallery/selectGallery_general_one";
+		}else if(g_return.equals("general_two")){
+			return "gallery/selectGallery_general_two";
+		}else if(g_return.equals("one")){
 			return "gallery/selectGallery_one";
 		}else if(g_return.equals("two")){
 			return "gallery/selectGallery_two";
 		}else {
-			return "gallery/selectGallery_one";
+			return "gallery/selectGallery_general_one";
 		}
+		
 		
 		
 	}
@@ -414,7 +429,7 @@ public class HomeController4 {
 		boolean isS = galleryService.updateGallery(galleryDto);
 
 		if(isS) {
-			return "redirect:gallerylist.do";
+			return "redirect:selectM_noGalleryList.do";
 		}else {
 			logger.info("파일 업로드 실패");
 			return "error";
@@ -430,7 +445,7 @@ public class HomeController4 {
 		boolean isS = galleryService.deleteGallery(g_no);
 
 		if(isS) {
-			return "redirect:gallerylist.do";
+			return "redirect:selectM_noGalleryList.do";
 		}else {
 			logger.info("파일 업로드 실패");
 			return "error";
@@ -641,14 +656,16 @@ public class HomeController4 {
 	}*/
 	
 	@RequestMapping(value = "/insertformcalendar.do", method = {RequestMethod.GET})
-	public String insertformcalendar(Locale locale, Model model,String g_no,int c_start_y,int c_start_m,int c_start_d)  {
+	public String insertformcalendar(Locale locale, Model model,String g_no,int c_start_y,int c_start_m,int c_start_d,String c_return)  {
 		logger.info("insertformcalendar 가자 {}.", locale);
 		
 		model.addAttribute("g_no", g_no);
 		model.addAttribute("c_start_y",c_start_y);
 		model.addAttribute("c_start_m",c_start_m);
 		model.addAttribute("c_start_d",c_start_d);
+		model.addAttribute("c_return", c_return);
 		
+		System.out.println(c_return);
 		return "gallery/insertformcalendar";
 
 	}
@@ -657,13 +674,11 @@ public class HomeController4 {
 	@RequestMapping(value = "/insertcallendar.do", method = RequestMethod.POST)
 	public String insertcalendar(Locale locale, Model model,HttpServletRequest request, CallendarDto callendarDto,
 			String c_start_y,String c_start_m,String c_start_d,
-			String c_end_y,String c_end_m,String c_end_d, int g_no
+			String c_end_y,String c_end_m,String c_end_d, int g_no, String c_return
 			)  {
 		logger.info("insertcallendar 가자 {}.", locale);
 		
 		
-		
-	
 	
 		String c_start= c_start_y.substring(2, 4)+util.isTwo(c_start_m)+util.isTwo(c_start_d);
 		String c_end = c_end_y.substring(2, 4)+util.isTwo(c_end_m)+util.isTwo(c_end_d);
@@ -676,19 +691,111 @@ public class HomeController4 {
 		
 		 callendarService.insertCallendar(callendarDto);
 		 
-
-		String kk = 
-				
+		 
 			//	"<script>opener.parent.location.reload();"
-          //      + "window.close();</script>";
+         //      + "window.close();</script>";
 			//	year="+c_start_y+"&month="+c_start_m+"&g_no="+g_no
+		 System.out.println("aaa="+c_return);
+		 
+		 String	kk = "<script>opener.parent.location.href='selectGallery.do?year="+c_start_y+
+							
+							"&month="+c_start_m+"&g_no="+g_no+"&g_return=two"+ "';"
+							
+							
+			                + "window.close();</script>";
 				
-				"<script>opener.parent.location.href='selectGallery.do?year="+c_start_y+"&month="+c_start_m+"&g_no="+g_no+"&g_return=two"+ "';"
-                + "window.close();</script>";
+					
+
+		
+					
 		
 		return kk;
 
 	}
+	
+	
+	@RequestMapping(value = "/updateformcalendar.do", method = {RequestMethod.GET})
+	public String updateformcalendar(Locale locale, Model model,
+			String c_start_y,String c_start_m,String c_start_d,String c_return,
+			String c_no, int g_no)  {
+		logger.info("updateformcalendar 가자 {}.", locale);
+
+		
+		System.out.println(c_start_y);
+		System.out.println(c_start_m);
+		System.out.println(c_start_d);
+		System.out.println(c_return);
+		
+		model.addAttribute("g_no", g_no);
+		model.addAttribute("c_start_y",c_start_y);
+		model.addAttribute("c_start_m",c_start_m);
+		model.addAttribute("c_start_d",c_start_d);
+		model.addAttribute("c_return", c_return);
+		model.addAttribute("c_no", c_no);
+	
+
+		return "gallery/calendalupdate";
+
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/updatecallendar.do", method = RequestMethod.POST)
+	public String updatecallendar(Locale locale, Model model,HttpServletRequest request, CallendarDto calendarDto,
+			String c_start_y,String c_start_m,String c_start_d,
+			String c_end_y,String c_end_m,String c_end_d, int g_no, String c_return,int c_no
+			)  {
+		logger.info("updatecallendar 가자 {}.", locale);
+		
+
+		
+	
+		String c_start= c_start_y.substring(2, 4)+util.isTwo(c_start_m)+util.isTwo(c_start_d);
+		String c_end = c_end_y.substring(2, 4)+util.isTwo(c_end_m)+util.isTwo(c_end_d);
+		
+		calendarDto.setC_end(c_end);
+		calendarDto.setC_start(c_start);
+
+		
+		System.out.println(calendarDto);
+
+ 
+		
+		 boolean isS =callendarService.updateCallendar(calendarDto);
+		 
+		 
+		 String	kk = "<script>opener.parent.location.href='selectGallery.do?year="+c_start_y+
+						
+						"&month="+c_start_m+"&g_no="+g_no+"&g_return=two"+ "';"
+						
+						
+		                + "window.close();</script>";
+
+		 
+			if (isS) {
+			
+				return kk;
+				
+
+			}else {
+				return kk;
+			}
+
+
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@RequestMapping(value = "/forminsertcalendar2.do", method = {RequestMethod.GET})
 	public String forminsertcalendar2(Locale locale, Model model)  {
@@ -716,70 +823,73 @@ public class HomeController4 {
 		return "gallery/forminsertcalendar2";
 
 	}
-	
-	
-	/*@RequestMapping(value = "/insertcalendar2.do", method = {RequestMethod.POST})
-	public String insertcalendar2(Locale locale, Model model,CallendarDto callendarDto,
-			String c_start_y,String c_start_m,String c_start_d,
-			String c_end_y,String c_end_m,String c_end_d, int g_no )  {
-		logger.info("insertcalendar2 가자 {}.", locale);
-		
-		
-	
-		
-		String c_start= c_start_y.substring(2, 4)+util.isTwo(c_start_m)+util.isTwo(c_start_d);
-		String c_end = c_end_y.substring(2, 4)+util.isTwo(c_end_m)+util.isTwo(c_end_d);
-		
-		callendarDto.setC_end(c_end);
-		callendarDto.setC_start(c_start);
-		callendarDto.setG_no(g_no);
-		
-		 #{c_title}, #{c_content}, #{c_start}, #{c_end}, #{g_no}
-		
-		 boolean isS = callendarService.insertCallendar(callendarDto);
 
-			if(isS) {
-				return "redirect:gallerylist.do";
-			}else {
-				logger.info("파일 업로드 실패");
-				return "error";
-			}
-		 
-
-		return "gallery/privatemain";
-
-	}*/
-	
-	
 	
 	@RequestMapping(value = "/calendallist.do", method = {RequestMethod.GET})
-	public String calendallist(Locale locale, Model model, int g_no)  {
+	public String calendallist(Locale locale, Model model,CallendarDto cddto, int g_no, String year, String month)  {
 		logger.info("calendallist 가자 {}.", locale);
 		
+		
+		if(year==null) {
 			
-		List<CallendarDto> list = callendarService.selectCallendarList_g_no(g_no);
+			Calendar calendar = Calendar.getInstance();
+			
+			 year = calendar.get(Calendar.YEAR)+"";
+			 month =calendar.get(Calendar.MONTH)+1+"";
+			
+			cddto.setC_start(year.substring(2, 4)+util.isTwo(month));
+			
+			cddto.setG_no(g_no);
+			
+			model.addAttribute("cddto",cddto);
+			
+			
+		}else {
+			
+			cddto.setC_start(year.substring(2, 4)+util.isTwo(month));
 
-		model.addAttribute("list",list);
+			cddto.setG_no(g_no);
+
+			model.addAttribute("cddto",cddto);
+			
+		}
+		
 
 
+		List<CallendarDto> clist = callendarService.selectCallendarList(cddto);
+
+		model.addAttribute("clist",clist);
+		
+	
+		List<CallendarDto> cllist = callendarService.selectCallendarList_g_no(g_no);
+
+		model.addAttribute("cllist",cllist);
+		
 		return "gallery/calendallist";
 
 	}
 	
+	@RequestMapping(value = "/deleteCalendal.do", method = {RequestMethod.GET})
+	public String deleteCalendal(Locale locale, Model model, int c_no, String g_no,String year,String month)  {
+		logger.info("deleteCalendal 가자 {}.", locale);
+		
+		System.out.println(c_no);
+		System.out.println("y"+year);
+		System.out.println("m"+month);
+
+		boolean isS = callendarService.deleteCallendar(c_no);
+
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		if(isS) {
+			return "redirect:selectGallery.do?"
+					+ "g_return=two&g_no="+g_no+"&year="+year+"&month="+month;
+		}else {
+			logger.info("파일 업로드 실패");
+			return "error";
+		}
+
+	}
+
 	
 	
 	@RequestMapping(value = "/selectCallenderFrom.do", method = {RequestMethod.GET})
