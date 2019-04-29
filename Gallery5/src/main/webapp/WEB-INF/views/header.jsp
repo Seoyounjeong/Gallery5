@@ -14,7 +14,7 @@
 <a href="loginform.do">로그인</a>
 <%}else if(loginMember.getM_grade()==0) {%>
 <a href="managermain.do">매니저메인</a>
-<form action="privateMain.do">
+<form action="privatemain.do">
 <input type="submit" value="<%=loginMember.getM_name()%>님">
 </form>
 <form action="logout.do">
