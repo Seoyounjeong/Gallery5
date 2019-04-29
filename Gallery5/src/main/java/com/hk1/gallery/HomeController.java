@@ -701,59 +701,7 @@ public class HomeController {
 	request.setAttribute("onKyungmaeList", onKyungmaeList);
 	return "Kyungmae/kyungmaeList";
 	}
-	// [매니저 페이지 합칠것] *전체 경매목록 
-	@RequestMapping(value = "/managerKyungmaeList_All.do",  method = {RequestMethod.POST, RequestMethod.GET})
-	public String managerKyungmaeList_All(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model) {
-    logger.info("managerKyungmaeList_All.do.", locale);
-	List<KyungmaeDto> kyungmaeList = kyungmaeService.selectKyungmaeList(); 
 	
-	request.setAttribute("kyungmaeList", kyungmaeList);
-	return "manager/kyungmaeList_All";
-	}
-	
-	// [매니저 페이지 합칠것] *오늘종료되는 경매  목록
-	@RequestMapping(value = "/managerKyungmaeList_End.do",  method = {RequestMethod.POST, RequestMethod.GET})
-	public String managerKyungmaeList_End(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model) {
-	logger.info("managerKyungmaeList_End.do.", locale);
-	Calendar cal= Calendar.getInstance();
-
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-	String k_regdate  = sdf.format(cal.getTime());
-	
-	String colvalue =k_regdate;
-
-	List<KyungmaeDto> kyungmaeList = kyungmaeService.selectKyungmaeList(k_regdate); 
-		
-	request.setAttribute("kyungmaeList", kyungmaeList);
-	return "manager/managerKyungmaeList_End";
-	}
-	
-	// [매니저 페이지 합칠것] *"진행중"인 경매  목록
-	@RequestMapping(value = "/managerKyungmaeList_Ing.do",  method = {RequestMethod.POST, RequestMethod.GET})
-	public String managerKyungmaeList_Ing(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model) {
-	logger.info("managerKyungmaeList_Ing.do.", locale);
-		
-	String k_state ="진행중";
-
-	List<KyungmaeDto> kyungmaeList = kyungmaeService.selectKyungmaeList(k_state); 
-			
-	request.setAttribute("kyungmaeList", kyungmaeList);
-	return "manager/managerKyungmaeList_Ing";
-	}
-	// [매니저 페이지 합칠것] * 경매  삭제
-	@RequestMapping(value = "/managerDeleteKyungmae.do",  method = {RequestMethod.POST, RequestMethod.GET})
-	public String managerDeleteKyungmae(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model,int k_no) {
-	logger.info("managerDeleteKyungmae.do.", locale);
-			
-	if(kyungmaeService.deleteKyungmae(k_no)) {
-		
-	}
-	
-	
-				
-		//redirect 경로 재설정 필요 
-		return "manager/managerKyungmaeList_Ing";
-		}
 	
 	
 			//원래가격 가격에 따른 추가 금액 설정
