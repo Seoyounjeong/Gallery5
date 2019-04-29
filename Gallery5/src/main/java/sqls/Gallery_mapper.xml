@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.hk1.Gallery">
+ 
+     <insert id="insertGallery" parameterType="GalleryDto" >
+      INSERT INTO GALLERY (G_NO, M_NO, G_NAME, G_ADRESS, G_TEL,G_IMG1, G_IMG2, G_IMG3, G_IMG4, G_INTRO, G_STATE) 
+   	  VALUES(GALLERY_SEQ.NEXTVAL, #{m_no}, #{g_name}, #{g_adress}, #{g_tel},#{g_img1}, #{g_img2}, #{g_img3}, #{g_img4}, #{g_intro}, 1)
+   	</insert>
+   
+   
+   <update id="updateGallery" parameterType="GalleryDto">
+  UPDATE GALLERY 
+  SET G_NAME=#{g_name}, G_ADRESS=#{g_adress}, G_TEL=#{g_tel}, G_IMG1=#{g_img1},G_IMG2=#{g_img2}, G_IMG3=#{g_img3}, G_IMG4=#{g_img4}, G_INTRO=#{g_intro}, G_STATE=#{g_state} 
+  WHERE G_NO=#{g_no}
+   </update>
+   
+   
+    <delete id="deleteGallery" parameterType="int">
+   DELETE FROM GALLERY WHERE G_NO=#{g_no}
+   </delete>
+   
+   
+   
+   <select id="selectGallery" parameterType="int" resultType="GalleryDto">
+   	SELECT G_NO, M_NO, G_NAME, G_ADRESS, G_TEL, G_IMG1, G_IMG2, G_IMG3, G_IMG4,
+    G_INTRO, G_STATE FROM GALLERY.GALLERY 
+    WHERE G_NO=#{g_no}
+   
+   </select>
+   
+   
+    <select id="selectGalleryList1" resultType="GalleryDto">
+    SELECT G_NO, M_NO, G_NAME, G_ADRESS, G_TEL, G_IMG1, G_IMG2, G_IMG3, G_IMG4, G_INTRO, G_STATE
+     FROM GALLERY.GALLERY
+     ORDER BY G_NO DESC
+    </select>
+    
+    
+
+    <select id="selectGalleryList2" resultType="GalleryDto" parameterType="int">
+    SELECT G_NO, M_NO, G_NAME, G_ADRESS, G_TEL, G_IMG1, G_IMG2, G_IMG3, G_IMG4, G_INTRO, G_STATE 
+    FROM GALLERY 
+    WHERE G_STATE=#{yg_state}
+     ORDER BY G_NO DESC
+    </select>
+    
+    
+
+     <select id="selectGalleryList3" resultType="GalleryDto" parameterType="int">
+    SELECT G_NO, M_NO, G_NAME, G_ADRESS, G_TEL, G_IMG1, G_IMG2, G_IMG3, G_IMG4, G_INTRO, G_STATE 
+    FROM GALLERY 
+    WHERE M_NO=#{m_no}
+    </select>
+    
+    
+    
+    
+
+  </mapper>

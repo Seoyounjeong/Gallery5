@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.hk1.Item">
+     <!--    <resultMap type = "com.hk.dtos.HkDto" id="HkDtoMap">
+      <result culumn="seq" property="="seq1" />
+   </resultMap>
+ -->
+    <!-- 수정해야함 -->
+     <insert id="insertItem" parameterType="ItemDto" >
+      INSERT INTO GALLERY.ITEM
+   (I_NO, E_NO, I_NAME, I_EXPLAIN, I_IMG, I_PRICE, A_NO, M_NO)
+   VALUES(ITEM_SEQ.NEXTVAL, #{e_no}, #{i_name},  #{i_explain},  #{i_img},  #{i_price},#{a_no},  #{m_no})
+   </insert>
+   
+   
+   <update id="updateItem1" parameterType="ItemDto">
+     UPDATE GALLERY.ITEM
+   SET  E_NO=#{e_no}, I_NAME=#{i_name}, I_EXPLAIN=#{i_explain}, I_IMG=#{i_img}, 
+   I_PRICE=#{i_price}, A_NO=#{a_no}, M_NO=#{m_no}
+   WHERE I_NO =#{i_no}
+   </update>
+   
+   <update id="updateItem2" parameterType="map">
+   UPDATE GALLERY.ITEM
+   SET  E_NO=<foreach collection="e_nos" item="e_no">#{e_no}</foreach>
+   WHERE I_NO in
+   <foreach collection="i_nos" item="i_no" open="(" close=")" separator =",">
+      #{i_no}
+      </foreach>
+   
+   </update>
+   
+   
+    <delete id="deleteItem" parameterType="int">
+      DELETE GALLERY.ITEM
+   WHERE I_NO = #{i_no}
+   </delete>
+   
+   
+   
+   <select id="selectItem" parameterType="int" resultType="ItemDto">
+   SELECT I_NO, E_NO, I_NAME, I_EXPLAIN, I_IMG, I_PRICE, A_NO, M_NO
+   FROM GALLERY.ITEM
+   WHERE I_NO= #{i_no}
+   ORDER BY I_NO DESC
+   </select>
+   
+   
+    <select id="selectItemList1" resultType="ItemDto">
+    SELECT I_NO, E_NO, I_NAME, I_EXPLAIN, I_IMG, I_PRICE, A_NO, M_NO
+   FROM GALLERY.ITEM
+   ORDER BY I_NO DESC
+    </select>
+    
+     <select id="selectItemList2" resultType="ItemDto" parameterType="int">
+    SELECT I_NO, E_NO, I_NAME, I_EXPLAIN, I_IMG, I_PRICE, A_NO, M_NO
+   FROM GALLERY.ITEM
+   WHERE M_NO = #{m_no}
+    ORDER BY I_NO DESC
+    </select>
+    
+     <select id="selectItemList3" resultType="ItemDto" parameterType="int">
+    SELECT I_NO, E_NO, I_NAME, I_EXPLAIN, I_IMG, I_PRICE, A_NO, M_NO
+   FROM GALLERY.ITEM
+   WHERE A_NO = #{a_no}
+    ORDER BY I_NO DESC
+    </select>
+    
+     <select id="selectItemList4" resultType="ItemDto" parameterType="int">
+    SELECT I_NO, E_NO, I_NAME, I_EXPLAIN, I_IMG, I_PRICE, A_NO, M_NO
+   FROM GALLERY.ITEM
+   WHERE E_NO = #{e_no}
+    ORDER BY I_NO DESC
+    </select>
+
+    
+    
+  
+  </mapper>

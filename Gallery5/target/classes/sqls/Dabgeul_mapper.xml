@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.hk1.Dabgeul">
+     <!--    <resultMap type = "com.hk.dtos.HkDto" id="HkDtoMap">
+      <result culumn="seq" property="="seq1" />
+   </resultMap>
+ -->
+    <!-- 답글-->
+    
+    <insert id="InsertDabgeul" parameterType="DabgeulDto">
+    INSERT INTO GALLERY.DABGEUL(D_NO, E_NO, D_CONTENT, M_NO, M_NAME, M_REGDATE)
+      VALUES(DABGEUL_SEQ.NEXTVAL, #{e_no}, #{d_content}, #{m_no},#{m_name}, SYSDATE)
+    </insert>
+    
+    <update id="updateDabgeul" parameterType="DabgeulDto"> 
+    UPDATE GALLERY.DABGEUL 
+    SET  E_NO=#{e_no}, D_CONTENT=#{d_content}, M_NO=#{m_no}, M_NAME=#{m_name}, M_REGDATE=SYSDATE
+      WHERE D_NO = #{d_no} 
+    </update>
+    
+    <delete id="deleteDabgeul" parameterType="Int">
+    DELETE GALLERY.DABGEUL WHERE D_NO = #{d_no} 
+    </delete>
+    
+    
+    <select id="selectDabgeul" parameterType="Int" resultType="DabgeulDto">
+    SELECT D_NO, E_NO, D_CONTENT, M_NO, M_NAME, M_REGDATE FROM GALLERY.DABGEUL
+     WHERE D_NO = #{d_no} 
+     </select>
+    
+    
+    <select id="selectDabgeulList1" parameterType="Int" resultType="DabgeulDto" >
+    SELECT D_NO, E_NO, D_CONTENT, M_NO, M_NAME, M_REGDATE FROM GALLERY.DABGEUL
+     WHERE E_NO = #{e_no} ORDER BY D_NO DESC
+    </select>
+    
+    <select id="selectDabgeulList" resultType="DabgeulDto">
+    SELECT D_NO, E_NO, D_CONTENT, M_NO, M_NAME, M_REGDATE
+      FROM GALLERY.DABGEUL
+      ORDER BY D_NO DESC
+    </select>
+    
+    </mapper>
+    

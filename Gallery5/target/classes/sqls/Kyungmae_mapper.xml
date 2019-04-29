@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.hk1.Kyungmae">
+  	
+  	<insert id="insertKyungmae" parameterType="KyungmaeDto">
+  	INSERT INTO GALLERY.KYUNGMAE
+	(K_NO, I_NO, I_NAME, I_IMG, K_FIRST_PRICE, K_FIRST_NO, K_FIRST_NAME, K_SECOND_PRICE, K_SECOND_NO, K_SECOND_NAME, K_REGDATE, K_STATE)
+	VALUES(KYUNGMAE_SEQ.NEXTVAL, #{i_no}, #{i_name}, #{i_img},
+ 	#{k_first_price}, #{k_first_no}, #{k_first_name},
+ 	#{k_second_price},#{k_second_no}, #{k_second_name}, #{k_regdate}, #{k_state})
+  	</insert>
+  	
+  	<update id="updateKyungmae" parameterType="KyungmaeDto">
+  
+	UPDATE GALLERY.KYUNGMAE
+	SET  K_FIRST_PRICE=#{k_first_price}, K_FIRST_NO=#{k_first_no}, 
+	K_FIRST_NAME=#{k_first_name}, K_SECOND_PRICE=#{k_second_price},
+	K_SECOND_NO= #{k_second_no}, K_SECOND_NAME= #{k_second_name}, 
+	K_STATE=#{k_state}
+	WHERE K_NO=#{k_no}
+  	</update>
+	
+	<delete id="deleteKyungmae" parameterType="int">
+  
+	DELETE FROM GALLERY.KYUNGMAE
+	WHERE K_NO=#{k_no}
+	</delete>
+	
+	<select id="selectKyungmae1" parameterType="int" resultType="KyungmaeDto">
+	SELECT K_NO, I_NO, I_NAME, I_IMG, K_FIRST_PRICE, K_FIRST_NO,
+	K_FIRST_NAME, K_SECOND_PRICE, K_SECOND_NO, K_SECOND_NAME, K_REGDATE, K_STATE
+	FROM GALLERY.KYUNGMAE
+	WHERE K_NO=#{k_no}
+	</select>
+	
+	<select id="selectKyungmae2" parameterType="int" resultType="KyungmaeDto">
+	SELECT K_NO, I_NO, I_NAME, I_IMG, K_FIRST_PRICE, K_FIRST_NO,
+	K_FIRST_NAME, K_SECOND_PRICE, K_SECOND_NO, K_SECOND_NAME, K_REGDATE, K_STATE
+	FROM GALLERY.KYUNGMAE
+	WHERE I_NO=#{i_no}
+	</select>
+	
+	<select id="selectKyungmaeList1" resultType="KyungmaeDto">
+	SELECT K_NO, I_NO, I_NAME, I_IMG, K_FIRST_PRICE, K_FIRST_NO, K_FIRST_NAME,  
+	K_SECOND_PRICE, K_SECOND_NO, K_SECOND_NAME, K_REGDATE, K_STATE  
+	FROM GALLERY.KYUNGMAE
+	</select>
+	
+	<select id="selectKyungmaeList2" resultType="KyungmaeDto" parameterType="map">
+	SELECT K_NO, I_NO, I_NAME, I_IMG, K_FIRST_PRICE, K_FIRST_NO, K_FIRST_NAME,  
+	K_SECOND_PRICE, K_SECOND_NO, K_SECOND_NAME, K_REGDATE, K_STATE  
+	FROM GALLERY.KYUNGMAE
+	WHERE #{COLNAME} = #{colvalue}
+	</select>
+	
+	
+  </mapper>

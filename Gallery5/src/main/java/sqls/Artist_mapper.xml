@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.hk1.Artist">
+     <!--    <resultMap type = "com.hk.dtos.HkDto" id="HkDtoMap">
+      <result culumn="seq" property="="seq1" />
+   </resultMap>
+ -->
+    <!-- 수정해야함 -->
+    <insert id="insertArtist" parameterType="ArtistDto">
+       INSERT INTO GALLERY.ARTIST
+      (A_NO, A_NAME, A_SOLO, A_SQUARD, A_CAREER, A_STATE)
+      VALUES(#{a_no}, #{a_name}, #{a_solo}, #{a_squard}, #{a_career}, 1)
+    </insert>
+    
+    <update id="updateArtist" parameterType="ArtistDto">
+       UPDATE GALLERY.ARTIST
+      SET A_NAME=#{a_name}, A_SOLO=#{a_solo}, A_SQUARD= #{a_squard}, A_CAREER=#{a_career}, A_STATE=#{a_state}
+      WHERE A_NO=#{a_no}
+    </update>
+    
+    <delete id="deleteArtist" parameterType="int">
+       DELETE FROM GALLERY.ARTIST
+      WHERE A_NO=#{a_no}
+    </delete>
+    
+    <select id="selectArtist" parameterType="int" resultType="ArtistDto">
+       SELECT A_NO, A_NAME, A_SOLO, A_SQUARD, A_CAREER, A_STATE  
+      FROM GALLERY.ARTIST 
+      WHERE A_NO=#{a_no}
+    </select>
+    
+    <select id="selectArtistList1" parameterType="int" resultType="ArtistDto">
+       SELECT A_NO, A_NAME, A_SOLO, A_SQUARD, A_CAREER, A_STATE
+      FROM GALLERY.ARTIST
+      WHERE A_STATE=#{ya_state}
+      ORDER BY A_NO DESC
+    </select>
+    
+    <select id="selectArtistList2" resultType="ArtistDto">
+       SELECT A_NO, A_NAME, A_SOLO, A_SQUARD, A_CAREER, A_STATE
+      FROM GALLERY.ARTIST
+       ORDER BY A_NO DESC
+    </select>
+    <!-- 지우기 -->
+    <select id = "selectArtistListImg" resultType="ArtistDto">
+    	SELECT a.A_NO, a.A_NAME, a.A_SOLO, a.A_SQUARD, a.A_CAREER, 
+    	a.A_STATE, e.E_IMG FROM ARTIST a INNER JOIN EXHIBITION e on a.A_NO = e.A_NO AND a.A_STATE=2
+    
+    </select>
+    
+    
+  </mapper>

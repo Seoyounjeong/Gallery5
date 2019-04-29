@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+  <configuration>
+  	<typeAliases>
+  		<typeAlias type="com.hk1.gallery.dto.GalleryDto" alias="GalleryDto"/>
+  		<typeAlias type="com.hk1.gallery.dto.ArtistDto" alias="ArtistDto"/>
+  		<typeAlias type="com.hk1.gallery.dto.ItemDto" alias="ItemDto"/>
+  		<typeAlias type="com.hk1.gallery.dto.CallendarDto" alias="CallendarDto"/>
+  		<typeAlias type="com.hk1.gallery.dto.DabgeulDto" alias="DabgeulDto"/>
+  		<typeAlias type="com.hk1.gallery.dto.ExhibitionDto" alias="ExhibitionDto"/>
+  	  	<typeAlias type="com.hk1.gallery.dto.MemberDto" alias="MemberDto"/>
+  		<typeAlias type="com.hk1.gallery.dto.RequestDto" alias="RequestDto"/>
+  		<typeAlias type="com.hk1.gallery.dto.KyungmaeDto" alias="KyungmaeDto"/>
+  	</typeAliases>
+  <mappers>
+  	<mapper resource="/sqls/Gallery_mapper.xml" />
+  	<mapper resource="/sqls/Artist_mapper.xml" />
+  	<mapper resource="/sqls/Item_mapper.xml" />
+  	<mapper resource="/sqls/Callendar_mapper.xml" />
+  	<mapper resource="/sqls/Dabgeul_mapper.xml" />
+  	<mapper resource="/sqls/Exhibition_mapper.xml" />
+  	<mapper resource="/sqls/Member_mapper.xml" />
+  	<mapper resource="/sqls/Request_mapper.xml" />
+  	<mapper resource="/sqls/Kyungmae_mapper.xml" />
+  </mappers>
+  
+  
+  </configuration>
+  
+  
+  
+  
+ 

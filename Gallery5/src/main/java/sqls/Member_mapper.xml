@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.hk1.Member">
+  	<!-- 	<resultMap type = "com.hk.dtos.HkDto" id="HkDtoMap">
+		<result culumn="seq" property="="seq1" />
+	</resultMap>
+ -->
+ 	<!-- 수정해야함 -->
+	<select id="selectMemberList"  resultType="MemberDto">
+		SELECT M_NO, M_ID, M_NAME, M_ADDRESS, M_TEL, M_GRADE
+		FROM GALLERY."MEMBER"
+		ORDER BY M_NO DESC
+	</select>
+	
+	<select id="selectMember1" resultType="MemberDto">
+		SELECT M_NO, M_ID, M_NAME, M_ADDRESS, M_TEL, M_GRADE
+		FROM GALLERY."MEMBER"
+		WHERE M_NO=#{m_no}
+	</select>
+		
+	<select id="selectMember2" parameterType="String" resultType="MemberDto">
+  	SELECT M_NO, M_ID, M_NAME, M_ADDRESS, M_TEL, M_GRADE
+	FROM GALLERY."MEMBER"
+	WHERE M_ID=#{m_id}
+  		
+  	</select>
+  	
+  	<!--추가부분 --><!-- m_grade 미승인 조회 -->
+	<select id="selectMember3" resultType="MemberDto">
+  	SELECT M_NO, M_ID, M_NAME, M_ADDRESS, M_TEL, M_GRADE
+	FROM GALLERY."MEMBER"
+	WHERE M_GRADE IN(4,5,7,8,9)
+	ORDER BY M_NO DESC
+  	</select>
+	
+  	
+	
+	
+	<insert id="insertMember" parameterType="MemberDto" >
+	INSERT INTO GALLERY."MEMBER"
+	(M_NO, M_ID, M_NAME, M_ADDRESS, M_TEL, M_GRADE)
+	VALUES(MEMBER_SEQ.NEXTVAL,#{m_id},#{m_name},#{m_address},#{m_tel},#{m_grade})
+	
+	
+	</insert>     
+	
+
+	
+	<update id="updateMember" parameterType="MemberDto">
+	UPDATE GALLERY."MEMBER"
+	SET M_ID=#{m_id},M_NAME=#{m_name},M_ADDRESS=#{m_address},M_TEL=#{m_tel},M_GRADE=#{m_grade}
+	WHERE M_NO=#{m_no}
+	</update>
+	
+	<delete id="deleteMember" parameterType="int">
+	DELETE FROM GALLERY."MEMBER"
+	WHERE M_NO=#{m_no}
+	</delete>
+	
+  </mapper>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.hk1.Request">
+  	<!-- 	<resultMap type = "com.hk.dtos.HkDto" id="HkDtoMap">
+		<result culumn="seq" property="="seq1" />
+	</resultMap>
+ -->
+ 	<!-- 수정해야함 -->
+ 	<select id="selectRequest" resultType="RequestDto" parameterType="int">
+		SELECT R_NO, R_SEND, R_SENDNAME, R_RECEIVE, R_RECEIVENAME, R_TITLE, R_CONTENT, R_REGDATE, R_AGREE 	
+		FROM GALLERY.REQUEST 
+		WHERE R_NO=#{r_no}
+	</select>
+ 	
+	<select id="selectRequestList1" resultType="RequestDto" >
+		SELECT R_NO, R_SEND, R_SENDNAME, R_RECEIVE, R_RECEIVENAME, R_TITLE, R_CONTENT, R_REGDATE, R_AGREE 
+		FROM GALLERY.REQUEST
+		ORDER BY R_NO DESC
+	</select>
+	
+	<select id="selectRequestList2" resultType="RequestDto" parameterType="int">
+		SELECT R_NO, R_SEND, R_SENDNAME, R_RECEIVE, R_RECEIVENAME, R_TITLE, R_CONTENT, R_REGDATE, R_AGREE 
+		FROM GALLERY.REQUEST
+		WHERE R_RECEIVE=#{r_receive}
+	</select>
+	
+	<select id="selectRequestList3" resultType="RequestDto" parameterType="int">
+		SELECT R_NO, R_SEND, R_SENDNAME, R_RECEIVE, R_RECEIVENAME, R_TITLE, R_CONTENT, R_REGDATE, R_AGREE 
+		FROM GALLERY.REQUEST
+		WHERE R_SEND=#{r_send}
+	</select>
+	
+	<insert id="insertRequest" parameterType="RequestDto" >
+		INSERT INTO GALLERY.REQUEST 
+		VALUES(REQUEST_SEQ.NEXTVAL,#{r_send},#{r_sendname},#{r_receive},#{r_receivename},#{r_title},#{r_content},SYSDATE,3)
+
+	</insert>
+				
+	<update id="updateRequest" parameterType="RequestDto">
+	UPDATE GALLERY.REQUEST 
+	SET R_AGREE=#{r_agree} 
+	WHERE R_NO=#{r_no}
+	</update>
+	
+	
+	<delete id="deleteRequest" parameterType="int">
+	DELETE FROM GALLERY.REQUEST WHERE R_NO=#{r_no}
+	</delete>
+	
+	
+  </mapper>

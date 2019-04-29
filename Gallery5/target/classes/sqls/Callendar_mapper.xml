@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.hk1.Callendar">
+     <!--    <resultMap type = "com.hk.dtos.HkDto" id="HkDtoMap">
+      <result culumn="seq" property="="seq1" />
+   </resultMap>
+ -->
+    <!-- 수정해야함 -->
+  <insert id="insertCallendar" parameterType="CallendarDto">
+     INSERT INTO GALLERY.CALLENDAR
+   (C_NO, C_TITLE, C_CONTENT, C_START, C_END, G_NO)
+   VALUES(CALENDAR_SEQ.NEXTVAL, #{c_title}, #{c_content}, #{c_start}, #{c_end}, #{g_no})
+  </insert>
+  
+  <update id="updateCallendar" parameterType="CallendarDto">
+     UPDATE GALLERY.CALLENDAR
+   SET C_TITLE=#{c_title},C_CONTENT=#{c_content},C_START=#{c_start},C_END=#{c_end}
+   WHERE C_NO=#{c_no}
+  </update>
+  
+  <delete id="deleteCallendar" parameterType="int">
+    DELETE FROM GALLERY.CALLENDAR
+   WHERE C_NO=#{c_no}
+  </delete>
+  
+  <select id="selectCallendar1" parameterType="int" resultType="CallendarDto">
+     SELECT C_NO, C_TITLE, C_CONTENT, C_START, C_END, G_NO
+   FROM GALLERY.CALLENDAR
+   WHERE C_NO=#{c_no}
+  </select>
+  
+  
+  <!-- 쿼리 수정 -->
+  <select id="selectCallendar2" parameterType="CallendarDto" resultType="CallendarDto" >
+   SELECT C_NO, C_TITLE, C_CONTENT, C_START, C_END, G_NO
+   FROM GALLERY.CALLENDAR
+   WHERE G_NO=#{g_no} AND SUBSTR(C_START,1,4)=#{c_start}
+  </select>
+  
+    <!-- 쿼리 추가 -->
+  <select id="selectCallendar3" parameterType="CallendarDto" resultType="CallendarDto" >
+   SELECT C_NO, C_TITLE, C_CONTENT, C_START, C_END, G_NO
+   FROM GALLERY.CALLENDAR
+   WHERE G_NO=#{g_no} AND C_START =#{c_start}
+  </select>
+  
+    <select id="selectCallendarList_g_no" parameterType="int" resultType="CallendarDto">
+     SELECT C_NO, C_TITLE, C_CONTENT, C_START, C_END, G_NO
+   FROM GALLERY.CALLENDAR
+   WHERE G_NO=#{g_no}
+  </select>
+  
+  
+  
+  
+  
+  
+  
+  <select id="selectCallendarList" resultType="CallendarDto">
+   SELECT C_NO, C_TITLE, C_CONTENT, C_START, C_END, G_NO 
+   FROM GALLERY.CALLENDAR  
+   ORDER BY C_NO DESC  
+  </select>
+  
+  </mapper>
