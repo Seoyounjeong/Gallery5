@@ -1,8 +1,9 @@
+<%@page import="com.hk1.gallery.dto.ArtistDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%request.setCharacterEncoding("UTF-8");%>
 <%response.setContentType("text/html;charset=utf-8"); %>
-
+<%ArtistDto artistDto=(ArtistDto)request.getAttribute("artistDto");%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -43,7 +44,13 @@
 	
 	<tr>
 		<th>등급</th>
-		<td>${artistDto.a_state}</td>
+		<td>
+		<%if(artistDto.getA_state()==1){%>
+			미승인
+		<%}else if(artistDto.getA_state()==2){%>
+			승인
+		<%}%>
+		</td>
 	</tr>
 	
 	<tr>

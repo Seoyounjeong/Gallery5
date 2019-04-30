@@ -4,7 +4,7 @@
 	pageEncoding="UTF-8"%>
 <%request.setCharacterEncoding("UTF-8");%>
 <%response.setContentType("text/html;charset=utf-8"); %>
-
+<%MemberDto memberDto=(MemberDto)request.getAttribute("memberDto"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -48,8 +48,28 @@
 		<tr>
 			<th>등급</th>
 			<td>
-			   
-			${memberDto.m_grade}
+			<%if(memberDto.getM_grade()==1){%>
+				회원
+			<%}else if(memberDto.getM_grade()==0){%>
+			  	관리자
+			<%}else if(memberDto.getM_grade()==2){%>
+				작가
+			<%}else if(memberDto.getM_grade()==3){%>
+				갤러리주
+			<%}else if(memberDto.getM_grade()==4){%>
+				작가(대기)
+			<%}else if(memberDto.getM_grade()==5){%>
+				갤러리주(대기)
+			<%}else if(memberDto.getM_grade()==6){%>
+				작가, 갤러리주
+			<%}else if(memberDto.getM_grade()==7){%>
+				작가(대기),갤러리주
+			<%}else if(memberDto.getM_grade()==8){%>
+				작가,갤러리주(대기)
+			<%}else if(memberDto.getM_grade()==9){%>
+				작가(대기),갤러리주(대기)
+			<%} %>
+			
 			</td>
 		</tr>
 	

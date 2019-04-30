@@ -25,7 +25,7 @@
 		<col width="400px;">
 		<col width="400px;">
 		<col width="300px;">
-		<col width="40px;">
+		<col width="60px;">
 		<col width="50px;">
 	
 		<tr>
@@ -49,7 +49,15 @@
 		<td><%=artistDto.getA_solo()%></td>
 		<td><%=artistDto.getA_Squard()%></td>
 		<td><%=artistDto.getA_career()%></td>
-		<td><%=artistDto.getA_state()%></td>
+		<td>
+		<%if(artistDto.getA_state()==1){%>
+			미승인
+		<%}else if(artistDto.getA_state()==2){%>
+			승인
+		<%}%>
+		
+		
+		</td>
 		<td><a href="managerdeleteArtist.do?a_no=<%=artistDto.getA_no()%>">[삭제]</a></td>
 	</tr>
 	<%}%>

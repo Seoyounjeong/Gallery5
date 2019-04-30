@@ -47,7 +47,8 @@
 	
 	<tr>
 	<th>회원 등급</th>
-		<td><input type="text" name="m_grade" value="<%=memberDto.getM_grade()%>"/>
+		<td>
+<%-- 		<input type="text" name="m_grade" value="<%=memberDto.getM_grade()%>"/> --%>
 		<select name="m_grade">
 		<option value="<%=memberDto.getM_grade()%>"><%=memberDto.getM_grade()%></option>
 		<option value="1">회원(1)</option>

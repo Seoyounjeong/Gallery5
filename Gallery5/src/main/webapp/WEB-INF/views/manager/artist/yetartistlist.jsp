@@ -4,7 +4,7 @@
 	pageEncoding="UTF-8"%>
 <%request.setCharacterEncoding("UTF-8");%>
 <%response.setContentType("text/html;charset=utf-8"); %>
-
+<%ArtistDto artistDto = (ArtistDto)request.getAttribute("artistDto"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,9 +30,7 @@
 		</tr>
 		<%
 		for(int i=0; i<list.size(); i++){
-			ArtistDto artistDto=list.get(i);
-			
-			
+			 artistDto=list.get(i);
 	%>
 	<tr>
 		<td><%=artistDto.getA_no()%></td>
@@ -40,7 +38,11 @@
 		<td><%=artistDto.getA_solo()%></td>
 		<td><%=artistDto.getA_Squard()%></td>
 		<td><%=artistDto.getA_career()%></td>
-		<td><%=artistDto.getA_state()%></td>
+		<td>
+		<%if(artistDto.getA_state()==1){%>
+			미승인
+		<%}%>
+		</td>
 		<td><a href="managerdeleteArtist.do?a_no=<%=artistDto.getA_no()%>">[삭제]</a></td>
 		
 	<% }%>

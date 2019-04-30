@@ -49,7 +49,21 @@ width:500px;
 	
 	<tr>
 	<th>회원등급</th>
-	<td><input type="text" name="a_state" value="<%=artistDto.getA_state()%>"/></td>
+	<td>
+		<select name="a_state">
+			<option value="<%=artistDto.getA_state()%>">
+		현재등급:<%if(artistDto.getA_state()==1){%>
+				미승인
+			<%}else{%>
+				승인
+			<%}%>
+			</option>
+			<option value="1">미승인</option>
+			<option value="2">승인</option>
+		</select>
+	
+<%-- 	<input type="text" name="a_state" value="<%=artistDto.getA_state()%>"/> --%>
+	</td>
 	</tr>
 	
 	

@@ -43,7 +43,12 @@
 <!-- </div> -->
 <div id="field3"></div>
 
-등급:<input type="text" name="a_state" value="1"/><br>
+등급:
+<select name="a_state">
+	<option value="1">작가 미승인</option>
+	<option value="2">작가 승인</option>
+</select>
+<br>
 
 <input type="submit" value="추가완료"/>
 
