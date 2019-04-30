@@ -35,9 +35,9 @@ public class ArtistDao implements IArtistDao {
 	      return sqlSession.selectOne(namespace+"selectArtist", a_no);
 	   }
 	   @Override
-	   public List<ArtistDto> selectArtistList(int ya_state) {
+	   public List<ArtistDto> selectArtistList(int a_state) {
 	      
-	      return sqlSession.selectList(namespace+"selectArtistList1",ya_state);
+	      return sqlSession.selectList(namespace+"selectArtistList1",a_state);
 	   }
 	   @Override
 	   public List<ArtistDto> selectArtistList() {

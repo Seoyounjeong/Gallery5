@@ -17,7 +17,7 @@
 %>
 <h1>갤러리 목록</h1>
 <input type="button" value="갤러리추가" onclick="location.href='managerinsertGalleryform.do'">
-<a href="managerselectyetGalleryList.do?yg_state=5,8,9">미승인 갤러리 목록</a>
+<a href="managerselectyetGalleryList.do?g_state=1">미승인 갤러리 목록</a>
 <table border="1">
 		<tr>
 			<th>번호</th>

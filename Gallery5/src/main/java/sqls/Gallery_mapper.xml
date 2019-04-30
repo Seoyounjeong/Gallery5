@@ -42,7 +42,7 @@
     <select id="selectGalleryList2" resultType="GalleryDto" parameterType="int">
     SELECT G_NO, M_NO, G_NAME, G_ADRESS, G_TEL, G_IMG1, G_IMG2, G_IMG3, G_IMG4, G_INTRO, G_STATE 
     FROM GALLERY 
-    WHERE G_STATE=#{yg_state}
+    WHERE G_STATE=#{g_state}
      ORDER BY G_NO DESC
     </select>
     

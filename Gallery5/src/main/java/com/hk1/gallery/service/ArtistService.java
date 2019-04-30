@@ -38,9 +38,9 @@ public class ArtistService implements IArtistService {
 	}
 
 	@Override
-	public List<ArtistDto> selectArtistList(int ya_state) {
+	public List<ArtistDto> selectArtistList(int a_state) {
 		// TODO Auto-generated method stub
-		return artistDao.selectArtistList(ya_state);
+		return artistDao.selectArtistList(a_state);
 	}
 
 	@Override

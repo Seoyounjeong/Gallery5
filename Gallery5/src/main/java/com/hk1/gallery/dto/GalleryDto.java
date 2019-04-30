@@ -12,7 +12,7 @@ public class GalleryDto {
 	private String g_img4;
 	private String g_intro;
 	private int g_state;
-	private String yg_state;
+	
 	
 	public GalleryDto() {
 		super();
@@ -118,13 +118,6 @@ public class GalleryDto {
 		return this;
 	}
 	
-	public String getYg_state() {
-		return yg_state;
-	}
-
-	public void setYg_state(String yg_state) {
-		this.yg_state = yg_state;
-	}
 
 	
 

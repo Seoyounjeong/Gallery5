@@ -33,8 +33,8 @@ padding-right:50px;
 	<li><a href="#">승인</a></li>
 		
 		<li><a href="managerselectCheckMemberList.do">회원등급변경</a></li>	
-		<li><a href="managerselectyetArtistList.do?ya_state=4,7,9">작가승인</a></li>
-		<li><a href="managerselectyetGalleryList.do?yg_state=5,8,9">갤러리승인</a></li>
+		<li><a href="managerselectyetArtistList.do?a_state=1">작가승인</a></li>
+		<li><a href="managerselectyetGalleryList.do?g_state=1">갤러리승인</a></li>
 </ul>
 	
 </div>

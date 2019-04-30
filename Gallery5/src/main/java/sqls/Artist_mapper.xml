@@ -34,7 +34,7 @@
     <select id="selectArtistList1" parameterType="int" resultType="ArtistDto">
        SELECT A_NO, A_NAME, A_SOLO, A_SQUARD, A_CAREER, A_STATE
       FROM GALLERY.ARTIST
-      WHERE A_STATE=#{ya_state}
+      WHERE A_STATE=#{a_state}
       ORDER BY A_NO DESC
     </select>
     

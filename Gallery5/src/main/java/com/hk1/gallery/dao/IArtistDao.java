@@ -9,7 +9,7 @@ public interface IArtistDao {
 	boolean updateArtist(ArtistDto artistDto); 		//U , M
 	boolean deleteArtist(int a_no); 			//M
 	ArtistDto	 selectArtist(int a_no);			//U , M
-	List<ArtistDto> selectArtistList(int ya_state);		//U , M
+	List<ArtistDto> selectArtistList(int a_state);		//U , M
 	List<ArtistDto> selectArtistList();			//U , M
 	List<ArtistDto> selectArtistListImg();
 }

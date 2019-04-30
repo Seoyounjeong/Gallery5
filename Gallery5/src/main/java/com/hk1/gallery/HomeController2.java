@@ -244,6 +244,10 @@ public class HomeController2 {
 	public String updateArtist(Locale locale, Model model, ArtistDto artistDto) {
 		logger.info("작가정보수정 {}.", locale);
 		boolean isS=artistService.updateArtist(artistDto);
+		
+	
+		
+		
 		if(isS) {
 			return "redirect:managerselectArtist.do?a_no="+artistDto.getA_no();
 		}else {
@@ -266,18 +270,21 @@ public class HomeController2 {
 	}
 
 	@RequestMapping(value = "/managerselectyetArtistList.do", method = RequestMethod.GET)
-	public String selectAritistList1(Locale locale, Model model, String ya_state) {
+	public String selectAritistList1(Locale locale, Model model, int a_state) {
 		//승인안된 작가 목록 보기
 		logger.info("승인안된작가 들 목록보기 {}.", locale);
-		System.out.println(ya_state);
-		String[] ya = ya_state.split(",");
-		List<ArtistDto> list = new ArrayList<ArtistDto>();
-		for(int i = 0 ; i < ya.length ; i++) {
-			Iterator<ArtistDto> it = artistService.selectArtistList(Integer.parseInt(ya[i])).iterator();
-			while(it.hasNext()) {
-				list.add((ArtistDto) it.next());
-			}
-		}
+		System.out.println(a_state);
+		
+		List<ArtistDto> list = artistService.selectArtistList(a_state);
+		
+//		String[] ya = ya_state.split(",");
+//		List<ArtistDto> list = new ArrayList<ArtistDto>();
+//		for(int i = 0 ; i < ya.length ; i++) {
+//			Iterator<ArtistDto> it = artistService.selectArtistList(Integer.parseInt(ya[i])).iterator();
+//			while(it.hasNext()) {
+//				list.add((ArtistDto) it.next());
+//			}
+//		}
 		model.addAttribute("list",list);
 
 		return "manager/artist/yetartistlist";		
@@ -526,19 +533,19 @@ public class HomeController2 {
 	}
 	
 	@RequestMapping(value = "/managerselectyetGalleryList.do", method = RequestMethod.GET)
-	public String selectGalleryList1(Locale locale, Model model, String yg_state) {
-		System.out.println(yg_state);
+	public String selectGalleryList1(Locale locale, Model model, int g_state) {
+//		System.out.println(yg_state);
 		logger.info("승인안된갤러리목록보기 {}.", locale);
 		
-		String[] yg=yg_state.split(",");
-		List<GalleryDto>list = new ArrayList<GalleryDto>();
-		for(int i=0; i<yg.length; i++) {
-			Iterator<GalleryDto>it=galleryService.selectG_stateGalleryList(Integer.parseInt(yg[i])).iterator();
-			while(it.hasNext()) {
-				list.add((GalleryDto)it.next());
-			}
-		}
-		
+//		String[] yg=yg_state.split(",");
+//		List<GalleryDto>list = new ArrayList<GalleryDto>();
+//		for(int i=0; i<yg.length; i++) {
+//			Iterator<GalleryDto>it=galleryService.selectG_stateGalleryList(Integer.parseInt(yg[i])).iterator();
+//			while(it.hasNext()) {
+//				list.add((GalleryDto)it.next());
+//			}
+//		}
+		List<GalleryDto> list = galleryService.selectG_stateGalleryList(g_state);
 //		List<GalleryDto>list=galleryService.selectG_stateGalleryList(Integer.parseInt(yg[i])).iterator();
 //		System.out.printf("list : " +list);
 		model.addAttribute("list",list);

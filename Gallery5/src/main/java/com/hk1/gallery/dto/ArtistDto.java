@@ -11,7 +11,7 @@ public class ArtistDto {
 	private String a_career;
 	private int a_state;
 	private String e_img;
-	private String ya_state;
+
 	
 	public ArtistDto() {
 		super();
@@ -87,14 +87,7 @@ public class ArtistDto {
 		return this;
 	}
 	
-	public String getYa_state() {
-		return ya_state;
-	}
-
-
-	public void setYa_state(String ya_state) {
-		this.ya_state = ya_state;
-	}
+	
 
 
 	@Override

@@ -53,9 +53,9 @@ public class GalleryDao implements IGalleryDao {
 	
 	// 스테이트 3 인거 가져올때
 	@Override
-	public List<GalleryDto> selectG_stateGalleryList(int yg_state) {
+	public List<GalleryDto> selectG_stateGalleryList(int g_state) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(namespace+"selectGalleryList2",yg_state);
+		return sqlSession.selectList(namespace+"selectGalleryList2",g_state);
 	}
 
 	//내 갤러리 볼때  mno로 볼때 여려개 돈많은놈

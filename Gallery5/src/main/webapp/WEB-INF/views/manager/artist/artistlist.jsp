@@ -18,7 +18,7 @@
 	<h1>작가목록</h1>
 	
 	<input type="button" value="작가추가" onclick="location.href='managerinsertArtistform.do'">
-	<a href="managerselectyetArtistList.do?ya_state=4,7,9">미승인 작가목록</a>
+	<a href="managerselectyetArtistList.do?a_state=1">미승인 작가목록</a>
 	<table border="1">
 		<col width="40px;">
 		<col width="150px;">
