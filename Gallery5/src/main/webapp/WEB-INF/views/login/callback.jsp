@@ -22,7 +22,7 @@
     alert(naver_id_login.getProfileData('nickname')); */
   document.getElementById("email").value =naver_id_login.getProfileData('email');
   document.getElementById("nickname").value =naver_id_login.getProfileData('nickname');
-   
+     
    
     
   }
