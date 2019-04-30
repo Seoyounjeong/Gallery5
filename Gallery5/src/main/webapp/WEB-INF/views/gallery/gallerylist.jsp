@@ -61,14 +61,30 @@
 
 
 <div>
-
-
-
-	<%
-	
-		for(GalleryDto dto:list){
+<% 
+		if(list.size()==0){
 			%>
+			<!-- <tr> -->
+			<h5>---등록된 갤러리가 없습니다---</h5>
+			<!-- </tr> -->
+			<% 
 
+}else{
+	for(GalleryDto dto:list){ %>
+	<%if(loginMember==null||loginMember.getM_grade()!=2){ %>
+
+<div id="Galletylist_Setion">
+<div><img style="width: 100px; height: 100px;" alt="대표이미지" src="galleryupload/<%=dto.getG_img1()%>"></div>
+<div><span>G_NO</span><a href="selectGallery.do?g_no=<%=dto.getG_no()%>&g_return=general_one"><%=dto.getG_no()%></a></div>
+<div><span>M_NO</span><%=dto.getM_no()%></div>
+<div><span>G_NAME</span><%=dto.getG_name()%></div>
+<div><span>G_ADRESS</span><%=dto.getG_adress()%></div>
+<div><span>G_TEL</span><%=dto.getG_tel()%></div>
+<div><span>G_INTRO</span><%=dto.getG_intro()%></div>
+<div><span>G_STATE</span><%=dto.getG_state()%></div>
+
+</div>
+<%}else if(loginMember.getM_grade()==2){ %>
 <div id="Galletylist_Setion">
 <div><img style="width: 100px; height: 100px;" alt="대표이미지" src="galleryupload/<%=dto.getG_img1()%>"></div>
 <div><span>G_NO</span><a href="selectGallery.do?g_no=<%=dto.getG_no()%>&g_return=general_one"><%=dto.getG_no()%></a></div>
@@ -81,13 +97,9 @@
 <div><span>메시지</span><input type="button" value="전시 요청" 
 		onclick="pop('<%=loginMember.getM_no()%>','<%=dto.getG_no()%>','<%=loginMember.getM_name() %>','<%=dto.getG_name() %>')" >
 		</div>
-
-
-
 </div>
-
-			<% 
-		}
+			<%
+		}}}
 	%>
 
 
