@@ -48,7 +48,7 @@
 		<tr>
 			<th>등급</th>
 			<td>
-			
+			   
 			${memberDto.m_grade}
 			</td>
 		</tr>
