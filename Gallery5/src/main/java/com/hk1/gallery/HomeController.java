@@ -44,6 +44,10 @@ import com.hk1.gallery.service.KyungmaeService;
  * 1 로그인 관련
  * 2 작품 올리기 관련
  * 
+ * fileupload 경로 설정 주의사항 - 
+ * 247 작품올리기 	D:/PROJECT/itemupload 저장 		-> 저장 후 사진 복사해서 프로젝트의 itemupload파일로 넣어주어야함 
+ * 352 전시올리기 	D:/PROJECT/exhibitionupload 저장 -> 저장 후 사진 복사해서 프로젝트의 exhibitionupload파일로 넣어주어야함 
+ * 490 전시 수정 	D:/PROJECT/exhibitionupload 저장 -> 저장 후 사진 복사해서 프로젝트의 exhibitionupload파일로 넣어주어야함 
  * 
  */
 @Controller
@@ -235,13 +239,17 @@ public class HomeController {
 				.substring(origin_fname.lastIndexOf("."));
 		System.out.println("stored_fname : ["+ stored_fname+"]");
 		
-		//파일객체 구하기		C:\Users\hk-edu\git\Gallery5\Gallery5\src\main\webapp\itemupload
+		//파일객체 구하기		
 				
-		File f = new File("C:/Users/hk-edu/git/Gallery5/Gallery5/src/main/webapp/itemupload/"+stored_fname);
-
+		//1절대경로 D:/PROJECT/itemupload 로 저장 한다 
+		//2절대경로에 저장되어있기 때문에 자신이 올린 파일을 직접 maven project itemupload 폴더에 넣어주어야한다
+		
+		File f = new File("D:/PROJECT/itemupload/"+stored_fname);
+		
+		
 		itemDto.setI_img(stored_fname);
 		try {
-		
+			
 			multifile.transferTo(f);
 			itemService.insertItem(itemDto);
 			
@@ -341,7 +349,7 @@ public class HomeController {
 		int a_no =Integer.parseInt(request.getParameter("a_no"));
 		
 		//파일객체 구하기	C:\Users\hk-edu\git\Gallery5\Gallery5\src\main\webapp\exhibitionupload
-		File f = new File("C:/Users/hk-edu/git/Gallery5/Gallery5/src/main/webapp/exhibitionupload/"+stored_fname);
+		File f = new File("D:/PROJECT/exhibitionupload/"+stored_fname);
 		
 	
 		try {
@@ -478,7 +486,7 @@ public class HomeController {
 			//파일객체 구하기 C:\Users\hk-edu\git\Gallery5\Gallery5\src\main\webapp\exhibitionupload
 			
 			
-			File f = new File("C:/Users/hk-edu/git/Gallery5/Gallery5/src/main/webapp/exhibitionupload/"+stored_fname);
+			File f = new File("D:/PROJECT/itemupload/"+stored_fname);
 	
 				try {
 						multifile.transferTo(f);	

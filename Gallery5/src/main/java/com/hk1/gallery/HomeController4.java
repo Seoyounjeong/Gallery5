@@ -38,6 +38,11 @@ import com.hk1.utils.Util;
 
 /**
  * Handles requests for the application home page.
+ * 
+ * 
+ * 
+ * 160 갤러리 업로드 시 "D:/PROJECT/galleryupload/"에서 저장된 사진들 프로젝트에 galleryupload 파일에 옮겨놔야함 
+ * 399 갤러리 업로드 시 "D:/PROJECT/galleryupload/"에서 저장된 사진들 프로젝트에 galleryupload 파일에 옮겨놔야함 
  */
 @Controller
 public class HomeController4 {
@@ -157,7 +162,7 @@ public class HomeController4 {
 		
 		
 		//파일저장 경로
-		String path = "C:/Users/hk-edu/git/Gallery5/Gallery5/src/main/webapp/galleryupload/";
+		String path = "D:/PROJECT/galleryupload/";
 
 		
 		
@@ -395,8 +400,8 @@ public class HomeController4 {
 		List<MultipartFile> fileList = mtfRequest.getFiles("file");
 		
 		
-		//파일저장 경로
-		String path = "C:/Users/hk-edu/git/Gallery5/Gallery5/src/main/webapp/galleryupload/";
+		//파일저장 경로   
+		String path = "D:/PROJECT/galleryupload/";
 
 		
 		for (int i = 0; i < fileList.size(); i++) {
