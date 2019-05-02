@@ -257,10 +257,18 @@ public class HomeController4 {
 		mDto.setM_no(Integer.parseInt(m_no));
 		mDto.setM_tel(m_tel);
 		System.out.println("mdto = ?" + mDto);
-		boolean isM =memberService.updateMember(mDto);
 		
-		session.removeAttribute("loginMember");
-		session.setAttribute("loginMember", mDto);
+		
+		
+		if(m_grade.equals("1")) {
+			
+			boolean isM =memberService.updateMember(mDto);
+			
+			session.removeAttribute("loginMember");
+			session.setAttribute("loginMember", mDto);
+			System.out.println("memberupdate 성공");
+		}
+		
 		
 		if (isS) {
 			return "redirect:privatemain.do";

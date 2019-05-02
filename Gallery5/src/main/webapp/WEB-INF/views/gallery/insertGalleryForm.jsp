@@ -80,18 +80,30 @@
 	<%}else{%>
 	<input type="text" name="m_grade" value="<%=Ddto.getM_grade()%>" >
 	<%}%> --%>
-	
+<%
+int m_grade = Ddto.getM_grade();
+
+if(m_grade==1){%>
 
 <input type="text" name="m_grade" value="5">
+<%}else{%>
+<input type="text" name="m_grade" value="<%=Ddto.getM_grade()%>">		
+<%}%>
 <input type="text" name="m_id" value="<%=Ddto.getM_id()%>">
-<input type="text" name="m_name" value="<%=Ddto.getM_name() %>">
+<input type="text" name="m_name" value="<%=Ddto.getM_name()%>">
 <input type="text" name="m_address" value="<%=Ddto.getM_address()%>">
-<input type="text" name="m_tel" value="<%=Ddto.getM_tel() %>">
+<input type="text" name="m_tel" value="<%=Ddto.getM_tel()%>">
 
 <input type="submit">
 
 	</form>	
-<%}%>
+
+
+
+ 	
+ 	
+ 	
+ 	<%}%>
 
 <%-- <%}%> --%>
  
