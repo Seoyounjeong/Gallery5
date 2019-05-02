@@ -10,12 +10,16 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,6 +57,8 @@ public class HomeController3 {
 	private IExhibitionService exhibitionService;
 	@Autowired
 	private IItemService itemService;
+	@Autowired 
+	private JavaMailSenderImpl mailSender;
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -328,6 +334,47 @@ public class HomeController3 {
 				
 			
 			}
+			/* 2019-05-02 ----------------------------------------------------------------------------------------------------- 
+			 * 추가 : 조용권 
+			 * 내용 : 메일 발송 관련 폼생성 메소드 , 메일 보내는 메소드*/
+			
+			//메일 발송 이벤트 
+			public void SendMail(final String from , final String to , final String title ,final String msg) {
+									//보내는메일주소			받는메일주소				제목				내용
+				final MimeMessagePreparator preparator = new MimeMessagePreparator() { 
+					@Override public void prepare(MimeMessage mimeMessage) throws Exception 
+				{ final MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true, "UTF-8"); 
+					String Message =SendMailForm(msg);
+					helper.setFrom(from); 
+					helper.setTo(to);
+					helper.setSubject(title); 
+					helper.setText(Message, true); }
+					
+
+				 }; 
+				 mailSender.send(preparator); 
+				 System.out.println("메일 발신 성공");
+
+			}
+			//메일 발송폼 
+			public String SendMailForm(String msg) {
+				String sendMailForm="<link href=\"https://fonts.googleapis.com/css?family=Jua\" rel=\"stylesheet\"> " + 
+						" <link href=\"https://fonts.googleapis.com/css?family=Nanum+Brush+Script\" rel=\"stylesheet\"> " + 
+						 "<div style=\"text-align: center; font-family: 'Jua', sans-serif; margin-top: 10%;\">\n" + 
+						"    <h2>안녕하세요 <span style=\"font-family: 'Nanum Brush Script', cursive;\">[ 방구석갤러리 ]</span>입니다</h2> " + 
+						"    <div style=\"text-align: center; font-family: 'Jua', sans-serif;\"> " + 				
+						"        <p>"+msg+"</p> " + 
+						"        <a href=\"http:// 192.168.3.106:8888/gallery/\" style=\"text-decoration: none; color: plum;\">확인하기</a> " + 
+						"    </div> " + 
+						" </div> ";
+				
+				
+				return sendMailForm;
+			}
+			//-------------------------------------------------------------------------------------------------------------------------------------
+			
+			
+			
 	
 	
 }
