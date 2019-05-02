@@ -115,6 +115,7 @@ public class HomeController {
 			
 			return "login/insertMember";
 		}else {
+			
 			session.setAttribute("loginMember", memberDto);
 			return "redirect:index.jsp";
 		}
@@ -624,6 +625,11 @@ public class HomeController {
 					
 					if(kyungmaeService.insertKyungmae(kyungmaeDto)) {
 					 System.out.println("경매등록");
+					 String from = "gallerytest4@naver.com";
+						String to = "gallerytest4@naver.com";
+						String title= "[방구석갤러리]경매등록 발생";
+						String msg ="경매가 등록되었습니다";
+						SendMail(from, to, title, msg);
 				 }else {
 					 System.out.println("경매등록 error");
 				 }
@@ -675,6 +681,10 @@ public class HomeController {
     	if(from.equals("pop")) {
     		if(itemService.updateItem(itemDto)) {
     			if(kyungmaeService.updateKyungmae(kyungmaeDto)) {
+    				
+    				
+    				
+    				
     				
     			}else {
     				System.out.println("[pop]pupdateKyungmaeEnd_경매 업데이트 error");
