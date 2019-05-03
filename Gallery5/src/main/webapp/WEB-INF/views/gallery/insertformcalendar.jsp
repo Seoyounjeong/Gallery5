@@ -6,28 +6,50 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/minty/bootstrap.min.css" rel="stylesheet" integrity="sha384-9NlqO4dP5KfioUGS568UFwM3lbWf3Uj3Qb7FBHuIuhLoDp3ZgAqPE1/MYLEBPZYM" crossorigin="anonymous">
 <title>인덱스</title>
 </head>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>  
+<script src="http://code.jquery.com/jquery-latest.min.js"></script> 
+ 
 
 <body>
 
-야야야 캘린더 인설트할 준비 됫냐
+
+
+
 <%String c_return= (String)request.getAttribute("c_return"); %>
 <%int c_start_y = (Integer)request.getAttribute("c_start_y"); %>
 <%int c_start_m = (Integer)request.getAttribute("c_start_m"); %>
 <%int c_start_d = (Integer)request.getAttribute("c_start_d"); %>
 
-<form action="insertcallendar.do" method="post">
+
+
+<div class="container" style="width: 350px; margin-top:30px;">
+
+<form class="form-horizontal" action="insertcallendar.do" method="post">
 <input name="c_return" type="hidden" value="<%=c_return%>">
-<div>
-<span>전시제목</span> <input type="text" name="c_title" required="required">
+
+
+<div class="form-group row">
+
+	<div class="col-2.5">
+ 		<label class="control-label">전시제목</label>
+	</div>
+	<div class="w-100"></div>
+ 	<div class="col-2.5">
+	<input style="width: 330px;" class="form-control" type="text" name="c_title" required="required">
+	</div>
+
 </div>
 
-<div>
 
-<span>시작일</span> 
-<select name="c_start_y">
+<div class="form-group row">
+<div style="margin-right: 30px;" class="col-2.5">
+<label>시작일</label> 
+</div>
+
+<div class="col-2.5" style="margin-right: 15px;">
+<select class="form-control" data-style="btn-primary" name="c_start_y">
 <%for (int i = 2019; i <= 2025; i++) {
 	 %> <option<%if(c_start_m==i){
 		 %> 
@@ -40,8 +62,9 @@
 }  %>
 </option>
 </select>
-
-<select name="c_start_m">
+</div>
+<div class="col-2.5" style="margin-right: 15px;">
+<select class="form-control" name="c_start_m">
 <%for (int i = 1; i <= 12; i++) {
 	 %> <option<%if(c_start_m==i){
 		 %> 
@@ -54,8 +77,9 @@
 }  %>
 </option>
 </select>
-
-<select name="c_start_d">
+</div>
+<div class="col-2.5" style="margin-right: 15px;">
+<select class="form-control" name="c_start_d">
 <%for (int i = 1; i <= 31; i++) {
 	 %> <option<%if(c_start_d==i){
 		 %> 
@@ -68,12 +92,15 @@
 
 }  %>
 </select>
-
+</div>
 </div>
 
-<div>
-<span>종료일</span> 
-<select name="c_end_y">
+<div class="form-group row">
+<div style="margin-right: 30px;" class="col-2.5">
+<label>종료일</label> 
+</div>
+<div class="col-2.5" style="margin-right: 15px;">
+<select class="form-control" name="c_end_y">
 <%for (int i = 2019; i <= 2025; i++) {
 	 %> <option<%if(c_start_m==i){
 		 %> 
@@ -86,8 +113,9 @@
 }  %>
 </option>
 </select>
-
-<select name="c_end_m" onchange="cdate_d(this);">
+</div>
+<div class="col-2.5" style="margin-right: 15px;">
+<select class="form-control" name="c_end_m" onchange="cdate_d(this);">
 <%for (int i = 1; i <= 12; i++) {
 	 %> <option<%if(c_start_m==i){
 		 %> 
@@ -100,9 +128,9 @@
 }  %>
 </option>
 </select>
-
-
-<select name="c_end_d" onchange="cdate_d(this);">
+</div>
+<div class="col-2.5" style="margin-right: 15px;">
+<select class="form-control" name="c_end_d" onchange="cdate_d(this);">
 <%for (int i = 1; i <= 31; i++) {
 	 %> <option <%if(c_start_d==i){
 		 %> 
@@ -118,21 +146,26 @@
 </select>
 </div>
 
-<div>
-<span>전시소개</span> <textarea rows="4" cols="30" name="c_content" required="required"></textarea>
+</div>
+
+<div class="form-group row">
+<div class="col-2.5">전시소개</div>
+<div class="w-100"></div> 
+
+<textarea class="form-control" style="resize: none; width: 330px;" rows="4" name="c_content" required="required"></textarea>
 </div>
 <%String g_no=(String)request.getAttribute("g_no"); %>
-<div>
-<span>G_NO</span> <input type="text" name="g_no" value="<%=g_no%>">
-</div>
+
+<input type="hidden" name="g_no" value="<%=g_no%>">
 
 
-<input type="submit" value="일정등록"  >
+
+<input style="width: 300px;" class="btn btn-success form-control" type="submit" value="일정등록"  >
 
 
 </form>
 
-
+</div>
 
 
 </body>

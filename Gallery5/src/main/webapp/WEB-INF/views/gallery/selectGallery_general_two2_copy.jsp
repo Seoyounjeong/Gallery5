@@ -13,53 +13,29 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <title>인덱스</title>
 
 <style type="text/css">
 
-
-.c_header{
-
-height: 90px;
-background-color: rgb(255, 104, 96);
-zoom: 1;
-    filter: alpha(opacity=70);
-    opacity: 0.7;
-    
-border-top-left-radius:20px;
-border-top-right-radius:20px;
-     
-}
-
-.c_header div{
-font-size: 30px;
-font-weight: bold;
-text-align: center;
-
-color: white;
-line-height: 3;
-
-}
-
-.c_week th {
-	text-align: center;
-	color: rgb(255, 104, 96);
-	height: 40px;
-	vertical-align: middle;
-}
-
-.arrow{
-    line-height: 3;
-    color: white;
-}
-
-
-#Gallery_setion2{margin: 0 auto; width: 600px;}
+#Gallery_setion2{ margin: 0 auto; width: 600px;}
 #Gallery_setion2 div{ margin: 0 auto; width: 100%;}
 #Gallery_setion2 table{margin: 0 auto;}
 
+td:hover {
+	background-color: rgba(0, 0, 0, 0.075)
+}
 
+
+img{
+	width: 100px;
+	height: 100px;	
+}
+
+button {
+	background-color: pink;
+	border-radius: 10px;
+	border: none; 
+}
 </style>
 </head>
 
@@ -132,60 +108,29 @@ line-height: 3;
 
 <div id="Gallery_callendal">
 <!-- 달력관련 -->
+<h1 style="text-align: center;">달력 일정 보기</h1>
 
 
+<table>
 
-       <!--  <div class="c_header">
- 
-
-            <div>
-                <i class=" arrow fas fa-chevron-left fa-2x fa-pull-left"></i> 
-                 <span class="m">MAY</span>&nbsp;&nbsp;<span class="y">2019</span>
-                <i class="arrow fas fa-chevron-right fa-2x fa-pull-right"></i>
-            </div>
-                
-              
-
-            </div> -->
-
-
-
-<div class="c_header">
-
-<%-- <span>
-
-<a href="selectGallery.do?year=<%=year-1%>&month=<%=month%>&g_no=${galleryDto.g_no}&g_return=general_two"></a>
-
-</span> --%>
-
-<div>
-
-<a href="selectGallery.do?year=<%=year%>&month=<%=month-1%>&g_no=${galleryDto.g_no}&g_return=general_two"><i class=" arrow fas fa-chevron-left fa-pull-left"></i></a>
-
-<span class="m"><%=Util.Calmonth(month)%><%-- <%=month%> --%></span>
-
-&nbsp;&nbsp;<span class="y"><%= year%></span>
-
-<a href="selectGallery.do?year=<%=year%>&month=<%=month+1%>&g_no=${galleryDto.g_no}&g_return=general_two"><i class="arrow fas fa-chevron-right fa-pull-right"></i></a>
-
-</div>
-
-
-
-<%-- <span style="float: right;">
-
-<a href="selectGallery.do?year=<%=year+1%>&month=<%=month%>&g_no=${galleryDto.g_no}&g_return=general_two">▶</a>
-</span> --%>
-
-
-</div>
-
-
-<table class="table table-bordered">
 
 <!--g_no 로그인 세션값 넣어야 합니다.-->
-<tr class="c_week">
-<th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th>
+
+
+<caption>
+<a href="selectGallery.do?year=<%=year-1%>&month=<%=month%>&g_no=${galleryDto.g_no}&g_return=general_two">◁</a>
+<a href="selectGallery.do?year=<%=year%>&month=<%=month-1%>&g_no=${galleryDto.g_no}&g_return=general_two">◀</a>
+<span class="y"><%= year %></span>년 <span class="m"><%= month%></span>월
+<a href="selectGallery.do?year=<%=year%>&month=<%=month+1%>&g_no=${galleryDto.g_no}&g_return=general_two">▷</a>
+<a href="selectGallery.do?year=<%=year+1%>&month=<%=month%>&g_no=${galleryDto.g_no}&g_return=general_two">▶</a>
+</caption>
+<col width="80px"><col width="80px"><col width="80px"><col width="80px">
+<col width="80px"><col width="80px"><col width="80px">
+
+
+
+<tr>
+<th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>
 </tr>
 <tr>
 

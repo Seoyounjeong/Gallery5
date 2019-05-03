@@ -73,6 +73,28 @@ public class Util {
 	
 	return color;
 }
+	
+	public static String Calmonth(int month) {
+		
+		String s_month = null;
+
+		if(month==1) {s_month="JANUARY";}
+		if(month==2) {s_month="FEBRUARY";}
+		if(month==3) {s_month="MARCH";}
+		if(month==4) {s_month="APRIL";}
+		if(month==5) {s_month="MAY";}
+		if(month==6) {s_month="JUNE";}
+		if(month==7) {s_month="JULY";}
+		if(month==8) {s_month="AUGUST";}
+		if(month==9) {s_month="SEPTEMBER";}
+		if(month==10) {s_month="OCTOBER";}
+		if(month==11) {s_month="NOVEMBER";}
+		if(month==12) {s_month="DECEMBER";}
+
+		return s_month;
+		
+	}
+	
 		
 
 public static String getCalView(List<CallendarDto> list, int i) {
@@ -96,16 +118,16 @@ public static String getCalView(List<CallendarDto> list, int i) {
 					
 				if (calDto.getC_start().substring(4, 6).equals(d)) {
 					
-					calList+="<p title='"+calDto.getC_title()+"' class='clist' style='font-size:8px; background-color: pink; margin: 0; height: 20px;' onclick='c_update("+i+","+calDto.getC_start()+","+calDto.getC_no()+")'>"
+					calList+="<p title='"+calDto.getC_title()+"' class='clist' style='font-size:8px; font-weight: bold; color: white; background-color: #FFCCCC; margin: 0; height: 20px;' onclick='c_update("+i+","+calDto.getC_start()+","+calDto.getC_no()+")'>"
 							+(calDto.getC_title().length()>4? calDto.getC_title().substring(0, 3)+".." : calDto.getC_title())
 							+"시작"+"</p>";
 				}else if(calDto.getC_end().substring(4, 6).equals(d)) {
 					
-					calList+="<p title='"+calDto.getC_title()+"' class='clist' style='font-size:8px; background-color: pink; margin: 0; height: 20px;' onclick='c_update("+i+","+calDto.getC_start()+","+calDto.getC_no()+")'>"
+					calList+="<p title='"+calDto.getC_title()+"' class='clist' style='font-size:8px; font-weight: bold; color: white; background-color: #FFCCCC; margin: 0; height: 20px;' onclick='c_update("+i+","+calDto.getC_start()+","+calDto.getC_no()+")'>"
 							+(calDto.getC_title().length()>4? calDto.getC_title().substring(0, 3)+".." : calDto.getC_title())
 							+"끝"+"</p>";
 				}else {
-					calList+="<p title='class='clist' style='background-color:pink; padding: 0; margin: 0;' onclick='c_update("+i+","+calDto.getC_start()+","+calDto.getC_no()+","+calDto.getC_no()+")'>"
+					calList+="<p title='class='clist' style='background-color: #FFCCCC; font-weight: bold; color: white; padding: 0; margin: 0; height: 20px;' onclick='c_update("+i+","+calDto.getC_start()+","+calDto.getC_no()+","+calDto.getC_no()+")'>"
 							   +"&nbsp;"+"</p>";
 						i++;
 				}

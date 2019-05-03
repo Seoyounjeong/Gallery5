@@ -11,27 +11,27 @@
 <%@page import="com.hk1.gallery.dto.CallendarDto"%>
 <%@page import="java.util.List"%>
 
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <!-- 부트스트랩 -->
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,900"
-	rel="stylesheet">
-<link rel="stylesheet" href="gallery/css/bootstrap.min.css">
-<link rel="stylesheet" href="gallery/css/owl.carousel.min.css">
-<link rel="stylesheet" href="gallery/css/style.css">
+
+<link rel="stylesheet" href="boot_g/css/bootstrap.min.css">
+<link rel="stylesheet" href="boot_g/css/owl.carousel.min.css">
+<link rel="stylesheet" href="boot_g/css/style.css">
 
 <!-- 부트스트랩 끝 -->
 
 <title>인덱스</title>
 
 <style type="text/css">
-img {
-	width: 100px;
-	height: 100px;
-}
+
+.img-fluid{
+min-height: 400px;}
+
 
 button {
 	width: 99px;
@@ -45,6 +45,11 @@ button {
 .ud_img {
 	display: inline-block;
 }
+
+
+.ud_img img{
+	width: 100px;
+	height: 100px;}
 </style>
 </head>
 
@@ -122,10 +127,7 @@ button {
 
 
 	<section class="site-section">
-
-		<div class="container">
-		<div class="row">
-			<form action="updateGallery.do" method="post"
+	<form action="updateGallery.do" method="post"
 				enctype="multipart/form-data">
 				<div>
 					<input type="hidden" name="g_no" value="${galleryDto.g_no}"
@@ -136,7 +138,9 @@ button {
 						readonly="readonly">
 				</div>
 
-				<div class="row">
+		<div class="container">
+		<div class="row">
+			
 					<div class="col-lg-6">
 
 					<div class="owl-carousel slide-one-item-alt">
@@ -149,11 +153,10 @@ button {
 						<a href="#" class="custom-prev">Prev</a><a href="#"
 							class="custom-next">Next</a>
 					</div>
-
-					</div>
-
-
-						<div style="text-align: center;"><!-- 파일추가 이미지 부분 -->
+					
+					
+<!-- 파일추가 이미지 부분 -->
+				<div style="text-align: center;">
 						<div class="ud_img">
 							<div><img alt="g_img1" src="galleryupload/${galleryDto.g_img1}"></div>
 							<label for="gallery_img1"><button  onclick="imgup(1)">파일변경</button></label>
@@ -188,22 +191,25 @@ button {
 						</div>
 						
 								
-						</div>
+				
 					</div>
 
 
 
+					</div>
+					
+
+
+					
+
+
+
 					<div class="col-lg-5 ml-auto">
-
-					 	<h2 class="section-title mb-3">We Are The Best Consulting
-							Agency</h2>
-					<!--	<p class="lead">Lorem ipsum dolor sit amet consectetur
-							adipisicing elit.</p> -->
-
-						<div>
-							<span style="margin-right: 36px;">이름</span> 
-							<input style="border: none;" size="30" type="text" name="g_name"
-								value="${galleryDto.g_name}" readonly="readonly">
+<!-- <h2 class="section-title mb-3">We Are The Best Consulting
+							Agency</h2> -->
+						<div class="section-title">
+							<input style="border: none;" size="10" type="text" name="g_name"
+								value="${galleryDto.g_name}">
 						</div>
 
 						<div>
@@ -221,7 +227,7 @@ button {
 
 						<div>
 							<span>소개</span> <br />
-							<textarea  style="border: none; resize: none;" rows="6" cols="40">${galleryDto.g_intro}</textarea>
+							<textarea  style="border: none; resize: none;" rows="4" cols="50">${galleryDto.g_intro}</textarea>
 						
 						
 							<%-- <span>g_intro</span> <input type="text" name="g_intro"
@@ -239,9 +245,10 @@ button {
 						</div>
 
 					</div>
-					</form>
-				</div>
+	
+			</div>
 		</div>
+						</form>
 	</section>
 
 
@@ -254,8 +261,8 @@ button {
 
 
 	<!-- 지도 관련 블락 처리 풀기 -->
-	<div id="map" style="width: 500px; height: 400px;">
-		<!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d61a4dc1efe55edbdfac5ab744921183"></script> -->
+		<div id="map" style="min-width: 100px; min-height: 250px; margin: 0 20%;">
+	 <!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d61a4dc1efe55edbdfac5ab744921183"></script> -->
 		<script>
 			var container = document.getElementById('map');
 			var options = {
@@ -283,11 +290,11 @@ button {
 	</div>
 
 	<!-- 부트슻트랩 시작 -->
-	<script src="gallery/js/jquery-3.3.1.min.js"></script>
-	<script src="gallery/js/owl.carousel.min.js"></script>
-	<script src="gallery/js/aos.js"></script>
-	<script src="gallery/js/main.js"></script>
-
+	<script src="boot_g/js/jquery-3.3.1.min.js"></script>
+	<script src="boot_g/js/owl.carousel.min.js"></script>
+	<script src="boot_g/js/aos.js"></script>
+	<script src="boot_g/js/main.js"></script>
+	
 	<!-- 부트슻트랩 끝 -->
 
 
