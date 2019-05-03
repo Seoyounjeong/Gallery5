@@ -18,20 +18,94 @@
     src="https://code.jquery.com/jquery-3.3.1.js"
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
     crossorigin="anonymous"></script>
+
+<style type="text/css">
+html,body{
+	margin:0;
+	padding:0;
+}
+#updateKyungmae{
+	width:100%;
+}
+#updateKyungmae h3{
+	text-align:center;
+	width: 100%;
+	color: white;
+	background-color: rgb(26,26,26);
+}
+#updateKyungmae h4{
+	margin-left:10%;
+	text-align: left;
+	width: 30%;
+	color: rgb(160,160,160);
+	padding-bottom: 5px;
+	border-bottom: 2px solid rgba(160,160,160,0.5);
+}
+#updateKyungmae p{
+	width:60%;
+	font-size: 80%;
+	margin-left:10%;
+	margin-right:30%;
+	text-align:left;
+}
+#updateKyungmae_div_img{
+	margin-top:10%;
+	width: 100%;
+	text-align: center;
+	vertical-align: middle;
+	background-color: rgb(26,26,26);
+
+}
+#updateKyungmae_div_explain{
+	width: 70%;
+	margin:0 auto;
+	text-align: left;
+	font-weight: bold;
+
+}
+#timer{
+	color: red;
+	font-weight: bold;
+}
+#updateKyungmae_div_button{
+	width: 80%;
+	margin:0 auto;
+	text-align: right;
+}
+#updateKyungmae_div_button input{
+	border: none;
+	cursor: pointer;
+	border-radius: 10px;
+	color: white;
+	padding:7px;
+	background-color: rgba(26,26,26);
+	font-weight: bold;
+}
+#updateKyungmae_div_button input:hover{
+	background-color: rgb(122,201,67);
+}
+</style>
+
+
 </head>
 <body>
    	<div id="updateKyungmae">
 		<h3>경매진행</h3>
+		<h4>안내</h4>
 		<p>참가 버튼을 누르시면 입찰이 진행됩니다.</p>
-		<div>
-			<img src="itemupload/<%=itemDto.getI_img()%>" width=50%;>	
+		<div id="updateKyungmae_div_img">
+			<img src="itemupload/<%=itemDto.getI_img()%>" width=60%;>	
 		</div>		
-		<div>
-			<form action="updateKyungmae.do" method="post">
-				<p>남은시간 : <span id="timer"></span></p>
+		<h4>정보</h4>
+		<div id="updateKyungmae_div_explain">
+			
+				<h2>남은시간 : <span id="timer"></span></h2>
 				<span>작품명 : </span><span><%=itemDto.getI_name()%></span><br>
 				<span>현재가격 : </span><span><%=itemDto.getI_price()%></span><br>
 				<span>입찰가격 : </span><span><%=nextPrice %></span><br>
+				</div>
+			<div id="updateKyungmae_div_button">
+				<form action="updateKyungmae.do" method="post">
 				<input type="hidden" name="i_no" value=<%=itemDto.getI_no()%> id="updateKyungmae_i_no">
 				<input type="hidden" name="k_no" value=<%=kyungmaeDto.getK_no()%> id="updateKyungmae_k_no">
 				<input type="hidden" name="nextPrice" value="<%=nextPrice%>">
