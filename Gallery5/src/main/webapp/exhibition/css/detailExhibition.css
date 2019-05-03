@@ -1,0 +1,265 @@
+@charset "UTF-8";
+/* 전체 */ 
+html, body{
+    margin: 0;
+    padding: 0;
+}
+#detailExhibition{
+    margin: 0;
+    padding: 0;
+    color: rgb(26, 26, 26);
+}
+/* 상단부 대표이미지부분 */
+#detailExhibition_title{
+	margin : 0;
+	margin-top : 5%;
+	display: table;
+	background-color: rgb(26,26,26);
+	
+}
+#detailExhibition_title_img{
+	display: table-cell;
+	width:60%;
+	text-align:right;
+}
+#detailExhibition_title_text{
+	display: table-cell;
+	width:33%;
+	text-align:left;
+	vertical-align: middle;
+	padding-left:7%;
+	color: white;
+}
+#detailExhibition_title_text input{
+	font-size: 120%;
+    font-weight: bold;
+    background-color: deepskyblue;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+	
+}
+#detailExhibition_title_text input:hover{
+ background-color: white;
+    color: deepskyblue;
+}
+
+/* 중단부1 전시설명부분 */
+
+#detailExhibition_explain{
+	
+	width : 70%;
+	margin: 0 auto;
+	margin-top : 10%;
+}
+#detailExhibition_explain h3 {
+	width : 10%;
+	padding-bottom : 10px;
+	border-bottom : solid 2px rgb(160,160,160);
+	color: rgb(160,160,160);
+	text-align: left;
+}
+#detailExhibition_explain h2{
+	text-align: left;
+	color: rgb(26,26,26);
+	margin-top :5%;
+	margin-bottom : 3%;
+}
+#detailExhibition_explain h4 {
+	color: rgb(26,26,26);
+}
+#detailExhibition_explain p {
+	color: rgb(26,26,26);
+	text-align: center;
+}
+
+/* 중단부2 작품상세부분 */
+
+#detailExhibition_itemDetailBox{
+	margin-top : 30%;
+	width: 100%;
+	
+}
+#detailExhibition_itemDetailBox h3{
+	margin-left:15%;
+	margin-bottom:5%;
+	width : 10%;
+	padding-bottom : 10px;
+	border-bottom : solid 2px rgb(160,160,160);
+	color: rgb(160,160,160);
+	text-align: left;
+}
+
+.detailExhibition_itemDetailBox_content{
+	display:table;
+	background-color: rgb(26,26,26);
+}
+.detailExhibition_itemDetailBox_content_img_box{
+	display:table-cell;
+	width :40%;
+	text-align: right;
+	
+}
+.detailExhibition_itemDetailBox_content_text_box{
+	display:table-cell;
+	width : 35%;
+	text-align: left;
+	padding-left: 5%;
+	vertical-align: middle;
+	color : white;
+}
+.detailExhibition_itemDetailBox_content_text_box input{
+	font-size: 120%;
+    font-weight: bold;
+    background-color: deepskyblue;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+.detailExhibition_itemDetailBox_content_text_box input:hover{
+	 background-color: white;
+    color: deepskyblue;
+}
+.detailExhibition_itemDetailBox_content_before_button{
+	display:table-cell;
+	text-align: center;
+	vertical-align: middle;
+	width :10%;
+	cursor: pointer;
+	
+}
+.detailExhibition_itemDetailBox_content_before_button:hover{
+	background-color: rgb(77,77,77);
+}
+.detailExhibition_itemDetailBox_content_next_button{
+	display:table-cell;
+	text-align: center;
+	vertical-align: middle;
+	width :10%;
+	cursor: pointer;
+	
+}
+.detailExhibition_itemDetailBox_content_next_button:hover{
+	background-color: rgb(77,77,77);
+}
+
+/* 하단부 감상평부분 */
+#detailExhibition_DabgeulList{
+	width: 70%;
+	margin: 0 auto;
+	margin-top : 20%;
+	margin-bottom :20%;
+}
+#detailExhibition_DabgeulList h3{
+	
+	margin-bottom:5%;
+	width : 10%;
+	padding-bottom : 10px;
+	border-bottom : solid 2px rgb(160,160,160);
+	color: rgb(160,160,160);
+	text-align: left;
+}
+#detailExhibition_DabgeulList h5{
+	color: rgb(160,160,160);
+	
+	}
+#detailExhibition_DabgeulList_insertForm{
+	width: 100%;	
+	margin-bottom: 5%;
+	
+}
+#detailExhibition_DabgeulList_insertForm textarea{
+	border :1px solid rgb(160,160,160);
+	border-radius: 20px;	
+	font-size: 150%;
+	width:80%;
+	resize: none;
+	padding:10px;
+}
+#detailExhibition_DabgeulList_insertForm input{
+	font-size: 120%;
+    font-weight: bold;
+    background-color: rgb(26,26,26);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: top;
+}
+#detailExhibition_DabgeulList_insertForm input:hover{
+	color: rgb(120,120,120);
+}
+#detailExhibition_DabgeulList_List{
+	display: table;
+	width: 100%;
+	
+}
+.detailExhibition_DabgeulList_List_tr{
+	display: table-row-group;
+	
+}
+.detailExhibition_DabgeulList_List_name{
+	display: table-cell;
+	width: 30%;
+	text-align: center;
+	padding-top :3%;
+}
+.detailExhibition_DabgeulList_List_content{
+	display: table-cell;
+
+	width: 40%;
+	padding-top :3%;
+	
+}
+.detailExhibition_DabgeulList_List_regdate{
+	display: table-cell;
+	width: 30%;
+	padding-top :3%;
+	
+}
+/* 페이지 자체 네비 */
+#detailExhibition_pageNavi{
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	text-align: center;
+	background-color: rgba(26,26,26,0.9);
+	display : table;
+}
+.detailExhibition_pageNavi_div{
+	display: table-cell;
+	width : 25%;
+	padding-top:10px;
+	padding-bottom:10px;
+	cursor:pointer;
+}
+.detailExhibition_pageNavi_div:hover{
+	border-bottom: 4px solid rgb(115,195,203);
+	
+}
+.detailExhibition_pageNavi_div a{
+	text-decoration : none;
+	font-weight: bold;
+	color: white;
+	
+}
+#detailExhibition_pageNavi a:hover{
+	color : rgb(115,195,203);
+}
+
+
+
+
+
+
+
+

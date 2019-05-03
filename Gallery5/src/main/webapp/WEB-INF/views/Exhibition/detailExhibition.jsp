@@ -15,6 +15,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>전시상세보기</title>
+<link rel="stylesheet" href="exhibition/css/detailExhibition.css">
 <script
     src="https://code.jquery.com/jquery-3.3.1.js"
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -23,10 +24,30 @@
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp" />
 	<div id="detailExhibition">
+	<div id="detailExhibition_pageNavi">
+		<div class="detailExhibition_pageNavi_div">
+		<a href="#detailExhibition_title">전시감상</a><br>
+		</div>
+		<div  class="detailExhibition_pageNavi_div">
+		<a href="#detailExhibition_explain">전시설명</a><br>
+		</div>
+		<div  class="detailExhibition_pageNavi_div">
+		<a href="#detailExhibition_itemDetailBox">작품상세</a><br>
+		</div>
+		<div  class="detailExhibition_pageNavi_div">
+		<a href="#detailExhibition_DabgeulList">감상평</a>
+		</div>
+	</div>
 <!-- 전시 대표이미지 -->
-		<div>
-			<img alt="전시대표이미지" src="exhibitionupload/<%=exhibition.getE_img()%>" width="30%">
-			<input type="button" value="감상하기" onclick="fullscreenExhibition()">
+		<div id="detailExhibition_title">
+			<div id="detailExhibition_title_img">
+			<img alt="전시대표이미지" src="exhibitionupload/<%=exhibition.getE_img()%>" width="80%">
+			</div>
+			<div id="detailExhibition_title_text">
+				<h2><%=exhibition.getE_title()%>展</h2>
+                <p><%=exhibition.getA_name()%>作</p>
+				<input type="button" value="감상하기" onclick="fullscreenExhibition()">
+			</div>
 		</div>
 		<!-- 해당전시의 작가라면 (전시수정)버튼-->
 		<%
@@ -72,16 +93,20 @@
 	
 
 </script>
-
+		<div id="detailExhibition_explain">
+<!-- 전시 설명 -->
+		<h3>전시 설명</h3>
 <!-- 전시명 -->
-		<h3><%=exhibition.getE_title()%>展</h3>
+		<h2><%=exhibition.getE_title()%>展</h2>
 <!-- 작가명 -->
-		<h5><%=exhibition.getA_name()%>作</h5>
+		<h4><%=exhibition.getA_name()%>作</h4>
 <!-- 전시설명 -->
 		<p>"<%=exhibition.getE_explain() %>"</p>
+		</div>
 <!-- 작품상세보기 (구매)-->
 	<div id="detailExhibition_itemDetailBox">
 		<h3>작품상세</h3>
+		
 			<input type="hidden" id="detailExhibition_itemDetailBox_itemListSize" value="<%=itemList.size()%>">
 			<% 
 			
@@ -89,14 +114,20 @@
 					if(i==0){
 					%>
 				
-				<div id="detailExhibition_itemDetailBox_content_<%=i%>">
+				<div id="detailExhibition_itemDetailBox_content_<%=i%>" class="detailExhibition_itemDetailBox_content">
 				<%}else{ %>
-				<div  id="detailExhibition_itemDetailBox_content_<%=i%>" style="display:none;"><%} %>
-					<div>
-					<img alt="작품이미지" src="itemupload/<%=(itemList.get(i)).getI_img()%>" width="30%" id="detailExhibition_itemDetailBox_content_img_<%=i%>">
+				<div  id="detailExhibition_itemDetailBox_content_<%=i%>" class="detailExhibition_itemDetailBox_content" style="display:none;"><%} %>
+				
+					<div class="detailExhibition_itemDetailBox_content_before_button">
+							
+							<img src="exhibition/images/detailexhibition_before_button.png" width="50%" onclick="before(<%=i%>)">
 					</div>
-					<div>
-						<span>作.<%=i%></span><br>
+				
+					<div class="detailExhibition_itemDetailBox_content_img_box">
+						<img alt="작품이미지" src="itemupload/<%=(itemList.get(i)).getI_img()%>" width="100%" id="detailExhibition_itemDetailBox_content_img_<%=i%>">
+					</div>
+					<div class="detailExhibition_itemDetailBox_content_text_box">
+						
 						<span>작품명 : </span><span><%=(itemList.get(i)).getI_name() %></span><br>
 						<span>-작품설명-</span><br>
 						<p><%=(itemList.get(i)).getI_explain() %></p>
@@ -116,20 +147,20 @@
 						<h5>낙찰된 작품입니다</h5>
 						<%} %>
 					</div>
-						<div>
-							<input type="button" value="before" onclick="before(<%=i%>)">
-						</div>
-						<div>
-							<input type="button" value="next" onclick="next(<%=i%>)">
+						
+						<div class="detailExhibition_itemDetailBox_content_next_button">
+							<img src="exhibition/images/detailexhibition_next_button.png" width="50%" onclick="next(<%=i%>)">
+							
 						</div>
 				</div>
 				</div>
 				
 		<%} %>
 	</div><!--detailExhibition_itemDetailBox End  -->
+	
+	
 	<script type="text/javascript">
-
-
+	
 	
 	
 	//전시감상 관련 스크립트
@@ -295,48 +326,54 @@
 
 
 <!-- 답글 쓰기 / 답글리스트 추가예정 -->
-<div>
-<%if(loginMember!=null){ %>
-<div>감상평</div>
-<input type="hidden" name="e_no" value="<%=exhibition.getE_no()%>">
-<input type="hidden" name="m_no" value="<%=loginMember.getM_no()%>">
-<input type="hidden" name="m_name" value="<%=loginMember.getM_name()%>">
-
-<div><textarea id="a" name="d_content" rows="5" cols="40"></textarea> </div>
-
-<input type="button" value="평등록" onclick="insertDabgeule()">
-<%}else{ %>
-<p>로그인 후 감상평 등록이 가능합니다</p>
-<%} %>
-<!-- 답글리스트 불러오기 가져오기 -->
-
-<% List<DabgeulDto> Dlist =(List<DabgeulDto>)request.getAttribute("Dlist"); %>
-
-<table border="1">
-
-   <% if(Dlist!=null){
-      for(DabgeulDto Dadto:Dlist){
-         %>
-         
-         <tr>
-         <td><%=Dadto.getM_name()%></td>
-         <td><%=Dadto.getD_content()%></td>
-         <td><%=Dadto.getM_regdate()%></td>
-         
-         <%-- <td style="display: none;"><%=Dadto.getD_no()%></td>
-         <td style="display: none;"><%=Dadto.getE_no()%></td>
-         <td style="display: none;"><%=Dadto.getM_no()%></td> --%>
-
-         </tr>
-         <% 
-      }}else{
-    	  %>
-    	  <p>작성된 감상평이 없습니다 </p>
-    	  <% 
-      }
-   %>
-</table>
-</div>
+<div id="detailExhibition_DabgeulList">
+			<h3>감상평</h3>
+			<%if(loginMember!=null){ %>
+			<div id="detailExhibition_DabgeulList_insertForm">
+				<h4>-강상평 등록</h4>
+				<h5>-감상하신 작품에 대한 회원님의 소중한 의견을 부탁드립니다.</h5>
+				<input type="hidden" name="e_no" value="<%=exhibition.getE_no()%>">
+				<input type="hidden" name="m_no" value="<%=loginMember.getM_no()%>">
+				<input type="hidden" name="m_name" value="<%=loginMember.getM_name()%>">
+				
+				<textarea id="a" name="d_content" rows="1" cols="80"></textarea>
+				
+				<input type="button" value="평등록" onclick="insertDabgeule()">
+			</div>
+			<%}else{ %>
+			<p>로그인 후 감상평 등록이 가능합니다</p>
+			<%} %>
+			<!-- 답글리스트 불러오기 가져오기 -->
+			
+			<% List<DabgeulDto> Dlist =(List<DabgeulDto>)request.getAttribute("Dlist"); %>
+			
+			<div id="detailExhibition_DabgeulList_List" >
+				<h4>-감상평</h4>
+				<h5>-회원님들께서 남겨주신 감상평들입니다. 감사합니다</h5>
+			   
+			   <% if(Dlist!=null){
+			      for(DabgeulDto Dadto:Dlist){
+			         %>
+			         
+			         <div  class="detailExhibition_DabgeulList_List_tr">
+			         <div class="detailExhibition_DabgeulList_List_name"><%=Dadto.getM_name()%></div>
+			         <div class="detailExhibition_DabgeulList_List_content"><%=Dadto.getD_content()%></div>
+			         <div class="detailExhibition_DabgeulList_List_regdate"><%=Dadto.getM_regdate()%></div>
+			         </div>
+			         <%-- <td style="display: none;"><%=Dadto.getD_no()%></td>
+			         <td style="display: none;"><%=Dadto.getE_no()%></td>
+			         <td style="display: none;"><%=Dadto.getM_no()%></td> --%>
+			
+			       
+			         <% 
+			      }}else{
+			    	  %>
+			    	  <p>작성된 감상평이 없습니다 </p>
+			    	  <% 
+			      }
+			   %>
+			</div>
+	</div>
 
 
 	</div><!-- detailExhibition End -->
