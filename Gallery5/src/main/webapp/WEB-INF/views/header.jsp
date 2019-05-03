@@ -1,37 +1,131 @@
-<%@page import="com.hk1.gallery.dto.MemberDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@page import="com.hk1.gallery.dto.MemberDto"%>
 <%request.setCharacterEncoding("utf-8"); %>
-<%response.setContentType("text/html;charset=utf-8"); %>
+<%response.setContentType("text/html; charset=utf-8"); %>
 <%MemberDto loginMember = (MemberDto)session.getAttribute("loginMember"); %>
-<div id="header">
-<h1>header</h1>
-<a href="exhibitionlist.do">전시목록</a>
-<a href="artistlist.do">작가목록</a>
-<a href="gallerylist.do">갤러리목록</a>
-<a href="kyungmaelist.do">진행중인경매</a>
-<%if(loginMember==null){ %>
-<a href="loginform.do">로그인</a>
-<%}else if(loginMember.getM_grade()==0) {%>
-<a href="managermain.do">매니저메인</a>
-<form action="privatemain.do">
-<input type="submit" value="<%=loginMember.getM_name()%>님">
-</form>
-<form action="logout.do">
-<input type="submit" value="로그아웃">
-</form>
-<%}else { %>
-<form action="privatemain.do">
-<input type="submit" value="<%=loginMember.getM_name()%>님">
-</form>
-<form action="logout.do">
-<input type="submit" value="로그아웃">
-</form>
-<%} %>
-</div>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<link rel="stylesheet" href="OverlayEffectMenu/css/style.css" type="text/css" media="screen"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+<script src="OverlayEffectMenu/js/cufon-yui.js" type="text/javascript"></script>
+<script src="OverlayEffectMenu/js/Aller.font.js" type="text/javascript"></script>
+<!-- <script type="text/javascript">
+			Cufon.replace('ul.oe_menu div a',{hover: true});
+			Cufon.replace('h1,h2,.oe_heading');
+		</script> -->
+		
+			<div class="oe_wrapper">
+			<div class="login_wrapper" style="position: absolute; right: 30px; top: 30px; z-index: 99">
+			<%if(loginMember==null){ %>
+			<button class="btn btn-outline-success" onclick="location.href='loginform.do'" >LOGIN</button>
+			
+			<%}else{ %>
+			<button class="btn btn-outline-danger"  onclick="location.href='logout.do'" ><span><%=loginMember.getM_name()%>님 </span>
+			<span >LOGOUT</span></button>
+			<%} %>
+			</div>
+			<div id="oe_overlay" class="oe_overlay"></div>
+			<ul id="oe_menu" class="oe_menu">
+				<li><a href="exhibitionlist.do">전시</a></li>
+				
+				<li><a href="artistlist.do">작가</a></li>
+				<li><a href="gallerylist.do">갤러리</a></li>
+				<li><a href="kyungmaelist.do">경매</a></li>
+				<%if(loginMember!=null&&loginMember.getM_grade()==0) {%>
+				<li><a href="managermain.do">매니저메인</a></li>
+				<%}else if(loginMember!=null){ %>
+				
+				<li><a href="">MY PAGE</a>
+					<div style="left:-447px;">
+						<ul>
+						<li class="oe_heading"><a class="oe_body" href="myprivate.do"> 회원정보</a></li>
+						</ul>
+						<ul>
+							<li class="oe_heading"><a class="oe_body" href="myItemList.do"> 구매목록</a></li>
+						</ul>
+						
+						<%if(loginMember!=null&&loginMember.getM_grade()==2){ %>
+						<ul>
+							<li class="oe_heading"><a class="oe_body" href="#"> 전시관리</a></li>
+							<li><a href="insertItemForm.do">작품올리기</a></li>
+							<li><a href="insertExhibitionForm.do">전시올리기</a></li>
+							<li><a href="artistsItemList.do">작품수정</a></li>
+							<li><a href="myExhibitionList.do">전시수정</a></li>
+						</ul>
+						<ul>
+							<li class="oe_heading"><a class="oe_body" href="#">메세지</a></li>
+							<li><a href="selectRequestListReceive.do?r_receive=<%=loginMember.getM_no()%>">받은메세지함</a></li>
+							<li><a href="selectRequestListSend.do?r_send=<%=loginMember.getM_no()%>">보낸메세지함</a></li>
+						</ul>
+						
+						
+						<%}else if(loginMember!=null&&loginMember.getM_grade()==3){ %>
+						<ul>
+							<li class="oe_heading"><a class="oe_body" href="#">갤러리 관리</a></li>
+							<li><a href="selectM_noGalleryList.do">마이 갤러리</a></li>
+							<li><a href="insertGalleryForm.do">갤러리 등록</a></li>
+						</ul>
+						<ul>
+							<li class="oe_heading"><a class="oe_body" href="#">메세지</a></li>
+							<li><a href="selectRequestListReceive.do?r_receive=<%=loginMember.getM_no()%>">받은메세지함</a></li>
+							<li><a href="selectRequestListSend.do?r_send=<%=loginMember.getM_no()%>">보낸메세지함</a></li>
+						</ul>
+						<%}else if(loginMember!=null&&loginMember.getM_grade()==6){ %>
+						<ul>
+						<li class="oe_heading"><a class="oe_body" href="#">전시 관리</a></li>
+						<li class="oe_heading"><a class="oe_body" href="#">갤러리 관리</a></li>
+						</ul>
+						<ul>
+							<li class="oe_heading"><a class="oe_body" href="#">메세지</a></li>
+							<li><a href="selectRequestListReceive.do?r_receive=<%=loginMember.getM_no()%>">받은메세지함</a></li>
+							<li><a href="selectRequestListSend.do?r_send=<%=loginMember.getM_no()%>">보낸메세지함</a></li>
+						</ul>
+					</div>
+					<%}else{ %>
+						<ul>
+							<li class="oe_heading"><a class="oe_body" href="upgradeMember.do">작가·갤러리신청</a></li>
+						</ul>
+					<%} %>
+					<%}%>
+				</li>
+					
+			
+				
+			</ul>	
+			
+			
+		</div>
+		
+		 <!-- The JavaScript -->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+				var $oe_menu		= $('#oe_menu');
+				var $oe_menu_items	= $oe_menu.children('li');
+				var $oe_overlay		= $('#oe_overlay');
 
-<hr>
+                $oe_menu_items.bind('mouseenter',function(){
+					var $this = $(this);
+					$this.addClass('slided selected');
+					$this.children('div').css('z-index','9999').stop(true,true).slideDown(200,function(){
+						$oe_menu_items.not('.slided').children('div').hide();
+						$this.removeClass('slided');
+					});
+				}).bind('mouseleave',function(){
+					var $this = $(this);
+					$this.removeClass('selected').children('div').css('z-index','1');
+				});
 
-    
-    
-    
+				$oe_menu.bind('mouseenter',function(){
+					var $this = $(this);
+					$oe_overlay.stop(true,true).fadeTo(200, 0.6);
+					$this.addClass('hovered');
+				}).bind('mouseleave',function(){
+					var $this = $(this);
+					$this.removeClass('hovered');
+					$oe_overlay.stop(true,true).fadeTo(200, 0);
+					$oe_menu_items.children('div').hide();
+				})
+            });
+        </script>
+	

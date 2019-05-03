@@ -43,12 +43,12 @@
 	for(RequestDto dto : list){ %>
 	
 	<span>현재상태 : <%if(dto.getR_agree()==1){%>
-		<button disabled="disabled"  >승인</button>
+		<button disabled="disabled" class="btn btn-outline-primary btn-sm"  >승인</button>
 	
 	<%}else if(dto.getR_agree()==2){%>
-		<button disabled="disabled"  >거절</button>
+		<button disabled="disabled" class="btn btn-outline-danger btn-sm"  >거절</button>
 	<%}else if(dto.getR_agree()==3){%>
-	<button disabled="disabled"  >대기중</button>
+	<button disabled="disabled" class="btn btn-outline-success btn-sm"   >대기중</button>
 		<%}
 		%></span>
 	<span>/받는 사람: <%=dto.getR_receivename()%></span>

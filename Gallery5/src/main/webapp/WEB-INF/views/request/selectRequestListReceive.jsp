@@ -35,7 +35,7 @@
 
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp" />
-<jsp:include page="../login/privateGnb.jsp" />	
+
 <h3>받은 메시지함</h3>
 
 <%if(list.size()==0){ %>
@@ -45,12 +45,12 @@
 <%for(RequestDto dto : list){ %>
 
 	<span>승낙결과 : <%if(dto.getR_agree()==1){%>
-		<button disabled="disabled"  >승인</button>
+		<button disabled="disabled" class="btn btn-outline-primary btn-sm"  >승인</button>
 	
 	<%}else if(dto.getR_agree()==2){%>
-		<button disabled="disabled"  >거절</button>
+		<button disabled="disabled" class="btn btn-outline-danger btn-sm" >거절</button>
 	<%}else if(dto.getR_agree()==3){%>
-	<button disabled="disabled"  >대기중</button>
+	<button disabled="disabled" class="btn btn-outline-success btn-sm"  >대기중</button>
 		<%}
 		%></span>
 	<span>/보낸 사람: <%=dto.getR_sendname() %></span>
