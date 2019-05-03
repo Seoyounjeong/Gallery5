@@ -289,7 +289,9 @@
    var m_name = document.getElementsByName("m_name")[0].value;
 
    
-
+	if(d_content==""){
+		alert("감상평 내용을 입력해주세요!");
+	}else{
    $.ajax({
       url: "DabgeulInsertAjax.do",  
       
@@ -317,6 +319,7 @@
       }
       
    });
+	}
    
 };
 	
@@ -330,7 +333,7 @@
 			<h3>감상평</h3>
 			<%if(loginMember!=null){ %>
 			<div id="detailExhibition_DabgeulList_insertForm">
-				<h4>-강상평 등록</h4>
+				<h4>-감상평 등록</h4>
 				<h5>-감상하신 작품에 대한 회원님의 소중한 의견을 부탁드립니다.</h5>
 				<input type="hidden" name="e_no" value="<%=exhibition.getE_no()%>">
 				<input type="hidden" name="m_no" value="<%=loginMember.getM_no()%>">
