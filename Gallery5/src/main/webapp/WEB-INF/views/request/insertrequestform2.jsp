@@ -19,7 +19,8 @@
 	int r_send =Integer.parseInt(request.getParameter("r_send"));
 	String m_id=request.getParameter("m_id");
 	int a_no = Integer.parseInt(request.getParameter("r_receive"));
-
+	
+	int m_no = Integer.parseInt(request.getParameter("m_no"));
 %>
 
 </head>
@@ -28,11 +29,11 @@
 <div style="text-align: center;"><img alt="메시지 아이콘" src="requestupload/message_icon.png" width="50px" height="50px"> 
 </div>
 <br/>
-<form action="insertrequest.do" method="post">
+<form action="insertrequest2.do" method="post">
 <input type="hidden" value=<%=r_send %> name="r_send">
 <input type="hidden" value=<%=r_receive %> name="r_receive">
 <input type="hidden" value=<%=a_no %> name="a_no">
- 
+<input type="hidden" value=<%=m_no %> name="m_no">  
 <div>받으시는 분<input type="text" value="<%=r_receivename %>" name="r_receivename"> </div>
 <div>보내시는 분<input type="text" value="<%=r_sendname %>" name="r_sendname"> </div>
 <div>메시지 제목<input type="text" name="r_title" >  </div>

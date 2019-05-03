@@ -50,5 +50,10 @@
     
     </select>
     
+    <select id="selectMemberId" parameterType="int" resultType="ArtistDto">
+    	SELECT a.A_NO, a.A_NAME, a.A_SOLO, a.A_SQUARD, a.A_CAREER, 
+    	a.A_STATE, m.M_ID FROM GALLERY.ARTIST a INNER JOIN GALLERY.MEMBER m ON a.A_NO = m.M_NO AND a.A_NO=#{a_no}
+    </select>
+    
     
   </mapper>

@@ -13,5 +13,6 @@ public interface IGalleryService {
 	
 	List<GalleryDto> selectG_stateGalleryList(int g_state);
 	List<GalleryDto> selectM_noGalleryList(int m_no);
+	GalleryDto selectMemberGId(int m_no);
 
 }

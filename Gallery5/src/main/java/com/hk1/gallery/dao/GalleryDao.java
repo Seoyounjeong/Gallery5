@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.hk1.gallery.dto.ArtistDto;
 import com.hk1.gallery.dto.GalleryDto;
 
 @Repository
@@ -50,6 +51,7 @@ public class GalleryDao implements IGalleryDao {
 		return sqlSession.selectList(namespace+"selectGalleryList1");
 	}
 
+
 	
 	// 스테이트 3 인거 가져올때
 	@Override
@@ -64,6 +66,12 @@ public class GalleryDao implements IGalleryDao {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList(namespace+"selectGalleryList3",m_no);
 	}
+	
+	   //메일 아이디 가져오기 추가
+	   public GalleryDto selectMemberGId(int m_no) {
+		   return sqlSession.selectOne(namespace+"selectMemberGId",m_no);
+	   }
+	   
 
 
 }

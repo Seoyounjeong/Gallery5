@@ -29,12 +29,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.hk1.gallery.dao.IRequestDao;
 import com.hk1.gallery.dto.ArtistDto;
 import com.hk1.gallery.dto.ExhibitionDto;
+import com.hk1.gallery.dto.GalleryDto;
 import com.hk1.gallery.dto.ItemDto;
 import com.hk1.gallery.dto.MemberDto;
 import com.hk1.gallery.dto.RequestDto;
 import com.hk1.gallery.service.ArtistService;
+import com.hk1.gallery.service.GalleryService;
 import com.hk1.gallery.service.IArtistService;
 import com.hk1.gallery.service.IExhibitionService;
+import com.hk1.gallery.service.IGalleryService;
 import com.hk1.gallery.service.IItemService;
 import com.hk1.gallery.service.IMemberService;
 import com.hk1.gallery.service.IRequestService;
@@ -57,6 +60,8 @@ public class HomeController3 {
 	private IExhibitionService exhibitionService;
 	@Autowired
 	private IItemService itemService;
+	@Autowired
+	private IGalleryService galleryService;
 	@Autowired 
 	private JavaMailSenderImpl mailSender;
 	/**
@@ -204,13 +209,25 @@ public class HomeController3 {
 	
 	}
 	
+	//메시지 입력 폼으로 가기
+	
+		@RequestMapping(value = "/insertrequestform2.do", method = RequestMethod.GET)
+		public String insertrequestform2(Locale locale, Model model) {
+			logger.info("메시지보내기창 이동하기{}.", locale);
+			
+			return "request/insertrequestform2";
+		
+		}
+	
 	
 	//메시지 보내기(insert)
 	//resoponsebody = 다시 들어온 곳으로 응답한다. 여기서는 close값을 보내준다
 		@ResponseBody
 		@RequestMapping(value = "/insertrequest.do", method = RequestMethod.POST)
-		public String insertrequest(Locale locale, Model model, int r_send, String r_sendname, int r_receive, String r_receivename, String r_title, String r_content) {
+		public String insertrequest(Locale locale, Model model, int r_send, String r_sendname, int r_receive, String r_receivename, String r_title, String r_content, String m_id, int a_no) {
 			logger.info("메시지보내기(db에 집어넣기){}.", locale);
+			
+			
 			
 			System.out.println(r_send);
 			System.out.println(r_sendname);
@@ -218,6 +235,8 @@ public class HomeController3 {
 			System.out.println(r_receivename);
 			System.out.println(r_title);
 			System.out.println(r_content);
+			System.out.println("a_no?"+a_no);
+			
 			
 			requestService.insertRequest(new RequestDto().setR_send(r_send)
 																		.setR_sendname(r_sendname)
@@ -225,8 +244,27 @@ public class HomeController3 {
 																		.setR_receivename(r_receivename)
 																		.setR_title(r_title)
 																		.setR_content(r_content));
+			
 			String close = "<script>window.close();</script>";
+			
+			
+			
+			//갤러리가 작가한테
+			ArtistDto memberId = artistService.selectMemberId(a_no);
+			String from = "gallerytest4@naver.com";
+			String to = memberId.getM_id();
+			String title = "[방구석갤러리]전시요청!";
+			String msg = "새로운 갤러리의 전시 요청이 있습니다 메세지함을 확인해주세요!";
+			SendMail(from, to, title, msg);	
+			
+		
+			
 			return close;
+			
+			
+			
+			
+			
 			
 			/*if (isS) {
 				return "redirect:message.do";
@@ -238,6 +276,60 @@ public class HomeController3 {
 		
 				
 		}
+		
+		//메시지 보내기(insert)
+		//resoponsebody = 다시 들어온 곳으로 응답한다. 여기서는 close값을 보내준다
+			@ResponseBody
+			@RequestMapping(value = "/insertrequest2.do", method = RequestMethod.POST)
+			public String insertrequest2(Locale locale, Model model, int r_send, String r_sendname, int r_receive, String r_receivename, String r_title, String r_content, String m_id,int m_no) {
+				logger.info("메시지보내기(db에 집어넣기){}.", locale);
+				
+				
+				
+				System.out.println(r_send);
+				System.out.println(r_sendname);
+				System.out.println(r_receive);
+				System.out.println(r_receivename);
+				System.out.println(r_title);
+				System.out.println(r_content);
+				
+				System.out.println("m_no?"+m_no);
+				
+				requestService.insertRequest(new RequestDto().setR_send(r_send)
+																			.setR_sendname(r_sendname)
+																			.setR_receive(r_receive)
+																			.setR_receivename(r_receivename)
+																			.setR_title(r_title)
+																			.setR_content(r_content));
+				
+				String close = "<script>window.close();</script>";
+				
+				
+		
+				//작가가 갤러리에게
+				GalleryDto memberIdG = galleryService.selectMemberGId(m_no);
+				String fromG = "gallerytest4@naver.com";
+				String toG = memberIdG.getM_id();
+				String titleG = "[방구석갤러리]전시요청!";
+				String msgG = "새로운 작가의 전시 요청이 있습니다 메세지함을 확인해주세요!";
+				SendMail(fromG, toG, titleG, msgG);	
+				
+				
+				return close;
+				
+				
+				
+				
+				/*if (isS) {
+					return "redirect:message.do";
+				}else {
+					return "redirect:insertrequestform.do";
+				}
+				*/
+				
+			
+					
+			}
 		//받은메시지함 페이지
 		@RequestMapping(value = "/selectRequestListReceive.do", method = RequestMethod.GET)
 		public String selectRequestListReceive(Locale locale, Model model , int r_receive ) {
@@ -356,6 +448,7 @@ public class HomeController3 {
 				 System.out.println("메일 발신 성공");
 
 			}
+		
 			//메일 발송폼 
 			public String SendMailForm(String msg) {
 				String sendMailForm="<link href=\"https://fonts.googleapis.com/css?family=Jua\" rel=\"stylesheet\"> " + 

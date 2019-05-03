@@ -12,4 +12,5 @@ public interface IArtistDao {
 	List<ArtistDto> selectArtistList(int a_state);		//U , M
 	List<ArtistDto> selectArtistList();			//U , M
 	List<ArtistDto> selectArtistListImg();
+	public ArtistDto selectMemberId(int a_no);
 }

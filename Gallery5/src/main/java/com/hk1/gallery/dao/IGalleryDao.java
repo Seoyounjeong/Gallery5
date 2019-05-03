@@ -13,5 +13,8 @@ public interface IGalleryDao {
 	
 	List<GalleryDto> selectG_stateGalleryList(int g_state);
 	List<GalleryDto> selectM_noGalleryList(int m_no);
+	
+	 
+	public GalleryDto selectMemberGId(int m_no);
 
 }

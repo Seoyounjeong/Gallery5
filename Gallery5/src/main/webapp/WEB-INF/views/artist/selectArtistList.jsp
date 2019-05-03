@@ -17,7 +17,8 @@ System.out.println("이미지 디티오는?+"+list);%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>작가목록</title>
 <script type="text/javascript">
-	function pop(r_send,a_no,r_name,a_name) {
+	function pop(r_send,a_no,r_name,a_name,m_id) {
+		
 		var a = a_name;
 		var aa = window.open('insertrequestform.do?r_send='+r_send+'&r_receive='+a_no+'&r_sendname='+r_name
 		+'&r_receivename='+a_name,'window팝업','width=500, height=600, menubar=no, status=no, toolbar=no');
@@ -64,7 +65,7 @@ System.out.println("이미지 디티오는?+"+list);%>
 		<span>작가커리어<%=dto.getA_career() %></span><br/>
 		<span>작가상태<%=dto.getA_state() %></span><br/>
 		<input type="button" value="전시 요청" 
-		onclick="pop('<%=loginMember.getM_no()%>','<%=dto.getA_no() %>','<%=loginMember.getM_name() %>','<%=dto.getA_name() %>')" >
+		onclick="pop('<%=loginMember.getM_no()%>','<%=dto.getA_no() %>','<%=loginMember.getM_name() %>','<%=dto.getA_name() %>','<%=loginMember.getM_id() %>')" >
 		<%} %>
 <%-- 		 <%if(loginMember.getM_grade()==3){  %> 
 		

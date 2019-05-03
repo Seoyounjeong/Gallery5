@@ -51,4 +51,9 @@ public class ArtistDao implements IArtistDao {
 	      return sqlSession.selectList(namespace+"selectArtistListImg");
 	   }
 	   
+	   //메일 아이디 가져오기 추가
+	   public ArtistDto selectMemberId(int a_no) {
+		   return sqlSession.selectOne(namespace+"selectMemberId",a_no);
+	   }
+	   
 }

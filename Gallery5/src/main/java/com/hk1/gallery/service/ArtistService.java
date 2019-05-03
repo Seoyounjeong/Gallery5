@@ -54,6 +54,12 @@ public class ArtistService implements IArtistService {
 		// TODO Auto-generated method stub
 		return artistDao.selectArtistListImg();
 	}
+
+	@Override
+	public ArtistDto selectMemberId(int a_no) {
+		// TODO Auto-generated method stub
+		return artistDao.selectMemberId(a_no);
+	}
 	
 	
 }

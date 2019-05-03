@@ -55,6 +55,12 @@ public class GalleryService implements IGalleryService{
 		// TODO Auto-generated method stub
 		return galleryDao.selectM_noGalleryList(m_no);
 	}
+	
+	 //메일 아이디 가져오기 추가
+	@Override
+	   public GalleryDto selectMemberGId(int m_no) {
+		   return galleryDao.selectMemberGId(m_no);
+	   }
 
 	
 }

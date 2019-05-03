@@ -60,13 +60,13 @@ function detail_artist(){
 	var artist = document.getElementById("artist_container").style.display="block";
 }
 
-function pop(r_send,a_no,r_name,a_name) {
+/* function pop(r_send,a_no,r_name,a_name) {
 	var a = a_name;
 	var aa = window.open('insertrequestform.do?r_send='+r_send+'&r_receive='+a_no+'&r_sendname='+r_name
 	+'&r_receivename='+a_name,'window팝업','width=500, height=600, menubar=no, status=no, toolbar=no');
 	
 
-}
+} */
 
 
 </script>
@@ -80,12 +80,12 @@ function pop(r_send,a_no,r_name,a_name) {
 <jsp:include page="/WEB-INF/views/header.jsp" />
 <div class="alldetail_container">
 <span><%=artistDto.getA_name() %>作家</span>
-<span>	<%if(loginMember==null||loginMember.getM_grade()!=3){ %>
+<%-- <span>	<%if(loginMember==null||loginMember.getM_grade()!=3){ %>
 	<span></span>
 	<%}else if(loginMember.getM_grade()==3){ %>
 		<input type="button" value="전시 요청" 
 		onclick="pop('<%=loginMember.getM_no()%>','<%=artistDto.getA_no() %>','<%=loginMember.getM_name() %>','<%=artistDto.getA_name() %>')" >
-		<%} %></span>
+		<%} %></span> --%>
 <hr>
 <div class="detail_container">
 	<div class="artist_nav">

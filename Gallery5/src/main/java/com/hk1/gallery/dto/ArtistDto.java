@@ -11,6 +11,7 @@ public class ArtistDto {
 	private String a_career;
 	private int a_state;
 	private String e_img;
+	private String m_id;
 
 	
 	public ArtistDto() {
@@ -93,7 +94,7 @@ public class ArtistDto {
 	@Override
 	public String toString() {
 		return "ArtistDto [a_no=" + a_no + ", a_name=" + a_name + ", a_solo=" + a_solo + ", a_squard=" + a_squard
-				+ ", a_career=" + a_career + ", a_state=" + a_state + ", e_img=" + e_img + "]";
+				+ ", a_career=" + a_career + ", a_state=" + a_state + ", e_img=" + e_img + ", m_id=" + m_id + "]";
 	}
 
 
@@ -110,6 +111,23 @@ public class ArtistDto {
 
 	public ArtistDto setE_img(String e_img) {
 		this.e_img = e_img;
+		return this;
+	}
+
+
+
+
+
+	public String getM_id() {
+		return m_id;
+	}
+
+
+
+
+
+	public ArtistDto setM_id(String m_id) {
+		this.m_id = m_id;
 		return this;
 	}
 	

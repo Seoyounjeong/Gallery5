@@ -12,6 +12,7 @@ public class GalleryDto {
 	private String g_img4;
 	private String g_intro;
 	private int g_state;
+	private String m_id;
 	
 	
 	public GalleryDto() {
@@ -125,7 +126,16 @@ public class GalleryDto {
 	public String toString() {
 		return "GalleryDto [g_no=" + g_no + ", m_no=" + m_no + ", g_name=" + g_name + ", g_adress=" + g_adress
 				+ ", g_tel=" + g_tel + ", g_img1=" + g_img1 + ", g_img2=" + g_img2 + ", g_img3=" + g_img3 + ", g_img4="
-				+ g_img4 + ", g_intro=" + g_intro + ", g_state=" + g_state + "]";
+				+ g_img4 + ", g_intro=" + g_intro + ", g_state=" + g_state + ", m_id=" + m_id + "]";
+	}
+
+	public String getM_id() {
+		return m_id;
+	}
+
+	public GalleryDto setM_id(String m_id) {
+		this.m_id = m_id;
+		return this;
 	}
 	
 	

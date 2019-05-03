@@ -34,10 +34,9 @@
 </style>
 
 <script type="text/javascript">
-	function pop(r_send,a_no,r_name,a_name) {
-		var a = a_name;
-		var aa = window.open('insertrequestform.do?r_send='+r_send+'&r_receive='+a_no+'&r_sendname='+r_name
-		+'&r_receivename='+a_name,'window팝업','width=500, height=600, menubar=no, status=no, toolbar=no');
+	function pop(r_send,g_no,r_name,g_name,m_no) {
+		var aa = window.open('insertrequestform2.do?r_send='+r_send+'&r_receive='+g_no+'&r_sendname='+r_name
+		+'&r_receivename='+g_name+'&m_no='+m_no,'window팝업','width=500, height=600, menubar=no, status=no, toolbar=no');
 		
 	
 	}
@@ -95,11 +94,12 @@
 <div><span>G_INTRO</span><%=dto.getG_intro()%></div>
 <div><span>G_STATE</span><%=dto.getG_state()%></div>
 <div><span>메시지</span><input type="button" value="전시 요청" 
-		onclick="pop('<%=loginMember.getM_no()%>','<%=dto.getG_no()%>','<%=loginMember.getM_name() %>','<%=dto.getG_name() %>')" >
+		onclick="pop('<%=loginMember.getM_no()%>','<%=dto.getG_no()%>','<%=loginMember.getM_name() %>','<%=dto.getG_name() %>','<%=dto.getM_no() %>')" >
+		<%} %>
 		</div>
 </div>
 			<%
-		}}}
+		}}
 	%>
 
 
