@@ -4,10 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Iterator;
+
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
@@ -92,7 +92,7 @@ public class HomeController2 {
 		return "manager/home";
 	}
 
-	//member
+	//---------------------------member start---------------------------
 	@RequestMapping(value = "/managerselectMemberList.do", method = RequestMethod.GET)
 	public String selectMemberList(Locale locale, Model model) {
 		logger.info("회원목록보기 {}.", locale);
@@ -187,11 +187,39 @@ public class HomeController2 {
 		return "manager/member/membercheck";		
 	}
 	
+	 //member 등급 update
+	   @RequestMapping(value = "/managergradeupdate.do", method = RequestMethod.GET)
+	   public String memberstateupdate(Locale locale, Model model,int m_grade, int m_no, MemberDto memberDto,
+	         ArtistDto artistDto, GalleryDto galleryDto) {
+	      logger.info("회원등급수정 {}.", locale);
+	 
+	      if(m_grade==4||m_grade==7) {
+	      boolean isS=memberService.gradeUpdateMember(memberDto);
+	      
+	      int a_no=m_no;
+	      artistDto=artistService.selectArtist(a_no);
+	      boolean isS2=artistService.updateArtistState(artistDto);
+	      
+	      }else if(m_grade==5||m_grade==8) {
+	      boolean isS=memberService.gradeUpdateMember(memberDto);
+	      
+//	      int g_no=m_no;
+	      System.out.println("m_no:"+m_no);
+//	      galleryDto=galleryService.selectM_noGalleryList(m_no);
+	      System.out.println("galleryDto:"+galleryDto);
+	      boolean isS3=galleryService.updateGalleryState(galleryDto);
+	      
+	      }
+ 
+	         return "redirect:managerselectMemberList.do";
+	   }
+	   
 	
-	//member
+	
+	 //---------------------------member end---------------------------
 	
 	
-	//artist
+	 //---------------------------artist start---------------------------
 	@RequestMapping(value = "/managerselectArtistList.do", method = RequestMethod.GET)
 	public String selectAritistList(Locale locale, Model model) {
 		logger.info("작가목록보기 {}.", locale);
@@ -295,9 +323,40 @@ public class HomeController2 {
 
 		return "manager/artist/yetartistlist";		
 	}
+	
+	
+	//작가 등급 UPDATE
+	   @RequestMapping(value = "/managerArtistStateUpdate.do", method = RequestMethod.GET)
+	   public String updateArtistState(Locale locale, Model model, int a_no, ArtistDto artistDto) {
+	      logger.info("작가등급수정 {}.", locale);
+	   
+	      System.out.println(a_no);
+	      
+	      
+	      boolean isS=artistService.updateArtistState(artistDto);
+	      
+	      int m_no=a_no;
+	      MemberDto memberDto=memberService.selectMember(m_no);
+	      int m_grade=memberDto.getM_grade();
+	      System.out.println(m_grade);
+	      if(m_grade==9) {
+	    	//alert띄우기  
+	    
+	      }else {
+	      boolean isS2=memberService.gradeUpdateMember(memberDto);
+	      
+	      System.out.println("memberDto:"+memberDto);
+	      System.out.println(isS2);
+	      System.out.println(isS);
+	      System.out.println(artistDto);
+	      } 
+	         return "redirect:managerselectArtistList.do";
+	     
+	   }
+	 //---------------------------member end---------------------------  
 
 
-	//gallery
+	 //---------------------------gallery start---------------------------
 	@RequestMapping(value = "/managerselectGalleryList.do", method = RequestMethod.GET)
 	public String selectGalleryList(Locale locale, Model model) {
 		logger.info("갤러리목록보기 {}.", locale);
@@ -558,8 +617,38 @@ public class HomeController2 {
 
 		return "manager/gallery/yetgallerylist";		
 	}
+	
+	//gallery등금 update
+		@RequestMapping(value = "/managerGalleryStateUpdate.do", method = RequestMethod.GET)
+		   public String updateGalleryState(Locale locale, Model model, int m_no, GalleryDto galleryDto) {
+		      logger.info("갤러리등급수정 {}.", locale);
+		   
+	
+		      
+		      boolean isS=galleryService.updateGalleryState(galleryDto);
+		      System.out.println(isS);
+		      
+//		      int m_no=g_no;
+		      MemberDto memberDto=memberService.selectMember(m_no);
+		      int m_grade=memberDto.getM_grade();
+		      System.out.println(m_grade);
+		      if(m_grade==9) {
+		    	  //alert
+		      }else {
+		    	  boolean isS2=memberService.gradeUpdateMember(memberDto);
+		    	  
+		    	  System.out.println("memberDto:"+memberDto);
+			      System.out.println(isS2);
+			      System.out.println(isS);
+			      System.out.println(galleryDto);
+		      }
+		         return "redirect:managerselectGalleryList.do";
+		     
+		   }
+	//---------------------------gallery end---------------------------
+	
 
-	//request
+	//---------------------------request start---------------------------
 	
 	@RequestMapping(value = "/managerselectRequestList.do", method = RequestMethod.GET)
 	public String selectRequestList(Locale locale, Model model) {
@@ -637,7 +726,10 @@ public class HomeController2 {
 		}
 	}
 	
-	//exhibition
+	
+	//---------------------------request end---------------------------
+	
+	//---------------------------exhibition start---------------------------
 
 	@RequestMapping(value = "/managerselectExhibitionList.do", method = RequestMethod.GET)
 	public String selectExhibitionList(Locale locale, Model model) {
@@ -806,9 +898,9 @@ public class HomeController2 {
 			return "error";
 		}
 	}
+	//---------------------------exhibition end---------------------------
 	
-	
-	//Dabgeul
+	//---------------------------Dabgeul start---------------------------
 	
 	@RequestMapping(value = "/managerselectDabgeulList.do", method = RequestMethod.GET)
 	public String selectDabgeulList(Locale locale, Model model) {
@@ -895,7 +987,10 @@ public class HomeController2 {
 		return "manager/dabgeul/enodabgeullist";		
 	}
 	
-	//Item
+	
+	//---------------------------Dabgeul end---------------------------
+	
+	//---------------------------Item start---------------------------
 	@RequestMapping(value = "/managerselectItemList.do", method = RequestMethod.GET)
 	public String selectItemList(Locale locale, Model model) {
 		logger.info("작품목록보기 {}.", locale);
@@ -1097,7 +1192,10 @@ public class HomeController2 {
 		}
 	}
 	
-	//callendar
+	
+	//---------------------------Item end---------------------------
+	
+	//---------------------------calendar start---------------------------
 	@RequestMapping(value = "/managerselectCallendarList.do", method = RequestMethod.GET)
 	public String selectCallendarList(Locale locale, Model model) {
 		logger.info("전시일정목록보기 {}.", locale);
@@ -1175,7 +1273,10 @@ public class HomeController2 {
 		}
 	}
 	
-	//kyungmae
+	//---------------------------calendar end---------------------------
+	
+	
+	//---------------------------Kyungmae start---------------------------
 	@RequestMapping(value = "/managerselectKyungmaeList1.do", method = RequestMethod.GET)
 	public String selectKyungmaeList(HttpServletRequest request, HttpServletResponse response,Locale locale, Model model) {
 		logger.info("경매목록보기 {}.", locale);
@@ -1262,6 +1363,11 @@ public class HomeController2 {
 		request.setAttribute("kyungmaeList", kyungmaeList);
 		return "manager/kyungmae/kyungmaelist_ing";
 	}
+	
+	//---------------------------Kyungmae end---------------------------
+	
+	
+	
 	/* 2019-05-02 ----------------------------------------------------------------------------------------------------- 
 	 * 추가 : 조용권 
 	 * 내용 : 메일 발송 관련 폼생성 메소드 , 메일 보내는 메소드*/

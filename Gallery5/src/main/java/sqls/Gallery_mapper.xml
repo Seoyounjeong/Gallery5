@@ -6,8 +6,8 @@
  
      <insert id="insertGallery" parameterType="GalleryDto" >
       INSERT INTO GALLERY (G_NO, M_NO, G_NAME, G_ADRESS, G_TEL,G_IMG1, G_IMG2, G_IMG3, G_IMG4, G_INTRO, G_STATE) 
-   	  VALUES(GALLERY_SEQ.NEXTVAL, #{m_no}, #{g_name}, #{g_adress}, #{g_tel},#{g_img1}, #{g_img2}, #{g_img3}, #{g_img4}, #{g_intro}, 1)
-   	</insert>
+        VALUES(GALLERY_SEQ.NEXTVAL, #{m_no}, #{g_name}, #{g_adress}, #{g_tel},#{g_img1}, #{g_img2}, #{g_img3}, #{g_img4}, #{g_intro}, 1)
+      </insert>
    
    
    <update id="updateGallery" parameterType="GalleryDto">
@@ -24,7 +24,7 @@
    
    
    <select id="selectGallery" parameterType="int" resultType="GalleryDto">
-   	SELECT G_NO, M_NO, G_NAME, G_ADRESS, G_TEL, G_IMG1, G_IMG2, G_IMG3, G_IMG4,
+      SELECT G_NO, M_NO, G_NAME, G_ADRESS, G_TEL, G_IMG1, G_IMG2, G_IMG3, G_IMG4,
     G_INTRO, G_STATE FROM GALLERY.GALLERY 
     WHERE G_NO=#{g_no}
    
@@ -55,10 +55,20 @@
     </select>
     
      <select id="selectMemberGId" parameterType="int" resultType="GalleryDto">
-    	SELECT m.M_ID FROM GALLERY.GALLERY g INNER JOIN GALLERY.MEMBER m ON g.M_NO = m.M_NO AND g.m_NO=#{m_no}
+       SELECT m.M_ID FROM GALLERY.GALLERY g INNER JOIN GALLERY.MEMBER m ON g.M_NO = m.M_NO AND g.m_NO=#{m_no}
     </select>
     
-    
+    <!-- 쿼리추가 -->
+    <!-- gallerystate update -->
+     <update id="updateGalleryState" parameterType="GalleryDto">
+    UPDATE GALLERY."GALLERY" SET G_STATE=
+   CASE
+    WHEN G_STATE='1' THEN '3'
+    WHEN G_STATE='3' THEN '3'
+    ELSE 'DEFAULT'
+   END
+   WHERE M_NO=#{m_no}
+   </update>
     
     
 

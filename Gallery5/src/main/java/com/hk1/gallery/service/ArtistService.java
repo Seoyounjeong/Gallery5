@@ -10,56 +10,60 @@ import com.hk1.gallery.dto.ArtistDto;
 
 @Service
 public class ArtistService implements IArtistService {
-	@Autowired
-	private IArtistDao artistDao;
+   @Autowired
+   private IArtistDao artistDao;
 
-	@Override
-	public boolean insertArtist(ArtistDto artistDto) {
-		// TODO Auto-generated method stub
-		return artistDao.insertArtist(artistDto);
-	}
+   @Override
+   public boolean insertArtist(ArtistDto artistDto) {
+      // TODO Auto-generated method stub
+      return artistDao.insertArtist(artistDto);
+   }
 
-	@Override
-	public boolean updateArtist(ArtistDto artistDto) {
-		// TODO Auto-generated method stub
-		return artistDao.updateArtist(artistDto);
-	}
+   @Override
+   public boolean updateArtist(ArtistDto artistDto) {
+      // TODO Auto-generated method stub
+      return artistDao.updateArtist(artistDto);
+   }
 
-	@Override
-	public boolean deleteArtist(int a_no) {
-		// TODO Auto-generated method stub
-		return artistDao.deleteArtist(a_no);
-	}
+   @Override
+   public boolean deleteArtist(int a_no) {
+      // TODO Auto-generated method stub
+      return artistDao.deleteArtist(a_no);
+   }
 
-	@Override
-	public ArtistDto selectArtist(int a_no) {
-		// TODO Auto-generated method stub
-		return artistDao.selectArtist(a_no);
-	}
+   @Override
+   public ArtistDto selectArtist(int a_no) {
+      // TODO Auto-generated method stub
+      return artistDao.selectArtist(a_no);
+   }
 
-	@Override
-	public List<ArtistDto> selectArtistList(int a_state) {
-		// TODO Auto-generated method stub
-		return artistDao.selectArtistList(a_state);
-	}
+   @Override
+   public List<ArtistDto> selectArtistList(int a_state) {
+      // TODO Auto-generated method stub
+      return artistDao.selectArtistList(a_state);
+   }
 
-	@Override
-	public List<ArtistDto> selectArtistList() {
-		// TODO Auto-generated method stub
-		return artistDao.selectArtistList();
-	}
+   @Override
+   public List<ArtistDto> selectArtistList() {
+      // TODO Auto-generated method stub
+      return artistDao.selectArtistList();
+   }
 
-	@Override
-	public List<ArtistDto> selectArtistListImg() {
-		// TODO Auto-generated method stub
-		return artistDao.selectArtistListImg();
-	}
+   @Override
+   public List<ArtistDto> selectArtistListImg() {
+      // TODO Auto-generated method stub
+      return artistDao.selectArtistListImg();
+   }
 
-	@Override
-	public ArtistDto selectMemberId(int a_no) {
-		// TODO Auto-generated method stub
-		return artistDao.selectMemberId(a_no);
-	}
-	
-	
+   @Override
+   public ArtistDto selectMemberId(int a_no) {
+      // TODO Auto-generated method stub
+      return artistDao.selectMemberId(a_no);
+   }
+   
+   @Override
+   public boolean updateArtistState(ArtistDto artistDto) {
+      // TODO Auto-generated method stub
+      return artistDao.updateArtistState(artistDto);
+   }
 }

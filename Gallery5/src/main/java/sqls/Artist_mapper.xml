@@ -45,15 +45,27 @@
     </select>
     <!-- 지우기 -->
     <select id = "selectArtistListImg" resultType="ArtistDto">
-    	SELECT a.A_NO, a.A_NAME, a.A_SOLO, a.A_SQUARD, a.A_CAREER, 
-    	a.A_STATE, e.E_IMG FROM ARTIST a INNER JOIN EXHIBITION e on a.A_NO = e.A_NO AND a.A_STATE=2
+       SELECT a.A_NO, a.A_NAME, a.A_SOLO, a.A_SQUARD, a.A_CAREER, 
+       a.A_STATE, e.E_IMG FROM ARTIST a INNER JOIN EXHIBITION e on a.A_NO = e.A_NO AND a.A_STATE=2
     
     </select>
     
     <select id="selectMemberId" parameterType="int" resultType="ArtistDto">
-    	SELECT a.A_NO, a.A_NAME, a.A_SOLO, a.A_SQUARD, a.A_CAREER, 
-    	a.A_STATE, m.M_ID FROM GALLERY.ARTIST a INNER JOIN GALLERY.MEMBER m ON a.A_NO = m.M_NO AND a.A_NO=#{a_no}
+       SELECT a.A_NO, a.A_NAME, a.A_SOLO, a.A_SQUARD, a.A_CAREER, 
+       a.A_STATE, m.M_ID FROM GALLERY.ARTIST a INNER JOIN GALLERY.MEMBER m ON a.A_NO = m.M_NO AND a.A_NO=#{a_no}
     </select>
     
+    
+    <!-- 쿼리추가 -->
+    <!-- 작가 등급 update -->
+    <update id="updateArtistState" parameterType="ArtistDto">
+    UPDATE GALLERY.ARTIST SET A_STATE=
+   CASE
+    WHEN A_STATE='1' THEN '2'
+    WHEN A_STATE='2' THEN '2'
+    ELSE 'DEFAULT'
+   END
+   WHERE A_NO=#{a_no}
+    </update>
     
   </mapper>

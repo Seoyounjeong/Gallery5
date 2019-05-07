@@ -25,7 +25,7 @@
 			<th>단체전</th>
 			<th>수상경력</th>
 			<th>등급</th>
-			
+			<th>승인</th>
 			<th>삭제</th>
 		</tr>
 		<%
@@ -43,6 +43,7 @@
 			미승인
 		<%}%>
 		</td>
+		<td><a href="managerArtistStateUpdate.do?a_no=<%=artistDto.getA_no()%>">[승인]</a></td>
 		<td><a href="managerdeleteArtist.do?a_no=<%=artistDto.getA_no()%>">[삭제]</a></td>
 		
 	<% }%>

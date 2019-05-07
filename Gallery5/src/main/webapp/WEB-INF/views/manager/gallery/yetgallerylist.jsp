@@ -32,6 +32,7 @@
          <th>내부이미지4</th>
          <th>소갯말</th>
          <th>승인상태</th>
+         <th>승인</th>
          <th>삭제</th>
       </tr>
       
@@ -57,6 +58,9 @@
          미승인
       <%}%>
       </td>
+      
+      
+	  <td><a href="managerGalleryStateUpdate.do?g_no=<%=galleryDto.getG_no()%>">[승인]</a></td>
       <td><a href="managerdeleteGallery.do?g_no=<%=galleryDto.getG_no()%>">[삭제]</a></td>
    </tr>
       
