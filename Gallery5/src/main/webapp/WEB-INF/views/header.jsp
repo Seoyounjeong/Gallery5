@@ -10,6 +10,159 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script> 
 <script src="OverlayEffectMenu/js/cufon-yui.js" type="text/javascript"></script>
 <script src="OverlayEffectMenu/js/Aller.font.js" type="text/javascript"></script>
+<style>
+	
+*{
+	margin:0;
+	padding:0;
+}
+/* body{
+	background:white;
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+	font-size:15px;
+	color: #fff;
+	text-transform:uppercase;
+	overflow-x:hidden;
+} */
+.oe_overlay{
+	background:#000;
+	opacity:100;
+	position:;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:50px;
+	display: block; 
+	
+	
+	
+}
+.mainHeader{
+	-webkit-transition: All 0.2s ease;
+	-moz-transition: All 0.2s ease;
+	-o-transition: All 0.2s ease;
+	display: table;
+	width: 100%;
+	border-collapse: collapse;
+    border: none;
+    table-layout:fixed;
+    background-color: #ffffff;
+   	
+
+
+	
+}
+
+
+ ul.oe_menu{
+ 	top: 0;
+	list-style:;
+	position:relative;
+	height:50px;
+	width:100%;
+	
+	float:;
+	clear:;
+	box-sizing: border-box;
+	display: table-row;
+	
+	
+
+} 
+
+@media (min-width:1000px) {
+	ul.oe_menu {margin:10px 0px 35px 40px;
+	
+	} 
+}
+
+
+ul.oe_menu > li{
+	width:12%;
+	height:50px;
+	padding-bottom:;
+	float:left;
+	position:relative;
+	display: table-cell;
+	
+
+}
+
+@media (min-width:1000px) {
+	ul.oe_menu > li{left: 600px;
+	} 
+}
+ul.oe_menu > li > a{
+	display:block;
+	background-color:#ffffff;
+	color:#808080;
+	text-decoration:none;
+	font-weight:bolder;
+	font-size:15px;
+	height:30px;
+	padding:10px;
+	margin:1px;
+	text-shadow:0px 0px 1px #000;
+	opacity:1.0;
+	text-align: center;
+	
+}
+ul.oe_menu > li > a:hover,
+ul.oe_menu > li.selected > a{
+	background:#fff;
+	color:#101010;
+	opacity:;
+}
+.oe_wrapper ul.hovered > li > a{
+	background:#fff;
+	text-shadow:0px 0px 1px #FFF;
+}
+ul.oe_menu div{
+	
+	position:absolute;
+	top:50px;
+	left:1px;
+	background:#fff;
+	width:800px;
+	height:auto;
+	padding:30px;
+	display:none;
+}
+ul.oe_menu div ul li a{
+	text-align: center;
+	text-decoration:none;
+	color:#222;
+	padding:2px 2px 2px 4px;
+	margin:2px;
+	display:block;
+	font-size:12px;
+}
+ul.oe_menu div ul.oe_full{
+	width:100%;
+}
+ul.oe_menu div ul li a:hover{
+	background:#000;
+	color:#fff;
+}
+ul.oe_menu li ul{
+	list-style:none;
+	float:left;
+	width: 155px;
+	margin-right:10px;
+}
+li.oe_heading a.oe_body{
+	color:black;
+	font-size:20px;
+	margin-bottom:10px;
+	padding-bottom:6px;
+	border-bottom:1px solid #ddd;
+	text-align: center;
+}
+
+ul.oe_menu div ul li a.oe_body{}
+	
+
+</style>
 <script type="text/javascript">
 			var lastScrollTop = 0,
 				delta = 15;
