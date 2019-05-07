@@ -9,6 +9,33 @@ html, body{
     padding: 0;
     color: rgb(26, 26, 26);
 }
+#detailExhibition input,textarea:focus{
+	 outline: none;
+	 box-shadow:1px 1px 10px rgba(102,255,102,0.5);
+}
+/* 상단부 전시요청 , 전시 수정 버튼 */
+#detailExhibition_update_request{
+	width: 100%;
+	text-align: center;
+	
+}
+#detailExhibition_update_request input{
+	font-size: 120%;
+    font-weight: bold;
+    background-color: rgb(26,26,26);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+	
+}
+#detailExhibition_update_request input:hover{
+	color: rgb(200,200,200);
+	
+}
+
 /* 상단부 대표이미지부분 */
 #detailExhibition_title{
 	margin : 0;
@@ -23,6 +50,7 @@ html, body{
 	text-align:right;
 }
 #detailExhibition_title_text{
+	font-weight: bold;
 	display: table-cell;
 	width:33%;
 	text-align:left;
@@ -56,6 +84,7 @@ html, body{
 	margin-top : 10%;
 }
 #detailExhibition_explain h3 {
+	font-weight: bold;
 	width : 10%;
 	padding-bottom : 10px;
 	border-bottom : solid 2px rgb(160,160,160);
@@ -63,12 +92,14 @@ html, body{
 	text-align: left;
 }
 #detailExhibition_explain h2{
+	font-weight: bold;
 	text-align: left;
 	color: rgb(26,26,26);
 	margin-top :5%;
 	margin-bottom : 3%;
 }
 #detailExhibition_explain h4 {
+	font-weight: bold;
 	color: rgb(26,26,26);
 }
 #detailExhibition_explain p {
@@ -99,7 +130,8 @@ html, body{
 }
 .detailExhibition_itemDetailBox_content_img_box{
 	display:table-cell;
-	width :40%;
+	width :35%;
+	padding-left:5%;
 	text-align: right;
 	
 }
@@ -111,7 +143,7 @@ html, body{
 	vertical-align: middle;
 	color : white;
 }
-.detailExhibition_itemDetailBox_content_text_box input{
+.detailExhibition_itemDetailBox_content_text_box  input{
 	font-size: 120%;
     font-weight: bold;
     background-color: deepskyblue;
@@ -122,7 +154,7 @@ html, body{
     cursor: pointer;
     text-align: center;
 }
-.detailExhibition_itemDetailBox_content_text_box input:hover{
+.detailExhibition_itemDetailBox_content_text_box  input:hover{
 	 background-color: white;
     color: deepskyblue;
 }
@@ -158,6 +190,8 @@ html, body{
 }
 #detailExhibition_DabgeulList h3{
 	
+	font-weight: bold;
+	
 	margin-bottom:5%;
 	width : 10%;
 	padding-bottom : 10px;
@@ -166,6 +200,7 @@ html, body{
 	text-align: left;
 }
 #detailExhibition_DabgeulList h5{
+	font-weight: bold;
 	color: rgb(160,160,160);
 	
 	}
@@ -253,6 +288,8 @@ html, body{
 	
 }
 #detailExhibition_pageNavi a:hover{
+	text-decoration : none;
+	font-weight: bold;
 	color : rgb(115,195,203);
 }
 

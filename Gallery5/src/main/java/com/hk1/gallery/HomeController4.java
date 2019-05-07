@@ -529,7 +529,7 @@ public class HomeController4 {
 	
 	
 	@ResponseBody
-	@RequestMapping(value = "/DabgeulInsertAjax.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/DabgeulInsertAjax.do", method ={RequestMethod.POST, RequestMethod.GET})
 	public String DabgeulInsertAjax(Locale locale, Model model, int e_no, String d_content, int m_no, String m_name)  {
 		logger.info("DabgeulInsertAjax 가자 {}.", locale);
 	

@@ -39,43 +39,35 @@
 		<a href="#detailExhibition_DabgeulList">감상평</a>
 		</div>
 	</div>
-<!-- 전시 대표이미지 -->
-		<div id="detailExhibition_title">
-			<div id="detailExhibition_title_img">
-			<img alt="전시대표이미지" src="exhibitionupload/<%=exhibition.getE_img()%>" width="80%">
-			</div>
-			<div id="detailExhibition_title_text">
-				<h2><%=exhibition.getE_title()%>展</h2>
-                <p><%=exhibition.getA_name()%>作</p>
-				<input type="button" value="감상하기" onclick="fullscreenExhibition()">
-			</div>
-		</div>
+	
 		<!-- 해당전시의 작가라면 (전시수정)버튼-->
 		<%
 		if(loginMember==null){
 			
 		}else{
 		%>
+		<div id="detailExhibition_update_request">
 		<%if(exhibition.getA_no()==loginMember.getM_no()){ %>
-		<div>
+		
 			<form action="updateExhibitionForm.do" method="post"> 
 				
 				<input type="hidden" name="e_no" value="<%=exhibition.getE_no()%>">
 				<input type="hidden" name="a_no" value="<%=exhibition.getA_no()%>">
 				<input type="submit" value="전시수정">
 			</form>
-		</div>
+		
 		<%}
 		
 			if(loginMember.getM_grade()==3||loginMember.getM_grade()==7){
 				%>
-				<div>
+				
 					 
 						<input type="button" value="전시요청" onclick="pop('<%=loginMember.getM_no()%>','<%=exhibition.getA_no()%>','<%=exhibition.getA_name()%>','<%=loginMember.getM_name()%>')">
 			
-				</div>
+				
 				<% 
-			}
+			}%>
+			</div><% 
 		}
 		%>
 <script type="text/javascript">
@@ -94,6 +86,18 @@
 	
 
 </script>
+<!-- 전시 대표이미지 -->
+		<div id="detailExhibition_title">
+			<div id="detailExhibition_title_img">
+			<img alt="전시대표이미지" src="exhibitionupload/<%=exhibition.getE_img()%>" width="80%">
+			</div>
+			<div id="detailExhibition_title_text">
+				<h2><%=exhibition.getE_title()%>展</h2>
+                <p><%=exhibition.getA_name()%>作</p>
+				<input type="button" value="감상하기" onclick="fullscreenExhibition()">
+			</div>
+		</div>
+
 		<div id="detailExhibition_explain">
 <!-- 전시 설명 -->
 		<h3>전시 설명</h3>
@@ -125,7 +129,7 @@
 					</div>
 				
 					<div class="detailExhibition_itemDetailBox_content_img_box">
-						<img alt="작품이미지" src="itemupload/<%=(itemList.get(i)).getI_img()%>" width="100%" id="detailExhibition_itemDetailBox_content_img_<%=i%>">
+						<img alt="작품이미지" src="itemupload/<%=(itemList.get(i)).getI_img()%>" width="800px" id="detailExhibition_itemDetailBox_content_img_<%=i%>">
 					</div>
 					<div class="detailExhibition_itemDetailBox_content_text_box">
 						
@@ -153,9 +157,9 @@
 							<img src="exhibition/images/detailexhibition_next_button.png" width="50%" onclick="next(<%=i%>)">
 							
 						</div>
-				</div>
-				</div>
 				
+				</div>
+				</div>
 		<%} %>
 	</div><!--detailExhibition_itemDetailBox End  -->
 	

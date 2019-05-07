@@ -1,0 +1,319 @@
+@charset "UTF-8";
+html,body{
+	margin:	0;
+	padding:	0;
+		 overflow-x: hidden;
+	
+	
+}
+#insertItemForm_body input ,textarea:focus{
+ outline: none;
+ 	
+}
+#insertItemForm_body{
+	
+	width:100%;
+	background-image: url("../images/inseritemBG.png");
+	 overflow-x: hidden;
+	box-shadow: 1px 1px 700px black inset;
+	
+}
+
+#insertItemForm{
+	width: 60%;
+	
+	margin: 0 auto;
+	padding-top:10%;
+	padding-bottom:10%;
+	
+	background-color: white;
+	box-shadow: 1px 1px 700px white;
+	
+}
+#insertItemForm h2{
+	text-align: center;
+	width:7%;
+	margin:0 auto;
+	color: white;
+	
+	font-weight: bold;
+	border-radius: 60px;
+	border :2px solid rgba(255,0,0,0.5);
+	background-color: red;
+	box-shadow: 0px 0px 70px red;
+}
+
+/* 상단부 작품등록 설명부분  */
+#insertItemForm_explain{
+	padding-top:6%;
+	padding-bottom:6%;
+	padding-left:2%;
+	padding-right:2%;
+	border-left:7px solid white;
+	
+}
+
+#insertItemForm_explain:hover{
+	border-left:7px solid rgba(102,255,102,0.7);
+	
+}
+#insertItemForm_explain h3{
+	font-size:160%;
+	font-weight: bold;
+	padding-bottom: 10px;
+	width: 40%;
+	border-bottom: 2px solid rgb(80,80,80);
+	color: rgb(80,80,80);
+}
+#insertItemForm_explain div{
+	margin-top:5%;
+	margin-left: 10%;
+	
+}
+#insertItemForm_explain p{
+	font-weight: bold;
+	padding-top: 10px;
+	color: rgb(50,50,50);
+}
+
+
+/* 중단,하단부 작품 등록 폼 부분 */
+#insertItemForm_main_content{
+	
+	padding-top:6%;
+	padding-bootm:6%;
+	padding-left:2%;
+	padding-right: 2%;
+	border-left:7px solid white;
+}
+
+#insertItemForm_main_content:hover{
+	border-left:7px solid rgba(102,255,102,0.7);
+}
+#insertItemForm_main_content h3{
+	font-size:140%;
+	font-weight:1000;
+	padding-bottom: 10px;
+	width: 40%;
+	border-bottom: 2px solid rgb(80,80,80);
+	color: rgb(80,80,80);	
+	margin-bottom: 5%;
+	
+}
+#insertItemForm_main_content_filebox{
+	width: 100%;
+	padding-left:2%;
+	padding-right: 2%;
+	text-align: center;
+
+}
+
+
+#insertItemForm_main_content_filebox p{
+	font-weight: bold;
+	color: rgb(160,160,160);
+}
+#insertItemForm_main_content_filebox h5{
+
+	margin-bottom:5%;
+	text-align: left;
+	font-size:100%;
+	font-weight:bold;
+	padding-bottom: 5px;
+	width: 10%;
+	border-bottom: 2px solid rgb(160,160,160);
+	color: rgb(160,160,160);	
+}
+#insertItemForm_fileupload_showbox{
+	
+	background-color: rgb(26,26,26);
+	margin-bottom: 5%;
+	
+	
+}
+#insertItemForm_main_content_filebox label{
+	font-weight: bold;
+	color: white;
+	background-color: rgb(50,50,50);
+	border-radius: 20px;
+	box-shadow: 1px 1px 10px rgba(26,26,26,0.3);
+	border: none;
+	padding:10px;
+	cursor: pointer;
+	
+}
+#insertItemForm_main_content_filebox label:hover{
+	font-weight: bold;
+	color: rgb(102,255,102);
+	background-color: rgb(50,50,50);
+	border-radius: 20px;
+	box-shadow: 1px 1px 10px rgba(102,255,102,0.5);
+	border: none;
+	padding:10px;
+	cursor: pointer;
+	
+	
+}
+#insertItemForm_fileupload{
+	display:none;
+}
+
+#insertItemForm_main_content_explain{
+	padding-left:2%;
+	padding-right: 2%;
+	margin-top: 10%;
+	display:table;
+	
+}
+#insertItemForm_main_content_explain h5{
+	margin-bottom:5%;
+	text-align: left;
+	font-size:100%;
+	font-weight:bold;
+	padding-bottom: 5px;
+	width: 20%;
+	border-bottom: 2px solid rgb(160,160,160);
+	color: rgb(160,160,160);	
+	
+}
+#insertItemForm_main_content_explain_title_price{
+	width: 100%;
+
+}
+#insertItemForm_main_content_explain_title_price span{
+	
+	font-weight: bolder;
+	margin-left: 30%;
+	
+	margin-bottom: 5%;
+}
+#insertItemForm_main_content_explain_title_price input{
+	margin-bottom: 5%;
+	margin-left: 5%;
+	margin-right:0;
+	font-size: 120%;
+	font-weight: bold;
+	border-radius: 10px;
+	border: none;
+	border-bottom: 2px solid rgba(200,200,200,0.5);
+
+}
+#insertItemForm_main_content_explain_title_price input:hover{
+	box-shadow:1px 1px 10px rgba(102,255,102,0.5);
+}
+#insertItemForm_main_content_explain_title_price input:focus{
+		outline:none;
+		box-shadow:1px 1px 10px rgba(102,255,102,0.5);
+}
+#insertItemForm_main_content_explain p{
+	font-size: 120%;
+	font-weight: bold;
+	margin-left: 30%;
+}
+
+#insertItemForm_main_content_explain_explain  textarea{
+	width:100%;
+	resize: none;
+	overflow: hidden;
+	padding :20px;
+	margin-left: 30%;
+	border-radius: 20px;
+	border: none;
+	border-top: 2px solid rgba(200,200,200,0.5);
+	border-bottom: 2px solid rgba(200,200,200,0.5);
+}
+#insertItemForm_main_content_explain_explain  textarea:hover{
+	box-shadow:1px 1px 10px rgba(102,255,102,0.5);
+}
+#insertItemForm_main_content_explain_explain  textarea:focus{
+	outline:none;
+		box-shadow:1px 1px 10px rgba(102,255,102,0.5);
+}
+
+#insertItemForm_main_content_explain_explain_submit{
+	margin-top :10%; 
+	margin-left:70%;
+	border:none;
+	color: white;
+	font-weight: bold;
+	font-size: 120%;
+	border-radius: 20px;
+	background-color: rgb(0,204,255);
+	cursor: pointer;
+	padding: 10px;
+}
+
+#insertItemForm_main_content_explain_explain_submit:hover{
+	margin-top :10%; 
+	margin-left:70%;
+	border:none;
+	color: rgba(102,255,102,0.5);
+	font-weight: bold;
+	font-size: 120%;
+	border-radius: 20px;
+	background-color: rgb(0,204,255);
+	box-shadow:1px 1px 10px rgba(102,255,102,0.5);
+	cursor: pointer;
+	padding: 10px;
+}
+
+/* 하단부 전시등록 이동 폼 부분 */
+#insertItemForm_moveExhibition{
+	padding-top: 6%;
+	padding-bottom: 6%;
+	padding-left:2%;
+	padding-right:2%;
+	border-left:7px solid white;
+	
+	
+}
+#insertItemForm_moveExhibition:hover{
+	border-left:7px solid rgba(102,255,102,0.7);
+}
+#insertItemForm_moveExhibition h5{
+	font-size:120%;
+	font-weight:1000;
+	padding-bottom: 10px;
+	width: 40%;
+	border-bottom: 2px solid rgb(160,160,160);
+	color: rgb(160,160,160);	
+	
+}
+#insertItemForm_moveExhibition div{
+	margin-top:5%;
+	margin-left: 18%;
+
+}
+#insertItemForm_moveExhibition p{
+	font-weight: bold;
+	color: rgb(50,50,50);
+	margin-left: 5%;
+	
+}
+#insertItemForm_moveExhibition input{
+	font-weight: bolder;
+	margin-top: 10px;
+	margin-left: 34%;
+	color: green;
+	background-color: white;
+	border: none;
+	cursor: pointer;
+	padding: 10px;
+}
+#insertItemForm_moveExhibition input:hover{
+	font-weight: bold;
+	border: 1px solid rgba(102,255,102,0.3);
+	border-radius:10px;
+	box-shadow:  5px 5px 20px  rgb(102,255,102);
+	
+}
+
+
+
+
+
+
+
+
+
+
