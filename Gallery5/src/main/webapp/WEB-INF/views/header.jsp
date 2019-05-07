@@ -28,7 +28,7 @@
 
 <div class="oe_wrapper" style="position: ;">
 			<div class="mainHeader" style="position: fixed; background-color: white;">
-			<div class="mainLogo" style="position: absolute; left: 50px; top: 10px; z-index: 99"><img alt="index.jsp" src="logo/logo1.png" width="200" height="auto" ></div>
+			<div class="mainLogo" style="position: absolute; left: 50px; top: 10px; z-index: 99"><a href="index.jsp"><img alt="index.jsp" src="logo/logo1.png" width="200" height="auto" ></a> </div>
 			<div class="login_wrapper" style="position: absolute; right: 50px; top: 10px; z-index: 99">
 			<%if(loginMember==null){ %>
 			<button class="btn btn-outline-success" onclick="location.href='loginform.do'" >LOGIN</button>
