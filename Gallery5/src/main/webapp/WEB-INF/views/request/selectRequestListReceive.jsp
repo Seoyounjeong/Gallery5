@@ -67,7 +67,7 @@
 		<%}
 		%></td>
 		<td style="text-align: center;"> <%=dto.getR_receivename()%></td>
-		<td style="text-align: center;"><a href="" onclick="sendpop(<%=dto.getR_no()%>)"><%=dto.getR_title() %></a></td>
+		<td style="text-align: center;"><a href="" onclick="receivepop(<%=dto.getR_no()%>)"><%=dto.getR_title() %></a></td>
 		<td style="text-align: center;"><fmt:formatDate value="<%= dto.getR_regdate() %>" pattern="yyyy년MM월dd일"/> </td>
 		<td style="text-align: center;"><a href="deleteRequest.do?r_no=<%=dto.getR_no()%>">삭제</a></td>
 	</tr>
