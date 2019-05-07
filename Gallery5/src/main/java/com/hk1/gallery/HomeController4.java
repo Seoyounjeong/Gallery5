@@ -266,14 +266,14 @@ public class HomeController4 {
 		
 		
 		
-		if(m_grade.equals("1")) {
+		
 			
 			boolean isM =memberService.updateMember(mDto);
 			
 			session.removeAttribute("loginMember");
 			session.setAttribute("loginMember", mDto);
 			System.out.println("memberupdate 성공");
-		}
+	
 		
 		
 		if (isS) {
