@@ -33,7 +33,8 @@ System.out.println("이미지 디티오는?+"+list);%>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp" />
 
-
+<div style="display: inline-block;"></div>
+<div>
 <h1>작가목록</h1>
 
 	<% 
@@ -82,7 +83,7 @@ System.out.println("이미지 디티오는?+"+list);%>
 
 
 
-
+</div>
 
 
 <jsp:include page="/WEB-INF/views/tail.jsp" />	

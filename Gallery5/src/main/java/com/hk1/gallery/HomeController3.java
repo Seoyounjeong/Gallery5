@@ -416,10 +416,10 @@ public class HomeController3 {
 				boolean isS = requestService.deleteRequest(r_no);
 				
 				if (isS) {
-					return "redirect:message.do";
+					return "redirect:myprivate.do";
 					
 				}else{
-					return "redirect:aritistlist.do";
+					return "redirect:myprivate.do";
 				}
 				
 				

@@ -14,20 +14,48 @@
 .oe_overlay{
 	background:#000;
 	opacity:100;
-	position:fixed;
+	position:;
 	top:0px;
 	left:0px;
 	width:100%;
+	height:50px;
+	display: block; 
+	
+	
 	
 }
-ul.oe_menu{
-	list-style:none;
+.mainHeader{
+	-webkit-transition: All 0.2s ease;
+	-moz-transition: All 0.2s ease;
+	-o-transition: All 0.2s ease;
+	display: table;
+	width: 100%;
+	border-collapse: collapse;
+    border: none;
+    table-layout:fixed;
+    background-color: #ffffff;
+   	
+
+
+	
+}
+
+
+ ul.oe_menu{
+ 	top: 0;
+	list-style:;
 	position:relative;
-	
+	height:50px;
 	width:100%;
-	float:left;
+	
+	float:;
 	clear:;
-}
+	box-sizing: border-box;
+	display: table-row;
+	
+	
+
+} 
 
 @media (min-width:1000px) {
 	ul.oe_menu {margin:10px 0px 35px 40px;
@@ -37,12 +65,14 @@ ul.oe_menu{
 
 
 ul.oe_menu > li{
-	width:170px;
+	width:12%;
 	height:50px;
-	padding-bottom:10px;
+	padding-bottom:;
 	float:left;
 	position:relative;
+	display: table-cell;
 	
+
 }
 
 @media (min-width:1000px) {
@@ -54,14 +84,15 @@ ul.oe_menu > li > a{
 	background-color:#ffffff;
 	color:#808080;
 	text-decoration:none;
-	font-weight:bold;
-	font-size:30px;
-
-	height:50px;
+	font-weight:bolder;
+	font-size:15px;
+	height:30px;
 	padding:10px;
 	margin:1px;
 	text-shadow:0px 0px 1px #000;
-	opacity:0.8;
+	opacity:1.0;
+	text-align: center;
+	
 }
 ul.oe_menu > li > a:hover,
 ul.oe_menu > li.selected > a{

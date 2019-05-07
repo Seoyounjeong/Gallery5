@@ -7,15 +7,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <link rel="stylesheet" href="OverlayEffectMenu/css/style.css" type="text/css" media="screen"/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script> 
 <script src="OverlayEffectMenu/js/cufon-yui.js" type="text/javascript"></script>
 <script src="OverlayEffectMenu/js/Aller.font.js" type="text/javascript"></script>
-<!-- <script type="text/javascript">
-			Cufon.replace('ul.oe_menu div a',{hover: true});
-			Cufon.replace('h1,h2,.oe_heading');
-		</script> -->
-		
-			<div class="oe_wrapper">
-			<div class="login_wrapper" style="position: absolute; right: 30px; top: 30px; z-index: 99">
+<script type="text/javascript">
+			var lastScrollTop = 0,
+				delta = 15;
+				$(window).scroll(function (event) {
+				var st = $(this).scrollTop();
+					if (Math.abs(lastScrollTop - st) <= delta) return;
+					if ((st > lastScrollTop) && (lastScrollTop > 0)) {
+   					 $(".mainHeader").css("top", "-100px");
+   					} else {
+   					 $(".mainHeader").css("top", "0px");
+					}
+					lastScrollTop = st;
+					});
+					
+		</script>
+
+<div class="oe_wrapper" style="position: ;">
+			<div class="mainHeader" style="position: fixed; background-color: white;">
+			<div class="mainLogo" style="position: absolute; left: 50px; top: 10px; z-index: 99"><img alt="index.jsp" src="logo/logo1.png" width="200" height="auto" ></div>
+			<div class="login_wrapper" style="position: absolute; right: 50px; top: 10px; z-index: 99">
 			<%if(loginMember==null){ %>
 			<button class="btn btn-outline-success" onclick="location.href='loginform.do'" >LOGIN</button>
 			
@@ -24,7 +38,7 @@
 			<span >LOGOUT</span></button>
 			<%} %>
 			</div>
-			<div id="oe_overlay" class="oe_overlay"></div>
+			<!-- <div id="oe_overlay" class="oe_overlay"></div> -->
 			<ul id="oe_menu" class="oe_menu">
 				<li><a href="exhibitionlist.do">전시</a></li>
 				
@@ -36,6 +50,7 @@
 				<%}else if(loginMember!=null){ %>
 				
 				<li><a href="">MY PAGE</a>
+				
 					<div style="left:-447px;">
 						<ul>
 						<li class="oe_heading"><a class="oe_body" href="myprivate.do"> 회원정보</a></li>
@@ -92,7 +107,7 @@
 			
 				
 			</ul>	
-			
+			</div>
 			
 		</div>
 		
@@ -128,4 +143,7 @@
 				})
             });
         </script>
+       <div>
+       	<br/><br/><br/>
+       </div>
 	

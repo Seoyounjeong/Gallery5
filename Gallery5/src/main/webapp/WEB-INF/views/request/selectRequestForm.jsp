@@ -6,10 +6,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/sketchy/bootstrap.min.css" rel="stylesheet" integrity="sha384-N8DsABZCqc1XWbg/bAlIDk7AS/yNzT5fcKzg/TwfmTuUqZhGquVmpb5VvfmLcMzp" crossorigin="anonymous">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>메시지</title>
 <%RequestDto dto =(RequestDto)request.getAttribute("requestDto"); %>
 <script type="text/javascript">
 <%-- 	function messageclose() {
@@ -66,11 +66,11 @@
 <input type="hidden" value="<%=dto.getR_receive()%>" name="r_receive">
 <input type="hidden" value="<%=dto.getR_send()%>" name="r_send">
 
-<label  for="receive">받으시는 분 </label><input  type="text" value="<%=dto.getR_receivename() %>" id="receive" name="r_receivename" readonly="readonly"><br/> 
-<label for="send">보내시는 분</label><input  type="text" value="<%=dto.getR_sendname() %>" id="send" name="r_sendname" readonly="readonly"> <br/>
-<label for="title">제목</label><input  style="margin-left: 50px;" type="text" name="r_title" id="title" value="<%=dto.getR_title() %>"  readonly="readonly"> 
-<div style="margin-top: 25px;" id="content">내용<br/>
-<textarea  rows="5" cols="60" name="r_content" readonly="readonly" class="form-control col-sm-5"><%=dto.getR_content() %></textarea>
+<label style="margin-left: -40px;" for="receive">TO.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label><input  style="margin-left: 10px;" size="60;"  type="text" value="<%=dto.getR_receivename() %>" id="receive" name="r_receivename" readonly="readonly" class="btn btn-outline-primary"><br/> 
+<label style="margin-left: -40px;" for="send">FROM.&nbsp</label><input  style="margin-left: 10px;" size="60;"  type="text" value="<%=dto.getR_sendname() %>" id="send" name="r_sendname" readonly="readonly" class="btn btn-outline-primary"> <br/>
+<label style="margin-left: -40px;" for="title">TITLE.&nbsp</label><input  style="margin-left: 10px;" size="60;" type="text" name="r_title" id="title" value="<%=dto.getR_title() %>"  readonly="readonly" class="btn btn-outline-primary"> 
+<div style="margin-top: 25px;" id="content"><br/>
+<textarea  rows="7" cols="50" name="r_content" readonly="readonly" class="form-control" style="width: 450px;" ><%=dto.getR_content() %></textarea>
 </div><br/>
 <div>			<%if(dto.getR_agree()==1){ %>
 				<button disabled="disabled" class="btn btn-outline-primary"  >승인</button>

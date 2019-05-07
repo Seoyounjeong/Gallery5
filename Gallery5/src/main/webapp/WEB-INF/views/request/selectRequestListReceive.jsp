@@ -32,10 +32,55 @@
 
 </head>
 
-
-<body>
 <jsp:include page="/WEB-INF/views/header.jsp" />
+<body>
+<div style="display: inline-block;"></div>
 
+
+
+<div class="container">
+<h3 style="text-align: center;">내가 받은 메시지함</h3>
+	<table class="table table-hover">
+	<tr>
+	<th style="text-align: center;">승낙결과</th><th style="text-align: center;">보낸 사람</th><th style="text-align: center;" width="20%">제목</th><th style="text-align: center;">보낸 날짜</th><th style="text-align: center;">삭제</th>
+	</tr>
+
+<% if(list.size()==0){
+	%>
+	<td>작성된 메세지가 없습니다</td>
+	<% 
+}	%>
+	
+	
+	
+	<%for(RequestDto dto : list){ %>
+	
+
+	<tr>
+	<td style="text-align: center;"> <%if(dto.getR_agree()==1){%>
+		<button disabled="disabled" class="btn btn-primary btn-sm"  >승인</button>
+	
+	<%}else if(dto.getR_agree()==2){%>
+		<button disabled="disabled" class="btn btn-danger btn-sm"  >거절</button>
+	<%}else if(dto.getR_agree()==3){%>
+	<button disabled="disabled" class="btn btn-success btn-sm"   >대기중</button>
+		<%}
+		%></td>
+		<td style="text-align: center;"> <%=dto.getR_receivename()%></td>
+		<td style="text-align: center;"><a href="" onclick="sendpop(<%=dto.getR_no()%>)"><%=dto.getR_title() %></a></td>
+		<td style="text-align: center;"><fmt:formatDate value="<%= dto.getR_regdate() %>" pattern="yyyy년MM월dd일"/> </td>
+		<td style="text-align: center;"><a href="deleteRequest.do?r_no=<%=dto.getR_no()%>">삭제</a></td>
+	</tr>
+	<%  }%>
+	</table>
+ </div>	
+
+
+
+
+
+
+<%-- 
 <h3>받은 메시지함</h3>
 
 <%if(list.size()==0){ %>
@@ -45,21 +90,20 @@
 <%for(RequestDto dto : list){ %>
 
 	<span>승낙결과 : <%if(dto.getR_agree()==1){%>
-		<button disabled="disabled" class="btn btn-outline-primary btn-sm"  >승인</button>
+		<button disabled="disabled" class="btn btn-primary btn-sm"  >승인&nbsp</button>
 	
 	<%}else if(dto.getR_agree()==2){%>
-		<button disabled="disabled" class="btn btn-outline-danger btn-sm" >거절</button>
+		<button disabled="disabled" class="btn btn-danger btn-sm" >거절</button>
 	<%}else if(dto.getR_agree()==3){%>
-	<button disabled="disabled" class="btn btn-outline-success btn-sm"  >대기중</button>
+	<button disabled="disabled" class="btn btn-success btn-sm"  >대기중</button>
 		<%}
 		%></span>
 	<span>/보낸 사람: <%=dto.getR_sendname() %></span>
-	<%-- <span>/제목 :<a href="updateRequestForm.do?r_no=<%=dto.getR_no()%>"> <%=dto.getR_title() %></a></span> --%>
 	<span> /제목 :<a href="" onclick="receivepop(<%=dto.getR_no()%>)"><%=dto.getR_title() %></a></span>
 	<span>/보낸 날짜 :<fmt:formatDate value="<%= dto.getR_regdate() %>" pattern="yyyy년MM월dd일"/>  </span>
 	<span><a href="deleteRequest.do?r_no=<%=dto.getR_no()%>"> /삭제</a></span>
 	<br/>
-<%} %>
+<%} %> --%>
 
 	
 
