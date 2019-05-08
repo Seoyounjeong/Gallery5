@@ -187,12 +187,13 @@ public class HomeController2 {
 		return "manager/member/membercheck";		
 	}
 	
-	 //member 등급 update
+	//member 등급 update
 	   @RequestMapping(value = "/managergradeupdate.do", method = RequestMethod.GET)
 	   public String memberstateupdate(Locale locale, Model model,int m_grade, int m_no, MemberDto memberDto,
 	         ArtistDto artistDto, GalleryDto galleryDto) {
 	      logger.info("회원등급수정 {}.", locale);
-	 
+	 System.out.println(m_no);
+	 System.out.println(m_grade);
 	      if(m_grade==4||m_grade==7) {
 	      boolean isS=memberService.gradeUpdateMember(memberDto);
 	      
@@ -202,17 +203,71 @@ public class HomeController2 {
 	      
 	      }else if(m_grade==5||m_grade==8) {
 	      boolean isS=memberService.gradeUpdateMember(memberDto);
-	      
-//	      int g_no=m_no;
-	      System.out.println("m_no:"+m_no);
-//	      galleryDto=galleryService.selectM_noGalleryList(m_no);
-	      System.out.println("galleryDto:"+galleryDto);
+	      System.out.println("eeee:"+isS);
+	      galleryDto=galleryService.selectGalleryapproval(m_no);
+	      System.out.println(galleryDto);
 	      boolean isS3=galleryService.updateGalleryState(galleryDto);
+	      System.out.println("eeeee:"+isS3);
 	      
+	      }else {
+	    	  boolean isS=memberService.gradeUpdateMember(memberDto);
+		      
+		      int a_no=m_no;
+		      artistDto=artistService.selectArtist(a_no);
+		      boolean isS2=artistService.updateArtistState(artistDto);
+		     
+		      galleryDto=galleryService.selectGalleryapproval(m_no);
+		     
+		      boolean isS3=galleryService.updateGalleryState(galleryDto);
+		    
 	      }
  
 	         return "redirect:managerselectMemberList.do";
 	   }
+	   
+	   
+	   @RequestMapping(value = "/managerMemberlistselectArtist.do", method = RequestMethod.GET)
+		public String MemberlistselectArtist(Locale locale, Model model, int m_no) {
+			logger.info("작가신청보기 {}.", locale);
+			System.out.println(m_no);
+			int a_no=m_no;
+			ArtistDto artistDto=artistService.selectArtist(a_no);
+			model.addAttribute("artistDto", artistDto);
+
+			return "manager/member/artistapproval";
+		}
+	   
+	   
+	   @RequestMapping(value = "/managerMemberlistselectGallery.do", method = RequestMethod.GET)
+//	   @RequestMapping(value = "/managerselectGallery.do", method = RequestMethod.GET)
+	 		public String MemberlistselectGallery(Locale locale, Model model, int m_no) {
+		
+		   logger.info("갤러리신청보기 {}.", locale);
+				System.out.println(m_no);
+				GalleryDto galleryDto=galleryService.selectGalleryapproval(m_no);
+				System.out.println(galleryDto);
+				model.addAttribute("galleryDto", galleryDto);
+
+	 			return "manager/member/galleryapproval";
+	 		}
+	   
+	   
+	   @RequestMapping(value = "/managerMemberlistselectBoth.do", method = RequestMethod.GET)
+		public String MemberlistselectBoth(Locale locale, Model model, int m_no) {
+			logger.info("작가,갤러리신청보기 {}.", locale);
+			System.out.println(m_no);
+			int a_no=m_no;
+			System.out.println(a_no);
+			
+			ArtistDto artistDto=artistService.selectArtist(a_no);
+			System.out.println("artistDto:"+artistDto);
+			
+			GalleryDto galleryDto=galleryService.selectGalleryapproval(m_no);
+			System.out.println("galleryDto:"+galleryDto);
+			model.addAttribute("artistDto", artistDto);
+			model.addAttribute("galleryDto", galleryDto);
+			return "manager/member/bothapproval";
+		}
 	   
 	
 	
@@ -353,7 +408,7 @@ public class HomeController2 {
 	         return "redirect:managerselectArtistList.do";
 	     
 	   }
-	 //---------------------------member end---------------------------  
+	 //---------------------------artist end---------------------------  
 
 
 	 //---------------------------gallery start---------------------------

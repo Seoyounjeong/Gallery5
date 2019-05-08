@@ -58,6 +58,18 @@
        SELECT m.M_ID FROM GALLERY.GALLERY g INNER JOIN GALLERY.MEMBER m ON g.M_NO = m.M_NO AND g.m_NO=#{m_no}
     </select>
     
+    
+     <!-- 쿼리 추가  -->
+    <!-- gallery대기중  승인창 보기 -->
+    <select id="selectGalleryapproval" parameterType="int" resultType="GalleryDto">
+   	SELECT G_NO, M_NO, G_NAME, G_ADRESS, G_TEL, G_IMG1, G_IMG2, G_IMG3, G_IMG4,
+    G_INTRO, G_STATE FROM GALLERY.GALLERY 
+    WHERE M_NO=#{m_no}
+    AND G_STATE='1'
+   </select>
+   
+    
+    
     <!-- 쿼리추가 -->
     <!-- gallerystate update -->
      <update id="updateGalleryState" parameterType="GalleryDto">

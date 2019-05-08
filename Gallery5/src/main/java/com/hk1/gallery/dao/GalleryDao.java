@@ -77,6 +77,14 @@ public class GalleryDao implements IGalleryDao {
          int count=sqlSession.update(namespace+"updateGalleryState", galleryDto);
             return count>0?true:false;
       }
+      
+      
+    //승인창띄우기
+  	@Override
+  	   public GalleryDto selectGalleryapproval(int m_no) {
+  	      
+  	      return sqlSession.selectOne(namespace+"selectGalleryapproval", m_no);
+  	   }
 }
 
 
