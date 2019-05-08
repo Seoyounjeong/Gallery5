@@ -1,0 +1,119 @@
+@charset "UTF-8";
+html,body{
+	margin:0;
+	padding:0;
+	
+}
+#updateMemberForm {
+	width: 70%;
+	margin:0 auto;
+}
+#updateMemberForm h3{
+	width:25%;
+	font-weight: bold;
+	padding-bottom: 10px;
+	border-bottom: 3px solid rgb(26,26,26);
+	color: rgb(50,50,50);
+}
+#updateMemberForm p{
+	width: 70%;
+	margin: 0 auto;
+	margin-top: 3%;
+	color: rgb(160,160,160);
+	font-size: 120%;
+	font-weight: bold;
+}
+#updateMemberForm_updateMemberForm {
+	display: table;
+	width: 70%;
+	margin: 0 auto;
+	margin-top: 5%;
+	padding-top:5%;
+	padding-bottom: 5%;
+	border-top: 5px solid rgba(50,50,50,0.3);
+	
+	border-bottom: 5px solid rgba(50,50,50,0.3);
+}
+#updateMemberForm_updateMemberForm div{
+	display: table-row-group;
+	text-align:center;
+	margin-top: 5%;
+}
+#updateMemberForm_updateMemberForm p{
+	margin-top: 0%;
+	font-size: 100%;
+	font-weight: bold;
+	color: rgb(160,160,160);
+}
+#updateMemberForm_updateMemberForm span{
+	
+	width:40%;
+	display: table-cell;
+	font-size: 120%;
+	font-weight: bold;
+	margin-top: 5%;
+	color: rgb(50,50,50);
+}
+#updateMemberForm_updateMemberForm input{
+	padding-top:1%;
+	padding-bottom:1%;
+	padding-left:7%;
+	padding-right:3%;
+	margin:0;
+	width:100%;
+	display: table-cell;
+	font-size: 120%;
+	font-weight: bold;
+	margin-top: 5%;
+	border:none;
+	border-radius: 10px;
+	border-top: 2px solid rgba(160,160,160,0.5);
+	border-bottom: 2px solid rgba(160,160,160,0.5);
+	color: rgb(50,50,50);
+}
+#updateMemberForm input:focus{
+	outline: none;
+	box-shadow:1px 1px 10px rgba(102,255,102,0.5);
+}
+footer{
+	display:block;
+	width: 100%;
+	margin: 0 auto;
+	
+}
+#updateMemberForm_updateMemberForm_submitButton{
+	padding-top:1%;
+	padding-bottom:1%;
+	padding-left:5%;
+	padding-right:5%;
+	margin:0 auto;
+	display:inline;
+	font-size: 120%;
+	font-weight: bold;
+	margin-top: 5%;
+	border:none;
+	border-radius: 10px;
+	border-top: 2px solid rgba(160,160,160,0.5);
+	border-bottom: 2px solid rgba(160,160,160,0.5);
+	color: white;
+	background-color: rgb(57,181,74);
+	cursor: pointer;
+}
+#updateMemberForm_updateMemberForm_submitButton:hover{
+	padding-top:1%;
+	padding-bottom:1%;
+	padding-left:5%;
+	padding-right:5%;
+	margin:0 auto;
+	display:inline;
+	font-size: 120%;
+	font-weight: bold;
+	margin-top: 5%;
+	border:none;
+	border-radius: 10px;
+	border-top: 2px solid rgba(160,160,160,0.5);
+	border-bottom: 2px solid rgba(160,160,160,0.5);
+	color: white;
+	background-color: rgba(57,181,74,0.5);
+	box-shadow:1px 1px 10px rgba(102,255,102,0.5);
+}
