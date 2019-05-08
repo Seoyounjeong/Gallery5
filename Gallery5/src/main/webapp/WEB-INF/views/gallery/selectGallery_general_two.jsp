@@ -12,7 +12,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <title>인덱스</title>
 
@@ -120,15 +121,18 @@ line-height: 3;
 
 <jsp:include page="/WEB-INF/views/header.jsp" />
 
+<div style="display: inline-block;"></div>
 
-<div style="text-align: center; margin: 20px;">
+<div style="text-align: center; margin: 20px; font-weight: bold; font-size: large;">
 
-<div style="display: inline-block; border: 1px solid black; margin: 5px" onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=general_one'">안내</div>
+<div style="display: inline-block; margin: 5px;" onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=general_one'">안내</div>
 
-<div style="display: inline-block; border: 1px solid black;" onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=general_two'">전시일정</div> </div>
+<div style="display: inline-block;" onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=general_two'">전시일정</div> </div>
 
 
-<div id="Gallery_setion2">
+<div id="Gallery_setion2" style="margin-top: 90px;">
+
+
 
 <div id="Gallery_callendal">
 <!-- 달력관련 -->

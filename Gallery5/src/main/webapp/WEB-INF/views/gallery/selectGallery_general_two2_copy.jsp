@@ -99,9 +99,9 @@ button {
 
 <div style="text-align: center; margin: 20px;">
 
-<div style="display: inline-block; border: 1px solid black; margin: 5px" onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=general_one'">안내</div>
+<div style="display: inline-block;  margin: 5px" onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=general_one'">안내</div>
 
-<div style="display: inline-block; border: 1px solid black;" onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=general_two'">전시일정</div> </div>
+<div style="display: inline-block; " onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=general_two'">전시일정</div> </div>
 
 
 <div id="Gallery_setion2">

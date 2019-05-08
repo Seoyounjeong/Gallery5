@@ -30,9 +30,6 @@
 <style type="text/css">
 
 
-.img-fluid{
-min-height: 400px;}
-
 .ud_img {
 	display: inline-block;
 }
@@ -95,19 +92,21 @@ height: 100px;
 	int month = cal.get(Calendar.MONTH) + 1; //현재 월을 구함 (0~11월)
 %>
 
-
+<jsp:include page="/WEB-INF/views/header.jsp" />
 <body style="min-width: 1200px;">
 
-	<jsp:include page="/WEB-INF/views/header.jsp" />
+	
+	
+	<div style="display: inline-block;"></div>
 
 
-	<div style="text-align: center; margin: 20px;">
+	<div style="text-align: center; margin: 20px; font-weight: bold; font-size: large;">
 
 		<div
-			style="display: inline-block; border: 1px solid black; margin: 5px"
+			style="display: inline-block; margin: 5px"
 			onclick="location.href='selectGallery.do?year=<%=year%>&month=<%=month%>&g_no=${galleryDto.g_no}&g_return=general_one'">안내</div>
 
-		<div style="display: inline-block; border: 1px solid black;"
+		<div style="display: inline-block;"
 			onclick="location.href='selectGallery.do?year=<%=year%>&month=<%=month%>&g_no=${galleryDto.g_no}&g_return=general_two'">전시일정</div>
 	</div>
 
@@ -125,10 +124,10 @@ height: 100px;
 					<div class="col-lg-6">
 
 					<div class="owl-carousel slide-one-item-alt">
-						<img src="galleryupload/${galleryDto.g_img1}" alt="Image" class="img-fluid">
-						<img src="galleryupload/${galleryDto.g_img2}" alt="Image" class="img-fluid">
-						<img src="galleryupload/${galleryDto.g_img3}" alt="Image" class="img-fluid">
-						<img src="galleryupload/${galleryDto.g_img4}" alt="Image" class="img-fluid">
+						<img style="height: 400px; width: 540px" src="galleryupload/${galleryDto.g_img1}" alt="Image" class="img-fluid">
+						<img style="height: 400px; width: 540px" src="galleryupload/${galleryDto.g_img2}" alt="Image" class="img-fluid">
+						<img style="height: 400px; width: 540px" src="galleryupload/${galleryDto.g_img3}" alt="Image" class="img-fluid">
+						<img style="height: 400px; width: 540px" src="galleryupload/${galleryDto.g_img4}" alt="Image" class="img-fluid">
 					</div>
 					<div class="custom-direction">
 						<a href="#" class="custom-prev">Prev</a><a href="#"
@@ -145,7 +144,7 @@ height: 100px;
 
 					<div class="col-lg-5 ml-auto">
 
-						<div class="section-title">
+						<div class="section-title" style="margin-bottom: 20px; ">
 							<div>${galleryDto.g_name}</div>
 						</div>
 
@@ -217,7 +216,7 @@ height: 100px;
 
 	<!-- 지도 관련 블락 처리 풀기 -->
 	<div id="map" style="min-width: 100px; min-height: 250px; margin: 0 20%;">
-		<!--  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d61a4dc1efe55edbdfac5ab744921183"></script>  -->
+		 <!--  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d61a4dc1efe55edbdfac5ab744921183"></script>  --> 
 		<script>
 			var container = document.getElementById('map');
 			var options = {

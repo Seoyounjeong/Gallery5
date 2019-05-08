@@ -9,7 +9,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script> 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+
 <title>인덱스</title>
 </head>
 <% MemberDto Ddto = (MemberDto) session.getAttribute("loginMember"); %>
@@ -74,7 +75,19 @@ function imageURL(input) {
 	</script> --%>
  	<%}else{%>
 
-	<form class="form-horizontal" action="insertGallery.do" method="post" enctype="multipart/form-data">
+
+	<div style="display: inline-block;"></div>
+	
+	
+<form class="form-horizontal" action="insertGallery.do" method="post" enctype="multipart/form-data">
+
+<div class="container">
+
+<div class="row">
+<div class="col">
+
+
+	
 
 
 	<%
@@ -100,42 +113,57 @@ function imageURL(input) {
 <!-- 		</div>
 	</div> -->
 	
+
+	
 	<div class="form-group">
-		<label class="col-sm-2 control-label">상호명</label> 
-		<div class="col-sm-2">
-		<input class="form-control" type="text" name="g_name" required="required">
+		<label style="max-width: 100px;" class="col-9 control-label">상호명</label> 
+		
+		<div class="col-8">
+		<input class="form-control" type="text" id="id_g_name" name="g_name" required="required">
 		</div>
 	</div>
 	
+	
+
 	<div class="form-group">
-		<label class="col-sm-2 control-label">전화번호</label> 
-		<div class="col-sm-2">
+		<label style="max-width: 100px;" class="col-9 control-label">전화번호</label> 
+		<div class="col-8">
 		<input class="form-control" type="tel" name="g_tel" required="required">
 		</div>
 	</div>
+
 	
 	<div class="form-group">
-		<label class="col-sm-2 control-label">주소</label> 
-		<div class="col-sm-2">
-		<textarea class="form-control" style="resize: none;" rows="2" cols="20" name="g_adress" required="required"></textarea>
+		<label  style="max-width: 100px;" class="col-6 control-label">주소</label> 
+		<div class="col">
+		<textarea class="form-control" style="resize: none;  width: 330px;" rows="2" cols="20" name="g_adress" required="required"></textarea>
 		</div>
 	</div>
 	
 	<div class="form-group">
-		<label class="col-sm-2 control-label">소갯말</label> 
-		<div class="col-sm-2">
+		<label class="col control-label">소갯말</label> 
+		<div class="col">
 		
-		<textarea class="form-control" style="resize: none;" rows="4" cols="20" name="g_intro" required="required"></textarea>
+		<textarea  class="form-control" style="resize: none; width: 330px; " rows="4"  name="g_intro" required="required"></textarea>
 		
 		</div>
 	</div>
+	
+	
+	</div>
+	
+	
+	
+	
+	<div class="col">
+	
 
 	<div class="form-group">
 	
-	<label class="col-sm-2 control-label">대표사진</label> 
+	<label class="col-sm-3 control-label">대표사진</label> 
 	
-	 <div class="col-sm-2">
-	  <button class="btn btn-default" onclick="imgup(1)">파일등록</button>	
+	<div style="display: inline-block;" class="col-sm-3">
+	  <button class="btn btn-primary" onclick="imgup(1)">파일등록</button>	
 	 </div>
 	
 	 <div>
@@ -144,22 +172,22 @@ function imageURL(input) {
 	</div>
 	
 	<div class="form-group">
-	<label class="col-sm-2 control-label">내부사진2</label> 
+	<label class="col-sm-3 control-label">내부사진2</label> 
 	
-	 <div class="col-sm-2">
-	  <button class="btn btn-default" onclick="imgup(2)">파일등록</button>	
+	<div style="display: inline-block;" class="col-sm-3">
+	  <button class="btn btn-primary" onclick="imgup(2)">파일등록</button>	
 	 </div>
 	
-	 <div>
+	 <div class="form-group">
 	  <input onchange="imageURL(this)" id="gallery_img2" style="display: none;" multiple="multiple" type="file" name="file" required="required">
 	 </div>
 	 </div>
 	 
 	 <div class="form-group">
-	<label class="col-sm-2 control-label">내부사진3</label> 
+	<label class="col-sm-3 control-label">내부사진3</label> 
 	
-	 <div class="col-sm-2">
-	  <button class="btn btn-default" onclick="imgup(3)">파일등록</button>	
+	<div style="display: inline-block;" class="col-sm-3">
+	  <button class="btn btn-primary" onclick="imgup(3)">파일등록</button>	
 	 </div>
 	
 	 <div>
@@ -168,37 +196,48 @@ function imageURL(input) {
 	 </div>
 	 
 	 <div class="form-group">
-	<label class="col-sm-2 control-label">내부사진4</label> 
+	<label class="col-sm-3 control-label">내부사진4</label> 
 	
-	 <div class="col-sm-2">
-	  <button class="btn btn-default" onclick="imgup(4)">파일등록</button>	
+	<div style="display: inline-block;" class="col-sm-3">
+	  <button class="btn btn-primary" onclick="imgup(4)">파일등록</button>	
 	 </div>
+	
 	 <div>
 	  <input onchange="imageURL(this)" id="gallery_img4" style="display: none;" multiple="multiple" type="file" name="file" required="required">
 	 </div>
-
-	 </div>	 	
-
-	 <div class="form-group">
+	 </div>
 	 
-		<label class="col-sm-2 control-label"></label> 
-		<div class="col-sm-2">
-		<input style="float: right;" class=" btn btn-default" type="submit" value="등록">
-		
-		<div class="form-group" style="position: relative; bottom:200px; left: 120px;">
-		<img style="max-width: 200px; max-height: 200px;" id="img_u" alt="" src="">
-		</div> 
-		
-		
-		</div>
+	 
+	 <div style="margin: 10px 20px; width: 250px;">
+		<input  class=" btn btn-primary" type="submit" value="등록">
+	</div>
+	 
+	<div style="margin: 10px 30px; width: 200px; height: 200px;">
+	
+		<img style="width: 200px; height: 200px;" id="img_u" alt="" src="">
+	
+	</div>	
+	
+
+
+
+	
+	
+	
+
+	
+	
+	</div>
+	
+
+	
 	</div>
 	
 	
 	
-
-	</form>	
 	
-	 
+	</div>
+		</form>	 
 
 
 

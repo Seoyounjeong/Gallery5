@@ -37,6 +37,10 @@
 	
 	
 }
+
+.oe_heading > *{
+	z-index: 99;
+}
 .mainHeader{
 	-webkit-transition: All 0.2s ease;
 	-moz-transition: All 0.2s ease;

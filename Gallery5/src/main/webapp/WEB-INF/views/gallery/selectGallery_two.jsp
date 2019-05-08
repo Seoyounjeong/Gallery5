@@ -193,24 +193,23 @@ line-height: 3;
 
 
 
-
+<jsp:include page="/WEB-INF/views/header.jsp" />
 <body>
 
-<jsp:include page="/WEB-INF/views/header.jsp" />
+
+
+<div style="display: inline-block;"></div>
+
+
+<div style="text-align: center; margin: 20px; font-weight: bold; font-size: large;">
+
+<div style="display: inline-block; margin: 5px;" onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=one'">안내</div>
+
+<div style="display: inline-block;" onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=two'">전시일정</div> </div>
 
 
 
-
-
-
-<div class="container">
-
-
-<div style="text-align: center; margin: 20px;">
-
-<div style="display: inline-block; border: 1px solid black; margin: 5px" onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=one'">안내</div>
-
-<div style="display: inline-block; border: 1px solid black;" onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=two'">전시일정</div> </div>
+<div class="container" style="margin-top: 90px;">
 
 
 <div class="row">
@@ -327,11 +326,9 @@ line-height: 3;
 </div>
 </div>
 
-<div class="col">
+<div class="col" style="padding-left: 40px;">
 
-<div class="row"> 
-<h1>일정릿스트</h1>
-</div>
+
 <% List<CallendarDto>cllist =(List<CallendarDto>)request.getAttribute("cllist"); %>
 
 
@@ -341,31 +338,48 @@ line-height: 3;
 	String m =Util.zeroTwo(dto.getC_start().substring(2,4));
 	String y =20+dto.getC_start().substring(0,2);
 %>	
-<div class="row border border-secondary">
-   	 <div class="col-2">C_NO</div>
+<div class="row border-secondary">
+   	 <!-- <div class="col-2">C_NO</div> -->
 	<div class="col-2"><%=dto.getC_no()%></div>
 	<%-- <div class="col-2">G_NO</div>
 	<div class="col-2"><%=dto.getG_no()%></div> --%>
 
-	<div class="w-100"></div>
+	<div class="w-100" style="margin: 2px;"></div>
 
-	<div class="col-2">일정명</div>
-	<div class="col"><%=dto.getC_title()%></div>
+	<!-- <div class="col-2">일정명</div> -->
+	<div class="col" style="    
+	line-height: 1.5;
+    color: rgba(0, 0, 0, 0.9);
+    font-weight: 400;
+    font-family: cursive;"
 	
-	<div class="w-100"></div>
-	<div class="col-2">내용</div>
-	<div class="col"><%=dto.getC_content()%></div>
-	<div class="w-100"></div>
-	<div class="col-2">시작일</div>
-	<div class="col"><%=dto.getC_start()%></div>
-	<div class="col-2">마지막일</div>
-	<div class="col"><%=dto.getC_end() %></div>
-	<div class="col"><a href="deleteCalendal.do?c_no=<%=dto.getC_no()%>&g_no=<%=dto.getG_no()%>
+	
+	><%=dto.getC_title()%></div>
+	
+	<div class="w-100" style="margin: 2px;"></div>
+	<!-- <div class="col-2">내용</div> -->
+	<div class="col" style="font-family: Arial, sans-serif;
+    background: #fff;
+    font-size: 16px;
+    line-height: 1.8;
+    font-weight: 400;
+    color: #999999;"><%=dto.getC_content()%></div>
+	
+	
+	<div class="w-100" style="margin: 2px;"></div>
+	
+	
+	<div class="col-4"></div>
+	<!-- <div class="col-2">시작일</div> -->
+	<div class="col-2"><%=dto.getC_start()%></div>
+	<!-- <div class="col-2">마지막일</div> -->
+	<div class="col-2"><%=dto.getC_end() %></div>
+	<div class="col-2"><a href="deleteCalendal.do?c_no=<%=dto.getC_no()%>&g_no=<%=dto.getG_no()%>
 	&year=<%=y%>&month=<%=m%>
 	
 	
 	">삭제<%=dto.getC_no()%></a></div>
-	<div class="col"><a href="#" onclick="javascript:c_update(
+	<div class="col-2"><a href="#" onclick="javascript:c_update(
 	
 	<%=d %>,<%=dto.getC_start()%>,<%=dto.getC_no()%>);" >수정</a></div>
 	
@@ -382,7 +396,6 @@ line-height: 3;
 </div>
 
 </div>
-
 
 
 <jsp:include page="/WEB-INF/views/tail.jsp" />

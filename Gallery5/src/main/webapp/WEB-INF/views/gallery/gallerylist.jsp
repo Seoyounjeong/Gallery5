@@ -18,20 +18,20 @@
 
 <% List<GalleryDto>list =(List<GalleryDto>)request.getAttribute("list"); %>
 
-
-
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>인덱스</title>
+<title>갤러리 리스트</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    
+    
+        <link rel="stylesheet" href="boot_g/list/css/magnific-popup.css">
+    <link rel="stylesheet" href="boot_g/list/css/animate.css">
+    <link rel="stylesheet" href="boot_g/list/css/style.css">
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-<style type="text/css">
-#Galletylist_Setion{display: inline-block; border: 1px solid black; margin: 10px;}
-
-#Galletylist_Setion div {border: 1px solid black; width: 200px; margin: 10px;}
-#Galletylist_Setion span {border-right: 1px solid black; margin-right:5px; }
-
-</style>
 
 <script type="text/javascript">
 	function pop(r_send,g_no,r_name,g_name,m_no) {
@@ -43,10 +43,9 @@
 	</script>
 
 </head>
-
-
-<body>
 <jsp:include page="/WEB-INF/views/header.jsp" />
+<body>
+
 
 <!-- <h4 onclick="location.href='gallerylist.do'">갤러리목록</h4> -->
 <h4 onclick="location.href='insertGalleryForm.do'">갤러리 추가로 가자 </h4>
@@ -58,6 +57,143 @@
 <!-- <h4 onclick="location.href='DabgeulList.do'">충돌이나니 답글을 분리해봅시다다ㄴ </h4> -->
 
 
+
+
+
+    <div class="container">
+    	<div class="row justify-content-center pb-5" >
+          <div class="col heading-section text-center ftco-animate" style="z-index: -1;">
+          	<span class="subheading">Best Destination</span>
+            <h2 class="mb-4">방구석 갤러리</h2>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+          </div>
+        </div>
+  
+    		<div class="row">
+    			
+    		<% 
+		if(list.size()==0){
+			%>
+			<!-- <tr> -->
+			<h5>---등록된 갤러리가 없습니다.---</h5>
+			<!-- </tr> -->
+			<% 
+
+}else{
+	for(GalleryDto dto:list){ %>
+	<%if(loginMember==null||loginMember.getM_grade()!=2){ %>	
+    			
+
+    			<div class="col-md-6 col-lg-4 ftco-animate">
+    				<div class="project">
+    				
+    				
+    				<!-- 이미지 부분  a 태그 안에는 디테일 페이지로 -->
+    					<div class="img">
+    				<!-- 		<div class="vr"><span>뭐넣을지</span></div> -->
+		    				<a href="selectGallery.do?g_no=<%=dto.getG_no()%>&g_return=general_one">
+		    				<img class="img-fluid" alt="대표이미지" src="galleryupload/<%=dto.getG_img1()%>" style="min-height: 280px;">
+		    				</a>
+	    				</div>
+	    				
+	    				
+	    				
+	    				
+	    				<div class="text">
+	    					<!-- <h4 class="price">뭐넣을지1</h4> -->
+	    					<span>15 Days Tour</span>
+	    					<!-- 갤러리 이름부분 -->
+	    					<h3><a href="selectGallery.do?g_no=<%=dto.getG_no()%>&g_return=general_one"><%=dto.getG_name()%></a></h3>
+	    					<div class="star d-flex clearfix">
+	    						<div class="mr-auto float-left">
+		    						<!-- <span class="ion-ios-star"></span>
+		    						<span class="ion-ios-star"></span>
+		    						<span class="ion-ios-star"></span>
+		    						<span class="ion-ios-star"></span>
+		    						<span class="ion-ios-star"></span> -->
+		    						
+		    						<span>뭐 넣을지 알아서2</span>
+	    						</div>
+	    						<div class="float-right">
+	    							<span class="rate"><a href="#">뭐넣을지 알아서3</a></span>
+	    						</div>
+	    					</div>
+	    				</div>
+	    				<a href="galleryupload/<%=dto.getG_img1()%>" class="icon image-popup d-flex justify-content-center align-items-center">
+	    					<span class="icon-expand"></span>
+	    				</a>
+    				</div>
+    			</div>
+    		
+    	
+    	<%}else if(loginMember.getM_grade()==2){ %>
+    		
+    	
+    			<div class="col-md-6 col-lg-4 ftco-animate">
+    				<div class="project">
+    				
+    				
+   				<!-- 이미지 부분  a 태그 안에는 디테일 페이지로 -->
+    					<div class="img">
+    				<!-- 		<div class="vr"><span>뭐넣을지</span></div> -->
+		    				<a href="selectGallery.do?g_no=<%=dto.getG_no()%>&g_return=general_one">
+		    				<img class="img-fluid" alt="대표이미지" src="galleryupload/<%=dto.getG_img1()%>" style="min-height: 280px;">
+		    				</a>
+	    				</div>
+	    				
+	    				
+	    				
+	    				
+	    				<div class="text">
+	    					<h4 class="price" onclick="pop('<%=loginMember.getM_no()%>','<%=dto.getG_no()%>','<%=loginMember.getM_name() %>','<%=dto.getG_name() %>','<%=dto.getM_no() %>')"> 전시요청
+	    					
+		 
+		
+							</h4>
+	    			
+	    					<span>뭐 넣을지 알아서4</span>
+	    					<!-- 갤러리 이름부분 -->
+	    					<h3><a href="selectGallery.do?g_no=<%=dto.getG_no()%>&g_return=general_one"><%=dto.getG_name()%></a></h3>
+	    					<div class="star d-flex clearfix">
+	    						<div class="mr-auto float-left">
+		    						<!-- <span class="ion-ios-star"></span>
+		    						<span class="ion-ios-star"></span>
+		    						<span class="ion-ios-star"></span>
+		    						<span class="ion-ios-star"></span>
+		    						<span class="ion-ios-star"></span> -->
+		    						
+		    						<span>뭐 넣을지 알아서5</span>
+	    						</div>
+	    						<div class="float-right">
+	    							<span class="rate"><a href="#">뭐넣을지 알아서</a></span>
+	    						</div>
+	    					</div>
+	    				</div>
+	    				<a href="galleryupload/<%=dto.getG_img1()%>" class="icon image-popup d-flex justify-content-center align-items-center">
+	    					<span class="icon-expand"></span>
+	    				</a>
+    				</div>
+    	</div>
+    	
+    <%} %>
+		<%}}%>
+	
+    		
+
+    
+    		
+    			</div>
+    	</div>
+
+
+
+
+
+
+
+
+
+<%-- 
 
 <div>
 <% 
@@ -72,6 +208,13 @@
 	for(GalleryDto dto:list){ %>
 	<%if(loginMember==null||loginMember.getM_grade()!=2){ %>
 
+
+
+
+
+
+
+
 <div id="Galletylist_Setion">
 <div><img style="width: 100px; height: 100px;" alt="대표이미지" src="galleryupload/<%=dto.getG_img1()%>"></div>
 <div><span>G_NO</span><a href="selectGallery.do?g_no=<%=dto.getG_no()%>&g_return=general_one"><%=dto.getG_no()%></a></div>
@@ -83,6 +226,9 @@
 <div><span>G_STATE</span><%=dto.getG_state()%></div>
 
 </div>
+
+
+
 <%}else if(loginMember.getM_grade()==2){ %>
 <div id="Galletylist_Setion">
 <div><img style="width: 100px; height: 100px;" alt="대표이미지" src="galleryupload/<%=dto.getG_img1()%>"></div>
@@ -106,60 +252,22 @@
 
 
 </div>
+ --%>
 
 
-<%-- 
+ <!-- loader -->
+  
 
+  <script src="boot_g/list/js/jquery.min.js"></script>
+  <script src="boot_g/list/js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="boot_g/list/js/jquery.waypoints.min.js"></script>
+	<script src="boot_g/list/js/jquery.stellar.min.js"></script>
+	<script src="boot_g/list/js/owl.carousel.min.js"></script>
+	<script src="boot_g/list/js/jquery.magnific-popup.min.js"></script>
+	<script src="boot_g/list/js/aos.js"></script>
+	<script src="boot_g/list/js/scrollax.min.js"></script>
+  <script src="boot_g/list/js/main.js"></script>
 
-
-
-
-<table border="1">
-	<tr>
-	<th>G_IMG1</th>
-	<th>G_NO</th>
-	<th>M_NO</th>
-	<th>G_NAME</th>
-	<th>G_ADRESS</th>
-	<th>G_TEL</th>
-	<th>G_IMG2</th>
-	<th>G_IMG3</th>
-	<th>G_IMG4</th>
-	<th>G_INTRO</th>
-	<th>G_STATE</th>
-	<th>삭제</th>
-	</tr>
-
-	
-	<%
-	
-		for(GalleryDto dto:list){
-			%>
-			<tr>
-			
-			<td><img style="width: 100px; height: 100px;" alt="대표이미지" src="galleryupload/<%=dto.getG_img1()%>"> </td>
-			<td><a href="selectGallery.do?g_no=<%=dto.getG_no()%>"><%=dto.getG_no()%></a></td>
-			<td><%=dto.getM_no()%></td>
-			<td><%=dto.getG_name()%></td>
-			<td><%=dto.getG_adress()%></td>
-			<td><%=dto.getG_tel()%></td>
-			<td><%=dto.getG_img2()%></td>
-			<td><%=dto.getG_img3()%></td>
-			<td><%=dto.getG_img4()%></td>
-			<td><%=dto.getG_intro()%></td>
-			<td><%=dto.getG_state()%></td>
-			<td><a href="deleteGallery.do?g_no=<%=dto.getG_no()%>">삭제</a></td>
-
-			</tr>
-			<% 
-		}
-	%>
-	
-</table> --%>
-
-
-
-
-<jsp:include page="/WEB-INF/views/tail.jsp" />
 </body>
+<jsp:include page="/WEB-INF/views/tail.jsp" />
 </html>

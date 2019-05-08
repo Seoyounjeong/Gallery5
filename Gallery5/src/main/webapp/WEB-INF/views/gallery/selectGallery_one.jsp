@@ -17,6 +17,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+
 <!-- 부트스트랩 -->
 
 <link rel="stylesheet" href="boot_g/css/bootstrap.min.css">
@@ -28,9 +29,6 @@
 <title>인덱스</title>
 
 <style type="text/css">
-
-.img-fluid{
-min-height: 400px;}
 
 
 button {
@@ -109,15 +107,17 @@ button {
 <body>
 
 	<jsp:include page="/WEB-INF/views/header.jsp" />
+	
+	<div style="display: inline-block;"></div>
 
 
-	<div style="text-align: center; margin: 20px;">
+	<div style="text-align: center; margin: 20px; font-weight: bold; font-size: large;">
 
 		<div
-			style="display: inline-block; border: 1px solid black; margin: 5px"
+			style="display: inline-block; margin: 5px;"
 			onclick="location.href='selectGallery.do?year=<%=year%>&month=<%=month%>&g_no=${galleryDto.g_no}&g_return=one'">안내</div>
 
-		<div style="display: inline-block; border: 1px solid black;"
+		<div style="display: inline-block;"
 			onclick="location.href='selectGallery.do?year=<%=year%>&month=<%=month%>&g_no=${galleryDto.g_no}&g_return=two'">전시일정</div>
 	</div>
 
@@ -144,10 +144,10 @@ button {
 					<div class="col-lg-6">
 
 					<div class="owl-carousel slide-one-item-alt">
-						<img src="galleryupload/${galleryDto.g_img1}" alt="Image" class="img-fluid">
-						<img src="galleryupload/${galleryDto.g_img2}" alt="Image" class="img-fluid">
-						<img src="galleryupload/${galleryDto.g_img3}" alt="Image" class="img-fluid">
-						<img src="galleryupload/${galleryDto.g_img4}" alt="Image" class="img-fluid">
+						<img style="height: 400px; width: 540px" src="galleryupload/${galleryDto.g_img1}" alt="Image" class="img-fluid">
+						<img style="height: 400px; width: 540px" src="galleryupload/${galleryDto.g_img2}" alt="Image" class="img-fluid">
+						<img style="height: 400px; width: 540px" src="galleryupload/${galleryDto.g_img3}" alt="Image" class="img-fluid">
+						<img style="height: 400px; width: 540px" src="galleryupload/${galleryDto.g_img4}" alt="Image" class="img-fluid">
 					</div>
 					<div class="custom-direction">
 						<a href="#" class="custom-prev">Prev</a><a href="#"
@@ -207,7 +207,7 @@ button {
 					<div class="col-lg-5 ml-auto">
 <!-- <h2 class="section-title mb-3">We Are The Best Consulting
 							Agency</h2> -->
-						<div class="section-title">
+						<div class="section-title" style="margin-bottom: 20px; ">
 							<input style="border: none;" size="10" type="text" name="g_name"
 								value="${galleryDto.g_name}">
 						</div>
