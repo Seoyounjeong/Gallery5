@@ -45,4 +45,11 @@
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/main/webapp/META-INF/maven/com.hk1/gallery/pom.properties</name>
+			<type>1</type>
+			<locationURI>PARENT-4-PROJECT_LOC/Documents/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%86%A1%20%EB%B0%9B%EC%9D%80%20%ED%8C%8C%EC%9D%BC/pom.properties</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

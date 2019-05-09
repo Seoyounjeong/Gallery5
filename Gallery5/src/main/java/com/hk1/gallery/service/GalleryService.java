@@ -69,5 +69,14 @@ public class GalleryService implements IGalleryService{
       return galleryDao.updateGalleryState(galleryDto);
    }
    
+ //승인창띄우기
+ 		@Override
+ 		   public GalleryDto selectGalleryapproval(int m_no) {
+ 			
+ 			return galleryDao.selectGalleryapproval(m_no);
+ 		
+ 			
+ 		}
+   
    
 }

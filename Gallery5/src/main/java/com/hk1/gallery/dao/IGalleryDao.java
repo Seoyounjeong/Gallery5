@@ -21,4 +21,7 @@ public interface IGalleryDao {
    //갤러리 업데이트
       boolean updateGalleryState(GalleryDto galleryDto);
 
+      
+    //승인창띄우기
+  	GalleryDto selectGalleryapproval(int m_no);	
 }
