@@ -11,7 +11,7 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>  
 
 <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/minty/bootstrap.min.css" rel="stylesheet" integrity="sha384-9NlqO4dP5KfioUGS568UFwM3lbWf3Uj3Qb7FBHuIuhLoDp3ZgAqPE1/MYLEBPZYM" crossorigin="anonymous">
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <body>
 
 
@@ -188,13 +188,13 @@ function cdate_d(aa) {
 	 if(eleP==null){
 		 
 		  if(opd < c_start_d_v){
-			  alert("시작일보다 작습니다");
+			  swal("시작일보다 작습니다");
 				document.forms[0].reset();
 		  }
 			
 	
 	 }else{
-		 alert("이미 일정이 존재합니다");
+		 swal("이미 일정이 존재합니다");
 		document.forms[0].reset();
 
 		

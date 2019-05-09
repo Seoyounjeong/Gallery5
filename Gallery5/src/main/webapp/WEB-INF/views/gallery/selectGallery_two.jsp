@@ -15,6 +15,10 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Stylish" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script|Stylish" rel="stylesheet">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet">
 <title>인덱스</title>
 
 <style type="text/css">
@@ -26,7 +30,7 @@
 .c_header{
 
 height: 90px;
-background-color: rgb(255, 104, 96);
+background-color: hsla(0, 100%, 70%, 0.9);
 zoom: 1;
     filter: alpha(opacity=70);
     opacity: 0.7;
@@ -58,9 +62,41 @@ line-height: 3;
     color: white;
 }
 
+.heading-section span{
 
+font-size: 16px;
+    display: block;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    color: #e2c0bb;
+    letter-spacing: 2px;
+    text-align: center!important;
+   	margin: 0;
+    padding: 0;
+    
+}
+.heading-section h2{
+font-size: 40px;
+    font-weight: 600;
+line-height: 1.2;
+    color: inherit;
+    margin-top:8px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-align: center!important;
 
+}
+
+.heading-section p{
+	font-family: -apple-system,BlinkMacSystemFont;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+
+}
 </style>
+
 </head>
 
 <!-- 달력관련 -->
@@ -119,15 +155,34 @@ line-height: 3;
 <!-- 달력관련 -->
 <script type="text/javascript">
 
+
+
+	$(document).ready(function(){
+	
+
+		var scroll = $(".justify-content-center").offset().top;
+		
+	
+		
+		
+		$(document).scrollTop(scroll);
+	
+
+	
+	
+
+	
+	});
+
 	function insertformcalendar(y,m,i,eleA) {
 		
 		 var eleP=eleA.nextElementSibling;//p태그
 		//alert(eleP);
 		if(eleP==null){
-			window.open("insertformcalendar.do?g_no=${cddto.g_no}&c_start_y="+y+"&c_start_m="+m+"&c_start_d="+i+"&c_result=c", 'window팝업', 'width=400, height=450, menubar=no, status=no, toolbar=no');
+			window.open("insertformcalendar.do?g_no=${cddto.g_no}&c_start_y="+y+"&c_start_m="+m+"&c_start_d="+i+"&c_result=c", 'window팝업', 'width=480, height=450, menubar=no, status=no, toolbar=no');
 			
 		}else{
-			alert("일정을 추가할수없어요");
+			swal("일정을 추가할수없어요");
 		} 
 	
 	}
@@ -168,14 +223,14 @@ line-height: 3;
 		
 		 window.open(
 				
-			"updateformcalendar.do?g_no="
-			
-			+g_no+"&c_return=two&c_start_y="+y+"&c_start_m="+
-			
-			m+"&c_start_d="+d+"&c_no="+c_no
-			
-			, 'window팝업', 'width=400, height=450, menubar=no, status=no, toolbar=no');  
-		
+					"updateformcalendar.do?g_no="
+					
+					+g_no+"&c_return=two&c_start_y="+y+"&c_start_m="+
+					
+					m+"&c_start_d="+d+"&c_no="+c_no
+					
+					, 'window팝업', 'width=480, height=450, menubar=no, status=no, toolbar=no');  
+				
 
 		/* location.href="selectCallender.do?g_no="
 			
@@ -197,15 +252,26 @@ line-height: 3;
 <body>
 
 
-
 <div style="display: inline-block;"></div>
+
+
+<div class="justify-content-center pb-5" style="margin-top:10px; ">
+          <div class="heading-section text-center ftco-animate" style="z-index: -1;">
+          	<span class="subheading">Best Gallery</span>
+            <h2 class="mb-4">방구석 갤러리</h2>
+            <p>All the galleries you want</p>
+          </div>
+</div>
+
+
+
 
 
 <div style="text-align: center; margin: 20px; font-weight: bold; font-size: large;">
 
-<div style="display: inline-block; margin: 5px;" onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=one'">안내</div>
+<div style="display: inline-block; font-family: 'Gamja Flower', cursive; font-weight: 100; font-size:30px; color:#e2c0bb; margin: 10px;" onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=one'">안내</div>
 
-<div style="display: inline-block;" onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=two'">전시일정</div> </div>
+<div style="display: inline-block; font-family: 'Gamja Flower', cursive; font-weight: 100; font-size:30px; color:#e2c0bb;"  onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=two'">전시일정</div> </div>
 
 
 
@@ -230,13 +296,13 @@ line-height: 3;
 
 <div>
 
-<a href="selectGallery.do?year=<%=year%>&month=<%=month-1%>&g_no=${galleryDto.g_no}&g_return=general_two"><i class=" arrow fas fa-chevron-left fa-pull-left"></i></a>
+<a href="selectGallery.do?year=<%=year%>&month=<%=month-1%>&g_no=${galleryDto.g_no}&g_return=two"><i class=" arrow fas fa-chevron-left fa-pull-left"></i></a>
 
 <span class="m"><%=Util.Calmonth(month)%><%-- <%=month%> --%></span>
 
 &nbsp;&nbsp;<span class="y"><%= year%></span>
 
-<a href="selectGallery.do?year=<%=year%>&month=<%=month+1%>&g_no=${galleryDto.g_no}&g_return=general_two"><i class="arrow fas fa-chevron-right fa-pull-right"></i></a>
+<a href="selectGallery.do?year=<%=year%>&month=<%=month+1%>&g_no=${galleryDto.g_no}&g_return=two"><i class="arrow fas fa-chevron-right fa-pull-right"></i></a>
 
 </div>
 
@@ -332,7 +398,18 @@ line-height: 3;
 <% List<CallendarDto>cllist =(List<CallendarDto>)request.getAttribute("cllist"); %>
 
 
-<%for(CallendarDto dto:cllist){
+<%if(cllist.isEmpty()){
+	%>
+<div class="row">
+<div class="col" style="text-align: center; min-width: 470px;">
+---------등록된 일정이 없습니다---------
+</div>
+</div>
+<%
+
+}else{
+
+for(CallendarDto dto:cllist){
 
 	String d =dto.getC_start().substring(4,6);
 	String m =Util.zeroTwo(dto.getC_start().substring(2,4));
@@ -340,53 +417,71 @@ line-height: 3;
 %>	
 <div class="row border-secondary">
    	 <!-- <div class="col-2">C_NO</div> -->
-	<div class="col-2"><%=dto.getC_no()%></div>
+	<!--<div class="col-2"><%=dto.getC_no()%></div> -->
 	<%-- <div class="col-2">G_NO</div>
 	<div class="col-2"><%=dto.getG_no()%></div> --%>
+	
+	
+	<%
+	String cl_start_m = Util.zeroTwo(dto.getC_start().substring(2, 4));
+	String cl_start_d = dto.getC_start().substring(4, 6);
+	  
+	String cl_end_m = Util.zeroTwo(dto.getC_end().substring(2, 4));
+	String cl_end_d = dto.getC_end().substring(4, 6);   
+	%>
+
 
 	<div class="w-100" style="margin: 2px;"></div>
-
+	
 	<!-- <div class="col-2">일정명</div> -->
 	<div class="col" style="    
 	line-height: 1.5;
     color: rgba(0, 0, 0, 0.9);
-    font-weight: 400;
-    font-family: cursive;"
+    font-size: 25px;
+    font-family: 'Stylish', sans-serif;
+    font-weight: 600;
+    "
 	
 	
-	><%=dto.getC_title()%></div>
+	><%=dto.getC_title()%>&nbsp;&nbsp;&nbsp;<span><%=cl_start_m%>.<%=cl_start_d%>~<%=cl_end_m%>.<%=cl_end_d%></span></div>
+	
+	
 	
 	<div class="w-100" style="margin: 2px;"></div>
 	<!-- <div class="col-2">내용</div> -->
 	<div class="col" style="font-family: Arial, sans-serif;
     background: #fff;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.8;
     font-weight: 400;
+    font-family: 'Nanum Pen Script', cursive;
     color: #999999;"><%=dto.getC_content()%></div>
 	
 	
 	<div class="w-100" style="margin: 2px;"></div>
 	
 	
-	<div class="col-4"></div>
-	<!-- <div class="col-2">시작일</div> -->
-	<div class="col-2"><%=dto.getC_start()%></div>
-	<!-- <div class="col-2">마지막일</div> -->
-	<div class="col-2"><%=dto.getC_end() %></div>
-	<div class="col-2"><a href="deleteCalendal.do?c_no=<%=dto.getC_no()%>&g_no=<%=dto.getG_no()%>
-	&year=<%=y%>&month=<%=m%>
+	<div class="col-9"></div>
+
+	<div class="col-3" style="font-family: 'Stylish', sans-serif;"><a href="#" onclick="javascript:c_update(
 	
+	<%=d %>,<%=dto.getC_start()%>,<%=dto.getC_no()%>);" >수정</a>
 	
-	">삭제<%=dto.getC_no()%></a></div>
-	<div class="col-2"><a href="#" onclick="javascript:c_update(
+	&nbsp;&nbsp;&nbsp;&nbsp;
 	
-	<%=d %>,<%=dto.getC_start()%>,<%=dto.getC_no()%>);" >수정</a></div>
+	<a href="deleteCalendal.do?c_no=<%=dto.getC_no()%>&g_no=<%=dto.getG_no()%>
+	&year=<%=y%>&month=<%=m%>">삭제</a>
+	
+	</div>
+
+
+	
 	
 </div>
 <br />	
 
-<%}%>
+<%}	
+}%>
 			
 
 </div>

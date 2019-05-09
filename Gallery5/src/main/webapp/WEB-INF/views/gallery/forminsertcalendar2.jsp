@@ -8,7 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>인덱스</title>
 </head>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>  
+<script src="http://code.jquery.com/jquery-latest.min.js"></script> 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
 
 
 <%int year = (Integer)request.getAttribute("year"); %>
@@ -159,7 +160,7 @@ function cdate_d(aa) {
 	 if(eleP==null){
 		 
 		  if(opd < c_start_d_v){
-			  alert("시작일보다 작습니다");
+			  swal("시작일보다 작습니다");
 				
 				document.forms[0].reset();
 		  }
@@ -169,7 +170,7 @@ function cdate_d(aa) {
 		 
 		
 		 //alert((document.getElementsByName("c_start_d")[0].selectedIndex)+1);
-		 alert("이미 일정이 존재합니다");
+		 swal("이미 일정이 존재합니다");
 		// alert(document.getElementsByName("c_end_d"));
 		//aa.options[aa.selectedIndex].setAttribute("disabled", true);
 		//aa.options[aa.selectedIndex].setAttribute("selected", selected);

@@ -17,7 +17,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-
+<link href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Cute+Font" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet">
 <!-- 부트스트랩 -->
 
 <link rel="stylesheet" href="boot_g/css/bootstrap.min.css">
@@ -31,12 +33,15 @@
 <style type="text/css">
 
 
-button {
-	width: 99px;
-	background-color: #e81050;
-	border-radius: 10px;
+
+.ud_img button{
+background-color: white;
+border-radius: 10px;
+width: 49px;
 	border: none;
-	color: white;
+color: #e2c0bb; font-family: 'Cute Font', cursive;"
+
+
 }
 
 
@@ -48,6 +53,45 @@ button {
 .ud_img img{
 	width: 100px;
 	height: 100px;}
+	
+.heading-section span{
+
+font-size: 16px;
+    display: block;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    color: #e2c0bb;
+    letter-spacing: 2px;
+    text-align: center!important;
+   	margin: 0;
+    padding: 0;
+    
+}
+
+.heading-section h2{
+font-size: 40px;
+    font-weight: 600;
+line-height: 1.2;
+    color: inherit;
+    margin-top:8px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-align: center!important;
+
+}
+
+.heading-section p{
+	font-family: -apple-system,BlinkMacSystemFont;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+
+}	
+	
+	
+	
+	
 </style>
 </head>
 
@@ -109,15 +153,25 @@ button {
 	<jsp:include page="/WEB-INF/views/header.jsp" />
 	
 	<div style="display: inline-block;"></div>
+	
+	
+		<div class="justify-content-center pb-5" style="margin-top:10px; ">
+          <div class="heading-section text-center ftco-animate" style="z-index: -1;">
+          	<span class="subheading">Best Gallery</span>
+            <h2 class="mb-4">방구석 갤러리</h2>
+            <p>All the galleries you want</p>
+          </div>
+        </div>
+
 
 
 	<div style="text-align: center; margin: 20px; font-weight: bold; font-size: large;">
 
 		<div
-			style="display: inline-block; margin: 5px;"
+			style="display: inline-block; margin: 5px; font-family: 'Gamja Flower', cursive; font-weight: 100; font-size:30px; color:#e2c0bb;"
 			onclick="location.href='selectGallery.do?year=<%=year%>&month=<%=month%>&g_no=${galleryDto.g_no}&g_return=one'">안내</div>
 
-		<div style="display: inline-block;"
+		<div style="display: inline-block; font-family: 'Gamja Flower', cursive; font-weight: 100; font-size:30px; color:#e2c0bb;"
 			onclick="location.href='selectGallery.do?year=<%=year%>&month=<%=month%>&g_no=${galleryDto.g_no}&g_return=two'">전시일정</div>
 	</div>
 
@@ -149,9 +203,9 @@ button {
 						<img style="height: 400px; width: 540px" src="galleryupload/${galleryDto.g_img3}" alt="Image" class="img-fluid">
 						<img style="height: 400px; width: 540px" src="galleryupload/${galleryDto.g_img4}" alt="Image" class="img-fluid">
 					</div>
-					<div class="custom-direction">
-						<a href="#" class="custom-prev">Prev</a><a href="#"
-							class="custom-next">Next</a>
+					<div class="custom-direction" style="background-color: white; opacity: 0.9; ">
+						<a href="#" class="custom-prev" style="color: #e2c0bb;">Prev</a><a href="#"
+							style="color: #e2c0bb;" class="custom-next">Next</a>
 					</div>
 					
 					
@@ -159,7 +213,7 @@ button {
 				<div style="text-align: center;">
 						<div class="ud_img">
 							<div><img alt="g_img1" src="galleryupload/${galleryDto.g_img1}"></div>
-							<label for="gallery_img1"><button  onclick="imgup(1)">파일변경</button></label>
+							<label for="gallery_img1"><button class="btn-light" onclick="imgup(1)">파일변경</button></label>
 							<input style="display: none;"
 								onchange="imageURL(this)" id="gallery_img1" multiple="multiple"
 								type="file" name="file" required="required">
@@ -167,7 +221,7 @@ button {
 
 						<div class="ud_img">
 							<div><img alt="g_img2"src="galleryupload/${galleryDto.g_img2}"></div> 
-							<label for="gallery_img2"><button onclick="imgup(2)">파일변경</button></label>
+							<label for="gallery_img2"><button class="btn-light" onclick="imgup(2)">파일변경</button></label>
 							<input style="display: none;" onchange="imageURL(this)"
 								id="gallery_img2" multiple="multiple" type="file" name="file"
 								required="required">
@@ -175,7 +229,7 @@ button {
 
 						<div class="ud_img">
 							<div><img alt="g_img3"src="galleryupload/${galleryDto.g_img3}"></div> 
-							<label for="gallery_img3"><button onclick="imgup(3)">파일변경</button></label>
+							<label for="gallery_img3"><button class="btn-light" onclick="imgup(3)">파일변경</button></label>
 							<input style="display: none;" onchange="imageURL(this)"
 								id="gallery_img3" multiple="multiple" type="file" name="file"
 								required="required">
@@ -184,7 +238,7 @@ button {
 
 						<div class="ud_img">
 							 <div><img alt="g_img4"src="galleryupload/${galleryDto.g_img4}"></div> 
-							 <label for="gallery_img4"><button onclick="imgup(4)">파일변경</button></label>
+							 <label for="gallery_img4"><button class="btn-light" onclick="imgup(4)">파일변경</button></label>
 							<input style="display: none;" onchange="imageURL(this)"
 								id="gallery_img4" multiple="multiple" type="file" name="file"
 								required="required">
@@ -204,22 +258,23 @@ button {
 
 
 
-					<div class="col-lg-5 ml-auto">
+					<div class="col-lg-5 ml-auto" style="font-family: 'Cute Font', cursive; font-size: 25px; color: #e2c0bb; ">
 <!-- <h2 class="section-title mb-3">We Are The Best Consulting
 							Agency</h2> -->
-						<div class="section-title" style="margin-bottom: 20px; ">
+						<div class="section-title" style="margin-bottom: 20px; font-family: 'East Sea Dokdo', cursive; font-size: 60px;">
 							<input style="border: none;" size="10" type="text" name="g_name"
 								value="${galleryDto.g_name}">
 						</div>
 
 						<div>
-							<span style="margin-right: 10px;">전화번호</span><input style="border: none;" size="30" type="text" name="g_tel"
+							<span style="margin-right: 10px;">전화번호</span><input style="border: none; font-weight: 400; color: #999999;"  size="30" type="text" name="g_tel"
 								value="${galleryDto.g_tel}">
 						</div>
 						
 						<div>
-							<span style="margin-right: 36px;">주소</span> 
-							 <textarea style="border: none; resize: none;" name="g_adress" rows="2" cols="40">${galleryDto.g_adress}</textarea> 
+							<span style="margin-right: 40px; float: left;">주소</span>
+							
+							 <textarea style="border: none; font-weight: 400; color: #999999; resize: none;" name="g_adress" rows="2" cols="40">${galleryDto.g_adress}</textarea> 
 							
 							<%-- <input style="height: 100px;" type="text" name="g_adress" value="${galleryDto.g_adress}"> --%>
 						</div>
@@ -227,7 +282,7 @@ button {
 
 						<div>
 							<span>소개</span> <br />
-							<textarea  style="border: none; resize: none;" rows="4" cols="50">${galleryDto.g_intro}</textarea>
+							<textarea  style="border: none; font-weight: 400; color: #999999; resize: none;" rows="4" cols="50">${galleryDto.g_intro}</textarea>
 						
 						
 							<%-- <span>g_intro</span> <input type="text" name="g_intro"
@@ -235,7 +290,7 @@ button {
 						</div>
 
 						<p>
-							<input class="btn btn-primary mr-2 mb-2" type="submit"
+							<input style="color:#e2c0bb;" class="btn btn-light mr-2 mb-2" type="submit"
 								value="수정을 해볼가">
 						</p>
 

@@ -12,13 +12,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet">
 <title>인덱스</title>
 
 <style type="text/css">
-
 
 .c_header{
 
@@ -61,9 +60,44 @@ line-height: 3;
 #Gallery_setion2 table{margin: 0 auto;}
 
 
+
+.heading-section span{
+
+font-size: 16px;
+    display: block;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.3);
+    color: #e2c0bb;
+    letter-spacing: 2px;
+    text-align: center!important;
+   	margin: 0;
+    padding: 0;
+    
+}
+.heading-section h2{
+font-size: 40px;
+    font-weight: 600;
+line-height: 1.2;
+    color: inherit;
+    margin-top:8px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-align: center!important;
+
+}
+
+.heading-section p{
+	font-family: -apple-system,BlinkMacSystemFont;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+
+}
+
 </style>
 </head>
-
 <!-- 달력관련 -->
 <%
 	//달력의 날짜를 바꾸기 위해서 전달된 year와 month 값을 받는다
@@ -123,11 +157,24 @@ line-height: 3;
 
 <div style="display: inline-block;"></div>
 
+
+
+<div class="justify-content-center pb-5" style="margin-top:10px; ">
+          <div class="heading-section text-center ftco-animate" style="z-index: -1;">
+          	<span class="subheading">Best Gallery</span>
+            <h2 class="mb-4">방구석 갤러리</h2>
+            <p>All the galleries you want</p>
+          </div>
+</div>
+
+
 <div style="text-align: center; margin: 20px; font-weight: bold; font-size: large;">
 
-<div style="display: inline-block; margin: 5px;" onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=general_one'">안내</div>
+<div style="display: inline-block; margin: 5px; font-family: 'Gamja Flower', cursive; font-weight: 100; font-size:30px; color:#e2c0bb;" 
+onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=general_one'">안내</div>
 
-<div style="display: inline-block;" onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=general_two'">전시일정</div> </div>
+<div style="display: inline-block; font-family: 'Gamja Flower', cursive; font-weight: 100; font-size:30px; color:#e2c0bb;"
+onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=general_two'">전시일정</div> </div>
 
 
 <div id="Gallery_setion2" style="margin-top: 90px;">

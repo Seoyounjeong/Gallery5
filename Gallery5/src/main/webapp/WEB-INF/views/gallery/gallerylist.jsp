@@ -26,7 +26,7 @@
     <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     
     
-        <link rel="stylesheet" href="boot_g/list/css/magnific-popup.css">
+    <link rel="stylesheet" href="boot_g/list/css/magnific-popup.css">
     <link rel="stylesheet" href="boot_g/list/css/animate.css">
     <link rel="stylesheet" href="boot_g/list/css/style.css">
 
@@ -48,7 +48,7 @@
 
 
 <!-- <h4 onclick="location.href='gallerylist.do'">갤러리목록</h4> -->
-<h4 onclick="location.href='insertGalleryForm.do'">갤러리 추가로 가자 </h4>
+<!--<h4 onclick="location.href='insertGalleryForm.do'">갤러리 추가로 가자 </h4>-->
 
 <!-- <h4 onclick="location.href='selectG_stateGalleryList.do'"> 스테이트로 볼때 3인 갤러리만 불러오자 </h4> -->
 
@@ -63,9 +63,9 @@
     <div class="container">
     	<div class="row justify-content-center pb-5" >
           <div class="col heading-section text-center ftco-animate" style="z-index: -1;">
-          	<span class="subheading">Best Destination</span>
+          	<span class="subheading">Best Gallery</span>
             <h2 class="mb-4">방구석 갤러리</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+            <p>All the galleries you want</p>
           </div>
         </div>
   
@@ -92,7 +92,7 @@
     					<div class="img">
     				<!-- 		<div class="vr"><span>뭐넣을지</span></div> -->
 		    				<a href="selectGallery.do?g_no=<%=dto.getG_no()%>&g_return=general_one">
-		    				<img class="img-fluid" alt="대표이미지" src="galleryupload/<%=dto.getG_img1()%>" style="min-height: 280px;">
+		    				<img class="img-fluid" alt="대표이미지" src="galleryupload/<%=dto.getG_img1()%>" style="min-height: 280px; height: 336px;">
 		    				</a>
 	    				</div>
 	    				
@@ -100,8 +100,8 @@
 	    				
 	    				
 	    				<div class="text">
-	    					<!-- <h4 class="price">뭐넣을지1</h4> -->
-	    					<span>15 Days Tour</span>
+	    					<!-- <h4 class="price">뭐넣을지1</h4> 
+	    					<span>15 Days Tour</span>-->
 	    					<!-- 갤러리 이름부분 -->
 	    					<h3><a href="selectGallery.do?g_no=<%=dto.getG_no()%>&g_return=general_one"><%=dto.getG_name()%></a></h3>
 	    					<div class="star d-flex clearfix">
@@ -112,10 +112,10 @@
 		    						<span class="ion-ios-star"></span>
 		    						<span class="ion-ios-star"></span> -->
 		    						
-		    						<span>뭐 넣을지 알아서2</span>
+		    						<span><%=dto.getG_adress()%></span>
 	    						</div>
 	    						<div class="float-right">
-	    							<span class="rate"><a href="#">뭐넣을지 알아서3</a></span>
+	    							<span class="rate"><a href="#"><%=dto.getG_tel()%></a></span>
 	    						</div>
 	    					</div>
 	    				</div>
@@ -137,7 +137,7 @@
     					<div class="img">
     				<!-- 		<div class="vr"><span>뭐넣을지</span></div> -->
 		    				<a href="selectGallery.do?g_no=<%=dto.getG_no()%>&g_return=general_one">
-		    				<img class="img-fluid" alt="대표이미지" src="galleryupload/<%=dto.getG_img1()%>" style="min-height: 280px;">
+		    				<img class="img-fluid" alt="대표이미지" src="galleryupload/<%=dto.getG_img1()%>" style="min-height: 280px; max-height: 336px;">
 		    				</a>
 	    				</div>
 	    				
@@ -146,12 +146,9 @@
 	    				
 	    				<div class="text">
 	    					<h4 class="price" onclick="pop('<%=loginMember.getM_no()%>','<%=dto.getG_no()%>','<%=loginMember.getM_name() %>','<%=dto.getG_name() %>','<%=dto.getM_no() %>')"> 전시요청
-	    					
-		 
-		
 							</h4>
 	    			
-	    					<span>뭐 넣을지 알아서4</span>
+	    					<!-- <span>뭐 넣을지 알아서4</span> -->
 	    					<!-- 갤러리 이름부분 -->
 	    					<h3><a href="selectGallery.do?g_no=<%=dto.getG_no()%>&g_return=general_one"><%=dto.getG_name()%></a></h3>
 	    					<div class="star d-flex clearfix">
@@ -162,10 +159,10 @@
 		    						<span class="ion-ios-star"></span>
 		    						<span class="ion-ios-star"></span> -->
 		    						
-		    						<span>뭐 넣을지 알아서5</span>
+		    						<span><%=dto.getG_adress()%></span>
 	    						</div>
 	    						<div class="float-right">
-	    							<span class="rate"><a href="#">뭐넣을지 알아서</a></span>
+	    							<span class="rate"><a href="#"><%=dto.getG_tel()%></a></span>
 	    						</div>
 	    					</div>
 	    				</div>

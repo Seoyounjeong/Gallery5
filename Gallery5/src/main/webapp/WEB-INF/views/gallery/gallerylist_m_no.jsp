@@ -18,18 +18,17 @@
 
 
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>인덱스</title>
-
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-
-<style type="text/css">
-#Galletylist_Setion{display: inline-block; border: 1px solid black; margin: 10px;}
-
-#Galletylist_Setion div {border: 1px solid black; width: 200px; margin: 10px;}
-#Galletylist_Setion span {border-right: 1px solid black; margin-right:5px; }
-
-</style>
+<title>갤러리 리스트</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    
+    
+        <link rel="stylesheet" href="boot_g/list/css/magnific-popup.css">
+    <link rel="stylesheet" href="boot_g/list/css/animate.css">
+    <link rel="stylesheet" href="boot_g/list/css/style.css">
 
 </head>
 
@@ -37,18 +36,83 @@
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp" />
 
-<!-- <h4 onclick="location.href='gallerylist.do'">갤러리목록</h4> -->
-<h4 onclick="location.href='insertGalleryForm.do'">갤러리 추가로 가자 </h4>
+    <div class="container">
+    	<div class="row justify-content-center pb-5" >
+          <div class="col heading-section text-center ftco-animate" style="z-index: -1;">
+          	<span class="subheading">Best Gallery</span>
+            <h2 class="mb-4">방구석 갤러리</h2>
+            <p>All the galleries you want</p>
+          </div>
+        </div>
+  
+    		<div class="row">
+    			
+    		<% 
+		if(list.size()==0){
+			%>
 
-<!-- <h4 onclick="location.href='selectG_stateGalleryList.do'"> 스테이트로 볼때 3인 갤러리만 불러오자 </h4> -->
+			<div class="col" style="text-align: center;">
+			<h5>---등록된 갤러리가 없습니다.---</h5>
+			</div>
+			<% 
 
-<!-- <h4 onclick="location.href='selectM_noGalleryList.do'">mno로볼때 내갤러리를 볼때 페이지 2인 갤러리만 불러오자 돈많은놈 갤러리 2개 이상 </h4> -->
+}else{
+	for(GalleryDto dto:list){ %>
+    		
+    			<div class="col-md-6 col-lg-4 ftco-animate">
+    				<div class="project">
+    				
+    				
+    				<!-- 이미지 부분  a 태그 안에는 디테일 페이지로 -->
+    					<div class="img">
+    				<!-- 		<div class="vr"><span>뭐넣을지</span></div> -->
+		    				<a href="selectGallery.do?g_no=<%=dto.getG_no()%>&g_return=one">
+		    				<img class="img-fluid" alt="대표이미지" src="galleryupload/<%=dto.getG_img1()%>" style="min-height: 280px; height: 336px;">
+		    				</a>
+	    				</div>
+	    				
+	    				
+	    				
+	    				
+	    				<div class="text">
+	    					<!-- <h4 class="price">뭐넣을지1</h4>
+	    					<span>15 Days Tour</span> -->
+	    					<!-- 갤러리 이름부분 -->
+	    					<h3><a href="selectGallery.do?g_no=<%=dto.getG_no()%>&g_return=one"><%=dto.getG_name()%></a></h3>
+	    					<div class="star d-flex clearfix">
+	    						<div class="mr-auto float-left">
+		    						<!-- <span class="ion-ios-star"></span>
+		    						<span class="ion-ios-star"></span>
+		    						<span class="ion-ios-star"></span>
+		    						<span class="ion-ios-star"></span>
+		    						<span class="ion-ios-star"></span> -->
+		    						
+		    						<span><%=dto.getG_tel()%></span>
+	    						</div>
+	    						<div class="float-right">
+	    							<span class="rate"><a href="deleteGallery.do?g_no=<%=dto.getG_no()%>">삭제</a></span>
+	    						</div>
+	    					</div>
+	    				</div>
+	    				<a href="galleryupload/<%=dto.getG_img1()%>" class="icon image-popup d-flex justify-content-center align-items-center">
+	    					<span class="icon-expand"></span>
+	    				</a>
+    				</div>
+    			</div>
+    		
 
-<!-- <h4 onclick="location.href='DabgeulList.do'">충돌이나니 답글을 분리해봅시다다ㄴ </h4> -->
+		<%}}%>
+	
+    		
+
+    
+    		
+    			</div>
+    	</div>
 
 
 
-<div>
+<%-- <div>
 
 
 
@@ -79,9 +143,29 @@
 
 
 
-</div>
+</div> --%>
 
 
-<jsp:include page="/WEB-INF/views/tail.jsp" />
+
+
+
+
+ <!-- loader -->
+  
+
+  <script src="boot_g/list/js/jquery.min.js"></script>
+  <script src="boot_g/list/js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="boot_g/list/js/jquery.waypoints.min.js"></script>
+	<script src="boot_g/list/js/jquery.stellar.min.js"></script>
+	<script src="boot_g/list/js/owl.carousel.min.js"></script>
+	<script src="boot_g/list/js/jquery.magnific-popup.min.js"></script>
+	<script src="boot_g/list/js/aos.js"></script>
+	<script src="boot_g/list/js/scrollax.min.js"></script>
+  <script src="boot_g/list/js/main.js"></script>
+
+
+
+
 </body>
+<jsp:include page="/WEB-INF/views/tail.jsp" />
 </html>

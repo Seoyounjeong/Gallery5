@@ -81,7 +81,7 @@ function imageURL(input) {
 	
 <form class="form-horizontal" action="insertGallery.do" method="post" enctype="multipart/form-data">
 
-<div class="container">
+<div class="container" sty>
 
 <div class="row">
 <div class="col">

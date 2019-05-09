@@ -18,10 +18,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <!-- 부트스트랩 -->
+ <link href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Cute+Font" rel="stylesheet"> 
 
 <link rel="stylesheet" href="boot_g/css/bootstrap.min.css">
 <link rel="stylesheet" href="boot_g/css/owl.carousel.min.css">
 <link rel="stylesheet" href="boot_g/css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Gamja+Flower" rel="stylesheet">
+
 
 <!-- 부트스트랩 끝 -->
 
@@ -30,13 +34,67 @@
 <style type="text/css">
 
 
+.ud_img button{
+background-color: white;
+border-radius: 10px;
+width: 49px;
+	border: none;
+color: #e2c0bb; font-family: 'Cute Font', cursive;"
+
+
+}
+
+
 .ud_img {
 	display: inline-block;
 }
 
+
 .ud_img img{
-width: 100px;
-height: 100px;
+	width: 100px;
+	height: 100px;}
+	
+.heading-section span{
+
+font-size: 16px;
+    display: block;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    color: #e2c0bb;
+    letter-spacing: 2px;
+    text-align: center!important;
+   	margin: 0;
+    padding: 0;
+    
+}
+
+.heading-section h2{
+font-size: 40px;
+    font-weight: 600;
+line-height: 1.2;
+    color: inherit;
+    margin-top:8px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-align: center!important;
+
+}
+
+.heading-section p{
+	font-family: -apple-system,BlinkMacSystemFont;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+
+}
+
+
+
+
+
+
+
 </style>
 </head>
 
@@ -98,15 +156,25 @@ height: 100px;
 	
 	
 	<div style="display: inline-block;"></div>
+	
+	
+	   <div class="justify-content-center pb-5" style="margin-top:10px; ">
+          <div class="heading-section text-center ftco-animate" style="z-index: -1;">
+          	<span class="subheading">Best Gallery</span>
+            <h2 class="mb-4">방구석 갤러리</h2>
+            <p>All the galleries you want</p>
+          </div>
+        </div>
+	
 
 
 	<div style="text-align: center; margin: 20px; font-weight: bold; font-size: large;">
 
 		<div
-			style="display: inline-block; margin: 5px"
+			style="display: inline-block; margin: 5px; font-family: 'Gamja Flower', cursive; font-weight: 100; font-size:30px; color:#e2c0bb;"
 			onclick="location.href='selectGallery.do?year=<%=year%>&month=<%=month%>&g_no=${galleryDto.g_no}&g_return=general_one'">안내</div>
 
-		<div style="display: inline-block;"
+		<div style="display: inline-block; font-family: 'Gamja Flower', cursive; font-weight: 100; font-size:30px; color:#e2c0bb;"
 			onclick="location.href='selectGallery.do?year=<%=year%>&month=<%=month%>&g_no=${galleryDto.g_no}&g_return=general_two'">전시일정</div>
 	</div>
 
@@ -129,9 +197,9 @@ height: 100px;
 						<img style="height: 400px; width: 540px" src="galleryupload/${galleryDto.g_img3}" alt="Image" class="img-fluid">
 						<img style="height: 400px; width: 540px" src="galleryupload/${galleryDto.g_img4}" alt="Image" class="img-fluid">
 					</div>
-					<div class="custom-direction">
-						<a href="#" class="custom-prev">Prev</a><a href="#"
-							class="custom-next">Next</a>
+					<div class="custom-direction" style="background-color: white; opacity: 0.9; ">
+						<a href="#" class="custom-prev" style="color: #e2c0bb;">Prev</a><a href="#"
+							style="color: #e2c0bb;" class="custom-next">Next</a>
 					</div>
 
 					</div>
@@ -142,26 +210,28 @@ height: 100px;
 
 
 
-					<div class="col-lg-5 ml-auto">
+					<div class="col-lg-5 ml-auto" style="font-family: 'Cute Font', cursive; font-size: 25px;  color: black; ">
 
-						<div class="section-title" style="margin-bottom: 20px; ">
+						<div class="section-title" style="margin-bottom: 20px; font-weight:100; color:black; 
+						
+						font-family: 'East Sea Dokdo', cursive; font-size: 60px;">
 							<div>${galleryDto.g_name}</div>
 						</div>
 
 						<div>
-							<div style="border: none;"><span style="margin-right: 10px;">전화번호</span>${galleryDto.g_tel}</div>
+							<div style="border: none;"><span style="margin-right: 10px; color: #e2c0bb;">전화번호</span>${galleryDto.g_tel}</div>
 						</div>
 						
 						<div>
 							
-							 <div style="border: none;"><span style="margin-right: 36px;">주소</span> ${galleryDto.g_adress}</div> 
+							 <div style="border: none;"><span style="margin-right: 36px; color: #e2c0bb;">주소</span> ${galleryDto.g_adress}</div> 
 							
 							<%-- <input style="height: 100px;" type="text" name="g_adress" value="${galleryDto.g_adress}"> --%>
 						</div>
 						
 
 						<div>
-							<span style="margin-right: 36px;">소개</span> 
+							<span style="margin-right: 36px; color: #e2c0bb;">소개</span> 
 							<div  style="border: none;">${galleryDto.g_intro}</div>
 						
 						

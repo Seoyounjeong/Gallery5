@@ -119,12 +119,12 @@ public static String getCalView(List<CallendarDto> list, int i) {
 				if (calDto.getC_start().substring(4, 6).equals(d)) {
 					
 					calList+="<p title='"+calDto.getC_title()+"' class='clist' style='font-size:8px; font-weight: bold; color: white; background-color: #FFCCCC; margin: 0; height: 20px;' onclick='c_update("+i+","+calDto.getC_start()+","+calDto.getC_no()+")'>"
-							+(calDto.getC_title().length()>4? calDto.getC_title().substring(0, 3)+".." : calDto.getC_title())
+							+(calDto.getC_title().length()>4? calDto.getC_title().substring(0, 2)+".." : calDto.getC_title())
 							+"시작"+"</p>";
 				}else if(calDto.getC_end().substring(4, 6).equals(d)) {
 					
 					calList+="<p title='"+calDto.getC_title()+"' class='clist' style='font-size:8px; font-weight: bold; color: white; background-color: #FFCCCC; margin: 0; height: 20px;' onclick='c_update("+i+","+calDto.getC_start()+","+calDto.getC_no()+")'>"
-							+(calDto.getC_title().length()>4? calDto.getC_title().substring(0, 3)+".." : calDto.getC_title())
+							+(calDto.getC_title().length()>4? calDto.getC_title().substring(0, 2)+".." : calDto.getC_title())
 							+"끝"+"</p>";
 				}else {
 					calList+="<p title='class='clist' style='background-color: #FFCCCC; font-weight: bold; color: white; padding: 0; margin: 0; height: 20px;' onclick='c_update("+i+","+calDto.getC_start()+","+calDto.getC_no()+","+calDto.getC_no()+")'>"

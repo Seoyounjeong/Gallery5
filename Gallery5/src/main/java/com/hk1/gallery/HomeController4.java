@@ -85,6 +85,8 @@ public class HomeController4 {
 
 		model.addAttribute("list",list);
 		
+
+		
 		//최초 답글 리스트 뽑기
 /*		List<DabgeulDto> Dlist = dabgeulService.selectDabgeulList();
 		
@@ -277,7 +279,14 @@ public class HomeController4 {
 		
 		
 		if (isS) {
-			return "redirect:privatemain.do";
+			
+			if(m_grade.equals("1")||m_grade==null) {
+				return "redirect:privatemain.do";
+			}else {
+				return "redirect:selectM_noGalleryList.do";
+			}
+			
+			
 		}else {
 			return "redirect:insertGalleryForm.do";
 		}
