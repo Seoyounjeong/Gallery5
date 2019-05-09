@@ -10,6 +10,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>작품 목록</title>
+<style>
+a:hover{
+color:threedlightshadow;
+}
+</style>
 </head>
 <body>
 <%
@@ -48,8 +53,8 @@ List<ItemDto>list=(List<ItemDto>)request.getAttribute("list");
 		<td><a href="itemupload/<%=itemDto.getI_img()%>"><%=itemDto.getI_img()%></a></td>
 		<td><%=itemDto.getI_explain()%></td>
 		<td><%=itemDto.getI_price()%></td>
-		<td><%=itemDto.getA_no()%></td>
-		<td><%=itemDto.getM_no()%></td>
+		<td><a href="managerselectArtist.do?a_no=<%=itemDto.getA_no()%>"><%=itemDto.getA_no()%></a></td>
+		<td><a href="managerselectMember1.do?m_no=<%=itemDto.getM_no()%>"><%=itemDto.getM_no()%></a></td>
 		<td><a href="managerdeleteItem.do?i_no=<%=itemDto.getI_no()%>">[삭제]</a></td>
 	</tr>
 	

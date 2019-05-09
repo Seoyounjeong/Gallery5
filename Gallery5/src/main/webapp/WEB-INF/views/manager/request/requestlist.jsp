@@ -48,7 +48,7 @@ List<RequestDto>list=(List<RequestDto>)request.getAttribute("list");
 	%>
 	<tr>
 		<td><%=requestDto.getR_no()%></td>
-		<td><%=requestDto.getR_send()%></td>
+		<td><a href=""><%=requestDto.getR_send()%></a></td>
 		<td><%=requestDto.getR_sendname()%></td>
 		<td><%=requestDto.getR_receive()%></td>
 		<td><%=requestDto.getR_receivename()%></td>

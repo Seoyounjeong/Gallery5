@@ -10,6 +10,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>전시목록보기</title>
+<style>
+a:hover{
+color:threedlightshadow;
+}
+</style>
 </head>
 <body>
 <%
@@ -48,7 +53,7 @@
 		<td><%=exhibitionDto.getE_no()%></td>
 		<td><a href="managerselectExhibition.do?e_no=<%=exhibitionDto.getE_no()%>"><%=exhibitionDto.getE_title()%></a></td>
 		<td><%=exhibitionDto.getE_explain()%></td>
-		<td><%=exhibitionDto.getA_no()%></td>
+		<td><a href="managerselectArtist.do?a_no=<%=exhibitionDto.getA_no()%>"><%=exhibitionDto.getA_no()%></a></td>
 		<td><a href="managerselectanoExhibitionList.do?a_no=<%=exhibitionDto.getA_no()%>"><%=exhibitionDto.getA_name()%></a></td><!-- 작가번호로 전시조회 -->
 		<td><a href="exhibitionupload/<%=exhibitionDto.getE_img()%>"><%=exhibitionDto.getE_img()%></a></td>
 		<td><%=exhibitionDto.getE_click()%></td>

@@ -11,6 +11,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>전시 일정목록</title>
+<style>
+a:hover{
+color:threedlightshadow;
+}
+</style>
 </head>
 <body>
 <%
@@ -49,7 +54,7 @@ List<CallendarDto>list=(List<CallendarDto>)request.getAttribute("list");
 		<td><%=callendarDto.getC_content()%></td>
 		<td><%=callendarDto.getC_start()%></td>
 		<td><%=callendarDto.getC_end()%></td>
-		<td><a href=""><%=callendarDto.getG_no()%></a></td>
+		<td><a href="managerselectGallery.do?g_no=<%=callendarDto.getG_no()%>"><%=callendarDto.getG_no()%></a></td>
 		<td><a href="managerdeleteCallendar.do?c_no=<%=callendarDto.getC_no()%>">[삭제]</a></td>
 	</tr>	
 	

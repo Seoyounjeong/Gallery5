@@ -10,6 +10,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>갤러리 목록</title>
+<style>
+a:hover{
+color:threedlightshadow;
+}
+#img:hover{
+
+}
+</style>
 </head>
 <body>
 <% 
@@ -42,14 +50,14 @@
    %>
    <tr>
       <td><%=galleryDto.getG_no()%></td>
-      <td><%=galleryDto.getM_no()%></td>
+      <td><a href="managerselectMember1.do?m_no=<%=galleryDto.getM_no()%>"><%=galleryDto.getM_no()%></a></td>
       <td><a href="managerselectGallery.do?g_no=<%=galleryDto.getG_no()%>"><%=galleryDto.getG_name()%></a></td>
       <td><%=galleryDto.getG_adress()%></td>
       <td><%=galleryDto.getG_tel()%></td>
-      <td><a href="galleryupload/<%=galleryDto.getG_img1()%>"><%=galleryDto.getG_img1()%></a></td>
-      <td><a href="galleryupload/<%=galleryDto.getG_img2()%>"><%=galleryDto.getG_img2()%></a></td>
-      <td><a href="galleryupload/<%=galleryDto.getG_img3()%>"><%=galleryDto.getG_img3()%></a></td>
-      <td><a href="galleryupload/<%=galleryDto.getG_img4()%>"><%=galleryDto.getG_img4()%></a></td>
+      <td><a href="galleryupload/<%=galleryDto.getG_img1()%>" id="img"><%=galleryDto.getG_img1()%></a></td>
+      <td><a href="galleryupload/<%=galleryDto.getG_img2()%>" id="img"><%=galleryDto.getG_img2()%></a></td>
+      <td><a href="galleryupload/<%=galleryDto.getG_img3()%>" id="img"><%=galleryDto.getG_img3()%></a></td>
+      <td><a href="galleryupload/<%=galleryDto.getG_img4()%>" id="img"><%=galleryDto.getG_img4()%></a></td>
       <td><%=galleryDto.getG_intro()%></td>
       <td>
       <%if(galleryDto.getG_state()==1){%>
