@@ -17,22 +17,53 @@
         <link rel="stylesheet" href="A_detail/css/responsive.css" />
    		<script src="A_detail/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 <style type="text/css">
-	div.exhibition_container{
-		   width:100%;
-   		 	margin: 0 auto;
-   }
-   
-   .main-gallery.grid-item img {
-    width: 100%;
-    height: ;
-    transition: all 0.6s;
-} 
+div.exhibition_container {
+	width: 100%;
+	margin: 0 auto;
+}
 
+.main-gallery.grid-item img {
+	width: 100%;
+	height:;
+	transition: all 0.6s;
+}
 
+.heading-section span {
+	font-size: 16px;
+	display: block;
+	margin-bottom: 5px;
+	text-transform: uppercase;
+	color: #e2c0bb;
+	letter-spacing: 2px;
+	text-align: center !important;
+	margin: 0;
+	padding: 0;
+}
+
+.heading-section h2 {
+	font-size: 40px;
+	font-weight: 600;
+	line-height: 1.2;
+	color: inherit;
+	margin-top: 8px;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	text-align: center !important;
+}
+
+.heading-section p {
+	font-family: -apple-system, BlinkMacSystemFont;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #212529;
+}
 </style>
 
 
- <script
+
+
+<script
     src="https://code.jquery.com/jquery-3.3.1.js"
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
     crossorigin="anonymous"></script> 
@@ -47,33 +78,24 @@
 	
 <hr/>
 <div class="exhibition_container container"  style="width: 1200px; text-align: center;">
+	
 	<div class="row justify-content-center pb-5" >
-          <div class="col heading-section text-center ftco-animate" style="z-index: -1;">
-          	<span class="subheading">Best Artist</span>
+          <div class="col heading-section text-center ftco-animate" style="z-index:;">
+          	<span class="subheading">Best Exhibition</span>
             <h2 class="mb-4">방구석 갤러리</h2>
-            <p>A place to introduce new and creative artists</p>
-          </div>
-        </div>
-
-	<div class="row justify-content-center pb-5" >
-          <div class="col heading-section text-center ftco-animate" style="z-index: -1;">
-          	<span class="subheading">Best Artist</span>
-            <h2 class="mb-4">방구석 갤러리</h2>
-            <p>A place to introduce new and creative artists</p>
+            <p>Best exhibition in the room</p>
           </div>
         </div>
 
 <div class="exhibition_detailcontainer">
 	<div id="exhibitionList" style="width: 1200px; text-align: center;">
-		<h3>전시목록</h3>
-
-				<c:choose>
+			<c:choose>
 
 					<c:when test="${empty exhibitionList}">
 						<h3>현재 전시중인 작품이 없습니다.</h3>
 					</c:when>
 					<c:otherwise>
-						<div class="main-gallery roomy-80" style="overflow: hidden;">
+						<div class="main-gallery roomy-80" style="overflow: hidden; padding-top: 5px;">
 							<div class="grid text-center">
 								<c:forEach var="exhibition" items="${exhibitionList}">
 									<div class="grid-item transition metal ium">
@@ -85,8 +107,8 @@
 											
 												<h6 class="text-white">전시명</h6>
 												<h4 class="text-white">
-													<em>${exhibition.e_title}</em></a>
-												</h4>
+													<em>${exhibition.e_title}</em>
+												</h4></a>
 											
 											</div>
 										</div>
@@ -139,6 +161,7 @@
         <script src="A_detail/js/plugins.js"></script>
         <script src="A_detail/js/main.js"></script>
         
+
 	
 
 </body>

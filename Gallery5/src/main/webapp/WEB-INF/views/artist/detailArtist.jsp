@@ -42,9 +42,50 @@
 	div.alldetail_container{
 		   width:100%;
     		margin: 0 auto;
+    } 
     
-		
-	} 
+    div.alldetail_container h4{
+    	    width: 25%;
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 3px solid rgb(26,26,26);
+    color: rgb(50,50,50);
+    }
+       
+.heading-section span{
+
+	font-size: 16px;
+    display: block;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    color: #e2c0bb;
+    letter-spacing: 2px;
+    text-align: center!important;
+      margin: 0;
+    padding: 0;
+    
+}
+
+.heading-section h2{
+font-size: 40px;
+    font-weight: 600;
+line-height: 1.2;
+    color: inherit;
+    margin-top:8px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-align: center!important;
+
+}
+
+.heading-section p{
+   font-family: -apple-system,BlinkMacSystemFont;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+
+}
 	
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
@@ -91,7 +132,15 @@ function detail_artist(){
 
 <div class="alldetail_container"  style="width: 1200px; text-align: center;">
 
-<span style="font-weight: bolder; fone"><%=artistDto.getA_name() %>作家</span>
+    <div class="row justify-content-center pb-5" >
+          <div class="col heading-section text-center ftco-animate" style="z-index:;">
+          	<span class="subheading">Best Artist</span>
+            <h2 class="mb-4">방구석 갤러리</h2>
+            <p>A place to introduce new and creative artists</p>
+          </div>
+        </div>
+
+<h4><%=artistDto.getA_name() %>作家</h4>
 <%-- <span>	<%if(loginMember==null||loginMember.getM_grade()!=3){ %>
 	<span></span>
 	<%}else if(loginMember.getM_grade()==3){ %>
@@ -101,16 +150,18 @@ function detail_artist(){
 
 <div class="detail_container">
 	<div class="artist_nav">
-		<span onclick="detail_itme()">작품</span>
-		<span onclick="detail_exhibition()">전시</span>
+	<h6 style="font-weight: bold;">
+		<span onclick="detail_itme()">작품&nbsp|</span>
+		<span onclick="detail_exhibition()">전시&nbsp|</span>
 		<span onclick="detail_artist()">이력</span>
+	</h6>
 	</div>
 	<div class="item_container" id="item_container">
 		
                 <!-- Gallery container-->
               
 		
-		<div class="main-gallery roomy-80" style="overflow:hidden;">
+		<div class="main-gallery roomy-80" style="overflow:hidden; padding-top: 25px;">
 		<div class="grid text-center">
 		<%for(ItemDto itemDto: ilist){ %>
 			  
@@ -119,7 +170,7 @@ function detail_artist(){
                                     <div class="grid_hover_area text-center">
                                         <div class="grid_hover_text m-top-110">
                                             <h6 class="text-white">작품명</h6>
-                                            <h4 class="text-white"><em><%=itemDto.getI_name() %></em></h4>
+                                            <h3 class="text-white"><em><%=itemDto.getI_name() %></em></h3>
                                             <a href="itemupload/<%=itemDto.getI_img()%>" class="popup-img text-white m-top-40">View<i class="fa fa-long-arrow-right"></i></a>
                                         </div>
                                     </div><!-- End off grid Hover area -->
