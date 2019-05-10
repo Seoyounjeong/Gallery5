@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>전시목록</title>
+<title>전시리스트</title>
 
 
 		<link rel="stylesheet" href="A_detail/css/bootstrap.css">
@@ -16,54 +16,87 @@
         <link rel="stylesheet" href="A_detail/css/style.css">
         <link rel="stylesheet" href="A_detail/css/responsive.css" />
    		<script src="A_detail/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+<style type="text/css">
+	div.exhibition_container{
+		   width:100%;
+   		 	margin: 0 auto;
+   }
+   
+   .main-gallery.grid-item img {
+    width: 100%;
+    height: ;
+    transition: all 0.6s;
+} 
 
 
+</style>
 
-<script
+
+ <script
     src="https://code.jquery.com/jquery-3.3.1.js"
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script> 
     
 
     
 </head>
-<body>
 <jsp:include page="/WEB-INF/views/header.jsp" />
+<body>
+
+
 	
+<hr/>
+<div class="exhibition_container container"  style="width: 1200px; text-align: center;">
+	<div class="row justify-content-center pb-5" >
+          <div class="col heading-section text-center ftco-animate" style="z-index: -1;">
+          	<span class="subheading">Best Artist</span>
+            <h2 class="mb-4">방구석 갤러리</h2>
+            <p>A place to introduce new and creative artists</p>
+          </div>
+        </div>
 
-	<div id="exhibitionList">
+	<div class="row justify-content-center pb-5" >
+          <div class="col heading-section text-center ftco-animate" style="z-index: -1;">
+          	<span class="subheading">Best Artist</span>
+            <h2 class="mb-4">방구석 갤러리</h2>
+            <p>A place to introduce new and creative artists</p>
+          </div>
+        </div>
+
+<div class="exhibition_detailcontainer">
+	<div id="exhibitionList" style="width: 1200px; text-align: center;">
 		<h3>전시목록</h3>
-		<c:choose>
-			<c:when test="${empty exhibitionList}">
-			<h3>현재 전시중인 작품이 없습니다.</h3>
-		</c:when>
-			<c:otherwise>
-				<c:forEach var ="exhibition" items="${exhibitionList}">
 
-					<div class="main-gallery roomy-80" style="overflow: hidden;">
-						<div class="grid text-center">
+				<c:choose>
 
-
-							<div class="grid-item transition metal ium">
-								<img alt="작품사진" src="exhibitionupload/${exhibition.e_img}">
-								<div class="grid_hover_area text-center">
-									<div class="grid_hover_text m-top-110">
-										<h6 class="text-white">전시명</h6>
-										<h4 class="text-white">
-											<em>${exhibition.e_title}</em>
-										</h4>
-										<br/>
-										<a style="text-decoration: none; color: white;" href="detailExhibition.do?e_no=${exhibition.e_no}">전시보기</a>
+					<c:when test="${empty exhibitionList}">
+						<h3>현재 전시중인 작품이 없습니다.</h3>
+					</c:when>
+					<c:otherwise>
+						<div class="main-gallery roomy-80" style="overflow: hidden;">
+							<div class="grid text-center">
+								<c:forEach var="exhibition" items="${exhibitionList}">
+									<div class="grid-item transition metal ium">
+										<img alt="전시사진" src="exhibitionupload/${exhibition.e_img}">
+										<div class="grid_hover_area text-center">
+											<div class="grid_hover_text m-top-110">
+											<a style="text-decoration: none; color: white;"
+													href="detailExhibition.do?e_no=${exhibition.e_no}">
+											
+												<h6 class="text-white">전시명</h6>
+												<h4 class="text-white">
+													<em>${exhibition.e_title}</em></a>
+												</h4>
+											
+											</div>
+										</div>
+										<!-- End off grid Hover area -->
 									</div>
-								</div>
-								<!-- End off grid Hover area -->
-							</div>
-							<!-- End off grid item -->
+									<!-- End off grid item -->
 
 
-						</div>
-					</div>
-				<%-- 	<div  style=" width:30%; padding:0; text-align:center; float: left;">
+
+									<%-- 	<div  style=" width:30%; padding:0; text-align:center; float: left;">
 					
 						<img src="exhibitionupload/${exhibition.e_img}" width="33%"><br>
 						<span>번호 :</span><input type="text" name="e_no" value="${exhibition.e_no}"><br>
@@ -86,11 +119,15 @@
 						
 					</div>
 				 --%>
-				</c:forEach>	
-			</c:otherwise>
-		</c:choose>
-	</div><!-- exhibitionList END -->
-	
+								</c:forEach>
+							</div>
+						</div>
+
+					</c:otherwise>
+				</c:choose>
+			</div><!-- exhibitionList END -->
+	</div></div>
+	<jsp:include page="/WEB-INF/views/tail.jsp" />
 	<!-- JS includes -->
 
       
@@ -103,6 +140,6 @@
         <script src="A_detail/js/main.js"></script>
         
 	
-<jsp:include page="/WEB-INF/views/tail.jsp" />
+
 </body>
 </html>
