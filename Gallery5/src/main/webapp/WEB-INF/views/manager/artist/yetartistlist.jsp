@@ -10,11 +10,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>승인안된 작가목록</title>
+<style>
+
+.main{
+position: absolute;
+top:150px;
+}
+</style>
+
 </head>
 <body>
 <% 
 	List<ArtistDto>list=(List<ArtistDto>)request.getAttribute("list");// Object타입에 저장되도록 설계
 %>
+
+
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
+
 
 <h1>작가승인대기 목록</h1>
 	<table border="1">
@@ -49,6 +65,11 @@
 	<% }%>
 		</table>
 	
+</div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
 	
 	
 </body>

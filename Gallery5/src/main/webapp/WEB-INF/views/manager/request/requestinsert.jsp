@@ -8,8 +8,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>메시지 추가하기</title>
+<style>
+
+.main{
+position: absolute;
+top:150px;
+}
+</style>
 </head>
 <body>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
 	<h1>메시지 작성</h1>
 	<form action="managerinsertRequest.do" method="post" autocomplete="off">
 <!-- 		요청번호:<input type="text" name="r_no" autocomplete="off" /><br> -->
@@ -26,5 +38,11 @@
 	
 	
 	</form>
+	</div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
+	
 </body>
 </html>

@@ -13,8 +13,19 @@ window.resizeTo(500,500)
 </script>
 <meta http-equiv="Content- Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style>
+.main{
+position: absolute;
+top:150px;
+}
+</style>
 </head>
 <body>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
 	<h2>작가신청정보</h2>
 	<table border="1">
 		<col width="150px;">
@@ -66,6 +77,13 @@ window.resizeTo(500,500)
 		</td>
 	</tr>
 	</table>
+	</div>
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
+	
+	
+	
 <script type="text/javascript">
 function updatestate(a_no){
 	location.href="managerArtistStateUpdate.do?a_no="+a_no;

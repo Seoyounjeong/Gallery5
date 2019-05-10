@@ -13,9 +13,20 @@
 body{
 line-height: 30px;
 }
+.main{
+position: absolute;
+top:150px;
+}
+
 </style>
 </head>
 <body>
+<body>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
 <h1>회원추가</h1>
 <form action="managerinsertMember.do" method="post" autocomplete="off">
 <input type="hidden" value="회원번호"/>
@@ -43,7 +54,12 @@ line-height: 30px;
 
 
 <input type="submit" value="회원추가"/>
-
 </form>
+</div>
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
+
+
 </body>
 </html>

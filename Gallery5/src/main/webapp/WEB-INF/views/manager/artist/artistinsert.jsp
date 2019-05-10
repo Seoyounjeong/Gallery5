@@ -8,8 +8,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>작가 추가</title>
+<style>
+
+.main{
+position: absolute;
+top:150px;
+}
+</style>
+
+
 </head>
 <body>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
+
 <h1>작가 추가</h1>
 
 <form action="managerinsertArtist.do" method="post" autocomplete="off">
@@ -53,6 +68,14 @@
 <input type="submit" value="추가완료"/>
 
 </form>
+
+</div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
+
+
 <script type="text/javascript">
 function add_item(){
     // pre_set 에 있는 내용을 읽어와서 처리..

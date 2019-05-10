@@ -8,16 +8,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>전시추가하기</title>
+
+
 <style>
 img{
 	width:200px;
 	height:200px; 
 }
-
+.main{
+position: absolute;
+top:150px;
+}
 
 </style>
 </head>
 <body>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
 	<h1>전시추가하기</h1>
 	<form action="managerinsertExhibition.do" method="post" enctype="Multipart/form-data" autocomplete="off">
 <!-- 	<input type="hidden" name="e_no" value=""/> -->
@@ -40,6 +50,11 @@ img{
 	
 	<input type="submit" value="전시추가"/>
 	</form>
+	</div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
 	<script type="text/javascript"> 
 	function LoadImg(){
  		var files=document.getElementById('e_img1').files[0];

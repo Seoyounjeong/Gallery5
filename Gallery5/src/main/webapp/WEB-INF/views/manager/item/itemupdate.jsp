@@ -11,8 +11,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>작품 수정하기</title>
+<style>
+
+.main{
+position: absolute;
+top:150px;
+}
+</style>
+
 </head>
 <body>
+
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
 <h1>작품수정</h1>
 <%
 ItemDto itemDto=(ItemDto)request.getAttribute("itemDto");
@@ -57,5 +71,11 @@ ItemDto itemDto=(ItemDto)request.getAttribute("itemDto");
 	</table>
 	<input type="submit" value="수정완료"/>
 	</form>
+	</div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
+	
 </body>
 </html>

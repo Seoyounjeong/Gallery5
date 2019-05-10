@@ -9,8 +9,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>메시지 상세보기</title>
+<style>
+
+.main{
+position: absolute;
+top:150px;
+}
+</style>
+
 </head>
 <body>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
+
 
 	<h1>메시지 상세보기</h1>
 	<table border="1">
@@ -62,6 +76,11 @@
 		<button onclick="requestlist()">목록</button>
 	</tr>
 	</table>
+	</div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
 	<script>
 	function updateForm(r_no){
 		location.href="managerrequestupdateform.do?r_no="+r_no;

@@ -10,11 +10,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원등급 변경</title>
+<style>
+
+.main{
+position: absolute;
+top:150px;
+}
+</style>
+
 </head>
 <body>
+<body>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
 <%
 List<MemberDto>list=(List<MemberDto>)request.getAttribute("list");
 %>
+<div class="main">
    <h1>회원등급변경</h1>
    <table border="1">
       <col width="40px;">
@@ -70,6 +84,10 @@ List<MemberDto>list=(List<MemberDto>)request.getAttribute("list");
    
    <%} %>
    </table>
+   </div>
+ <div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>  
    
 </body>
 </html>

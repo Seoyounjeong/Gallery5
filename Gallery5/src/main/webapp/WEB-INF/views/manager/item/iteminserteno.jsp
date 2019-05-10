@@ -9,11 +9,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style>
+
+.main{
+position: absolute;
+top:150px;
+}
+</style>
 </head>
 <body>
 <%
 ItemDto itemDto=(ItemDto)request.getAttribute("itemDto");
 %>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
+
 	<h1>작품추가</h1>
 	<form action="managerinsertItem1.do" method="post" autocomplete="off">
 	
@@ -30,7 +43,11 @@ ItemDto itemDto=(ItemDto)request.getAttribute("itemDto");
 	
 	<input type="submit" value="작품추가"/>
 	</form>
-	
+	</div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
 	<script type="text/javascript">
 	function LoadImg(){
 		var files=document.getElementById('input_img').files[0];

@@ -22,6 +22,9 @@
 	 </repositories>
 	<dependencies>
 	<!-- mybatis 라이브러리 설정  -->
+	
+	
+	
 		<dependency>
 		  <groupId>org.mybatis</groupId>
 		  <artifactId>mybatis</artifactId>

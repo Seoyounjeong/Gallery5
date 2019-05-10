@@ -15,13 +15,25 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
- 
 
+.main{
+position: absolute;
+top:150px;
+}
+.tail{
+position: absolute;
+top:500px;
+}
 
 </style>
 </head>
 <body>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
 
+
+<div class="main">
 <% 
 	List<MemberDto> list=(List<MemberDto>)request.getAttribute("list");// Object타입에 저장되도록 설계
 %>
@@ -101,12 +113,17 @@
 	%>
 	</table>
 	</form>
+</div>
 	<script type="text/javascript">
 	
 	
 	
 	</script>
 
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
 	
 </body>
 </html>

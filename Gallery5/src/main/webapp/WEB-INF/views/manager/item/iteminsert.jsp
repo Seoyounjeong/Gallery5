@@ -13,11 +13,19 @@ img{
 	width:200px;
 	height:200px;
 }
-
+.main{
+position: absolute;
+top:150px;
+}
 
 </style>
 </head>
 <body>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
 	<h1>작품추가</h1>
 	<form action="managerinsertItem.do" method="post" enctype="Multipart/form-data" autocomplete="off">
 	전시번호:<input type="text" name="e_no" placeholder="전시번호를 입력하세요" required="required" autocomplete="off"/><br>
@@ -33,6 +41,12 @@ img{
 	
 	<input type="submit" value="작품추가"/>
 	</form>
+	
+	</div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
 	
 	<script type="text/javascript">
 	function LoadImg(){

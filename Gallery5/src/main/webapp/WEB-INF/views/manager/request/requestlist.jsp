@@ -12,8 +12,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>메시지 목록 보기</title>
+<style>
+a:hover{
+color:threedlightshadow;
+}
+.main{
+position: absolute;
+top:150px;
+}
+</style>
 </head>
 <body>
+
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
 <%
 List<RequestDto>list=(List<RequestDto>)request.getAttribute("list");
 %>
@@ -48,7 +63,7 @@ List<RequestDto>list=(List<RequestDto>)request.getAttribute("list");
 	%>
 	<tr>
 		<td><%=requestDto.getR_no()%></td>
-		<td><a href=""><%=requestDto.getR_send()%></a></td>
+		<td><%=requestDto.getR_send()%></td>
 		<td><%=requestDto.getR_sendname()%></td>
 		<td><%=requestDto.getR_receive()%></td>
 		<td><%=requestDto.getR_receivename()%></td>
@@ -65,6 +80,11 @@ List<RequestDto>list=(List<RequestDto>)request.getAttribute("list");
 	
 	<%} %>
 	</table>
+	</div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
 	
 </body>
 </html>

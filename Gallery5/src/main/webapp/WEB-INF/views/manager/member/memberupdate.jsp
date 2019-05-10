@@ -9,11 +9,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style>
+
+.main{
+position: absolute;
+top:150px;
+}
+</style>
 </head>
 <body>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+
 <%
     MemberDto memberDto=(MemberDto)request.getAttribute("memberDto");
 %>
+<div class="main">
 <h1>회원 정보 수정</h1>
    <form action="managerupdateMember.do" method="post">
    <input type="hidden" name="m_no" value="<%=memberDto.getM_no()%>"/>
@@ -94,7 +107,9 @@
    <input type="submit">
    
    </form>
-   
-   
+   </div>
+   <div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
 </body>
 </html>

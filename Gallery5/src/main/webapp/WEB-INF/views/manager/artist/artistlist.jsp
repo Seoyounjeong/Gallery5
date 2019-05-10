@@ -10,11 +10,28 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>작가목록</title>
+<style>
+
+.main{
+position: relative;
+top:150px;
+}
+.tail{
+position: absolute;
+top:500px;
+}
+</style>
 </head>
 <body>
 <% 
    List<ArtistDto>list=(List<ArtistDto>)request.getAttribute("list");// Object타입에 저장되도록 설계
 %>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
+
    <h1>작가목록</h1>
    
    <input type="button" value="작가추가" onclick="location.href='managerinsertArtistform.do'">
@@ -67,12 +84,11 @@
       </table>
       
 
-   
- 
-    
+   </div>
 
-   
-   
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
    
    
    

@@ -10,8 +10,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style>
+a:hover{
+color:threedlightshadow;
+}
+.main{
+position: absolute;
+top:150px;
+}
+.tail{
+position: absolute;
+top:500px;
+}
+</style>
 </head>
 <body>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
+
 	
 	<h1>경매목록</h1>
 	<a href="managerKyungmaeList_End1.do">오늘종료경매</a>
@@ -39,7 +58,7 @@
 	<tr>
 		<td><%=kyungmaeDto.getK_no()%></td>
 		<td><%=kyungmaeDto.getI_no()%></td>
-		<td><%=kyungmaeDto.getI_name()%></td>
+		<td><a href="managerselectItem.do?i_no=<%=kyungmaeDto.getI_no()%>"><%=kyungmaeDto.getI_name()%></a></td>
 		<td><%=kyungmaeDto.getK_first_price()%></td>
 		<td><%=kyungmaeDto.getK_first_no()%></td>
 		<td><%=kyungmaeDto.getK_first_name()%></td>
@@ -60,6 +79,12 @@
 	
 	</table>
 	
+
+</div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
 	
 </body>
 </html>

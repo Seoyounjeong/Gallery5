@@ -13,12 +13,20 @@
 input{
 width:500px;
 }
+.main{
+position: absolute;
+top:150px;
+
 </style>
 </head>
 <body>
 <%
  	ArtistDto artistDto=(ArtistDto)request.getAttribute("artistDto");
 %>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+<div class="main">
 <h1>작가 정보 수정</h1>
 	<form action="managerupdateArtist.do" method="post">
 	<input type="hidden" name="a_no" value="<%=artistDto.getA_no()%>"/>
@@ -71,6 +79,13 @@ width:500px;
 	
 	<input type="submit">
 	</form>
+	
+	</div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
+	
 	<script type="text/javascript">
 	//input에 enter키 막음
 	document.addEventListener('keydown',function(event){

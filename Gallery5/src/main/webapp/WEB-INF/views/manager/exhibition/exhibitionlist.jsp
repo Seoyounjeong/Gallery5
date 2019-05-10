@@ -14,12 +14,23 @@
 a:hover{
 color:threedlightshadow;
 }
+.main{
+position: absolute;
+top:150px;
+}
+
 </style>
 </head>
 <body>
 <%
 	List<ExhibitionDto>list=(List<ExhibitionDto>)request.getAttribute("list");
 %>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
+
 	<h1>전시목록보기</h1>
 	<input type="button" value="전시추가" onclick="location.href='managerinsertExhibitionform.do'"/>
 	<table border="1">
@@ -55,14 +66,18 @@ color:threedlightshadow;
 		<td><%=exhibitionDto.getE_explain()%></td>
 		<td><a href="managerselectArtist.do?a_no=<%=exhibitionDto.getA_no()%>"><%=exhibitionDto.getA_no()%></a></td>
 		<td><a href="managerselectanoExhibitionList.do?a_no=<%=exhibitionDto.getA_no()%>"><%=exhibitionDto.getA_name()%></a></td><!-- 작가번호로 전시조회 -->
-		<td><a href="exhibitionupload/<%=exhibitionDto.getE_img()%>"><%=exhibitionDto.getE_img()%></a></td>
+		<td><a href="exhibitionupload/<%=exhibitionDto.getE_img()%>" onmouseover="hover(this);" onmouseout="unhover(this);"><%=exhibitionDto.getE_img()%></a></td>
 		<td><%=exhibitionDto.getE_click()%></td>
 		<td><a href="managerdeleteExhibition.do?e_no=<%=exhibitionDto.getE_no()%>">[삭제]</a></td>
 	</tr>
-	
+
 
 	<% }%>
 	</table>
+	</div>
 	
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
 </body>
 </html>

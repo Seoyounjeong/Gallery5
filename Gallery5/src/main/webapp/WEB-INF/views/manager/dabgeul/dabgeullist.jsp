@@ -12,11 +12,28 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>답글목록</title>
+<style>
+a:hover{
+color:threedlightshadow;
+}
+.main{
+position: absolute;
+top:150px;
+}
+
+</style>
 </head>
 <body>
 <%
 List<DabgeulDto>list=(List<DabgeulDto>)request.getAttribute("list");
 %>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
+
+
 	<h1>전체답글목록</h1>
 	<input type="button" value="답글추가" onclick="location.href='managerinsertDabgeulform.do'">
 	
@@ -48,7 +65,7 @@ List<DabgeulDto>list=(List<DabgeulDto>)request.getAttribute("list");
 		<td><%=dabgeulDto.getD_no()%></td><!-- 답글 상세보기 -->
 		<td><a href="managerselectenoDabgeulList.do?e_no=<%=dabgeulDto.getE_no()%>"><%=dabgeulDto.getE_no()%></a></td><!-- 전시별 답글 -->
 		<td><a href="managerselectDabgeul.do?d_no=<%=dabgeulDto.getD_no()%>"><%=dabgeulDto.getD_content()%></a></td>
-		<td><%=dabgeulDto.getM_no()%></td>
+		<td><a href="managerselectMember1.do?m_no=<%=dabgeulDto.getM_no()%>"><%=dabgeulDto.getM_no()%></a></td>
 		<td><%=dabgeulDto.getM_name()%></td>
 		
 		<td>
@@ -63,6 +80,12 @@ List<DabgeulDto>list=(List<DabgeulDto>)request.getAttribute("list");
 	<%} %>
 	
 	</table>
+	
+	</div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
 	
 </body>
 </html>

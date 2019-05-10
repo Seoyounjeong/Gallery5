@@ -14,12 +14,22 @@ img{
 width:200px;
 height:200px;
 }
+.main{
+position: absolute;
+top:150px;
+}
 </style>
 </head>
 <body>
 <%
 ItemDto itemDto=(ItemDto)request.getAttribute("itemDto");
 %>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
+
 	<h1>상세보기</h1>
 	<table border="1">
 		<col width="100px"/>
@@ -67,6 +77,11 @@ ItemDto itemDto=(ItemDto)request.getAttribute("itemDto");
 		</td>
 	</tr>
 	</table>
+	</div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
 	
 	<script type="text/javascript">
 	function update(i_no){

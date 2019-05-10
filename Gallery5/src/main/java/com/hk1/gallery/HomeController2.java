@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
 
+import javax.mail.Session;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -127,7 +128,8 @@ public class HomeController2 {
 	@RequestMapping(value = "/managerselectMember1.do", method = RequestMethod.GET)
 	public String selectMember(Locale locale, Model model, int m_no) {
 		logger.info("회원상세보기 {}.", locale);
-
+		
+		System.out.println(m_no);
 		MemberDto memberDto=memberService.selectMember(m_no);
 		model.addAttribute("memberDto", memberDto);
 
@@ -1402,7 +1404,22 @@ public class HomeController2 {
 			}else {
 				System.out.println("updateKyungmaeEnd_아이템 업데이트 error");
 			}
-			return "manager/kyungmae/kyungmaelist_end";
+			
+			m_no = kyungmaeDto.getK_first_no();
+			MemberDto memberDto=memberService.selectMember(m_no);
+			
+			String from1="gallerytest4@naver.com";
+
+			String to= memberDto.getM_id();
+			System.out.println("누구에게:"+to); 
+			String title="안녕하세요. 관리자입니다.";
+			String msg="경매 낙찰되셨습니다.";
+			SendMail(from1, to, title, msg);
+			
+			
+			
+			return "redirect:managerselectKyungmaeList1.do";
+//			return "manager/kyungmae/kyungmaelist";
 		}
 	}
 

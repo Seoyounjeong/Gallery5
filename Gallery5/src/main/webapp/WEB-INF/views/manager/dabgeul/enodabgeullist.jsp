@@ -12,8 +12,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>전시별 답글</title>
+<style>
+
+.main{
+position: absolute;
+top:150px;
+}
+</style>
+
 </head>
 <body>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
+
+
 <%
 List<DabgeulDto>list=(List<DabgeulDto>)request.getAttribute("list");
 MemberDto memberDto=(MemberDto)request.getAttribute("memberDto");
@@ -60,7 +75,11 @@ MemberDto memberDto=(MemberDto)request.getAttribute("memberDto");
 	<%} %>
 	
 	</table>
-	
+	</div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
 	
 </body>
 </html>

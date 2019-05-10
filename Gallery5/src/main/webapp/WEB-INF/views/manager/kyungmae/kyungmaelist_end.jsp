@@ -10,8 +10,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>오늘종료경매</title>
+<style>
+
+.main{
+position: absolute;
+top:150px;
+}
+.tail{
+position: absolute;
+top:500px;
+}
+</style>
+
 </head>
 <body>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
+
 	
 	<h1>경매종료</h1>
 	<a href="managerKyungmaeList_Ing1.do">진행중인경매</a>
@@ -48,7 +66,8 @@
 		<td><%=kyungmaeDto.getK_second_name()%></td>
 		<td><%=kyungmaeDto.getK_regdate()%></td>
 		<td><%=kyungmaeDto.getK_state()%></td>
-		<td><a href="managerupdateKyungmaeEnd1.do?k_no=<%=kyungmaeDto.getK_no()%>&i_no=<%=kyungmaeDto.getI_no()%>">종료</a></td>
+		<td><a href="managerupdateKyungmaeEnd1.do?k_no=<%=kyungmaeDto.getK_no()%>
+		&i_no=<%=kyungmaeDto.getI_no()%>&from=page">종료</a></td>
 	</tr>
 			
 	
@@ -59,7 +78,11 @@
 	
 	
 	</table>
-	
+	</div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
 	
 </body>
 </html>

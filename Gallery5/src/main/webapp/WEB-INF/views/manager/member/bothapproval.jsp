@@ -12,8 +12,28 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>승인창</title>
+<style>
+
+.main{
+position: absolute;
+top:150px;
+}
+
+.tail{
+position :absolute;
+top: 1000px;
+
+}
+
+</style>
+
 </head>
 <body>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
 	<h1>작가,갤러리 승인</h1>
 <button onclick="updatestate1(${artistDto.a_no})">작가승인</button>
 <button onclick="updatestate2(${galleryDto.m_no})">갤러리승인</button>
@@ -120,9 +140,11 @@
 		<td>${galleryDto.g_intro}</td>
 	</tr>
 	</table>
+</div>
 
-
-
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
 
 <script type="text/javascript">
 function updatestate1(a_no){

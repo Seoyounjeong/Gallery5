@@ -9,8 +9,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>갤러리 추가하기</title>
+<style>
+
+.main{
+position: absolute;
+top:150px;
+}
+</style>
 </head>
 <body>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
+
+
    <h1>갤러리 추가</h1>
    <form action="managerinsertGallery.do" method="post" enctype="multipart/form-data" autocomplete="off">
 <!--    갤러리번호:<input type="hidden" placeholder="갤러리 번호" name="g_no" autocomplete="off" /><br> -->
@@ -33,5 +47,11 @@
    <input type="submit" value="갤러리 추가"/>   
    
    </form>
+   </div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
+   
 </body>
 </html>

@@ -9,11 +9,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>메시지 수정하기</title>
+<style>
+
+.main{
+position: absolute;
+top:150px;
+}
+</style>
 </head>
 <body>
 <%
 	RequestDto requestDto=(RequestDto)request.getAttribute("requestDto");
 %>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
+
 	<h1>메시지 수정하기</h1>
 	<form action="managerupdateRequest.do" method="post">
 	<table border="1">
@@ -58,5 +71,10 @@
 	
 	<input type="submit" value="수정완료"/>
 	</form>
+	</div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
 </body>
 </html>

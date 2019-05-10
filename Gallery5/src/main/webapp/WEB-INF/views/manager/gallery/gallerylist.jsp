@@ -14,8 +14,13 @@
 a:hover{
 color:threedlightshadow;
 }
-#img:hover{
-
+.main{
+position: absolute;
+top:150px;
+}
+.tail{
+position: absolute;
+top:1000px;
 }
 </style>
 </head>
@@ -23,6 +28,12 @@ color:threedlightshadow;
 <% 
    List<GalleryDto>list=(List<GalleryDto>)request.getAttribute("list");// Object타입에 저장되도록 설계
 %>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
+
 <h1>갤러리 목록</h1>
 <input type="button" value="갤러리추가" onclick="location.href='managerinsertGalleryform.do'">
 <a href="managerselectyetGalleryList.do?g_state=1">미승인 갤러리 목록</a>
@@ -72,7 +83,11 @@ color:threedlightshadow;
       
       <%} %>
 </table>
-<!-- get방식 파라미터 여러개값 알아보기 -->
+</div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
    
    
 </body>

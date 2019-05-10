@@ -12,8 +12,21 @@ GalleryDto galleryDto=(GalleryDto)request.getAttribute("galleryDto");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style>
+
+.main{
+position: absolute;
+top:150px;
+}
+</style>
 </head>
 <body>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
+
 	<h2>갤러리 신청정보</h2>
 	<table border="1">
 	<tr>
@@ -94,6 +107,11 @@ GalleryDto galleryDto=(GalleryDto)request.getAttribute("galleryDto");
 		</td>
 	</tr>
 	</table>
+	</div>
+	<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
+	
 	<script type="text/javascript">
 	function updatestate(m_no){
 	location.href="managerGalleryStateUpdate.do?m_no="+m_no;

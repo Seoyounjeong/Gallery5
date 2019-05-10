@@ -14,12 +14,24 @@
 a:hover{
 color:threedlightshadow;
 }
+.main{
+position: absolute;
+top:150px;
+}
+
 </style>
 </head>
 <body>
 <%
 List<ItemDto>list=(List<ItemDto>)request.getAttribute("list");
 %>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
+
+
 	<h1>작품목록</h1>
 	<input type="button" value="작품추가" onclick="location.href='managerinsertItemform.do'"/>
 	<table border="1">
@@ -60,5 +72,11 @@ List<ItemDto>list=(List<ItemDto>)request.getAttribute("list");
 	
 	<%} %>
 	</table>
+	</div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
+	
 </body>
 </html>

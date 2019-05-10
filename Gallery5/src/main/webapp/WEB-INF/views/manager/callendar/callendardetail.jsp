@@ -9,8 +9,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>상세보기</title>
+<style>
+
+.main{
+position: absolute;
+top:150px;
+}
+</style>
+
+
 </head>
 <body>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
+
+
+
 <h1>일정 상세보기</h1>
 
 	<table border="1">
@@ -46,6 +63,13 @@
 		</td>
 	</tr>
 	</table>
+	</div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
+	
+	
 	<script type="text/javascript">
 		function updateForm(c_no){
 			location.href="managercallendarupdateform.do?c_no="+c_no;

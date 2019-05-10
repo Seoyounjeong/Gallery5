@@ -10,8 +10,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>답글 수정</title>
+<style>
+
+.main{
+position: absolute;
+top:150px;
+}
+</style>
+
 </head>
 <body>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
+
+
 	<h1>답글수정</h1>
 	<%
 	DabgeulDto dabgeulDto =(DabgeulDto)request.getAttribute("dabgeulDto");
@@ -55,6 +70,12 @@
 	</table>
 	<input type="submit" value="수정완료"/>
 	</form>
+	
+	</div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
 	
 </body>
 </html>

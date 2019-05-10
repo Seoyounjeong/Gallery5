@@ -10,11 +10,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>갤러리 정보 수정</title>
+<style>
+
+.main{
+position: absolute;
+top:150px;
+}
+</style>
 </head>
 <body>
 <%
  GalleryDto galleryDto =(GalleryDto)request.getAttribute("galleryDto");
 %>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
+
    <h1>갤러리 정보 수정</h1>
    <form action="managerupdateGallery.do" method="post" enctype="multipart/form-data">
    <table border="1">
@@ -106,6 +119,12 @@
    </table>
    <input type="submit"/>
    </form>
+   </div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
+   
    <script type="text/javascript">
 //    function change(){
 //       document.getElementById("g_img1").value = "";

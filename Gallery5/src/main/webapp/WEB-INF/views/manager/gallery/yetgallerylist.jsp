@@ -10,8 +10,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>승인 안된 갤러리 목록</title>
+<style>
+
+.main{
+position: absolute;
+top:150px;
+}
+.tail{
+position: absolute;
+top: 500px;
+}
+</style>
 </head>
 <body>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
+
 
 <% 
    List<GalleryDto>list=(List<GalleryDto>)request.getAttribute("list");// Object타입에 저장되도록 설계
@@ -69,6 +86,11 @@
    
    
    </table>
+   </div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
    
 </body>
 </html>

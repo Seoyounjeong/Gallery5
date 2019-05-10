@@ -8,9 +8,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style>
+
+.main{
+position: absolute;
+top:150px;
+}
+</style>
 </head>
 <body>
-<!-- 아직 구현안함 -->
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
+
+
 	<h1>요기</h1>
 	<form action="managerupdateItemeno.do" method="post">
 	<table border="1">
@@ -36,5 +49,10 @@
 	
 	</table>
 	</form>
+	</div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
 </body>
 </html>

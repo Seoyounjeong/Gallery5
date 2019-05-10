@@ -10,8 +10,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>전시 작품</title>
+<style>
+
+.main{
+position: absolute;
+top:150px;
+}
+</style>
 </head>
 <body>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
 	<%
 	List<ItemDto>list=(List<ItemDto>)request.getAttribute("list");
 	
@@ -59,6 +71,10 @@
 	
 	
 	</table>
-	
+	</div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
 </body>
 </html>

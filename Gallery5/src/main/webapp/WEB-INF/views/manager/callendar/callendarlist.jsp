@@ -15,6 +15,12 @@
 a:hover{
 color:threedlightshadow;
 }
+.main{
+position: absolute;
+top:150px;
+}
+
+
 </style>
 </head>
 <body>
@@ -22,6 +28,14 @@ color:threedlightshadow;
 List<CallendarDto>list=(List<CallendarDto>)request.getAttribute("list");
 
 %>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
+
+
+
 	<h1>전시일정 목록</h1>
 	<input type="button" value="일정추가" onclick="location.href='managerinsertcallendarform.do'">
 
@@ -65,5 +79,13 @@ List<CallendarDto>list=(List<CallendarDto>)request.getAttribute("list");
 	
 	
 	</table>	
+	
+	</div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
+	
+	
 </body>
 </html>

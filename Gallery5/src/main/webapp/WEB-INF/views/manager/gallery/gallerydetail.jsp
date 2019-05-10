@@ -9,11 +9,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>갤러리 상세보기</title>
+<style>
+
+.main{
+position: absolute;
+top:150px;
+}
+.tail{
+position: absolute;
+top: 2000px;
+}
+</style>
+
 </head>
 <body>
 <%
 GalleryDto galleryDto=(GalleryDto)request.getAttribute("galleryDto");
 %>
+<div class="header">
+<jsp:include page="/WEB-INF/views/manager/managerHeader.jsp" />
+</div>
+
+<div class="main">
+
    <h1>갤러리 상세보기</h1>
    <table border="1">
    <tr>
@@ -111,6 +129,11 @@ GalleryDto galleryDto=(GalleryDto)request.getAttribute("galleryDto");
       </td>
    </tr>
    </table>
+   </div>
+
+<div class="tail">
+<jsp:include page="/WEB-INF/views/tail.jsp" />
+</div>
    
    <script>
    function updateForm(g_no){
