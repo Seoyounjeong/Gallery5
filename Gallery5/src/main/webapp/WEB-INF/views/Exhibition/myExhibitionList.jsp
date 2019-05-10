@@ -8,16 +8,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script
-    src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous"></script>
+
 </head>
 <title>나의전시목록</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp" />
-<jsp:include page="../login/privateGnb.jsp" />	
+<%-- <jsp:include page="../login/privateGnb.jsp" />	 --%>
+<script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
 	<div id="myExhibitionList">
 		<h3>나의전시목록</h3>
 		<c:choose>

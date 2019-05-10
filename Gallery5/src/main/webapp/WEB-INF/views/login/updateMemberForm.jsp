@@ -17,7 +17,7 @@ MemberDto loginMember = (MemberDto)session.getAttribute("loginMember");
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp" />
 
-<jsp:include page="privateGnb.jsp" />	
+<%-- <jsp:include page="privateGnb.jsp" />	 --%>
 
 <%-- 	<div id="updateMemberForm">
 	<form action="updateMember.do" method="post">

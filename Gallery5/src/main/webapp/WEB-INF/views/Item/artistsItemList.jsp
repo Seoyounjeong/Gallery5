@@ -64,7 +64,12 @@ MemberDto loginMember = (MemberDto)session.getAttribute("loginMember");
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp" />
-<jsp:include page="../login/privateGnb.jsp" />	
+<%-- <jsp:include page="../login/privateGnb.jsp" />	 --%>
+<script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+ 
 <div id="artistItemList">
 	<h1>나의 작품목록</h1>
 	<c:choose>

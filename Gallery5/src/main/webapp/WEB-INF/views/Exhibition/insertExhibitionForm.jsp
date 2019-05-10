@@ -13,16 +13,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>전시등록</title>
-<script
-    src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous"></script>
+
 <link rel="stylesheet" href="exhibition/css/insertExhibitionForm.css">
 </head>
 
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp" />
-<jsp:include page="/WEB-INF/views/login/privateGnb.jsp" />	
+<%-- <jsp:include page="/WEB-INF/views/login/privateGnb.jsp" />	 --%>
+<script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
 	<div id="insertExhibitionForm">
 		
 			<h3 style="color: rgb(50,50,50);

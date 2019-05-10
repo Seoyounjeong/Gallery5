@@ -3,20 +3,22 @@
     pageEncoding="UTF-8"%>
 <%request.setCharacterEncoding("utf-8"); %>
 <%response.setContentType("text/html;charset=utf-8"); %>
-<%MemberDto loginMember = (MemberDto)session.getAttribute("loginMember"); %>
+<%MemberDto loginMember = (MemberDto)session.getAttribute("loginMember");
+int m_grade = loginMember.getM_grade();%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>작품등록하기</title>
 <link rel="stylesheet" href="item/css/insertItemForm.css">
+
+</head>
+<body>
+<jsp:include page="/WEB-INF/views/header.jsp" />
 <script
     src="https://code.jquery.com/jquery-3.3.1.js"
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
     crossorigin="anonymous"></script>
-</head>
-<body>
-<jsp:include page="/WEB-INF/views/header.jsp" />
-<jsp:include page="/WEB-INF/views/login/privateGnb.jsp" />	
+<%-- <jsp:include page="/WEB-INF/views/login/privateGnb.jsp" /> --%>	
 	<div id="insertItemForm_body">
 	<div id="insertItemForm">
 		

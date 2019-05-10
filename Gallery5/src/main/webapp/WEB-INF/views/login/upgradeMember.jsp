@@ -16,7 +16,7 @@ int m_grade =loginMember.getM_grade();
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp" />
-<jsp:include page="privateGnb.jsp" />
+<%-- <jsp:include page="privateGnb.jsp" /> --%>
 <div id="upgradeMember_body">
 	<div id="upgradeMember">
 		<h2>작가·갤러리신청</h2>
