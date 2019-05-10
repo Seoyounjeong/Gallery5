@@ -5,8 +5,9 @@
 <%response.setContentType("text/html; charset=utf-8"); %>
 <%MemberDto loginMember = (MemberDto)session.getAttribute("loginMember"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<link rel="stylesheet" href="OverlayEffectMenu/css/style.css" type="text/css" media="screen"/>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="OverlayEffectMenu/css/style.css" type="text/css" media="screen"/>
+ -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script> 
 <script src="OverlayEffectMenu/js/cufon-yui.js" type="text/javascript"></script>
 <script src="OverlayEffectMenu/js/Aller.font.js" type="text/javascript"></script>
@@ -15,6 +16,7 @@
 *{
 	margin:0;
 	padding:0;
+	z-index: 999px;
 }
 /* body{
 	background:white;
@@ -43,10 +45,13 @@
 	-o-transition: All 0.2s ease;
 	display: table;
 	width: 100%;
+	
 	border-collapse: collapse;
     border: none;
     table-layout:fixed;
     background-color: #ffffff;
+     z-index: 99px;
+   
    	
 
 
@@ -60,11 +65,11 @@
 	position:relative;
 	height:50px;
 	width:100%;
-	
 	float:;
 	clear:;
 	box-sizing: border-box;
 	display: table-row;
+	 z-index: 999px;
 	
 	
 
@@ -84,6 +89,7 @@ ul.oe_menu > li{
 	float:left;
 	position:relative;
 	display: table-cell;
+	 z-index: 999px;
 	
 
 }
@@ -105,6 +111,7 @@ ul.oe_menu > li > a{
 	text-shadow:0px 0px 1px #000;
 	opacity:1.0;
 	text-align: center;
+	 z-index: 999px;
 	
 }
 ul.oe_menu > li > a:hover,
@@ -127,6 +134,7 @@ ul.oe_menu div{
 	height:auto;
 	padding:30px;
 	display:none;
+	 z-index: 999px;
 }
 ul.oe_menu div ul li a{
 	text-align: center;
@@ -170,7 +178,7 @@ ul.oe_menu div ul li a.oe_body{}
 				var st = $(this).scrollTop();
 					if (Math.abs(lastScrollTop - st) <= delta) return;
 					if ((st > lastScrollTop) && (lastScrollTop > 0)) {
-   					 $(".mainHeader").css("top", "-100px");
+   					 $(".mainHeader").css("top", "-50px");
    					} else {
    					 $(".mainHeader").css("top", "0px");
 					}
@@ -179,9 +187,9 @@ ul.oe_menu div ul li a.oe_body{}
 					
 		</script>
 
-<div class="oe_wrapper" style="position: ;">
-			<div class="mainHeader" style="position: fixed; background-color: white;">
-			<div class="mainLogo" style="position: absolute; left: 50px; top: 10px; z-index: 99"><a href="index.jsp"><img alt="index.jsp" src="logo/logo1.png" width="150" height="auto" ></a> </div>
+<div class="oe_wrapper" style="position:relative ; z-index: 300">
+			<div class="mainHeader" style="position: fixed; background-color: white; height: 50px; z-index: 99">
+			<div class="mainLogo" style="position: absolute; left: 50px; top: 10px; z-index: 99;background-color: transparent;" ><a href="index.jsp"><img alt="index.jsp" src="logo/logo1.png" width="150" height="auto" ></a> </div>
 			<div class="login_wrapper" style="position: absolute; right: 50px; top: 10px; z-index: 99;">
 			<%if(loginMember==null){ %>
 			<button style=" width: 80px; height: 40px;" class="btn btn-outline-success" onclick="location.href='loginform.do'" >LOGIN</button>
@@ -204,7 +212,7 @@ ul.oe_menu div ul li a.oe_body{}
 				
 				<li><a href="">MY PAGE</a>
 				
-					<div style="left:-447px;">
+					<div style="left:-447px; border-radius: 58px 58px 58px 58px; box-shadow: 11px 15px 18px 2px rgba(69,68,67,1);" >
 						<ul>
 						<li class="oe_heading"><a class="oe_body" href="myprivate.do"> 회원정보</a></li>
 						</ul>
@@ -264,6 +272,7 @@ ul.oe_menu div ul li a.oe_body{}
 			
 		</div>
 		
+		
 		 <!-- The JavaScript -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
         <script type="text/javascript">
@@ -297,6 +306,6 @@ ul.oe_menu div ul li a.oe_body{}
             });
         </script>
        <div>
-       	<br/><br/><br/>
+       	<br/><br/><br/><br/>
        </div>
 	

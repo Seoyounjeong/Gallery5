@@ -16,6 +16,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<link rel="stylesheet" href="A_detail/css/bootstrap.css">
+        <link rel="stylesheet" href="A_detail/css/magnific-popup.css">
+        <link rel="stylesheet" href="A_detail/css/style.css">
+        <link rel="stylesheet" href="A_detail/css/responsive.css" />
+   		<script src="A_detail/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+   		
+   
+		
 <title>상세보기</title>
 
 
@@ -35,7 +44,7 @@
     margin: 0 auto;
     
 		
-	}
+	} 
 	
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
@@ -74,19 +83,22 @@ function detail_artist(){
 
 
 </head>
-	
+<jsp:include page="/WEB-INF/views/header.jsp" />
 <body>
 
-<jsp:include page="/WEB-INF/views/header.jsp" />
-<div class="alldetail_container">
-<span><%=artistDto.getA_name() %>作家</span>
+
+<hr>
+
+<div class="alldetail_container"  style="width: 1200px; text-align: center;">
+
+<span style="font-weight: bolder; fone"><%=artistDto.getA_name() %>作家</span>
 <%-- <span>	<%if(loginMember==null||loginMember.getM_grade()!=3){ %>
 	<span></span>
 	<%}else if(loginMember.getM_grade()==3){ %>
 		<input type="button" value="전시 요청" 
 		onclick="pop('<%=loginMember.getM_no()%>','<%=artistDto.getA_no() %>','<%=loginMember.getM_name() %>','<%=artistDto.getA_name() %>')" >
 		<%} %></span> --%>
-<hr>
+
 <div class="detail_container">
 	<div class="artist_nav">
 		<span onclick="detail_itme()">작품</span>
@@ -94,14 +106,35 @@ function detail_artist(){
 		<span onclick="detail_artist()">이력</span>
 	</div>
 	<div class="item_container" id="item_container">
-		<h5>작품</h5>
+		
+                <!-- Gallery container-->
+              
+		
+		<div class="main-gallery roomy-80" style="overflow:hidden;">
+		<div class="grid text-center">
 		<%for(ItemDto itemDto: ilist){ %>
-			<div style="float: left: ;">
-			<img alt="작품사진" src="itemupload/<%=itemDto.getI_img()%>" width="10%" ><br/>
+			  
+                                <div class="grid-item transition metal ium">
+                                  	 <img alt="작품사진" src="itemupload/<%=itemDto.getI_img()%>" >
+                                    <div class="grid_hover_area text-center">
+                                        <div class="grid_hover_text m-top-110">
+                                            <h6 class="text-white">작품명</h6>
+                                            <h4 class="text-white"><em><%=itemDto.getI_name() %></em></h4>
+                                            <a href="itemupload/<%=itemDto.getI_img()%>" class="popup-img text-white m-top-40">View<i class="fa fa-long-arrow-right"></i></a>
+                                        </div>
+                                    </div><!-- End off grid Hover area -->
+                                </div><!-- End off grid item -->
+		
+			<%-- <div style="float: left: ;">
+			<img alt="작품사진" src="itemupload/<%=itemDto.getI_img()%>" width="30%" ><br/>
 			<span>작품명: <%=itemDto.getI_name()%></span>
-			</div>
+			</div> --%>
+		
 		<%} %>
 	</div>
+	</div>
+	</div>
+	
 	
 	<div class="exhibition_container" id="exhibition_container"">
 		<h5>전시</h5>
@@ -125,8 +158,24 @@ function detail_artist(){
 	
 	</div>
 	</div>
-</div>
+	</div>
+
 <jsp:include page="/WEB-INF/views/tail.jsp" />	
+<!-- JS includes -->
+
+      
+        <script src="A_detail/js/vendor/jquery-1.11.2.min.js"></script>
+        <script src="A_detail/js/isotope.min.js"></script>
+        <script src="A_detail/js/jquery.magnific-popup.js"></script>
+        <script src="A_detail/js/slick.min.js"></script>
+        <script src="A_detail/js/jquery.collapse.js"></script>
+        <script src="A_detail/js/plugins.js"></script>
+        <script src="A_detail/js/main.js"></script>
+        
+     
+      
+
+
 </body>
 
 </html>
