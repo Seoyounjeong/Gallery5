@@ -155,24 +155,46 @@ line-height: 1.2;
 <!-- 달력관련 -->
 <script type="text/javascript">
 
-
-
-	$(document).ready(function(){
+$(document).ready(function(){
 	
-
-		var scroll = $(".justify-content-center").offset().top;
+	
+	var scroll_v =getParameterByName('scroll_v');
+	
+	
+	
+	var scroll = $("#s_l").offset().top;
+	
+	if(scroll_v==0||scroll_v==null){
 		
+		$(document).scrollTop(scroll-40);
+		
+	}else{
+		$(document).scrollTop(scroll_v);
+	}
 	
-		
-		
-		$(document).scrollTop(scroll);
 	
 
-	
-	
 
+});
+
+
+function scroll_v(url) {
 	
-	});
+	var scroll_v = $(document).scrollTop();
+	
+	location.href=url+scroll_v;
+	
+	
+}
+
+
+
+
+
+
+
+
+
 
 	function insertformcalendar(y,m,i,eleA) {
 		
@@ -239,7 +261,6 @@ line-height: 1.2;
 			c_start+";"
  */
 	
-		
 	}
 	
 
@@ -252,7 +273,7 @@ line-height: 1.2;
 <body>
 
 
-<div style="display: inline-block;"></div>
+<div id="s_l"></div>
 
 
 <div class="justify-content-center pb-5" style="margin-top:10px; ">
@@ -271,11 +292,13 @@ line-height: 1.2;
 
 <div style="display: inline-block; font-family: 'Gamja Flower', cursive; font-weight: 100; font-size:30px; color:#e2c0bb; margin: 10px;" onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=one'">안내</div>
 
-<div style="display: inline-block; font-family: 'Gamja Flower', cursive; font-weight: 100; font-size:30px; color:#e2c0bb;"  onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=two'">전시일정</div> </div>
+<div style="display: inline-block; font-family: 'Gamja Flower', cursive; font-weight: 100; font-size:30px; color:#e2c0bb;"  onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=two'">전시일정</div> 
 
 
+</div>
 
-<div class="container" style="margin-top: 90px;">
+
+<div class="container" style="margin-top: 80px;">
 
 
 <div class="row">
@@ -296,13 +319,19 @@ line-height: 1.2;
 
 <div>
 
-<a href="selectGallery.do?year=<%=year%>&month=<%=month-1%>&g_no=${galleryDto.g_no}&g_return=two"><i class=" arrow fas fa-chevron-left fa-pull-left"></i></a>
+
+
+
+<div onclick="scroll_v('selectGallery.do?year=<%=year%>&month=<%=month-1%>&g_no=${galleryDto.g_no}&g_return=two&scroll_v=')">
+
+<i class=" arrow fas fa-chevron-left fa-pull-left"></i></div>
+
+<div onclick="scroll_v('selectGallery.do?year=<%=year%>&month=<%=month+1%>&g_no=${galleryDto.g_no}&g_return=two&scroll_v=')"><i class="arrow fas fa-chevron-right fa-pull-right"></i></div>
 
 <span class="m"><%=Util.Calmonth(month)%><%-- <%=month%> --%></span>
 
 &nbsp;&nbsp;<span class="y"><%= year%></span>
 
-<a href="selectGallery.do?year=<%=year%>&month=<%=month+1%>&g_no=${galleryDto.g_no}&g_return=two"><i class="arrow fas fa-chevron-right fa-pull-right"></i></a>
 
 </div>
 

@@ -55,12 +55,6 @@ line-height: 3;
 }
 
 
-#Gallery_setion2{margin: 0 auto; width: 600px;}
-#Gallery_setion2 div{ margin: 0 auto; width: 100%;}
-#Gallery_setion2 table{margin: 0 auto;}
-
-
-
 .heading-section span{
 
 font-size: 16px;
@@ -151,11 +145,58 @@ line-height: 1.2;
 	 List<CalDto> list = dao.getCalViewList(id, yyyyMM);  */
 %>
 
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	
+	var scroll_v =getParameterByName('scroll_v');
+	
+	
+	
+	var scroll = $("#s_l").offset().top;
+	
+	if(scroll_v==0||scroll_v==null){
+		
+		$(document).scrollTop(scroll-40);
+		
+	}else{
+		$(document).scrollTop(scroll_v);
+	}
+	
+	
+
+
+});
+
+
+function scroll_v(url) {
+	
+	var scroll_v = $(document).scrollTop();
+	
+	location.href=url+scroll_v;
+	
+	
+}
+
+//스크립트 파라미터값
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+</script>
+
+
+
 <body>
 
 <jsp:include page="/WEB-INF/views/header.jsp" />
 
-<div style="display: inline-block;"></div>
+<div id="s_l"></div>
 
 
 
@@ -177,11 +218,13 @@ onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'
 onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=general_two'">전시일정</div> </div>
 
 
-<div id="Gallery_setion2" style="margin-top: 90px;">
+<div class="container" style="margin-top: 80px;">
 
 
+<div class="row">
 
-<div id="Gallery_callendal">
+
+<div class="col">
 <!-- 달력관련 -->
 
 
@@ -199,7 +242,7 @@ onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'
 
             </div> -->
 
-
+<div>
 
 <div class="c_header">
 
@@ -211,13 +254,17 @@ onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'
 
 <div>
 
-<a href="selectGallery.do?year=<%=year%>&month=<%=month-1%>&g_no=${galleryDto.g_no}&g_return=general_two"><i class=" arrow fas fa-chevron-left fa-pull-left"></i></a>
+<div onclick="scroll_v('selectGallery.do?year=<%=year%>&month=<%=month-1%>&g_no=${galleryDto.g_no}&g_return=general_two&scroll_v=')">
+
+<i class=" arrow fas fa-chevron-left fa-pull-left"></i></div>
+
+<div onclick="scroll_v('selectGallery.do?year=<%=year%>&month=<%=month+1%>&g_no=${galleryDto.g_no}&g_return=general_two&scroll_v=')"><i class="arrow fas fa-chevron-right fa-pull-right"></i></div>
 
 <span class="m"><%=Util.Calmonth(month)%><%-- <%=month%> --%></span>
 
 &nbsp;&nbsp;<span class="y"><%= year%></span>
 
-<a href="selectGallery.do?year=<%=year%>&month=<%=month+1%>&g_no=${galleryDto.g_no}&g_return=general_two"><i class="arrow fas fa-chevron-right fa-pull-right"></i></a>
+
 
 </div>
 
@@ -298,6 +345,89 @@ onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'
 </div>
 
 
+<div class="col" style="padding-left: 40px;">
+
+
+<% List<CallendarDto>cllist =(List<CallendarDto>)request.getAttribute("cllist"); %>
+
+
+<%if(cllist.isEmpty()){
+	%>
+<div class="row">
+<div class="col" style="text-align: center; min-width: 470px;">
+---------등록된 일정이 없습니다---------
+</div>
+</div>
+<%
+
+}else{
+
+for(CallendarDto dto:cllist){
+
+	String d =dto.getC_start().substring(4,6);
+	String m =Util.zeroTwo(dto.getC_start().substring(2,4));
+	String y =20+dto.getC_start().substring(0,2);
+%>	
+<div class="row border-secondary">
+   	 <!-- <div class="col-2">C_NO</div> -->
+	<!--<div class="col-2"><%=dto.getC_no()%></div> -->
+	<%-- <div class="col-2">G_NO</div>
+	<div class="col-2"><%=dto.getG_no()%></div> --%>
+	
+	
+	<%
+	String cl_start_m = Util.zeroTwo(dto.getC_start().substring(2, 4));
+	String cl_start_d = dto.getC_start().substring(4, 6);
+	  
+	String cl_end_m = Util.zeroTwo(dto.getC_end().substring(2, 4));
+	String cl_end_d = dto.getC_end().substring(4, 6);   
+	%>
+
+
+	<div class="w-100" style="margin: 2px;"></div>
+	
+	<!-- <div class="col-2">일정명</div> -->
+	<div class="col" style="    
+	line-height: 1.5;
+    color: rgba(0, 0, 0, 0.9);
+    font-size: 25px;
+    font-family: 'Stylish', sans-serif;
+    font-weight: 600;
+    "
+	
+	
+	><%=dto.getC_title()%>&nbsp;&nbsp;&nbsp;<span><%=cl_start_m%>.<%=cl_start_d%>~<%=cl_end_m%>.<%=cl_end_d%></span></div>
+	
+	
+	
+	<div class="w-100" style="margin: 2px;"></div>
+	<!-- <div class="col-2">내용</div> -->
+	<div class="col" style="font-family: Arial, sans-serif;
+    background: #fff;
+    font-size: 20px;
+    line-height: 1.8;
+    font-weight: 400;
+    font-family: 'Nanum Pen Script', cursive;
+    color: #999999;"><%=dto.getC_content()%></div>
+	
+	
+	
+
+
+	
+	
+</div>
+<br />	
+
+<%}	
+}%>
+			
+
+</div>
+
+</div>
+
+</div>
 
 
 

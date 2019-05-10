@@ -16,6 +16,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <link href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Cute+Font" rel="stylesheet">
@@ -96,11 +97,18 @@ line-height: 1.2;
 </head>
 
 <script type="text/javascript">
-	/* 
-	 $(document).ready( function() {
-	 location.reload();
-	 });
-	 */
+
+$(document).ready(function(){
+	
+
+	var scroll = $("#s_l").offset().top;
+	
+
+		$(document).scrollTop(scroll-40);
+		
+
+
+});
 
 	function imgup(a) {
 
@@ -152,7 +160,7 @@ line-height: 1.2;
 
 	<jsp:include page="/WEB-INF/views/header.jsp" />
 	
-	<div style="display: inline-block;"></div>
+	<div></div>
 	
 	
 		<div class="justify-content-center pb-5" style="margin-top:10px; ">
@@ -165,7 +173,7 @@ line-height: 1.2;
 
 
 
-	<div style="text-align: center; margin: 20px; font-weight: bold; font-size: large;">
+	<div  id="s_l" style="text-align: center; margin: 20px; font-weight: bold; font-size: large;">
 
 		<div
 			style="display: inline-block; margin: 5px; font-family: 'Gamja Flower', cursive; font-weight: 100; font-size:30px; color:#e2c0bb;"

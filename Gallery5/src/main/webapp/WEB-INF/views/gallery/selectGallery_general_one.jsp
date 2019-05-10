@@ -18,6 +18,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <!-- 부트스트랩 -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
  <link href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo" rel="stylesheet">
  <link href="https://fonts.googleapis.com/css?family=Cute+Font" rel="stylesheet"> 
 
@@ -99,11 +100,17 @@ line-height: 1.2;
 </head>
 
 <script type="text/javascript">
-	/* 
-	 $(document).ready( function() {
-	 location.reload();
-	 });
-	 */
+$(document).ready(function(){
+	
+
+	var scroll = $("#s_l").offset().top;
+	
+
+		$(document).scrollTop(scroll-40);
+		
+
+
+});
 
 	function imgup(a) {
 
@@ -155,7 +162,7 @@ line-height: 1.2;
 
 	
 	
-	<div style="display: inline-block;"></div>
+	<div id="s_l"></div>
 	
 	
 	   <div class="justify-content-center pb-5" style="margin-top:10px; ">
