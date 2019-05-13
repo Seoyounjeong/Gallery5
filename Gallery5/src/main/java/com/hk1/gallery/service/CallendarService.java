@@ -61,4 +61,18 @@ public class CallendarService implements ICallendarService{
 		// TODO Auto-generated method stub
 		return callendarDao.selectCallendarList_g_no(g_no);
 	}
+	
+	/*page처리*/
+	@Override
+	public int calendarpagenum(CallendarDto callendarDto) {
+		// TODO Auto-generated method stub
+		return callendarDao.calendarpagenum(callendarDto);
+	}
+
+	@Override
+	public List<CallendarDto> getpagelist(CallendarDto callendarDto) {
+		// TODO Auto-generated method stub
+		return callendarDao.getpagelist(callendarDto);
+	}
+
 }

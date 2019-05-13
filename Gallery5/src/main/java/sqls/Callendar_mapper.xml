@@ -64,4 +64,28 @@
    ORDER BY C_NO DESC  
   </select>
   
+  
+  <!-- 페이지처리 -->
+  <select id="calendarpagenum" parameterType="CallendarDto" resultType="int">
+  
+	SELECT CEIL(COUNT(*)/3) AS COUNT FROM CALLENDAR WHERE SUBSTR(C_START,1,4)=#{c_start} AND G_NO =#{g_no}
+  
+  </select>
+  
+  <select id="calendarpagelist" parameterType="CallendarDto" resultType="CallendarDto" >
+  
+  SELECT RN, C_NO, C_TITLE, C_CONTENT, C_START, C_END, G_NO
+   FROM (SELECT ROWNUM AS RN,C_NO, C_TITLE, C_CONTENT, C_START, C_END, G_NO FROM GALLERY.CALLENDAR 
+   
+   WHERE G_NO=#{g_no} AND SUBSTR(C_START,1,4)=#{c_start})
+   
+   WHERE G_NO=#{g_no} AND SUBSTR(C_START,1,4)=#{c_start} AND CEIL(RN/3)=#{c_pcount}
+  
+  
+  
+  </select>
+  
+  
+
+  
   </mapper>

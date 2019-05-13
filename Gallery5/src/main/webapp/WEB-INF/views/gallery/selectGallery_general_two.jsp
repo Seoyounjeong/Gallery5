@@ -196,7 +196,7 @@ function getParameterByName(name) {
 
 <jsp:include page="/WEB-INF/views/header.jsp" />
 
-<div id="s_l"></div>
+<hr id="s_l">
 
 
 
@@ -209,14 +209,18 @@ function getParameterByName(name) {
 </div>
 
 
-<div style="text-align: center; margin: 20px; font-weight: bold; font-size: large;">
+	<div style="text-align: center; margin: 0 auto;">
+	
+		<h6 style="font-weight: bold;">
+      <span onclick="location.href='selectGallery.do?year=<%=year%>&month=<%=month%>&g_no=${galleryDto.g_no}&g_return=general_one'">
+      안내&nbsp|</span>
+      <span onclick="location.href='selectGallery.do?year=<%=year%>&month=<%=month%>&g_no=${galleryDto.g_no}&g_return=general_two'">
+      전시일정</span>
 
-<div style="display: inline-block; margin: 5px; font-family: 'Gamja Flower', cursive; font-weight: 100; font-size:30px; color:#e2c0bb;" 
-onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=general_one'">안내</div>
+       </h6>
 
-<div style="display: inline-block; font-family: 'Gamja Flower', cursive; font-weight: 100; font-size:30px; color:#e2c0bb;"
-onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=general_two'">전시일정</div> </div>
-
+		
+	</div>
 
 <div class="container" style="margin-top: 80px;">
 
@@ -422,6 +426,24 @@ for(CallendarDto dto:cllist){
 <%}	
 }%>
 			
+<!-- 페이지 처리() -->
+		
+		
+		<% int pagenum = (Integer)request.getAttribute("pagenum"); %>
+		
+		
+		<div>
+		 	<%for(int i =1; i<=pagenum;i++){%>
+		 		
+		 	<a href="selectGallery.do?year=2019&month=5&g_no=109&g_return=two&c_pcount=<%=i%>"><%=i%></a>
+		 	
+		 	<%}%>
+		 	
+
+		 </div>	
+
+
+
 
 </div>
 

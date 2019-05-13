@@ -45,7 +45,7 @@
 </head>
 <jsp:include page="/WEB-INF/views/header.jsp" />
 <body>
-
+<hr>
 
 <!-- <h4 onclick="location.href='gallerylist.do'">갤러리목록</h4> -->
 <!--<h4 onclick="location.href='insertGalleryForm.do'">갤러리 추가로 가자 </h4>-->

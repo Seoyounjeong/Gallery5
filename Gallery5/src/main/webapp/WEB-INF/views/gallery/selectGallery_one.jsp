@@ -160,7 +160,7 @@ $(document).ready(function(){
 
 	<jsp:include page="/WEB-INF/views/header.jsp" />
 	
-	<div></div>
+	<hr>
 	
 	
 		<div class="justify-content-center pb-5" style="margin-top:10px; ">
@@ -173,14 +173,17 @@ $(document).ready(function(){
 
 
 
-	<div  id="s_l" style="text-align: center; margin: 20px; font-weight: bold; font-size: large;">
+	<div style="text-align: center; margin: 0 auto;">
+	
+		<h6 style="font-weight: bold;">
+      <span onclick="location.href='selectGallery.do?year=<%=year%>&month=<%=month%>&g_no=${galleryDto.g_no}&g_return=one'">
+      안내&nbsp|</span>
+      <span onclick="location.href='selectGallery.do?year=<%=year%>&month=<%=month%>&g_no=${galleryDto.g_no}&g_return=two'">
+      전시일정</span>
 
-		<div
-			style="display: inline-block; margin: 5px; font-family: 'Gamja Flower', cursive; font-weight: 100; font-size:30px; color:#e2c0bb;"
-			onclick="location.href='selectGallery.do?year=<%=year%>&month=<%=month%>&g_no=${galleryDto.g_no}&g_return=one'">안내</div>
+       </h6>
 
-		<div style="display: inline-block; font-family: 'Gamja Flower', cursive; font-weight: 100; font-size:30px; color:#e2c0bb;"
-			onclick="location.href='selectGallery.do?year=<%=year%>&month=<%=month%>&g_no=${galleryDto.g_no}&g_return=two'">전시일정</div>
+		
 	</div>
 
 

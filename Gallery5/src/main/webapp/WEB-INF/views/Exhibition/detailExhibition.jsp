@@ -3,6 +3,7 @@
 <%@page import="com.hk1.gallery.dto.ExhibitionDto"%>
 <%@page import="com.hk1.gallery.dto.ItemDto"%>
 <%@page import="com.hk1.gallery.dto.DabgeulDto"%>
+<%@page import="com.hk1.utils.Util"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%request.setCharacterEncoding("utf-8"); %>
@@ -366,7 +367,7 @@
 			         <div  class="detailExhibition_DabgeulList_List_tr">
 			         <div class="detailExhibition_DabgeulList_List_name"><%=Dadto.getM_name()%></div>
 			         <div class="detailExhibition_DabgeulList_List_content"><%=Dadto.getD_content()%></div>
-			         <div class="detailExhibition_DabgeulList_List_regdate"><%=Dadto.getM_regdate()%></div>
+			         <div class="detailExhibition_DabgeulList_List_regdate"><%=Util.dateToString(Dadto.getM_regdate())%></div>
 			         </div>
 			         <%-- <td style="display: none;"><%=Dadto.getD_no()%></td>
 			         <td style="display: none;"><%=Dadto.getE_no()%></td>

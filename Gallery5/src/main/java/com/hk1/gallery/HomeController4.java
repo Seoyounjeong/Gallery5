@@ -299,7 +299,7 @@ public class HomeController4 {
 	//갤러리 상세
 	@RequestMapping(value = "/selectGallery.do", method = RequestMethod.GET)
 	public String selectGallery(Locale locale, Model model,
-			HttpServletRequest request, int g_no, String year, String month,CallendarDto cddto,String g_return)  {
+			HttpServletRequest request, int g_no, String year, String month,CallendarDto cddto,String g_return,String c_pcount)  {
 		logger.info("selectGallery 가자 {}.", locale);
 
 		GalleryDto galleryDto = galleryService.selectGallery(g_no);
@@ -361,11 +361,52 @@ public class HomeController4 {
 
 		model.addAttribute("clist",clist);
 		
+		
+		
+		
+		
+		
+		/*페이지처리 추가*/
+		
+		System.out.println("a="+year);
+		System.out.println("b="+ month);
+		
+		cddto.setC_start(year.substring(2, 4) + util.isTwo(month));
+		
+		System.out.println("pagenum cdto" + cddto);
+		
+		int pagenum = callendarService.calendarpagenum(cddto);
+		
+		System.out.println("pagenum=?" + pagenum);
+		
+		
+		
+		model.addAttribute("pagenum", pagenum );
 
-	
-		List<CallendarDto> cllist = callendarService.selectCallendarList_g_no(g_no);
-
+		
+		
+		if(c_pcount==null) {
+			c_pcount="1";
+		}
+		
+		System.out.println("c_pcount?=" +c_pcount);
+			
+		cddto.setC_pcount(Integer.parseInt(c_pcount));
+		
+		
+		
+		System.out.println("cddto" + cddto);
+		
+		List<CallendarDto> cllist = callendarService.getpagelist(cddto);
+		
 		model.addAttribute("cllist",cllist);
+		
+	
+		/*List<CallendarDto> cllist = callendarService.selectCallendarList_g_no(g_no);
+		
+		System.out.println("cddto" + cddto);
+
+		model.addAttribute("cllist",cllist);*/
 	
 		
 		if(g_return==null) {
@@ -564,7 +605,7 @@ public class HomeController4 {
 		dto.setM_no(m_no);
 		dto.setM_name(m_name);
 
-
+		
 		boolean isS =  dabgeulService.InsertDabgeul(dto);
 
 		if(isS) {
@@ -573,7 +614,7 @@ public class HomeController4 {
 			return "y";
 			
 		}else {
-			logger.info("파일 업로드 실패");
+			logger.info("답글 실패");
 
 			return "n";
 		
@@ -588,7 +629,7 @@ public class HomeController4 {
 		logger.info("DabgeulList 가자 {}.", locale);
 		
 		//로그인 세션 값  
-
+		
 		MemberDto loginMember = (MemberDto)session.getAttribute("loginMember"); 
 		ExhibitionDto exhibition =(ExhibitionDto)request.getAttribute("exhibitionDto");
 		

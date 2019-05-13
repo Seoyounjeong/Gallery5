@@ -1,7 +1,9 @@
 package com.hk1.utils;
 
 import java.sql.Timestamp;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import com.hk1.gallery.dto.CallendarDto;
 
@@ -55,6 +57,20 @@ public class Util {
 		
 		this.todates = asd.format(tm);;
 	}
+	
+	 /*date String로 바꾸기*/ 
+	
+	public static String dateToString(Date m_regdate) {
+		 
+		 DateFormat sdFormat = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+		 
+		 
+		 String date = sdFormat.format(m_regdate); 
+		 
+		 
+		 return date; }
+	
+	
 	
 	
 

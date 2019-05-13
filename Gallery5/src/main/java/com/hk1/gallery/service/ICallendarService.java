@@ -14,5 +14,6 @@ public interface ICallendarService {
 	CallendarDto selectCallendarList3(CallendarDto callendarDto);
 	List<CallendarDto> selectCallendarList_g_no(int g_no);
 	
-	
+	public int calendarpagenum(CallendarDto callendarDto);
+	public List<CallendarDto> getpagelist(CallendarDto callendarDto);
 }

@@ -7,6 +7,7 @@ public class CallendarDto {
 	private String c_start;
 	private String c_end;
 	private int g_no;
+	private int c_pcount;
 	
 	public CallendarDto() {
 		super();
@@ -14,6 +15,20 @@ public class CallendarDto {
 	}
 
 	
+	
+	
+	
+	public int getC_pcount() {
+		return c_pcount;
+	}
+
+
+	public CallendarDto setC_pcount(int c_pcount) {
+		this.c_pcount = c_pcount;
+		return this;
+	}
+
+
 	public int getC_no() {
 		return c_no;
 	}

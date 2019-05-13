@@ -8,6 +8,8 @@
 <%@page import="java.util.List"%>
 <%CallendarDto cddto =(CallendarDto)request.getAttribute("cddto"); %>
 
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -273,7 +275,7 @@ function scroll_v(url) {
 <body>
 
 
-<div id="s_l"></div>
+<hr id="s_l">
 
 
 <div class="justify-content-center pb-5" style="margin-top:10px; ">
@@ -288,14 +290,18 @@ function scroll_v(url) {
 
 
 
-<div style="text-align: center; margin: 20px; font-weight: bold; font-size: large;">
+	<div style="text-align: center; margin: 0 auto;">
+	
+		<h6 style="font-weight: bold;">
+      <span onclick="location.href='selectGallery.do?year=<%=year%>&month=<%=month%>&g_no=${galleryDto.g_no}&g_return=one'">
+      안내&nbsp|</span>
+      <span onclick="location.href='selectGallery.do?year=<%=year%>&month=<%=month%>&g_no=${galleryDto.g_no}&g_return=two'">
+      전시일정</span>
 
-<div style="display: inline-block; font-family: 'Gamja Flower', cursive; font-weight: 100; font-size:30px; color:#e2c0bb; margin: 10px;" onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=one'">안내</div>
+       </h6>
 
-<div style="display: inline-block; font-family: 'Gamja Flower', cursive; font-weight: 100; font-size:30px; color:#e2c0bb;"  onclick="location.href='selectGallery.do?year='+<%=year%>+'&month='+<%=month%>+'&g_no='+${galleryDto.g_no}+'&g_return=two'">전시일정</div> 
-
-
-</div>
+		
+	</div>
 
 
 <div class="container" style="margin-top: 80px;">
@@ -306,7 +312,6 @@ function scroll_v(url) {
 
 <div class="col">
 
-<div>
 <!-- 달력관련 -->
 
 <div class="c_header">
@@ -418,7 +423,7 @@ function scroll_v(url) {
 </tr>
 
 </table>
-</div>
+
 </div>
 
 <div class="col" style="padding-left: 40px;">
@@ -505,15 +510,38 @@ for(CallendarDto dto:cllist){
 
 
 	
-	
 </div>
+
+		 
+
+
+
+
 <br />	
 
 <%}	
 }%>
-			
+	
+	
+<!-- 페이지 처리() -->
+		
+		
+		<% int pagenum = (Integer)request.getAttribute("pagenum"); %>
+		
+		
+		<div>
+		 	<%for(int i =1; i<=pagenum;i++){%>
+		 		
+		 	<a href="selectGallery.do?year=2019&month=5&g_no=109&g_return=two&c_pcount=<%=i%>"><%=i%></a>
+		 	
+		 	<%}%>
+		 	
+
+		 </div>		
 
 </div>
+
+
 
 
 

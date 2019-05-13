@@ -56,5 +56,21 @@ public class CallendarDao implements ICallendarDao {
 	      
 	      return sqlSession.selectList(namespace+"selectCallendarList_g_no", g_no);
 	   }
+	   
+	   
+
+
+		/*   page처리*/
+		   @Override
+		   public int calendarpagenum(CallendarDto callendarDto) {
+			   // TODO Auto-generated method stub
+			   return sqlSession.selectOne(namespace + "calendarpagenum"
+					   , callendarDto);
+		   }
+		   @Override
+		   public List<CallendarDto> getpagelist(CallendarDto callendarDto) {
+			   	// TODO Auto-generated method stub
+			   return sqlSession.selectList(namespace + "calendarpagelist", callendarDto);
+		   }
 
 }
